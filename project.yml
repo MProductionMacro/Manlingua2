@@ -1,0 +1,35 @@
+name: Manlingua2
+settings:
+   MARKETING_VERSION: "1.0"
+   CURRENT_PROJECT_VERSION: 1
+options:
+   bundleIdPrefix: com.paulusmichael
+targets:
+   Manlingua2:
+      type: application
+      platform: iOS
+      sources: [Manlingua2]
+      resources: [Resources]
+      settings:
+         PRODUCT_BUNDLE_IDENTIFIER: com.paulusmichael.Manlingua2
+      INFOPLIST_FILE: Manlingua2/Info.plist
+   Manlingua2Tests:
+      type: bundle.unit-test
+      platform: iOS
+      sources: [Manlingua2Tests]
+      dependencies:
+      - target: Manlingua2
+      settings:
+      base:
+         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Manlingua2.app/Manlingua2"
+         BUNDLE_LOADER: "$(TEST_HOST)"
+schemes:
+   Manlingua2:
+      build:
+      targets:
+         Manlingua2: all
+         Manlingua2Tests: all
+      test:
+         targets:
+         - name: Manlingua2Tests
+         gatherCoverageData: true
