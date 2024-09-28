@@ -20,12 +20,6 @@ targets:
            LSRequiresIPhoneOS: YES
            UILaunchScreen: ""
            UIApplicationSupportsIndirectInputEvents: YES
-           UIApplicationSceneManifest:
-             UIApplicationSupportsMultipleScenes: YES
-           UISupportedInterfaceOrientations~iphone:
-             [UIInterfaceOrientationPortrait, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
-           UISupportedInterfaceOrientations~ipad:
-             [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
       settings:
          PRODUCT_BUNDLE_IDENTIFIER: com.paulusmichael.Manlingua2
       INFOPLIST_FILE: Manlingua2/Info.plist
