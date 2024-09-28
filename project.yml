@@ -25,7 +25,7 @@ targets:
          base:
             TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Manlingua2.app/Manlingua2"
             BUNDLE_LOADER: "$(TEST_HOST)"
-            INFOPLIST_FILE: FamilyStoryADA/Info.plist
+            INFOPLIST_FILE: Manlingua2/Info.plist
 schemes:
    Manlingua2:
       build:
