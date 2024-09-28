@@ -4,12 +4,28 @@ settings:
    CURRENT_PROJECT_VERSION: 1
 options:
    bundleIdPrefix: com.paulusmichael
+   deploymentTarget:
+    iOS: "17.0"
 targets:
    Manlingua2:
       type: application
       platform: iOS
       sources: [Manlingua2]
       resources: [Resources]
+      info:
+         path: Manlingua2/Info.plist
+         properties:
+           CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+           CFBundleShortVersionString: $(MARKETING_VERSION)
+           LSRequiresIPhoneOS: YES
+           UILaunchScreen: ""
+           UIApplicationSupportsIndirectInputEvents: YES
+           UIApplicationSceneManifest:
+             UIApplicationSupportsMultipleScenes: YES
+           UISupportedInterfaceOrientations~iphone:
+             [UIInterfaceOrientationPortrait, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+           UISupportedInterfaceOrientations~ipad:
+             [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
       settings:
          PRODUCT_BUNDLE_IDENTIFIER: com.paulusmichael.Manlingua2
       INFOPLIST_FILE: Manlingua2/Info.plist
@@ -20,9 +36,9 @@ targets:
       dependencies:
       - target: Manlingua2
       settings:
-      base:
-         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Manlingua2.app/Manlingua2"
-         BUNDLE_LOADER: "$(TEST_HOST)"
+         base:
+            TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Manlingua2.app/Manlingua2"
+            BUNDLE_LOADER: "$(TEST_HOST)"
 schemes:
    Manlingua2:
       build:
