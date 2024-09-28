@@ -9,6 +9,12 @@ Kedua, kalian bisa install xcodegen. Cara installnya adalah dengan pake Homebrew
 brew install xcodegen
 ```
 
+## Clone project
+Kalo udah install xcodegen, kalian bisa langsung clone reponya dari terminal. Set direktori dari terminal ke folder yg mau dipake buat save projectnya, terus di clone projectnya.
+```
+git clone https://github.com/MProductionMacro/Manlingua2.git
+```
+
 ## Build project
 Setelah install xcodegen, kalian bisa langsung ke direktori Manlinguanya.
 ```
@@ -26,5 +32,5 @@ Pas kalian baru buka projectnya, pasti gabisa langsung di run karena beberapa cu
 
 Jadi, caranya adalah kalian klik **Manlingua2.xcodeproj -> Targets -> Manlingua2 -> Build Settings -> Deployment -> Development Assets.**
 
-Dari situ kalian bisa liat ada path 'Manlingua2/Assets.xcassets'. Kalian utak atik aja Deployment Assets nya itu, ketik apa aja terserah, pokoknya nanti balik lagi ke 'Manlingua2/Assets.xcassets' lagi, terus build. Seharusnya, setelah itu ada warning (yg segitiga warna kuning). Kalian klik aja terus fix warningnya dari situ.
+Dari situ kalian bisa liat ada path 'Manlingua2/Assets.xcassets'. Kalian utak atik aja Deployment Assets nya itu, ketik apa aja terserah, pokoknya nanti balik lagi ke 'Manlingua2/Assets.xcassets' lagi, terus build. Seharusnya, setelah itu ada warning (yg segitiga warna kuning) kek disuruh update konfigurasinya gitu lah pokoknya, w lupa kalimatnya gimana. Nah, kalian klik aja itu warning terus fix warningnya dari situ. Pastiin centang semuanya ya.
 
