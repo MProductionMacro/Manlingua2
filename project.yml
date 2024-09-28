@@ -14,6 +14,8 @@ targets:
       resources: [Resources]
       settings:
          PRODUCT_BUNDLE_IDENTIFIER: com.paulusmichael.Manlingua2
+         ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
+         DEVELOPMENT_ASSET_PATHS: ["$(SRCROOT)/Manlingua2/Assets.xcassets"]
       INFOPLIST_FILE: Manlingua2/Info.plist
    Manlingua2Tests:
       type: bundle.unit-test
