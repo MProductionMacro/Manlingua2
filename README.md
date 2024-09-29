@@ -1,6 +1,10 @@
 # Project Building 101
 ## Install Homebrew
-Pertama-tama, make sure kalian udah install homebrew dulu. Cara installnya bisa ke websitenya langsung brew.sh atau liat di youtube cara install homebrew.
+Pertama-tama, make sure kalian udah install homebrew dulu. Cara installnya bisa ke websitenya langsung brew.sh atau liat di youtube cara install homebrew. Tapi, langkah awalnya adalah di terminal, kalian run command ini:
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+Setelah itu, seinget w lanjut2 aja.
 
 ## Install xcodegen
 
