@@ -8,11 +8,43 @@
 import SwiftUI
 
 struct StoryListView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+   @ObservedObject var homeViewModel: HomeViewModel
+   @ObservedObject var viewModel: StoryViewModel
+   
+   var body: some View {
+      //TODO: Beberapa size masih hard coded
+      VStack(spacing: 0) {
+         VStack(alignment: .leading) {
+            //               Spacer()
+            Text("Cerita seru apa yang ingin kamu")
+               .font(.system(size: 20))
+               .fontWeight(.semibold)
+               .foregroundStyle(.white)
+            Text("Coba Jelajah?")
+               .fontWeight(.heavy)
+               .font(.system(size: 40))
+               .foregroundStyle(.white)
+         }
+         .frame(maxWidth: .infinity, alignment: .leading)
+         .padding(.leading, 20)
+         .padding(.top)
+         .padding(.bottom, 24)
+         
+         ZStack {
+            Rectangle()
+               .fill(.white)
+               .clipShape(CustomRoundedRectangle(cornerRadius: 32))
+            
+            HomeCardScrollView(homeViewModel: homeViewModel, viewModel: viewModel)
+//               .padding(.top, 40)
+//               .ignoresSafeArea()
+         }
+         .ignoresSafeArea()
+      }
+      .background(Image(.homeBackground))
+   }
 }
 
 #Preview {
-    StoryListView()
+   StoryListView(homeViewModel: HomeViewModel(), viewModel: StoryViewModel())
 }

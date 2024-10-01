@@ -11,6 +11,9 @@ import SwiftUI
 struct Manlingua2App: App {
    let persistenceController = PersistenceController.shared
    @StateObject var router = Router()
+   @StateObject var homeViewModel = HomeViewModel()
+   @StateObject var storyViewModel = StoryViewModel()
+   @StateObject var learnViewModel = LearnViewModel()
    
    var body: some Scene {
       WindowGroup {
@@ -22,6 +25,9 @@ struct Manlingua2App: App {
          }
          .environment(\.managedObjectContext, persistenceController.container.viewContext)
          .environmentObject(router)
+         .environmentObject(homeViewModel)
+         .environmentObject(storyViewModel)
+         .environmentObject(learnViewModel)
       }
    }
 }

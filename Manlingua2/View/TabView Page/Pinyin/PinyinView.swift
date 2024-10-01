@@ -8,11 +8,49 @@
 import SwiftUI
 
 struct PinyinView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+   @ObservedObject var viewModel: LearnViewModel
+   @EnvironmentObject var router: Router
+   
+   var body: some View {
+      VStack(spacing: 32) {
+         Text("Learn Pin Yin")
+            .fontWeight(.heavy)
+            .font(.system(size: 48))
+            .foregroundStyle(.white)
+            .padding(.top)
+         
+         PinYinExampleCardView()
+            .padding(.horizontal)
+         
+         //TODO: Tambahin withAnimation aja
+         VStack(spacing: 16) {
+            Button(action: {
+               router.push(.pinyinInisial)
+            }) {
+               PinYinNavigationButtonView(labelImage: .initialIcon, title: "Initial", content: "Initials are usually consonants")
+            }
+            
+            Button(action: {
+               router.push(.pinyinFinal)
+            }) {
+               PinYinNavigationButtonView(labelImage: .finalIcon, title: "Final", content: "Finals are usually made up of vowels")
+            }
+            
+            Button(action: {
+               router.push(.pinyinNada)
+            }) {
+               PinYinNavigationButtonView(labelImage: .toneIcon, title: "Tone", content: "Tones differentiate word meanings")
+            }
+         }
+         .background(Color.clear)
+         
+         Spacer()
+      }
+      .background(Image(.pinyinBackground))
+   }
 }
 
 #Preview {
-    PinyinView()
+   PinyinView(viewModel: LearnViewModel())
+      .environmentObject(Router())
 }
