@@ -11,12 +11,12 @@ targets:
       type: application
       platform: iOS
       sources: [Manlingua2]
-      resources: [Resources]
+      resources:
+         - Manlingua2/Assets.xcassets
       settings:
          PRODUCT_BUNDLE_IDENTIFIER: com.paulusmichael.Manlingua2
          ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
-         DEVELOPMENT_ASSET_PATHS: ["Manlingua2/Assets.xcassets"]
-      INFOPLIST_FILE: Manlingua2/Info.plist
+         INFOPLIST_FILE: Manlingua2/Info.plist
    Manlingua2Tests:
       type: bundle.unit-test
       platform: iOS
