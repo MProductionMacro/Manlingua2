@@ -15,5 +15,5 @@ enum Screen: Hashable {
    case pinyinNada
    case journeyPage
    case storyPage
-   case flashcard
+   case dictionary
 }

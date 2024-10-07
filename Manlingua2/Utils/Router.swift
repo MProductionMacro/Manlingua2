@@ -49,7 +49,7 @@ class Router: ObservableObject {
          FinalView()
             .navigationBarBackButtonHidden(true)
       case .pinyinNada:
-         ToneView()
+         ToneView2()
             .navigationBarBackButtonHidden(true)
       case .journeyPage:
          JourneyView()
@@ -57,8 +57,8 @@ class Router: ObservableObject {
       case .storyPage:
          StoryDetailView()
             .navigationBarBackButtonHidden(true)
-      case .flashcard:
-         FlashcardView()
+      case .dictionary:
+         DictionaryView()
             .navigationBarBackButtonHidden(true)
       }
    }

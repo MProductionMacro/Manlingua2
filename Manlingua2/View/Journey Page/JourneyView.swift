@@ -13,23 +13,6 @@ struct JourneyView: View {
    
    var body: some View {
       VStack(alignment: .leading, spacing: 0) {
-         HStack(alignment: .top) {
-            Button(action: {
-               router.pop()
-            }) {
-               Image(systemName: "chevron.left")
-                  .foregroundColor(.white)
-                  .font(.title3)
-                  .bold()
-               
-               Text("Kembali")
-                  .foregroundColor(.white)
-                  .bold()
-            }
-            //               Spacer()
-         }
-         .padding(.leading)
-         
          VStack(alignment: .leading) {
             Text("Go to Chinese Hotpot Restaurant")
                .fontWeight(.bold)
@@ -42,7 +25,6 @@ struct JourneyView: View {
             }
          }
          .padding()
-//         .frame(height: geometry.size.height * 0.30)
          
          ZStack {
             Rectangle()
@@ -60,7 +42,7 @@ struct JourneyView: View {
                         chapterNumber: 1,
                         chapterTitle: "At the School",
                         options: ["Vocabulary", "Quiz", "Conversation"],
-                        selectedOption: 0, // Selected option for Vocabulary,
+                        selectedOption: 0,
                         isInactive: .constant(false),
                         isFinished: .constant(true)
                      )
@@ -70,7 +52,7 @@ struct JourneyView: View {
                         chapterNumber: 2,
                         chapterTitle: "Arrive at Haidilao",
                         options: ["Vocabulary", "Quiz", "Conversation"],
-                        selectedOption: 0, // Selected option for Vocabulary,
+                        selectedOption: 0,
                         isInactive: .constant(true),
                         isFinished: .constant(false)
                      )
@@ -80,7 +62,7 @@ struct JourneyView: View {
                         chapterNumber: 3,
                         chapterTitle: "Ready to Order",
                         options: ["Vocabulary", "Quiz", "Conversation"],
-                        selectedOption: 0, // Selected option for Vocabulary,
+                        selectedOption: 0,
                         isInactive: .constant(true),
                         isFinished: .constant(false)
                      )
@@ -90,27 +72,49 @@ struct JourneyView: View {
                         chapterNumber: 4,
                         chapterTitle: "Secret Code",
                         options: ["Vocabulary", "Quiz", "Conversation"],
-                        selectedOption: 0, // Selected option for Vocabulary,
+                        selectedOption: 0,
                         isInactive: .constant(true),
                         isFinished: .constant(false)
                      )
                   }
-                  
-//                  .frame(minHeight: geometry.size.height * 0.7)
                }
             }
             .padding(.horizontal, 16)
             .padding(.top, 36)
-            .padding(.bottom, 56)
-//            .frame(height: geometry.size.height * 0.78)
          }
          
       }
-      .background(Image(.homeBackground))
+      .edgesIgnoringSafeArea(.bottom)
+      .background(
+         Image(.homeBackground)
+            .ignoresSafeArea()
+      )
+      .toolbar {
+         ToolbarItem(placement: .topBarLeading) {
+            HStack(alignment: .top) {
+               Button(action: {
+                  router.pop()
+               }) {
+                  Image(systemName: "chevron.left")
+                     .foregroundColor(.white)
+                     .font(.title3)
+                     .bold()
+                  
+                  Text("Kembali")
+                     .foregroundColor(.white)
+                     .bold()
+               }
+            }
+            
+//            .padding(.leading)
+         }
+      }
    }
 }
 
 #Preview {
-   JourneyView()
-      .environmentObject(Router())
+   NavigationStack {
+      JourneyView()
+         .environmentObject(Router())
+   }
 }

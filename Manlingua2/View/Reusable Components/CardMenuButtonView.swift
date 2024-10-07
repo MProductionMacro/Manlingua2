@@ -9,11 +9,11 @@ import SwiftUI
 
 struct CardMenuButtonView: View {
    var isDisabled: Bool = false
-   @ObservedObject var viewModel: StoryViewModel
+   @EnvironmentObject var router: Router
    
    var body: some View {
       Button(action: {
-         viewModel.recall = "recall"
+         router.push(.journeyPage)
       }) {
          Rectangle()
             .fill(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.gold2)
@@ -34,5 +34,6 @@ struct CardMenuButtonView: View {
 }
 
 #Preview {
-   CardMenuButtonView(viewModel: StoryViewModel())
+   CardMenuButtonView()
+      .environmentObject(Router())
 }

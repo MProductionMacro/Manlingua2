@@ -27,16 +27,11 @@ class LearnViewModel: ObservableObject {
       case tone
    }
    
-   func switchStage(to stage: pinyinCase) {
-      currentStage = stage
-      //        print(currentStage)
-   }
-   
    // Function to load the Learn data from the JSON file
    private func loadLearnData() {
       // Locate the JSON file in the bundle
       guard let url = Bundle.main.url(forResource: "pinyin", withExtension: "json") else {
-         print("File not found")
+//         print("File not found")
          return
       }
       

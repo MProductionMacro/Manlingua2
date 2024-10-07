@@ -1,0 +1,194 @@
+[
+    {
+        "background": "school",
+        "onboarding": [
+            { "identifier": "A", "text": "Hey, wanna go to the new chinese hotpot resto? If you can speak Mandarin, you can get a discount!" },
+            { "identifier": "B", "text": "I don't know Mandarin 😢" },
+            { "identifier": "A", "text": "No worries, I'll teach you. Let's practice some words first." },
+            { "identifier": "B", "text": "Ok Let’s go!" }
+        ],
+        "flashcard": ["你好", "我们", "人"],
+        "quiz1": {
+            "text": "Ok, you already know some words! Do you know how to say “Hello” in Mandarin?",
+            "choice": [
+                { "text": "再见", "pinyin": "Zàijiàn" },
+                { "text": "欢迎", "pinyin": "Huānyíng" },
+                { "text": "你好", "pinyin": "Nǐ hǎo" },
+                { "text": "请问", "pinyin": "Qǐng wèn" }
+            ],
+            "correctAnswer": 2,
+            "happyFlow": "Amazing! let’s move on to next question",
+            "negativeFlow": "It’s okay! You can try again",
+            "meaning": "Hello"
+        },
+        "quiz2": {
+            "text": "Listen to me. What does it mean?",
+            "speak": "你好",
+            "pinyin": "Nǐ hǎo",
+            "meaning": "Hello",
+            "choice": ["Hello", "May I Ask", "Welcome", "Thank You"],
+            "correctAnswer": 0,
+            "happyFlow": "Incredible! Let’s move to next question",
+            "negativeFlow": "It’s okay! You can try again"
+        },
+        "toneTest": {
+            "text": "Now, repeat after me: '你好' (Nǐ hǎo).",
+            "speak": "你好",
+            "happyFlow": "Great! Now we're ready to head to Haidilao and get that discount!",
+            "negativeFlow": "It’s okay! You can try again",
+            "happyDown": "Your pin yin tone sounds like native!",
+            "negativeDown": "Try Again"
+        },
+        "conversation": [
+            { "identifier": "A", "hanzi": "你好，我饿了。", "pinyin": "nǐ hǎo, wǒ è le.", "meaning": "Hello, I'm hungry." }
+        ],
+        "conversationValidate": "Wow, you're really great at Mandarin! Your word choices are spot on!",
+        "user": [
+            { "identifier": "B", "hanzi": "我也饿了，我们吃吧。", "pinyin": "wǒ yě è le, wǒ men chī ba.", "meaning": "I'm hungry too, let's eat." }
+        ]
+    },
+    {
+        "background": "Haidilao",
+        "onboarding": [
+            { "identifier": "A", "text": "We’ve arrived at Haidilao. The receptionist is about to ask how many people are in our group." },
+            { "identifier": "B", "text": "I’m a bit nervous." },
+            { "identifier": "A", "text": "Don’t worry, I’ll help you. Let’s practice some words first." },
+            { "identifier": "B", "text": "Alright, let’s give it a try!" }
+        ],
+        "flashcard": ["几位", "三", "欢迎"],
+        "quiz1": {
+            "text": "How do you say “How many” in Mandarin?",
+            "choice": [
+                { "text": "几位", "pinyin": "jǐ wèi" },
+                { "text": "三", "pinyin": "sān" },
+                { "text": "汤", "pinyin": "tāng" },
+                { "text": "朋友", "pinyin": "péng yǒu" }
+            ],
+            "correctAnswer": 0,
+            "happyFlow": "Amazing! let’s move on to next question",
+            "negativeFlow": "It’s okay! You can try again",
+            "meaning": "How many"
+        },
+        "quiz2": {
+            "text": "Listen to me. What does it mean?",
+            "speak": "几位",
+            "pinyin": "jǐ wèi",
+            "meaning": "How many people",
+            "choice": ["How many people", "Three", "Welcome", "Friend"],
+            "correctAnswer": 0,
+            "happyFlow": "Incredible! Let’s move to next question",
+            "negativeFlow": "It’s okay! You can try again"
+        },
+        "toneTest": {
+            "text": "Now, repeat after me: '几位' (jǐ wèi).",
+            "speak": "几位",
+            "happyFlow": "Great! Now we’re ready to answer the receptionist!",
+            "negativeFlow": "It’s okay! You can try again",
+            "happyDown": "Your pin yin tone sounds like native!",
+            "negativeDown": "Try Again"
+        },
+        "conversation": [
+            { "identifier": "A", "hanzi": "你好，你们几位?", "pinyin": "nǐ hǎo, nǐ men jǐ wèi", "meaning": "Hi, may I ask, how many people are you?" }
+        ],
+        "conversationValidate": "Wow, you're really great at Mandarin! Your word choices are spot on!",
+        "user": [
+            { "identifier": "B", "hanzi": "我们有三个人。", "pinyin": "wǒ men yǒu sān gè rén.", "meaning": "We have three people." }
+        ]
+    },
+    {
+        "background": "Order",
+        "onboarding": [
+            { "identifier": "A", "text": "Alright, the waiter is about to ask if we're ready to order." },
+            { "identifier": "B", "text": "I’m nervous." },
+            { "identifier": "A", "text": "No worries, I'll teach you. Let's practice some words first." },
+            { "identifier": "B", "text": "Ok Let’s try!" }
+        ],
+        "flashcard": ["点菜", "什么", "汤"],
+        "quiz1": {
+            "text": "How do you say “Order” in Mandarin?",
+            "choice": [
+                { "text": "点菜", "pinyin": "diǎn cài" },
+                { "text": "喝水", "pinyin": "hē shuǐ" },
+                { "text": "什么", "pinyin": "shén me" },
+                { "text": "饿", "pinyin": "è" }
+            ],
+            "correctAnswer": 0,
+            "happyFlow": "Amazing! let’s move on to next question",
+            "negativeFlow": "It’s okay! You can try again",
+            "meaning": "Order"
+        },
+        "quiz2": {
+            "text": "Listen to me. What does it mean?",
+            "speak": "点菜",
+            "pinyin": "diǎn cài",
+            "meaning": "Order",
+            "choice": ["Order", "Drink Water", "What", "Hungry"],
+            "correctAnswer": 0,
+            "happyFlow": "Incredible! Let’s move to next question",
+            "negativeFlow": "It’s okay! You can try again"
+        },
+        "toneTest": {
+            "text": "Now, repeat after me: '点菜' (diǎn cài).",
+            "speak": "点菜",
+            "happyFlow": "Great! Now we're ready to order!",
+            "negativeFlow": "It’s okay! You can try again",
+            "happyDown": "Your pin yin tone sounds like native!",
+            "negativeDown": "Try Again"
+        },
+        "conversation": [
+            { "identifier": "A", "hanzi": "你好，你想点什么？", "pinyin": "nǐ hǎo, nǐ xiǎng diǎn shén me?", "meaning": "Yes, what do you want to order?" }
+        ],
+        "conversationValidate": "Wow, you're really great at Mandarin! Your word choices are spot on!",
+        "user": [
+            { "identifier": "B", "hanzi": "我想点菜和羊肉。", "pinyin": "wǒ xiǎng diǎn cài hé yáng ròu.", "meaning": "I want to order vegetables and lamb." }
+        ]
+    },
+    {
+        "background": "SecretCode",
+        "onboarding": [
+            { "identifier": "A", "text": "And now, the special part." },
+            { "identifier": "B", "text": "What is it??" },
+            { "identifier": "A", "text": "If you say the secret code, you'll get a special treat" },
+            { "identifier": "B", "text": "I’m excited to learn that!" }
+        ],
+        "flashcard": ["开心", "公主", "谢谢", "礼物"],
+        "quiz1": {
+            "text": "How do you say “Princess” in Mandarin?",
+            "choice": [
+                { "text": "打开", "pinyin": "dǎ kāi" },
+                { "text": "书", "pinyin": "shū" },
+                { "text": "公主", "pinyin": "gōng zhǔ" },
+                { "text": "米饭", "pinyin": "mǐ fàn" }
+            ],
+            "correctAnswer": 2,
+            "happyFlow": "Amazing! let’s move on to next question",
+            "negativeFlow": "It’s okay! You can try again",
+            "meaning": "Princess"
+        },
+        "quiz2": {
+            "text": "Listen to me. What does it mean?",
+            "speak": "公主",
+            "pinyin": "gōng zhǔ",
+            "meaning": "Princess",
+            "choice": ["Open", "Book", "Princess", "Rice"],
+            "correctAnswer": 2,
+            "happyFlow": "Incredible! Let’s move to next question",
+            "negativeFlow": "It’s okay! You can try again"
+        },
+        "toneTest": {
+            "text": "Now, repeat after me: '公主' (gōngzhǔ).",
+            "speak": "公主",
+            "happyFlow": "Great! Now we're ready to get the special treat!",
+            "negativeFlow": "It’s okay! You can try again",
+            "happyDown": "Your pin yin tone sounds like native!",
+            "negativeDown": "Try Again"
+        },
+        "conversation": [
+            { "identifier": "A", "hanzi": "你好，公主，这是你的礼物", "pinyin": "nǐ hǎo, gōng zhǔ, zhè shì nǐ de lǐ wù。", "meaning": "Hi Princess, here is your gift." }
+        ],
+        "conversationValidate": "Wow, you're really great at Mandarin! Your word choices are spot on!",
+        "user" : [
+            { "identifier": "B", "hanzi": "我是公主。", "pinyin": "wǒ shì gōngzhǔ", "meaning": "I'm a princess" }
+        ]
+    }
+]

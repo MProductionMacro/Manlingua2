@@ -17,12 +17,10 @@ struct StoryListView: View {
          VStack(alignment: .leading) {
             //               Spacer()
             Text("Cerita seru apa yang ingin kamu")
-               .font(.system(size: 20))
                .fontWeight(.semibold)
                .foregroundStyle(.white)
             Text("Coba Jelajah?")
-               .fontWeight(.heavy)
-               .font(.system(size: 40))
+               .font(.judulBesar())
                .foregroundStyle(.white)
          }
          .frame(maxWidth: .infinity, alignment: .leading)

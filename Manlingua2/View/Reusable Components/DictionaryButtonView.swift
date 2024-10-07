@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct DictionaryButtonView: View {
+   @EnvironmentObject var router: Router
+   
    //TODO: Paddingnya
    var body: some View {
       Button(action: {
-         
+         router.push(.dictionary)
       }) {
          HStack {
             Image("Flashcard")
@@ -29,4 +31,5 @@ struct DictionaryButtonView: View {
 
 #Preview {
    DictionaryButtonView()
+      .environmentObject(Router())
 }

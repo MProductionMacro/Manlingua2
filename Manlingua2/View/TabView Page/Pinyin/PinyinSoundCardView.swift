@@ -25,13 +25,15 @@ struct PinyinSoundCardView: View {
          )
       }
       //TODO: Size hard coded
-      .frame(width: 77, height: 77)
+      .frame(maxWidth: .infinity)
+      .padding(.vertical, 8)
       .background(Color.white)
-      .cornerRadius(20)
+//      .cornerRadius(20)
       .overlay(
-         RoundedRectangle(cornerRadius: 20)
-            .stroke(Color.gray, lineWidth: 2)
+         RoundedRectangle(cornerRadius: 12)
+            .stroke(Color.customLighterGray, lineWidth: 2)
       )
+      .padding(.horizontal, 4)
    }
 }
 

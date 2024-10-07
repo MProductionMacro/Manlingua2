@@ -41,7 +41,7 @@ struct HomeCardView: View {
          HStack {
             PrimaryButtonView(homeViewModel: homeViewModel,isDisabled: isDisabled)
             
-            CardMenuButtonView(isDisabled: isDisabled, viewModel: viewModel)
+            CardMenuButtonView(isDisabled: isDisabled)
          }
       }
       .padding()
