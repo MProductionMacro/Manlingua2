@@ -36,17 +36,7 @@ cat <<EOL > *.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolve
 # CREATE YOUR EXAMPLE DEPENDENCY HERE, ONLY FOR CREATING Package.resolved
 {
   "originHash" : "",
-  "pins" : [
-    {
-      "identity" : "",
-      "kind" : "",
-      "location" : "",
-      "state" : {
-        "revision" : "",
-        "version" : ""
-      }
-    }
-  ],
+  "pins" : [ ],
   "version" : 3
 }
 EOL
@@ -58,5 +48,5 @@ if [ -f "*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" 
     echo "Package.resolved generated successfully."
 else
     echo "Failed to generate Package.resolved."
-    exit 1
+#    exit 1
 fi

@@ -17,6 +17,8 @@ targets:
          PRODUCT_BUNDLE_IDENTIFIER: com.paulusmichael.Manlingua2
          ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
          INFOPLIST_FILE: Manlingua2/Info.plist
+         CODE_SIGN_STYLE: "Automatic"
+         CODE_SIGN_IDENTITY: "Apple Development"
    Manlingua2Tests:
       type: bundle.unit-test
       platform: iOS
@@ -27,6 +29,7 @@ targets:
          base:
             TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Manlingua2.app/Manlingua2"
             BUNDLE_LOADER: "$(TEST_HOST)"
+            CODE_SIGN_STYLE: "Automatic"
             INFOPLIST_FILE: Manlingua2/Info.plist
 schemes:
    Manlingua2:
