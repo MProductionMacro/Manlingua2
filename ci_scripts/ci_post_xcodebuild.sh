@@ -6,8 +6,6 @@
 #  Created by Paulus Michael on 09/10/24.
 #  
 
-bash
-#!/bin/bash
 # Change to the project directory
 cd ..
 # Check if the build succeeded

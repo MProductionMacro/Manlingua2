@@ -6,8 +6,6 @@
 #  Created by Paulus Michael on 09/10/24.
 #  
 
-bash
-#!/bin/bash
 # Install XcodeGen if it's not already installed
 if ! command -v xcodegen &> /dev/null; then
     echo "XcodeGen not found. Installing..."
