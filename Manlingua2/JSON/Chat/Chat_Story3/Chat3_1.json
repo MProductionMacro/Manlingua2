@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "speaker": "Teacher",
+    "pinyin": "Shuǐ, chá",
+    "hanzi": "水, 茶",
+    "meaning": "Water, Tea"
+  },
+  {
+    "id": 2,
+    "speaker": "Student",
+    "pinyin": "Kāfēi, guǒzhī",
+    "hanzi": "咖啡, 果汁",
+    "meaning": "Coffee, Juice"
+  }

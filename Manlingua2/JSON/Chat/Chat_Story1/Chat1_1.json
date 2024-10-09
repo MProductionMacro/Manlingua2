@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "speaker": "Teacher",
+    "pinyin": "Shuǐ, chá",
+    "hanzi": "水, 茶",
+    "meaning": "Water, Tea"
+  },
+  {
+    "id": 2,
+    "speaker": "Student",
+    "pinyin": "Kāfēi, guǒzhī",
+    "hanzi": "咖啡, 果汁",
+    "meaning": "Coffee, Juice"
+  },
+  {
+    "id": 3,
+    "speaker": "Student",
+    "pinyin": "Kāfēi, guǒzhī",
+    "hanzi": "咖啡, 果汁",
+    "meaning": "Coffee, Juice"
+  },
+  {
+    "id": 4,
+    "speaker": "Student",
+    "pinyin": "Kāfēi, guǒzhī",
+    "hanzi": "咖啡, 果汁",
+    "meaning": "Coffee, Juice"
+  },
+  {
+    "id": 5,
+    "speaker": "Student",
+    "pinyin": "Kāfēi, guǒzhī",
+    "hanzi": "咖啡, 果汁",
+    "meaning": "Coffee, Juice"
+  },
+  {
+    "id": 6,
+    "speaker": "Student",
+    "pinyin": "Kāfēi, guǒzhī",
+    "hanzi": "咖啡, 果汁",
+    "meaning": "Coffee, Juice"
+  },
+  {
+    "id": 7,
+    "speaker": "Student",
+    "pinyin": "Kāfēi, guǒzhī",
+    "hanzi": "咖啡, 果汁",
+    "meaning": "Coffee, Juice"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "speaker": "Teacher",
+    "pinyin": "Hóngsè, lánsè, lǜsè",
+    "hanzi": "红色, 蓝色, 绿色",
+    "meaning": "Red, Blue, Green",
+    "speaking": "translate"
+  },
+  {
+    "id": 2,
+    "speaker": "Student",
+    "pinyin": "Huīsè, báisè",
+    "hanzi": "灰色, 白色",
+    "meaning": "Gray, White"
+  }
+]
