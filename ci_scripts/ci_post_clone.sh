@@ -6,6 +6,8 @@
 #  Created by Paulus Michael on 09/10/24.
 #  
 
+bash
+#!/bin/bash
 # Install XcodeGen if it's not already installed
 if ! command -v xcodegen &> /dev/null; then
     echo "XcodeGen not found. Installing..."
@@ -50,7 +52,7 @@ cat <<EOL > *.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolve
 EOL
 # Resolve package dependencies to generate Package.resolved
 echo "Resolving package dependencies..."
-xcodebuild -resolvePackageDependencies -project *.xcodeproj -scheme Manlingua2
+xcodebuild -project *.xcodeproj -scheme Manlingua2
 # Check if Package.resolved was created
 if [ -f "*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" ]; then
     echo "Package.resolved generated successfully."
