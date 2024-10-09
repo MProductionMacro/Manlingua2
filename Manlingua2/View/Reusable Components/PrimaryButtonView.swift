@@ -14,15 +14,8 @@ struct PrimaryButtonView: View {
    
    var body: some View {
       Button(action: {
-         router.push(.journeyPage)
+         router.push(.storyPage)
       }){
-         
-         //         ZStack {
-         //            //TODO: Hard coded size and color
-         //            Rectangle()
-         //               .foregroundColor(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.orange3)
-         //               .frame(width: 233, height: 64)
-         //               .cornerRadius(12)
          Text("Practice")
             .frame(maxWidth: .infinity)
             .padding()

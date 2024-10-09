@@ -11,33 +11,26 @@ struct StoryDetailView: View {
    @EnvironmentObject private var viewModel: StoryViewModel
    @EnvironmentObject private var learnVM: LearnViewModel
    @EnvironmentObject var homeViewModel: HomeViewModel
-    
-    var body: some View {
-        VStack {
-            switch viewModel.currentStage {
-            case .onboarding:
-                OnboardingPageView()
-            case .flashcard:
-                FlashcardSwipeView(isShowingFlashcard: .constant(false), viewModel: viewModel, homeViewModel: homeViewModel)
-               //MARK: Sementara
-            case .quiz1:
-               OnboardingPageView()
-            case .quiz2:
-               OnboardingPageView()
-            case .toneTest:
-               ToneView2()
-            case .conversation:
-               OnboardingPageView()
-            case .completed:
-               TabPageView()
-            }
-        }
-    }
+   
+   var body: some View {
+      VStack {
+         HStack {
+            Text("X")
+            
+            Spacer()
+            
+            ProgressView(value: 0.5)
+               .progressViewStyle(CustomProgressViewStyle(height: 10, filledColor: .green, unfilledColor: .customLighterGray))
+         }
+         
+         Spacer()
+      }
+      .padding(.horizontal)
+   }
 }
 
-
 #Preview {
-    StoryDetailView()
+   StoryDetailView()
       .environmentObject(StoryViewModel())
       .environmentObject(LearnViewModel())
       .environmentObject(HomeViewModel())
