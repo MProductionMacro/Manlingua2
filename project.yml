@@ -3,12 +3,16 @@ settings:
    MARKETING_VERSION: "1.0"
    CURRENT_PROJECT_VERSION: 1
    DEVELOPMENT_TEAM: ${DEVELOPMENT_TEAM_CODE}
+   DEVELOPMENT_ASSET_PATHS: [Manlingua2/Assets.xcassets]
    base:
       ENABLE_USER_SCRIPT_SANDBOXING: YES
       ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
       USE_ASSET_CATALOG: YES
-      ENABLE_GENERATED_ASSET_SYMBOL_EXTENSIONS: YES # Enable Generated Asset Symbol Extensions
-   DEVELOPMENT_ASSET_PATHS: [Manlingua2/Assets.xcassets] # Adjust the asset catalog path
+      ENABLE_GENERATED_ASSET_SYMBOL_EXTENSIONS: YES 
+   debug:
+      ENABLE_TESTABILITY: YES
+   release:
+      ENABLE_TESTABILITY: YES
 options:
    bundleIdPrefix: com.paulusmichael
    deploymentTarget:
@@ -29,6 +33,7 @@ targets:
          USE_ASSET_CATALOG: YES
          ENABLE_GENERATED_ASSET_SYMBOL_EXTENSIONS: YES
          ENABLE_USER_SCRIPT_SANDBOXING: YES
+         ENABLE_TESTABILITY: YES
    Manlingua2Tests:
       type: bundle.unit-test
       platform: iOS
