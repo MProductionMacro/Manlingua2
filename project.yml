@@ -7,9 +7,8 @@ settings:
       ENABLE_USER_SCRIPT_SANDBOXING: YES
       ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
       USE_ASSET_CATALOG: YES
-      # Set it as a custom build setting
-      OTHER_LDFLAGS: ["$(inherited)"]
-      OTHER_SWIFT_FLAGS: ["$(inherited)", "-DENABLE_GENERATED_ASSET_SYMBOL_EXTENSIONS"]
+      ENABLE_GENERATED_ASSET_SYMBOL_EXTENSIONS: YES # Enable Generated Asset Symbol Extensions
+   DEVELOPMENT_ASSET_PATHS: [Manlingua2/Assets.xcassets] # Adjust the asset catalog path
 options:
    bundleIdPrefix: com.paulusmichael
    deploymentTarget:
@@ -19,17 +18,17 @@ targets:
       type: application
       platform: iOS
       sources: [Manlingua2]
-      resources: [Manlingua2/Assets.xcassets]
+      resources: [Manlingua2/Assets.xcassets] # Point to the assets folder here
       settings:
          PRODUCT_BUNDLE_IDENTIFIER: com.paulusmichael.Manlingua2
          ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
          INFOPLIST_FILE: Manlingua2/Info.plist
          CODE_SIGN_STYLE: "Automatic"
          CODE_SIGN_IDENTITY: "Apple Development"
+         DEVELOPMENT_ASSET_PATHS: [Manlingua2/Assets.xcassets] # Ensure the path to assets is correct
          USE_ASSET_CATALOG: YES
+         ENABLE_GENERATED_ASSET_SYMBOL_EXTENSIONS: YES
          ENABLE_USER_SCRIPT_SANDBOXING: YES
-         OTHER_LDFLAGS: ["$(inherited)"]
-         OTHER_SWIFT_FLAGS: ["$(inherited)", "-DENABLE_GENERATED_ASSET_SYMBOL_EXTENSIONS"] # Add Swift build flag here
    Manlingua2Tests:
       type: bundle.unit-test
       platform: iOS
@@ -42,7 +41,7 @@ targets:
             BUNDLE_LOADER: "$(TEST_HOST)"
             CODE_SIGN_STYLE: "Automatic"
             INFOPLIST_FILE: Manlingua2/Info.plist
-         DEVELOPMENT_TEAM: "${DEVELOPMENT_TEAM_CODE}"
+         DEVELOPMENT_TEAM: ${DEVELOPMENT_TEAM_CODE}
          ENABLE_USER_SCRIPT_SANDBOXING: YES
 schemes:
    Manlingua2:
