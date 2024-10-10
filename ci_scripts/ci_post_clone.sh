@@ -1,11 +1,3 @@
-#!/bin/sh
-
-#  ci_post_clone.sh
-#  Manlingua2
-#
-#  Created by Paulus Michael on 09/10/24.
-#  
-
 bash
 #!/bin/bash
 # Install XcodeGen if it's not already installed
@@ -42,11 +34,11 @@ cat <<EOL > *.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolve
 EOL
 # Resolve package dependencies to generate Package.resolved
 echo "Resolving package dependencies..."
-xcodebuild -project *.xcodeproj -scheme Manlingua2
+xcodebuild -resolvePackageDependencies -project *.xcodeproj -scheme Manlingua2
 # Check if Package.resolved was created
 if [ -f "*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" ]; then
     echo "Package.resolved generated successfully."
 else
     echo "Failed to generate Package.resolved."
-#    exit 1
+    exit 1
 fi
