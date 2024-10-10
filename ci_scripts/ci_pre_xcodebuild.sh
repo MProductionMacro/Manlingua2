@@ -12,9 +12,9 @@ bash
 cd ..
 # Resolve Swift package dependencies
 echo "Resolving Swift package dependencies..."
-if [ -f "*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" ]; then
+if [ -f "Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" ]; then
     echo "Package.resolved already exists."
 else
     echo "Resolving packages..."
-    xcodebuild -resolvePackageDependencies -project *.xcodeproj
+    xcodebuild -resolvePackageDependencies -project Manlingua2.xcodeproj
 fi

@@ -43,6 +43,8 @@ targets:
             INFOPLIST_FILE: Manlingua2/Info.plist
          DEVELOPMENT_TEAM: ${DEVELOPMENT_TEAM_CODE}
          ENABLE_USER_SCRIPT_SANDBOXING: YES
+         TEST_TARGET_NAME: Manlingua2 # Add this to identify test target
+         ENABLE_TESTABILITY: YES
 schemes:
    Manlingua2:
       build:
