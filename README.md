@@ -31,8 +31,3 @@ make generate_project
 ```
 Selamat, projectnya sudah ke build. Happy coding 😁
 
-# IMPORTANT NOTES
-Pas kalian baru buka projectnya, pasti gabisa langsung di run karena beberapa custom assetnya ga kebaca (ini juga w gatau kenapa padahal di Development Asset udah ke assign ke Assets.xcassets nya).
-
-Jadi, caranya adalah kalian ke xcodeproj Manlingua2 nya, terus di bagian **Targets** itu yg Manlingua2 sama Manlingua2Tests, pilih bagian **Signing & Capabilities**, dan assign itu ke nama kalian. Setelah itu kalian coba run lagi, dan harusnya bakal ada warning (yg segitiga warna kuning) kek disuruh update konfigurasinya gitu lah pokoknya, w lupa kalimatnya gimana, intinya kek 'Update to recommended' atau sejenisnya lah. Nah, kalian klik aja itu warning terus fix warningnya dari situ, terutama yg bagian **Asset Catalog**, terus save changes.
-
