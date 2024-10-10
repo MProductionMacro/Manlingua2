@@ -2,6 +2,11 @@ name: Manlingua2
 settings:
    MARKETING_VERSION: "1.0"
    CURRENT_PROJECT_VERSION: 1
+   DEVELOPMENT_TEAM: ${DEVELOPMENT_TEAM_CODE}
+   base:
+      ENABLE_USER_SCRIPT_SANDBOXING: YES
+      ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
+      USE_ASSET_CATALOG: YES
 options:
    bundleIdPrefix: com.paulusmichael
    deploymentTarget:
@@ -11,7 +16,7 @@ targets:
       type: application
       platform: iOS
       sources: [Manlingua2]
-      resources: [Manlingua2]
+      resources: [Resources]
       settings:
          PRODUCT_BUNDLE_IDENTIFIER: com.paulusmichael.Manlingua2
          ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
@@ -20,6 +25,7 @@ targets:
          CODE_SIGN_IDENTITY: "Apple Development"
          DEVELOPMENT_ASSET_PATHS: ["$(SRCROOT)/Manlingua2/Assets.xcassets"]
          USE_ASSET_CATALOG: YES
+         ENABLE_USER_SCRIPT_SANDBOXING: YES
    Manlingua2Tests:
       type: bundle.unit-test
       platform: iOS
@@ -32,6 +38,8 @@ targets:
             BUNDLE_LOADER: "$(TEST_HOST)"
             CODE_SIGN_STYLE: "Automatic"
             INFOPLIST_FILE: Manlingua2/Info.plist
+         DEVELOPMENT_TEAM: "${DEVELOPMENT_TEAM_CODE}"
+         ENABLE_USER_SCRIPT_SANDBOXING: YES
 schemes:
    Manlingua2:
       build:
