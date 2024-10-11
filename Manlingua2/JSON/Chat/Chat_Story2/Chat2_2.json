@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "speaker": "Teacher",
+    "pinyin": "Fàn, miàn",
+    "hanzi": "饭, 面",
+    "meaning": "Rice, Noodles",
+    "choice": ["relaxed", "discussion", "angry", "horseback riding"]
+  },
+  {
+    "id": 2,
+    "speaker": "Student",
+    "pinyin": "Píngguǒ, zhūròu",
+    "hanzi": "苹果, 猪肉",
+    "meaning": "Apple, Pork"
+  }
+]
