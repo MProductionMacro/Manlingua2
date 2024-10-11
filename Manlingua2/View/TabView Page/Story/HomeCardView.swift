@@ -21,22 +21,27 @@ struct HomeCardView: View {
       VStack(alignment: .center) {
          Image(.story1Thumbnail)
          
-         HStack {
-            Text(story)
-               .fontWeight(.bold)
-               .foregroundStyle(.black)
-            
-            Spacer()
-            
-            CompleteStatusLabel(isComplete: isComplete)
-         }
-         .padding(.top, 10)
-         
-         Text(storyName)
-            .font(.title)
-            .fontWeight(.bold)
+         Text("Cerita 1")
+            .font(.subJudul())
             .foregroundStyle(.black)
+            .padding(.top)
             .frame(maxWidth: .infinity, alignment: .leading)
+         
+         VStack(alignment: .leading) {
+            Text("Dasar Negosiasi")
+               .font(.judulBiasa())
+               .foregroundStyle(.black)
+               
+            
+            Text("谈   判   基  础")
+               .font(.subJudul())
+            
+            Text("tán  pàn   jī   chǔ")
+               .font(.pinyin())
+         }
+         .frame(maxWidth: .infinity, alignment: .leading)
+         .padding(.top, 8)
+         .padding(.bottom, 16)
          
          HStack {
             PrimaryButtonView(homeViewModel: homeViewModel,isDisabled: isDisabled)

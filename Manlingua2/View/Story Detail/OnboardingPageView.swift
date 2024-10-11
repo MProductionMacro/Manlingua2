@@ -18,6 +18,7 @@ struct OnboardingPageView: View {
    var body: some View {
       ZStack {
          Image(viewModel.currentStory.background).resizable().modifier(BackgroundImageModifier())
+         
          HStack {
             BackButton(isShowingConfirmation: $isShowingConfirmation, isShowingDict: $isShowingDict)
                .padding(.bottom, 715)

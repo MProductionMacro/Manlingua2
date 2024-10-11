@@ -34,10 +34,13 @@ struct HomeCardScrollView: View {
                isComplete: false
             )
          }
-         .padding(.horizontal)
+         .padding(.horizontal, 24)
+         .padding(.bottom, 32)
+//         .padding(.top)
 //         .frame(maxHeight: .infinity, alignment: .top)
       }
 //      .frame(maxHeight: .infinity, alignment: .top)
+      .ignoresSafeArea()
    }
    
 }

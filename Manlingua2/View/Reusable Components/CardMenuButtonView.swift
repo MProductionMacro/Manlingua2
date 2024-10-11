@@ -15,18 +15,19 @@ struct CardMenuButtonView: View {
       Button(action: {
          router.push(.journeyPage)
       }) {
-         Rectangle()
-            .fill(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.gold2)
-            .frame(width: 64, height: 64)
-            .overlay(
-               Image("menuIcon")
-                  .resizable()
-                  .renderingMode(.template)
-                  .scaledToFit()
-                  .frame(width: 32, height: 32)
-                  .foregroundStyle(isDisabled ? Color(red: 0.7, green: 0.7, blue: 0.7) : Color.orange3)
+         Image(systemName: "point.bottomleft.forward.to.point.topright.scurvepath.fill")
+            .background(.white)
+            .font(.system(size: 24))
+            .foregroundStyle(.orange3)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 20)
+            .clipShape(
+               RoundedRectangle(cornerRadius: 16)
             )
-            .cornerRadius(10)
+            .overlay(
+               RoundedRectangle(cornerRadius: 16)
+                  .stroke(.orange3, lineWidth: 2)
+            )
       }
       .disabled(isDisabled)
    }

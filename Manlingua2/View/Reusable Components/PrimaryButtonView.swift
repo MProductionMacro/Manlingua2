@@ -16,13 +16,13 @@ struct PrimaryButtonView: View {
       Button(action: {
          router.push(.storyPage)
       }){
-         Text("Practice")
+         Text("Mulai")
             .frame(maxWidth: .infinity)
-            .padding()
+            .padding(24)
             .foregroundStyle(isDisabled ? Color(red: 0.7, green: 0.7, blue: 0.7) : Color.white)
             .font(.system(size: 20, weight: .bold))
             .background(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.orange3)
-            .clipShape(.rect(cornerRadius: 12))
+            .clipShape(.rect(cornerRadius: 16))
          
          //         }
       }
