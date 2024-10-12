@@ -11,6 +11,7 @@ import Combine
 class StoryViewModel: ObservableObject {
    //TODO: Perbaikin VM nya (quizView, quizView2, toneView, convView, recall)
    @Published var stories: [Story] = []
+   @Published var stories_example: [Story_Example] = []
    @Published var currentStoryIndex = 0
    @Published var currentStage: StoryStage = .onboarding
    @Published var currentPage: Page = .story
@@ -104,7 +105,7 @@ class StoryViewModel: ObservableObject {
    
    func loadStories() {
       // Locate the JSON file in the bundle
-      guard let url = Bundle.main.url(forResource: "quizpage", withExtension: "json") else {
+      guard let url = Bundle.main.url(forResource: "Story_Example", withExtension: "json") else {
          print("File not found")
          return
       }
@@ -113,7 +114,7 @@ class StoryViewModel: ObservableObject {
          // Load and decode the JSON data
          let data = try Data(contentsOf: url)
          let decoder = JSONDecoder()
-         self.stories = try decoder.decode([Story].self, from: data)
+         self.stories_example = try decoder.decode([Story_Example].self, from: data)
       } catch {
          print("Failed to decode JSON: \(error.localizedDescription)")
       }

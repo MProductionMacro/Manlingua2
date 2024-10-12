@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PrimaryButtonView: View {
-   @ObservedObject var homeViewModel: HomeViewModel
    @EnvironmentObject var router: Router
    var isDisabled: Bool = false
    
@@ -31,6 +30,6 @@ struct PrimaryButtonView: View {
 }
 
 #Preview {
-   PrimaryButtonView(homeViewModel: HomeViewModel())
+   PrimaryButtonView()
       .environmentObject(Router())
 }

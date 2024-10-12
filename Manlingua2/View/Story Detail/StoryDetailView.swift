@@ -12,20 +12,29 @@ struct StoryDetailView: View {
    @EnvironmentObject private var learnVM: LearnViewModel
    @EnvironmentObject var homeViewModel: HomeViewModel
    
+   @State var hanzi: String = "您好， 明先生。我们商量价格。"
+   @State var pinyin: String = "nín hǎo, míng xiānshēng. wǒmen shāngliáng jiàgé"
+   
    var body: some View {
-      VStack {
-         HStack {
-            Text("X")
+      VStack(spacing: 24) {
+         HStack(spacing: 4) {
+            Image(systemName: "xmark")
+               .font(.system(size: 32))
+               .frame(width: 32, height: 32)
+               .foregroundStyle(.orange3)
             
             Spacer()
             
             ProgressView(value: 0.5)
-               .progressViewStyle(CustomProgressViewStyle(height: 10, filledColor: .green, unfilledColor: .customLighterGray))
+               .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
          }
+         
+         BubbleChatView(pinyin: $pinyin, hanzi: $hanzi)
          
          Spacer()
       }
       .padding(.horizontal)
+      .background(.customBeige)
    }
 }
 

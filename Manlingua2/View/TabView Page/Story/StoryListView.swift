@@ -110,7 +110,9 @@ struct StoryListView: View {
                .clipShape(CustomRoundedRectangle(cornerRadius: 20, corners: [.topLeft, .bottomLeft]))
                .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
                .padding(.leading, 24)
+               .padding(.bottom, 48)
             }
+            .padding(.bottom, 48)
          }
          .ignoresSafeArea()
       }

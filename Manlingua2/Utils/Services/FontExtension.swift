@@ -33,7 +33,7 @@ extension Font {
    }
    
    public static func hanzi() -> Font {
-      return .system(size: 16, weight: .regular)
+      return .system(size: 16, weight: .semibold)
    }
    
    public static func pinyin() -> Font {

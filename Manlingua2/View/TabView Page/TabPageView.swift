@@ -26,6 +26,7 @@ struct TabPageView: View {
                      .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
                }
             }
+            .tag(0)
          
          PinyinView(viewModel: learnVM)
             .tabItem {
@@ -38,6 +39,7 @@ struct TabPageView: View {
                      .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
                }
             }
+            .tag(1)
       }
       .tint(.orange3)
    }
