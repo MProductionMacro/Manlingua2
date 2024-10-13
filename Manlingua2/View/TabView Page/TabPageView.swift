@@ -40,6 +40,30 @@ struct TabPageView: View {
                }
             }
             .tag(1)
+         
+         ChallengeView()
+            .tabItem {
+               Label {
+                  Text("Challenge")
+                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
+               } icon: {
+                  Image("challenge")
+                     .resizable()
+                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
+               }
+            }
+         
+         ProfileView()
+            .tabItem {
+               Label {
+                  Text("Profile")
+                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
+               } icon: {
+                  Image("profile")
+                     .resizable()
+                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
+               }
+            }
       }
       .tint(.orange3)
    }

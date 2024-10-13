@@ -17,38 +17,29 @@ struct HomeCardView: View {
    
    var body: some View {
       //TODO: Framenya hard coded, takut ga responsive
-      VStack(alignment: .center, spacing: 16) {
+      VStack(alignment: .leading, spacing: 16) {
          Image(.story1Thumbnail)
          
          Text("Cerita \(story.id)")
             .font(.subJudul())
             .foregroundStyle(.black)
-//            .padding(.top)
-            .frame(maxWidth: .infinity, alignment: .leading)
          
          VStack(alignment: .leading) {
             Text(story.title)
                .font(.judulBiasa())
                .foregroundStyle(.black)
-               .lineLimit(5)
             
             Text(story.hanzi)
                .font(.subJudul())
-               .lineLimit(5)
-               .foregroundStyle(.black.opacity(0.6))
+               .foregroundStyle(.darkGrey)
             
             Text(story.pinyin)
                .font(.pinyin())
-               .lineLimit(5)
-               .foregroundStyle(.black.opacity(0.5))
+               .foregroundStyle(.darkGrey)
          }
-         .frame(maxWidth: .infinity, alignment: .leading)
-//         .padding(.top, 8)
-//         .padding(.bottom)
          
          HStack {
             PrimaryButtonView(isDisabled: isDisabled)
-            
             CardMenuButtonView(isDisabled: isDisabled)
          }
       }
@@ -56,7 +47,7 @@ struct HomeCardView: View {
       .background(.white)
       .clipShape(.rect(cornerRadius: 24))
       .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
-      .padding(.top, 30)
+//      .padding(.top, 30)
       .frame(width: 232)
       .frame(maxHeight: .infinity, alignment: .top)
    }

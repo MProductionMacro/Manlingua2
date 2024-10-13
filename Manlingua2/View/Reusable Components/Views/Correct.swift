@@ -8,54 +8,67 @@
 import SwiftUI
 
 struct Correct: View {
-    var hanzi: String
-    var pinyin: String
-    var meaning: String
-    @ObservedObject var viewModel: StoryViewModel
-    
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(Color.greenLight)
-                .frame(width: .infinity, height: 289)
-                .cornerRadius(24)
-            VStack {
-                HStack {
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(Color.green2)
-                        .font(.system(size: 24, weight: .bold))
-                    Text("Correct!")
-                        .foregroundStyle(Color.green2)
-                        .font(.system(size: 24, weight: .bold))
-                }
-                .padding(.trailing, 220)
-                .padding(.bottom, 10)
-                HStack {
-                    Text("\(hanzi) (\(pinyin)) means '\(meaning)'")
-                        .font(.system(size: 22, weight: .bold))
-                        .foregroundStyle(.black)
-                        .padding(.bottom, 50)
-                        .padding(.top, 10)
-                }
-                .frame(maxWidth: 350, alignment: .leading)
-                Button(action: {
-                    viewModel.moveToNextStage()
-                }) {
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(Color.orange3)
-                            .frame(width: 350, height: 64)
-                            .cornerRadius(12)
-                        Text("Continue")
-                            .foregroundStyle(Color.white)
-                            .font(.system(size: 20, weight: .bold))
-                    }
-                }
+   var hanzi: String
+   var pinyin: String
+   var meaning: String
+   @ObservedObject var viewModel: StoryViewModel
+   
+   var body: some View {
+      VStack(alignment: .leading, spacing: 24) {
+         VStack(alignment: .leading) {
+            HStack(spacing: 12) {
+               Button {
+                  
+               } label: {
+                  Image(systemName: "waveform")
+                     .foregroundStyle(.white)
+                     .font(.judulBiasa())
+                     .padding(12)
+                     .background(.orange3)
+                     .cornerRadius(16)
+               }
+               
+               Image(systemName: "checkmark.circle.fill")
+                  .foregroundColor(Color.green2)
+                  .font(.title)
+               
+               VStack(alignment: .leading) {
+                  Text("wán quán zhèng què!")
+                     .foregroundStyle(Color.green2)
+                     .font(.pinyin())
+                     .fontWeight(.bold)
+                  
+                  Text("完全正确")
+                     .foregroundStyle(.green2)
+                     .font(.judulBiasa())
+               }
             }
-        }
-    }
+            
+            HStack {
+               Text("\(hanzi) artinya '\(meaning)'")
+                  .foregroundStyle(.black)
+                  .font(.subJudul())
+            }
+         }
+         
+         HStack(spacing: 16) {
+            TryAgainButton(action: {
+               
+            })
+            
+            ContinueButton(action: {
+               
+            })
+         }
+      }
+      .frame(maxWidth: .infinity)
+      .padding(.horizontal)
+      .padding(.vertical, 24)
+      .background(.greenLight)
+      .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
+   }
 }
 
 #Preview {
-    Correct(hanzi: "猫", pinyin: "Māo", meaning: "How many people", viewModel: StoryViewModel())
+   Correct(hanzi: "猫", pinyin: "Māo", meaning: "How many people", viewModel: StoryViewModel())
 }

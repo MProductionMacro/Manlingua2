@@ -18,10 +18,14 @@ struct StoryDetailView: View {
    var body: some View {
       VStack(spacing: 24) {
          HStack(spacing: 4) {
-            Image(systemName: "xmark")
-               .font(.system(size: 32))
-               .frame(width: 32, height: 32)
-               .foregroundStyle(.orange3)
+            Button {
+               
+            } label: {
+               Image(systemName: "xmark")
+                  .font(.system(size: 32))
+                  .frame(width: 32, height: 32)
+                  .foregroundStyle(.orange3)
+            }
             
             Spacer()
             
@@ -30,6 +34,7 @@ struct StoryDetailView: View {
          }
          
          BubbleChatView(pinyin: $pinyin, hanzi: $hanzi)
+            .padding(.leading, 4)
          
          Spacer()
       }

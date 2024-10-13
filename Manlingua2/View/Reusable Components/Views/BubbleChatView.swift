@@ -16,7 +16,7 @@ struct BubbleChatView: View {
          HStack(spacing: 0) {
             Image(.orange2)
                .resizable()
-               .frame(width: geometry.size.width * 0.15, height: geometry.size.height * 0.1)
+               .frame(width: geometry.size.width * 0.15, height: geometry.size.height * 0.08)
             
             HStack(alignment: .top, spacing: 0) {
                LeftCustomTriangle(cornerRadius: 16)

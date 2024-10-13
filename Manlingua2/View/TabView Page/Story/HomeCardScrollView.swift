@@ -26,7 +26,7 @@ struct HomeCardScrollView: View {
          }
          .padding(.horizontal, 24)
          .padding(.bottom, 32)
-//         .padding(.top)
+         .padding(.top, 36)
 //         .frame(maxHeight: .infinity, alignment: .top)
       }
 //      .frame(maxHeight: .infinity, alignment: .top)

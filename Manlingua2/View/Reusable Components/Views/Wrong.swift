@@ -8,80 +8,68 @@
 import SwiftUI
 
 struct Wrong: View {
-    var hanzi: String
-    var pinyin: String
-    var meaning: String
-    @ObservedObject var viewModel: StoryViewModel
-    
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(Color.redLight)
-                .frame(width: .infinity, height: 289)
-                .cornerRadius(24)
-            VStack {
-                HStack {
-                    Image(systemName: "cross.circle.fill")
-                        .foregroundColor(Color.redNormal)
-                        .font(.system(size: 24, weight: .bold))
-                        .rotationEffect(.degrees(45))
-                    Text("Oops!")
-                        .foregroundStyle(Color.redNormal)
-                        .font(.system(size: 24, weight: .bold))
-                }
-                .padding(.trailing, 255)
-                .padding(.bottom, 20)
-                HStack {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Correct Answer:")
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundStyle(.black)
-                        Text("\(hanzi)  |  \(pinyin)  |  \(meaning)")
-                            .font(.system(size: 20))
-                            .foregroundStyle(.black)
-                    }
-                    .padding(.bottom, 20)
-                }
-                .frame(maxWidth: 350, alignment: .leading)
-                HStack(spacing: 16) {
-                    Button(action: {
-                        viewModel.quizView = "Quiz"
-                        viewModel.quizView2 = "Quiz"
-                    }) {
-                        ZStack {
-                            Rectangle()
-                                .fill(.redLight)
-                                .frame(width: 64, height: 64)
-                                .cornerRadius(12)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .stroke(Color.orange3, lineWidth: 3)
-                                )
-                            Image(systemName: "arrow.clockwise")
-                                .foregroundStyle(Color.orange3)
-                                .font(.system(size: 30, weight: .bold))
-                                .rotationEffect(.degrees(45))
-                        }
-                    }
-                    Button(action: {
-                        viewModel.moveToNextStage()
-                    }) {
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(Color.orange3)
-                                .frame(width: 280, height: 64)
-                                .cornerRadius(12)
-                            Text("Continue")
-                                .foregroundStyle(Color.white)
-                                .font(.system(size: 20, weight: .bold))
-                        }
-                    }
-                }
+   var hanzi: String
+   var pinyin: String
+   var meaning: String
+   @ObservedObject var viewModel: StoryViewModel
+   
+   var body: some View {
+      VStack(alignment: .leading, spacing: 24) {
+         VStack(alignment: .leading) {
+            HStack(spacing: 12) {
+               Button {
+                  
+               } label: {
+                  Image(systemName: "waveform")
+                     .foregroundStyle(.white)
+                     .font(.judulBiasa())
+                     .padding(12)
+                     .background(.orange3)
+                     .cornerRadius(16)
+               }
+               
+               Image(systemName: "x.circle.fill")
+                  .foregroundColor(.redNormal)
+                  .font(.title)
+               
+               VStack(alignment: .leading) {
+                  Text("wán quán zhèng què!")
+                     .foregroundStyle(.redNormal)
+                     .font(.pinyin())
+                     .fontWeight(.bold)
+                  
+                  Text("完全正确")
+                     .foregroundStyle(.redNormal)
+                     .font(.judulBiasa())
+                     .fontWeight(.regular)
+               }
             }
-        }
-    }
+            
+            HStack {
+               Text("\(hanzi) artinya '\(meaning)'")
+                  .foregroundStyle(.black)
+                  .font(.subJudul())
+            }
+         }
+         
+         HStack(spacing: 16) {
+            TryAgainButton(action: {
+               
+            })
+            
+            ContinueButton(action: {
+               
+            })
+         }
+      }
+      .frame(maxWidth: .infinity)
+      .padding(.horizontal)
+      .padding(.vertical, 24)
+      .background(.redLight)
+      .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
+   }
 }
 
 #Preview {
-    Wrong(hanzi: "猫", pinyin: "Māo", meaning: "Cat", viewModel: StoryViewModel())
+   Wrong(hanzi: "猫", pinyin: "Māo", meaning: "Cat", viewModel: StoryViewModel())
 }
