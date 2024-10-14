@@ -8,40 +8,65 @@
 import SwiftUI
 
 struct SidebarButton: View {
-   @State private var buttonOffset: CGFloat = 0 // Controls vertical position of the button
-   @State private var dragOffset: CGSize = .zero
+   @State private var showContent: Bool = false
    
    var body: some View {
-      GeometryReader { geometry in
-         VStack {
-            Spacer()
-            
-            Button(action: {
-               // Button action here
-            }) {
-               Image(systemName: "chevron.right")
-                  .foregroundColor(.white)
-                  .frame(width: 50, height: 50)
-                  .background(Color.orange)
-                  .clipShape(Circle())
+      HStack(spacing: 0) {
+         Button(action: {
+            withAnimation {
+               showContent.toggle()
             }
-            .offset(x: geometry.size.width - 50, y: buttonOffset + dragOffset.height) // Keeps it on the right side of the screen
-            .gesture(
-               DragGesture()
-                  .onChanged { value in
-                     // Update the button's offset directly to follow the user's finger
-                     dragOffset = value.translation
-                  }
-                  .onEnded { value in
-                     // Adjust the final position when the user ends the drag
-                     let newOffset = buttonOffset + value.translation.height
-                     buttonOffset = min(max(newOffset, 0), geometry.size.height - 50) // Constrain within screen bounds
-                     dragOffset = .zero
-                  }
-            )
-            Spacer()
+         }) {
+            Image(systemName: showContent ? "chevron.right" : "chevron.left")
+               .font(.judulBiasa())
+               .foregroundColor(.white)
+               .padding(.vertical, 11)
+               .padding(.horizontal, 8)
+         }
+         
+         if showContent {
+            HStack(spacing: 12) {
+               Button(action: {
+                  
+               }) {
+                  Image(systemName: "book.fill")
+                     .frame(width: 24, height: 24)
+                     .padding(12)
+                     .foregroundStyle(.white)
+                     .background(.orange3)
+                     .clipShape(.rect(cornerRadius: 12))
+               }
+               
+               Button(action: {
+                  // Action for speaker icon
+               }) {
+                  Image(systemName: "speaker.wave.2.fill")
+                     .frame(width: 24, height: 24)
+                     .padding(12)
+                     .foregroundStyle(.white)
+                     .background(.orange3)
+                     .clipShape(.rect(cornerRadius: 12))
+               }
+               
+               Button(action: {
+                  // Action for turtle icon
+               }) {
+                  Image(systemName: "tortoise.fill")
+                     .frame(width: 24, height: 24)
+                     .padding(12)
+                     .foregroundStyle(.white)
+                     .background(.orange3)
+                     .clipShape(.rect(cornerRadius: 12))
+               }
+            }
+            .padding(.horizontal, 12)
+            .transition(.move(edge: .trailing)) // Animate appearance from the left side
          }
       }
+      .padding(.vertical, 11)
+      .background(.customYellow)
+      .clipShape(CustomRoundedRectangle(cornerRadius: 20, corners: [.topLeft, .bottomLeft]))
+      .frame(maxWidth: .infinity, alignment: .trailing)
    }
 }
 

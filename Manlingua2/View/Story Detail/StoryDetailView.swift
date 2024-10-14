@@ -16,30 +16,34 @@ struct StoryDetailView: View {
    @State var pinyin: String = "nín hǎo, míng xiānshēng. wǒmen shāngliáng jiàgé"
    
    var body: some View {
-      VStack(spacing: 24) {
-         HStack(spacing: 4) {
-            Button {
+      ZStack {
+         VStack(spacing: 24) {
+            HStack(spacing: 4) {
+               Button {
+                  
+               } label: {
+                  Image(systemName: "xmark")
+                     .font(.system(size: 32))
+                     .frame(width: 32, height: 32)
+                     .foregroundStyle(.orange3)
+               }
                
-            } label: {
-               Image(systemName: "xmark")
-                  .font(.system(size: 32))
-                  .frame(width: 32, height: 32)
-                  .foregroundStyle(.orange3)
+               Spacer()
+               
+               ProgressView(value: 0.5)
+                  .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
             }
             
-            Spacer()
+            BubbleChatView(pinyin: $pinyin, hanzi: $hanzi)
+               .padding(.leading, 4)
             
-            ProgressView(value: 0.5)
-               .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
+            Spacer()
          }
+         .padding(.horizontal)
+         .background(.customBeige)
          
-         BubbleChatView(pinyin: $pinyin, hanzi: $hanzi)
-            .padding(.leading, 4)
-         
-         Spacer()
+         SidebarButton()
       }
-      .padding(.horizontal)
-      .background(.customBeige)
    }
 }
 
