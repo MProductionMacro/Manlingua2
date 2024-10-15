@@ -29,12 +29,12 @@ struct HomeCardView: View {
                .font(.judulBiasa())
                .foregroundStyle(.black)
             
-            Text(story.hanzi)
-               .font(.subJudul())
-               .foregroundStyle(.darkGrey)
-            
             Text(story.pinyin)
                .font(.pinyin())
+               .foregroundStyle(.darkGrey)
+            
+            Text(story.hanzi)
+               .font(.subJudul())
                .foregroundStyle(.darkGrey)
          }
          
