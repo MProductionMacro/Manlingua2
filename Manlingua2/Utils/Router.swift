@@ -52,7 +52,7 @@ class Router: ObservableObject {
          ToneView2()
             .navigationBarBackButtonHidden(true)
       case .journeyPage:
-         JourneyView()
+          JourneyPageView()
             .navigationBarBackButtonHidden(true)
       case .storyPage:
          StoryDetailView()

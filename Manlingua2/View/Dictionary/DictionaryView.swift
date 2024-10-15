@@ -9,6 +9,9 @@ import SwiftUI
 
 struct DictionaryView: View {
    @EnvironmentObject var viewModel: StoryViewModel
+    
+    var judul: String = "Perkenalan"
+    var isiKata: String = "33 Kata"
    
    var body: some View {
       ZStack{
@@ -16,14 +19,18 @@ struct DictionaryView: View {
             .ignoresSafeArea()
             .foregroundColor(.white)
          VStack {
-            Text("Dictionary")
+             Text("\(judul)")
+//                 .font(Font.title())
+                 .foregroundStyle(.black)
+                 .padding(.top, 2)
+//            Text("Perkenalan")
                .font(.title)
                .bold()
                .frame(maxWidth: .infinity, alignment: .center)
                .padding(.top, 16)
                .foregroundColor(.black)
             
-            Text("Story 1 - Chapter \(viewModel.currentStoryIndex + 1)")
+             Text("\(isiKata)")
                .font(.subheadline)
                .foregroundColor(.black)
                .frame(maxWidth: .infinity, alignment: .center)
@@ -33,7 +40,7 @@ struct DictionaryView: View {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
                ForEach(0..<viewModel.currentStory.flashcard.count) { index in
                   ZStack {
-                     FlashcardView(vocab: viewModel.currentStory.flashcard[index], width: 170, height: 236)
+                     FlashcardDictionaryView(vocab: viewModel.currentStory.flashcard[index], width: 170, height: 236)
 //                        .padding(0)
                      RoundedRectangle(cornerRadius: 16)
                         .stroke(.gray, lineWidth: 2)
@@ -54,7 +61,7 @@ struct DictionaryView: View {
          }) {
             HStack {
                Image(systemName: "chevron.left")
-               Text("Back")
+               Text("Kembali")
             }
             .foregroundColor(.orange)
          })

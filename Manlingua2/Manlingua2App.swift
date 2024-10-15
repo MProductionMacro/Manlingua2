@@ -17,11 +17,12 @@ struct Manlingua2App: App {
    
    var body: some Scene {
       WindowGroup {
-         NavigationStack(path: $router.path){
-            EmptyView()
-               .navigationDestination(for: Screen.self) { screen in
-                  router.build(screen)
-               }
+//         NavigationStack(path: $router.path){
+//            EmptyView()
+             JourneyPageView()
+//               .navigationDestination(for: Screen.self) { screen in
+//                  router.build(screen)
+//               }
          }
          .environment(\.managedObjectContext, persistenceController.container.viewContext)
          .environmentObject(router)
@@ -30,4 +31,4 @@ struct Manlingua2App: App {
          .environmentObject(learnViewModel)
       }
    }
-}
+//}
