@@ -98,6 +98,26 @@ class StoryViewModel: ObservableObject {
       }
    }
    
+//   func onTapChat(width: CGFloat, location: CGPoint, currentIndex: Int){
+//      let midPoint = width / 2
+//      
+//      if location.x < midPoint {
+//         // Tapped left screen, move to previous item
+//         if currentIndex > 0 {
+//            currentIndex -= 1
+//            hanzi = hanziArray[currentIndex] // Update displayed hanzi
+//            pinyin = pinyinArray[currentIndex] // Update displayed pinyin
+//         }
+//      } else {
+//         // Tapped right screen, move to next item
+//         if currentIndex < hanziArray.count - 1 {
+//            currentIndex += 1
+//            hanzi = hanziArray[currentIndex] // Update displayed hanzi
+//            pinyin = pinyinArray[currentIndex] // Update displayed pinyin
+//         }
+//      }
+//   }
+   
    init() {
       loadStories()
       print(stories)

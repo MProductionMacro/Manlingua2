@@ -16,9 +16,10 @@ struct StoryDetailView: View {
    @State var hanziArray: [String] = ["您好， 明先生。我们商量价格。", "再见，李小姐。", "明天见！"]
    @State var pinyinArray: [String] = ["nín hǎo, míng xiānshēng. wǒmen shāngliáng jiàgé", "zàijiàn, lǐ xiǎojiě.", "míngtiān jiàn!"]
    
-   @State var currentIndex: Int = 0 // Tracks current index
-   @State var hanzi: String = "您好， 明先生。我们商量价格。" // Initial value for hanzi
-   @State var pinyin: String = "nín hǎo, míng xiānshēng. wǒmen shāngliáng jiàgé" // Initial value for pinyin
+   @State var currentIndex: Int = 0
+   @State var hanzi: String = "您好， 明先生。我们商量价格。"
+   @State var pinyin: String = "nín hǎo, míng xiānshēng. wǒmen shāngliáng jiàgé"
+   
    @State var tutorialOverlay: Int = 1
    
    var body: some View {
@@ -27,7 +28,7 @@ struct StoryDetailView: View {
             VStack(spacing: 24) {
                HStack(spacing: 4) {
                   Button {
-                     
+                     router.pop()
                   } label: {
                      Image(systemName: "xmark")
                         .font(.system(size: 32))
@@ -41,17 +42,11 @@ struct StoryDetailView: View {
                      .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
                }
                
-               // Display the current hanzi and pinyin in BubbleChatView
+               ForEach(0...currentIndex, id: \.self) { index in
+                  BubbleChatView(pinyin: .constant(pinyinArray[index]), hanzi: .constant(hanziArray[index]))
+                     .padding(.leading, 4)
+               }
                
-//               ForEach(0...currentIndex, id: \.self) { index in
-//                  BubbleChatView(pinyin: .constant(pinyinArray[index]), hanzi: .constant(hanziArray[index]))
-//                     .padding(.leading, 4)
-//               }
-               
-               BubbleChatView(pinyin: $pinyin, hanzi: $hanzi)
-                  .padding(.leading, 4)
-               BubbleChatView(pinyin: $pinyin, hanzi: $hanzi)
-                  .padding(.leading, 4)
                
                Spacer()
             }
@@ -84,7 +79,7 @@ struct StoryDetailView: View {
             SidebarButton()
          }
          .overlay {
-            // TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.7)
+             TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.7)
          }
       }
    }
