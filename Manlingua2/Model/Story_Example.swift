@@ -24,21 +24,37 @@ import Foundation
 ///   - `pinyin`: Judul untuk story dalam bentuk pinyin
 ///   - `subChapter` : Properti yang berisikan tentang seluruh subChapter untuk story tersebut
 
-struct Story_Example: Codable, Identifiable {
+struct Story_Example: Codable, Identifiable, Hashable {
     let id: Int
     let title: String
     let hanzi: String
     let introduction: String
     let pinyin: String
     let subChapter: [SubChapter_Example]
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case hanzi
+        case introduction
+        case pinyin
+        case subChapter
+    }
 }
 
-struct SubChapter_Example: Codable, Identifiable {
+struct SubChapter_Example: Codable, Identifiable, Hashable {
     let id: Int
     let title: String
     let pinyin: String
     let hanzi: String
     let duration: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case pinyin
+        case hanzi
+        case duration
+    }
 }
-
 

@@ -40,6 +40,27 @@ struct ContentView: View {
             }
             Text("Select an item")
         }
+        .onAppear{
+            guard let url = Bundle.main.url(forResource: "Story4", withExtension: "json") else {
+                return
+            }
+                
+            do {
+                // Membaca data dari file
+                let data = try Data(contentsOf: url)
+                    
+                // Dekode data ke dalam array Story_Example
+                let decoder = JSONDecoder()
+                let storyExamples: [Story_Example] = try decoder.decode([Story_Example].self, from: data)
+                
+                storyExamples.forEach { story in
+                    print("id: \(story.id), Title: \(story.title), Hanzi: \(story.hanzi)")
+                }
+                 
+            } catch {
+                print("Gagal memuat atau mendekode JSON: \(error)")
+            }
+        }
     }
 
     private func addItem() {
