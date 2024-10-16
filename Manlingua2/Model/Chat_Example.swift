@@ -24,32 +24,33 @@ import Foundation
 ///     (jika chat bersifat soal pilihan ganda).
 ///   - `answer`: Properti opsional yang berisi jawaban untuk soal pilihan ganda yang diberikan melalui array `choice`.
 struct Chat_Example: Codable, Identifiable, Hashable {
-    let id: Int
-    let speaker: String
-    let pinyin: String
-    let hanzi: String
-    let meaning: String
-    let speaking: Speaking_Example?
-    let choice: [String]?
-    let answer: String?
-    let question: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case speaker
-        case pinyin
-        case hanzi
-        case meaning
-        case speaking
-        case choice
-        case answer
-        case question
-    }
+   let id: Int
+   let speaker: String
+   let pinyin: String
+   let hanzi: String
+   let meaning: String
+   let choice: [String]?
+   let answer: String?
+   let question: String?
+   let type: ChatType
+   
+   enum CodingKeys: String, CodingKey {
+      case id
+      case speaker
+      case pinyin
+      case hanzi
+      case meaning
+      case choice
+      case answer
+      case question
+      case type
+   }
 }
 
-enum Speaking_Example: String, Codable, Hashable {
-    case repeating
-    case translate
+enum ChatType: String, Codable {
+   case speaker1
+   case speaker2
+   case question
 }
 
 

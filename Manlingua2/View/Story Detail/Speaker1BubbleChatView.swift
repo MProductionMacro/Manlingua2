@@ -1,20 +1,19 @@
 //
-//  BubbleChatView.swift
+//  Speaker1BubbleChatView.swift
 //  Manlingua2
 //
-//  Created by Paulus Michael on 12/10/24.
+//  Created by Paulus Michael on 16/10/24.
 //
 
 import SwiftUI
 
-struct BubbleChatView: View {
-   @Binding var pinyin: String
-   @Binding var hanzi: String
+struct Speaker1BubbleChatView: View {
+   var hanzi: String
+   var pinyin: String
    
    var body: some View {
-      //      GeometryReader { geometry in
-      HStack(spacing: 0) {
-         Image(.orange2)
+      HStack{
+         Image(.orangeSpeaker1)
             .resizable()
             .frame(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.height  * 0.08)
          
@@ -45,11 +44,9 @@ struct BubbleChatView: View {
          
          Spacer()
       }
-      //      }
    }
 }
 
 #Preview {
-   BubbleChatView(pinyin: .constant("Pinyin"), hanzi: .constant("Hanzi"))
-      .background(Color.black.opacity(0.5))
+   Speaker1BubbleChatView(hanzi: "Halo", pinyin: "Halo")
 }

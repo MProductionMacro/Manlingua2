@@ -4,14 +4,16 @@
         "speaker": "Abai",
         "pinyin": "Nǐ hǎo, wǒ jiào Ābái. Nín shì Míng xiānshēng ma?",
         "hanzi": "你好，我叫阿白。您是明先生吗？",
-        "meaning": "Halo, saya Abai. Apakah Anda Tuan Ming?"
+        "meaning": "Halo, saya Abai. Apakah Anda Tuan Ming?",
+        "type": "speaker1"
     },
     {
         "id": 2,
         "speaker": "Asui",
         "pinyin": "Shì de, wǒ shì Míng xiānshēng. Hěn gāoxìng rènshí nǐ.",
         "hanzi": "是的，我是明先生。很高兴认识你。",
-        "meaning": "Ya, saya Tuan Ming. Senang bertemu dengan Anda."
+        "meaning": "Ya, saya Tuan Ming. Senang bertemu dengan Anda.",
+        "type": "speaker2"
     },
     {
         "id": 3,
@@ -21,14 +23,16 @@
         "meaning": "Senang",
         "choice": ["Senang", "Sedih", "Marah", "Lelah"],
         "answer": "Senang",
-        "question": "Apa arti dari 高兴?"
+        "question": "Apa arti dari 高兴?",
+        "type": "question"
     },
     {
         "id": 4,
         "speaker": "Abai",
         "pinyin": "Rènshí nín wǒ yě hěn gāoxìng.",
         "hanzi": "认识您我也很高兴。",
-        "meaning": "Saya juga senang bertemu dengan Anda."
+        "meaning": "Saya juga senang bertemu dengan Anda.",
+        "type": "speaker1"
     },
     {
         "id": 5,
@@ -38,21 +42,24 @@
         "meaning": "Mengenal",
         "choice": ["Mengenal", "Menjual", "Membeli", "Memesan"],
         "answer": "Mengenal",
-        "question": "Apa arti dari 认识?"
+        "question": "Apa arti dari 认识?",
+        "type": "question"
     },
     {
         "id": 6,
         "speaker": "Asui",
         "pinyin": "Nín shì zuò shénme shēngyì de?",
         "hanzi": "您是做什么生意的？",
-        "meaning": "Anda menjalankan bisnis apa?"
+        "meaning": "Anda menjalankan bisnis apa?",
+        "type": "speaker2"
     },
     {
         "id": 7,
         "speaker": "Abai",
         "pinyin": "Wǒmen cóngshì chūkǒu màoyì.",
         "hanzi": "我们从事出口贸易。",
-        "meaning": "Kami bergerak di bidang ekspor."
+        "meaning": "Kami bergerak di bidang ekspor.",
+        "type": "speaker1"
     },
     {
         "id": 8,
@@ -60,35 +67,39 @@
         "pinyin": "chūkǒu màoyì",
         "hanzi": "出口贸易",
         "meaning": "Ekspor perdagangan",
-        "speaking": "repeating",
-        "question": "Coba ulangi 出口贸易."
+        "question": "Coba ulangi 出口贸易.",
+        "type": "question"
     },
     {
         "id": 9,
         "speaker": "Asui",
         "pinyin": "Tài hǎo le! Wǒ yě shì zuò chūkǒu shēngyì de.",
         "hanzi": "太好了！我也是做出口生意的。",
-        "meaning": "Hebat! Saya juga menjalankan bisnis ekspor."
+        "meaning": "Hebat! Saya juga menjalankan bisnis ekspor.",
+        "type": "speaker2"
     },
     {
         "id": 10,
         "speaker": "Abai",
         "pinyin": "Hěn gāoxìng tīngdào zhège xiāoxī!",
         "hanzi": "很高兴听到这个消息！",
-        "meaning": "Senang mendengar kabar itu!"
+        "meaning": "Senang mendengar kabar itu!",
+        "type": "speaker1"
     },
     {
         "id": 11,
         "speaker": "Asui",
         "pinyin": "Hǎo de, zánmen yǐhòu yídìng huì hézuò de hěn yúkuài.",
         "hanzi": "好的，咱们以后一定会合作得很愉快。",
-        "meaning": "Baik, kita pasti akan bekerja sama dengan baik di masa depan."
+        "meaning": "Baik, kita pasti akan bekerja sama dengan baik di masa depan.",
+        "type": "speaker2"
     },
     {
         "id": 12,
         "speaker": "Abai",
         "pinyin": "Shì de, qídài hézuò!",
         "hanzi": "是的，期待合作！",
-        "meaning": "Ya, menantikan kerja sama!"
+        "meaning": "Ya, menantikan kerja sama!",
+        "type": "speaker1"
     }
 ]

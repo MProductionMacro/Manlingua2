@@ -12,6 +12,7 @@ class StoryViewModel: ObservableObject {
    //TODO: Perbaikin VM nya (quizView, quizView2, toneView, convView, recall)
    @Published var stories: [Story] = []
    @Published var stories_example: [Story_Example] = []
+   @Published var chat_example: [Chat_Example] = []
    @Published var currentStoryIndex = 0
    @Published var currentStage: StoryStage = .onboarding
    @Published var currentPage: Page = .story
@@ -98,29 +99,27 @@ class StoryViewModel: ObservableObject {
       }
    }
    
-//   func onTapChat(width: CGFloat, location: CGPoint, currentIndex: Int){
-//      let midPoint = width / 2
-//      
-//      if location.x < midPoint {
-//         // Tapped left screen, move to previous item
-//         if currentIndex > 0 {
-//            currentIndex -= 1
-//            hanzi = hanziArray[currentIndex] // Update displayed hanzi
-//            pinyin = pinyinArray[currentIndex] // Update displayed pinyin
-//         }
-//      } else {
-//         // Tapped right screen, move to next item
-//         if currentIndex < hanziArray.count - 1 {
-//            currentIndex += 1
-//            hanzi = hanziArray[currentIndex] // Update displayed hanzi
-//            pinyin = pinyinArray[currentIndex] // Update displayed pinyin
-//         }
-//      }
-//   }
-   
    init() {
       loadStories()
-      print(stories)
+      loadChat()
+      print(chat_example)
+//      print(stories)
+   }
+   
+   func loadChat(){
+      guard let url = Bundle.main.url(forResource: "Chat1_1", withExtension: "json") else {
+         print("File not found")
+         return
+      }
+      
+      do {
+         // Load and decode the JSON data
+         let data = try Data(contentsOf: url)
+         let decoder = JSONDecoder()
+         self.chat_example = try decoder.decode([Chat_Example].self, from: data)
+      } catch {
+         print("Failed to decode JSON: \(error.localizedDescription)")
+      }
    }
    
    func loadStories() {
