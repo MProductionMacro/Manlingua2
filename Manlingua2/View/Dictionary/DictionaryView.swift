@@ -30,22 +30,23 @@ struct DictionaryView: View {
                .padding(.bottom, 16)
             
             //TODO: Sizenya hard coded
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-               ForEach(0..<viewModel.currentStory.flashcard.count) { index in
-                  ZStack {
-                     FlashcardView(vocab: viewModel.currentStory.flashcard[index], width: 170, height: 236)
-//                        .padding(0)
-                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(.gray, lineWidth: 2)
-                     SoundButtonView(vocab: viewModel.currentStory.flashcard[index])
-                        .frame(width: 30, height: 30)
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .offset(x: 20, y: 75)
-                  }
-               }
-            }
-            .padding(.horizontal, 16)
+            //FIXME: Index out of range
+//            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
+//               ForEach(0..<viewModel.currentStory.flashcard.count) { index in
+//                  ZStack {
+//                     FlashcardView(vocab: viewModel.currentStory.flashcard[index], width: 170, height: 236)
+////                        .padding(0)
+//                     RoundedRectangle(cornerRadius: 16)
+//                        .stroke(.gray, lineWidth: 2)
+//                     SoundButtonView(vocab: viewModel.currentStory.flashcard[index])
+//                        .frame(width: 30, height: 30)
+//                        .background(Color.white)
+//                        .clipShape(Circle())
+//                        .offset(x: 20, y: 75)
+//                  }
+//               }
+//            }
+//            .padding(.horizontal, 16)
             
             Spacer()
          }

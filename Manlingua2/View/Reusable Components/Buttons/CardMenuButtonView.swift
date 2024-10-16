@@ -17,10 +17,9 @@ struct CardMenuButtonView: View {
       }) {
          Image(systemName: "point.bottomleft.forward.to.point.topright.scurvepath.fill")
             .background(.white)
-            .font(.system(size: 24))
+            .font(.system(size: 20, weight: .bold))
             .foregroundStyle(.orange3)
-            .padding(.horizontal, 20)
-            .padding(.vertical, 20)
+            .padding()
             .clipShape(
                RoundedRectangle(cornerRadius: 16)
             )

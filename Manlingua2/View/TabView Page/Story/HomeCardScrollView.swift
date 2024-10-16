@@ -14,29 +14,19 @@ struct HomeCardScrollView: View {
    var body: some View {
       ScrollView(.horizontal, showsIndicators: false) {
          HStack(spacing: 24) {
-            HomeCardView(
-               homeViewModel: homeViewModel,
-               viewModel: viewModel,
-               homeCard: .story1Thumbnail,
-               story: "Story 1",
-               storyName: "Go to Chinese Hotpot\nRestaurant",
-               isDisabled: false,
-               isComplete: false
-            )
-            
-            HomeCardView(
-               homeViewModel: homeViewModel,
-               viewModel: viewModel,
-               homeCard: .story2Thumbnail,
-               story: "Story 2",
-               storyName: "Go to Market\n",
-               isDisabled: true,
-               isComplete: false
-            )
+            ForEach(viewModel.stories_example, id: \.id) { stories in
+               HomeCardView(
+                  homeCard: .story1Thumbnail,
+                  storyName: "Go to Chinese Hotpot\nRestaurant",
+                  isDisabled: false,
+                  isComplete: false,
+                  story: stories
+               )
+            }
          }
          .padding(.horizontal, 24)
          .padding(.bottom, 32)
-//         .padding(.top)
+         .padding(.top, 36)
 //         .frame(maxHeight: .infinity, alignment: .top)
       }
 //      .frame(maxHeight: .infinity, alignment: .top)

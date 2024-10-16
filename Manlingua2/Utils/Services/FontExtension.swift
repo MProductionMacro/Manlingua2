@@ -8,7 +8,6 @@
 import SwiftUI
 
 extension Font {
-    // New Font Design System
     public static func heavy48() -> Font{
         return .system(size: 48, weight: .heavy)
     }
@@ -121,39 +120,35 @@ extension Font {
         return .system(size: 12, weight: .regular)
     }
     
-    
-    // Old Font Design System
-    // Soon will be deleted
-    // Tapi takut ada page lain yang masih pake, jadi sementara dibiarin dulu
-    public static func judulBesar() -> Font {
-        return .system(size: 40, weight: .heavy)
-    }
-       
-    public static func judulBiasa() -> Font {
-        return .system(size: 20, weight: .semibold)
-    }
-       
-    public static func subJudul() -> Font {
-        return .system(size: 16, weight: .semibold)
-    }
-       
-    public static func normalText() -> Font {
-        return .system(size: 14, weight: .regular)
-    }
-       
-    public static func button() -> Font {
-        return .system(size: 20, weight: .semibold)
-    }
-       
-    public static func bpmf() -> Font {
-        return .system(size: 24, weight: .regular)
-    }
-       
-    public static func hanzi() -> Font {
-        return .system(size: 16, weight: .regular)
-    }
-       
-    public static func pinyin() -> Font {
-        return .system(size: 11, weight: .regular)
-    }
+   public static func judulBesar() -> Font {
+      return .system(size: 40, weight: .heavy)
+   }
+   
+   public static func judulBiasa() -> Font {
+      return .system(size: 20, weight: .semibold)
+   }
+   
+   public static func subJudul() -> Font {
+      return .system(size: 16, weight: .semibold)
+   }
+   
+   public static func normalText() -> Font {
+      return .system(size: 14, weight: .regular)
+   }
+   
+   public static func button() -> Font {
+      return .system(size: 20, weight: .semibold)
+   }
+   
+   public static func bpmf() -> Font {
+      return .system(size: 24, weight: .regular)
+   }
+   
+   public static func hanzi() -> Font {
+      return .system(size: 16, weight: .semibold)
+   }
+   
+   public static func pinyin() -> Font {
+      return .system(size: 11, weight: .regular)
+   }
 }

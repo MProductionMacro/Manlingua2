@@ -105,8 +105,6 @@ struct JourneyView: View {
                      .bold()
                }
             }
-            
-//            .padding(.leading)
          }
       }
    }
