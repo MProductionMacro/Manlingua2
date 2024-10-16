@@ -1,0 +1,30 @@
+{
+    "id": 2,
+    "title": "Negosiasi",
+    "pinyin": "tán pàn",
+    "hanzi": "谈判",
+    "introduction": "Nama saya Abai. Saatnya negosiasi! Bisakah saya memahami kebutuhan mitra, membahas spesifikasi barang, dan mencapai kesepakatan harga yang saling menguntungkan? Yuk, kita pelajari seni negosiasi bersama!",
+    "subChapter": [
+        {
+            "id": 1,
+            "title": "Tanya Kebutuhan",
+            "pinyin": "xún wèn xū qiú",
+            "hanzi": "询问需求",
+            "duration": 10
+        },
+        {
+            "id": 2,
+            "title": "Spesifikasi Barang",
+            "pinyin": "chǎn pǐn guī gé",
+            "hanzi": "产品规格",
+            "duration": 10
+        },
+        {
+            "id": 3,
+            "title": "Nego Harga",
+            "pinyin": "yì jià",
+            "hanzi": "议价",
+            "duration": 10
+        }
+    ]
+}
