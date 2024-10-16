@@ -24,13 +24,11 @@ import Foundation
 ///   - `pinyin`: Judul untuk story dalam bentuk pinyin
 ///   - `subChapter` : Properti yang berisikan tentang seluruh subChapter untuk story tersebut
 
-
 struct Story_Example: Codable, Identifiable {
     let id: Int
-    let number: Int
     let title: String
     let hanzi: String
-    let description: String
+    let introduction: String
     let pinyin: String
     let subChapter: [SubChapter_Example]
 }
