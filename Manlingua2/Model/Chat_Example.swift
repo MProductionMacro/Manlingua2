@@ -33,8 +33,13 @@ struct Chat_Example: Codable, Identifiable {
     let speaking: Speaking_Example?
     let choice: [String]?
     let answer: String?
+    let question: String?
 }
 
+enum Speaking_Example: String, Codable {
+    case repeating
+    case translate
+}
 
 /// Terdapat 2 jenis aktivitas speaking yang dapat dilakukan oleh user
 /// - Case :
@@ -42,7 +47,4 @@ struct Chat_Example: Codable, Identifiable {
 ///             bahasa Mandarin.
 ///   - `translate`: aktivitas speaking ketika user diminta untuk mentranslate sebuah kalimat ke
 ///             dalam bahasa Mandarin.
-enum Speaking_Example: String, Codable {
-    case repeating
-    case translate
-}
+

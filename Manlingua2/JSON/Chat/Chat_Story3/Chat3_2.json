@@ -19,14 +19,9 @@
         "pinyin": "hétóng",
         "hanzi": "合同",
         "meaning": "Kontrak",
-        "choices": {
-            "a": "Perjanjian",
-            "b": "Syarat",
-            "c": "Kontrak",
-            "d": "Penawaran"
-        },
-        "answer": "c",
-        "question": "Apa arti dari 合同 (hétóng)?"
+        "choice": ["Perjanjian", "Syarat", "Kontrak", "Penawaran"],
+        "answer": "Kontrak",
+        "question": "Apa arti dari 合同?"
     },
     {
         "id": 4,
@@ -41,14 +36,9 @@
         "pinyin": "tiáojiàn",
         "hanzi": "条件",
         "meaning": "Syarat",
-        "choices": {
-            "a": "Harga",
-            "b": "Syarat",
-            "c": "Barang",
-            "d": "Waktu"
-        },
-        "answer": "b",
-        "question": "Coba dengar, apa arti dari 条件 (tiáojiàn)?"
+        "choice": ["Harga", "Syarat", "Barang", "Waktu"],
+        "answer": "Syarat",
+        "question": "Coba dengar, apa arti dari 条件?"
     },
     {
         "id": 6,
@@ -71,7 +61,7 @@
         "hanzi": "交货时间",
         "meaning": "Waktu pengiriman",
         "speaking": "speaking",
-        "question": "Coba ulangi 交货时间 (jiāohuò shíjiān)."
+        "question": "Coba ulangi 交货时间."
     },
     {
         "id": 9,
@@ -102,3 +92,4 @@
         "meaning": "Tidak masalah, kita bisa membahas harga lagi."
     }
 ]
+
