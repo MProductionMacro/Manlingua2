@@ -1,56 +1,81 @@
-[
-    "Subab1":[
+{
+    "Subab1": [
         {
-            "hanzi": "生意",
-            "pinyin": "shēngyì",
-            "meaning": "Bisnis"
+            "hanzi": "付款",
+            "pinyin": "fùkuǎn",
+            "meaning": "Membayar"
         },
         {
-            "hanzi": "出口",
-            "pinyin": "chūkǒu",
-            "meaning": "Ekspor"
+            "hanzi": "方式",
+            "pinyin": "fāngshì",
+            "meaning": "Metode"
         },
         {
-            "hanzi": "贸易",
-            "pinyin": "màoyì",
-            "meaning": "Perdagangan"
+            "hanzi": "银行",
+            "pinyin": "yínháng",
+            "meaning": "Bank"
         },
         {
-            "hanzi": "认识",
-            "pinyin": "rènshí",
-            "meaning": "Mengenal"
+            "hanzi": "转账",
+            "pinyin": "zhuǎnzhàng",
+            "meaning": "Transfer"
+        },
+        {
+            "hanzi": "信用卡",
+            "pinyin": "xìnyòngkǎ",
+            "meaning": "Kartu kredit"
+        },
+        {
+            "hanzi": "发货",
+            "pinyin": "fāhuò",
+            "meaning": "Mengirim barang"
+        },
+        {
+            "hanzi": "确认",
+            "pinyin": "quèrèn",
+            "meaning": "Konfirmasi"
+        },
+        {
+            "hanzi": "通知",
+            "pinyin": "tōngzhī",
+            "meaning": "Pemberitahuan"
         },
         {
             "hanzi": "合作",
             "pinyin": "hézuò",
             "meaning": "Kerja sama"
-        },
-        {
-            "hanzi": "高兴",
-            "pinyin": "gāoxìng",
-            "meaning": "Senang"
-        },
-        {
-            "hanzi": "消息",
-            "pinyin": "xiāoxī",
-            "meaning": "Berita/kabar"
         }
     ],
     "Subab2": [
         {
-            "hanzi": "旅行",
-            "pinyin": "lǚxíng",
-            "meaning": "Bepergian"
+            "hanzi": "货物",
+            "pinyin": "huòwù",
+            "meaning": "Barang"
         },
         {
-            "hanzi": "会议",
-            "pinyin": "huìyì",
-            "meaning": "Konferensi"
+            "hanzi": "收货",
+            "pinyin": "shōuhuò",
+            "meaning": "Menerima barang"
         },
         {
-            "hanzi": "机会",
-            "pinyin": "jīhuì",
-            "meaning": "Peluang"
+            "hanzi": "质量",
+            "pinyin": "zhìliàng",
+            "meaning": "Kualitas"
+        },
+        {
+            "hanzi": "优质",
+            "pinyin": "yōuzhì",
+            "meaning": "Berkualitas"
+        },
+        {
+            "hanzi": "服务",
+            "pinyin": "fúwù",
+            "meaning": "Pelayanan"
+        },
+        {
+            "hanzi": "满意",
+            "pinyin": "mǎnyì",
+            "meaning": "Puas"
         },
         {
             "hanzi": "合作",
@@ -58,61 +83,57 @@
             "meaning": "Kerja sama"
         },
         {
-            "hanzi": "讨论",
-            "pinyin": "tǎolùn",
-            "meaning": "Diskusi"
-        },
-        {
-            "hanzi": "出口",
-            "pinyin": "chūkǒu",
-            "meaning": "Ekspor"
-        },
-        {
-            "hanzi": "希望",
-            "pinyin": "xīwàng",
-            "meaning": "Harapan"
+            "hanzi": "联系",
+            "pinyin": "liánxì",
+            "meaning": "Berhubungan"
         }
     ],
     "Subab3": [
         {
-            "hanzi": "喝茶",
-            "pinyin": "hē chá",
-            "meaning": "Minum teh"
+            "hanzi": "最终",
+            "pinyin": "zuìzhōng",
+            "meaning": "Akhir"
         },
         {
-            "hanzi": "绿茶",
-            "pinyin": "lǜchá",
-            "meaning": "Teh hijau"
+            "hanzi": "细节",
+            "pinyin": "xìjié",
+            "meaning": "Detail"
         },
         {
-            "hanzi": "喜欢",
-            "pinyin": "xǐhuān",
-            "meaning": "Menyukai"
+            "hanzi": "交易",
+            "pinyin": "jiāoyì",
+            "meaning": "Transaksi"
         },
         {
-            "hanzi": "会议",
-            "pinyin": "huìyì",
-            "meaning": "Konferensi"
+            "hanzi": "合作",
+            "pinyin": "hézuò",
+            "meaning": "Kerja sama"
         },
         {
-            "hanzi": "收获",
-            "pinyin": "shōuhuò",
-            "meaning": "Manfaat/hasil"
+            "hanzi": "顺利",
+            "pinyin": "shùnlì",
+            "meaning": "Lancar"
         },
         {
-            "hanzi": "机会",
-            "pinyin": "jīhuì",
-            "meaning": "Peluang"
+            "hanzi": "信任",
+            "pinyin": "xìnrèn",
+            "meaning": "Kepercayaan"
         },
         {
-            "hanzi": "重要",
-            "pinyin": "zhòngyào",
-            "meaning": "Penting"
+            "hanzi": "保持",
+            "pinyin": "bǎochí",
+            "meaning": "Menjaga"
         },
         {
-            "hanzi": "招待",
-            "pinyin": "zhāodài",
-            "meaning": "Menjamu"
+            "hanzi": "联系",
+            "pinyin": "liánxì",
+            "meaning": "Berhubungan"
+        },
+        {
+            "hanzi": "结束",
+            "pinyin": "jiéshù",
+            "meaning": "Menyelesaikan"
         }
     ]
-]
+}
+
