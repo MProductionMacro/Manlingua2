@@ -30,6 +30,7 @@ struct TutorialOverlayView: View {
          .onTapGesture {
             tutorialOverlay += 1
          }
+         
       }else if tutorialOverlay == 2 {
          VStack {
             HStack {

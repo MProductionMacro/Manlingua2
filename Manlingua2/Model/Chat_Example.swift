@@ -33,18 +33,6 @@ struct Chat_Example: Codable, Identifiable, Hashable {
    let answer: String?
    let question: String?
    let type: ChatType
-   
-   enum CodingKeys: String, CodingKey {
-      case id
-      case speaker
-      case pinyin
-      case hanzi
-      case meaning
-      case choice
-      case answer
-      case question
-      case type
-   }
 }
 
 enum ChatType: String, Codable {

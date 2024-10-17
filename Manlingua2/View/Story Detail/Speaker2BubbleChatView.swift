@@ -50,4 +50,5 @@ struct Speaker2BubbleChatView: View {
 
 #Preview {
    Speaker2BubbleChatView(hanzi: "Halo", pinyin: "Halo")
+      .background(.black)
 }

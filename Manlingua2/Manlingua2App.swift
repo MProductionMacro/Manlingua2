@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 @main
 struct Manlingua2App: App {
    let persistenceController = PersistenceController.shared
@@ -28,7 +27,8 @@ struct Manlingua2App: App {
          .environmentObject(homeViewModel)
          .environmentObject(storyViewModel)
          .environmentObject(learnViewModel)
-//         SidebarButton()
+         //         SidebarButton()
       }
+
    }
 }

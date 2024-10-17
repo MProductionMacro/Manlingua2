@@ -27,6 +27,7 @@ struct BubbleChatView: View {
                .padding(.trailing)
          }
       }
+//      .padding(.vertical, 4)
    }
 }
 

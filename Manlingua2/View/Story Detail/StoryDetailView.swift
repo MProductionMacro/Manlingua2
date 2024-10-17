@@ -40,7 +40,7 @@ struct StoryDetailView: View {
                
                ScrollViewReader { proxy in
                   ScrollView{
-                     VStack(spacing: 0){
+                     VStack(spacing: 16){
                         ForEach(0...currentIndex, id: \.self) { index in
                            let chat = viewModel.chat_example[index]
                            
@@ -55,14 +55,14 @@ struct StoryDetailView: View {
                      //                     }
                   }
                }
-               .padding(.bottom)
+               .padding(.bottom, viewModel.chat_example[currentIndex].type == .question ? 0 : 64)
                
-               //TODO: Ini jadi view baru buat bedain Question, Correct, atau Wrong modality
                if viewModel.chat_example[currentIndex].type == .question {
                   ChatModalityView(chat: viewModel.chat_example[currentIndex], modalAppeared: $modalAppeared, currentIndex: $currentIndex)
                      .onAppear {
                         modalAppeared = true
                      }
+//                     .padding(.top, 8)
                }
             }
             .edgesIgnoringSafeArea(.bottom)

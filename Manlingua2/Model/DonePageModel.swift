@@ -9,8 +9,8 @@ import Foundation
 
 
 enum DonePageString: String, CaseIterable{
-    case story
-    case flashCard
+   case story
+   case flashCard
     
     var page : String{
         switch self {
@@ -19,6 +19,7 @@ enum DonePageString: String, CaseIterable{
         }
     }
 }
+
 
 enum PartOfTheStory: CaseIterable{
     case first
