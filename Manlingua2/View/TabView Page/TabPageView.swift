@@ -15,7 +15,7 @@ struct TabPageView: View {
    
    var body: some View {
       TabView(selection: $selectedTab) {
-         StoryListView(homeViewModel: homeViewModel, viewModel: viewModel)
+         StoryListView()
             .tabItem {
                Label {
                   Text("Story")

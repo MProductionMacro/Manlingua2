@@ -50,9 +50,7 @@ struct StoryDetailView: View {
                      }
                   }
                   .onChange(of: currentIndex) { oldValue, newValue in
-                     //                     withAnimation {
                      proxy.scrollTo(newValue, anchor: .bottom)
-                     //                     }
                   }
                }
                .padding(.bottom, viewModel.chat_example[currentIndex].type == .question ? 0 : 64)
@@ -62,7 +60,6 @@ struct StoryDetailView: View {
                      .onAppear {
                         modalAppeared = true
                      }
-//                     .padding(.top, 8)
                }
             }
             .edgesIgnoringSafeArea(.bottom)

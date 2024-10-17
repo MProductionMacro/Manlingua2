@@ -12,8 +12,28 @@ struct ChatModalityView: View {
    @Binding var modalAppeared: Bool
    @Binding var currentIndex: Int
    
+   @State var hasAnswered: Bool = false
+   
    var body: some View {
-      Correct(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, modalAppeared: $modalAppeared, currentIndex: $currentIndex)
+      ZStack{
+         if hasAnswered {
+            Correct(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, modalAppeared: $modalAppeared, currentIndex: $currentIndex, hasAnswered: $hasAnswered)
+               .transition(.move(edge: .bottom))
+         }else {
+            if let choices = chat.choice {
+               QuestionModalityView(choices: choices) {
+                  withAnimation{
+                     hasAnswered = true
+                  }
+               }
+               .transition(.move(edge: .bottom))
+            }else{
+               MicrophoneModalityView()
+                  .transition(.move(edge: .bottom))
+            }
+         }
+      }
+      .animation(.easeInOut, value: hasAnswered)
    }
 }
 

@@ -37,7 +37,7 @@ class LearnViewModel: ObservableObject {
     
     init() {
         loadLearnData()
-        print(learnData)
+//        print(learnData)
     }
    
     enum pinyinCase {

@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct HomeCardScrollView: View {
-   @ObservedObject var homeViewModel: HomeViewModel
-   @ObservedObject var viewModel: StoryViewModel
+   @EnvironmentObject var viewModel: HomeViewModel
    
    var body: some View {
       ScrollView(.horizontal, showsIndicators: false) {
@@ -36,5 +35,6 @@ struct HomeCardScrollView: View {
 }
 
 #Preview {
-   HomeCardScrollView(homeViewModel: HomeViewModel(), viewModel: StoryViewModel())
+   HomeCardScrollView()
+      .environmentObject(HomeViewModel())
 }
