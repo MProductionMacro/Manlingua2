@@ -15,7 +15,7 @@ struct QuestionModalityView: View {
    
    var choices: [String]
    
-   var onAnswerSelected: () -> Void // Closure to trigger when the user selects an answer
+   var onAnswerSelected: (String) -> Void // Closure to trigger when the user selects an answer
    
    var body: some View {
       VStack {
@@ -26,7 +26,7 @@ struct QuestionModalityView: View {
          LazyVGrid(columns: columns) {
             ForEach(choices, id: \.self) { choice in
                Button {
-                  onAnswerSelected()
+                  onAnswerSelected(choice)
                } label: {
                   Text(choice)
                }
@@ -43,7 +43,7 @@ struct QuestionModalityView: View {
 }
 
 #Preview {
-   QuestionModalityView(choices: ["Hello", "Hi", "Hey", "Here"], onAnswerSelected: {})
+   QuestionModalityView(choices: ["Hello", "Hi", "Hey", "Here"], onAnswerSelected: {_ in })
       .frame(maxHeight: .infinity)
       .background(.black)
 }
