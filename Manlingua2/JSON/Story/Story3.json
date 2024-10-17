@@ -1,33 +1,32 @@
-[
-    {
-        "id": 3,
-        "title": "Kontrak",
-        "pinyin": "hé tóng",
-        "hanzi": "合同",
-        "introduction": "Nama saya Abai. Saatnya membahas kontrak, dari pengaturan pengiriman hingga jadwal yang tepat. Bisakah saya memastikan semua berjalan sesuai rencana dengan mitra bisnis di Tiongkok? Yuk, kita pelajari bersama cara mengelola kontrak dengan baik!",
-        "subChapter": [
-            {
-                "id": 1,
-                "title": "Pembahasan Kontrak",
-                "pinyin": "hé tóng tǎo lùn",
-                "hanzi": "合同讨论",
-                "duration": 10
-            },
-            {
-                "id": 2,
-                "title": "Pengiriman",
-                "pinyin": "jiāo huò",
-                "hanzi": "交货",
-                "duration": 10
-            },
-            {
-                "id": 3,
-                "title": "Jadwal Pengiriman",
-                "pinyin": "jiāo huò shí jiān",
-                "hanzi": "交货时间",
-                "duration": 10
-            }
-            
-        ]
-    }
-]
+{
+    "id": 3,
+    "title": "Kontrak",
+    "pinyin": "hé tóng",
+    "hanzi": "合同",
+    "introduction": "Nama saya Abai. Saatnya membahas kontrak, dari pengaturan pengiriman hingga jadwal yang tepat. Bisakah saya memastikan semua berjalan sesuai rencana dengan mitra bisnis di Tiongkok? Yuk, kita pelajari bersama cara mengelola kontrak dengan baik!",
+    "subChapter": [
+        {
+            "id": 1,
+            "title": "Pembahasan Kontrak",
+            "pinyin": "hé tóng tǎo lùn",
+            "hanzi": "合同讨论",
+            "duration": 10
+        },
+        {
+            "id": 2,
+            "title": "Pengiriman",
+            "pinyin": "jiāo huò",
+            "hanzi": "交货",
+            "duration": 10
+        },
+        {
+            "id": 3,
+            "title": "Jadwal Pengiriman",
+            "pinyin": "jiāo huò shí jiān",
+            "hanzi": "交货时间",
+            "duration": 10
+        }
+
+    ]
+}
+
