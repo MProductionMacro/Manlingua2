@@ -60,6 +60,9 @@ class Router: ObservableObject {
       case .dictionary:
          DictionaryView()
             .navigationBarBackButtonHidden(true)
+      case .donePage:
+         DonePageView()
+            .navigationBarBackButtonHidden(true)
       }
    }
 }

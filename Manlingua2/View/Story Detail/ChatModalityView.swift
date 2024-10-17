@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChatModalityView: View {
    var chat: Chat_Example
+   
    @Binding var modalAppeared: Bool
    @Binding var currentIndex: Int
    
@@ -28,8 +29,12 @@ struct ChatModalityView: View {
                }
                .transition(.move(edge: .bottom))
             }else{
-               MicrophoneModalityView()
-                  .transition(.move(edge: .bottom))
+               MicrophoneModalityView(actionOnPressed: {
+                  withAnimation{
+                     hasAnswered = true
+                  }
+               })
+               .transition(.move(edge: .bottom))
             }
          }
       }

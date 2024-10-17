@@ -14,6 +14,8 @@ struct AudioBTN: View {
    @State var color : Color = .black
    @Binding var responseText : String
    
+   var actionOnPressed : () -> Void
+   
    var body: some View {
       Image(systemName:"mic.fill")
          .font(.system(size: 50))
@@ -28,6 +30,8 @@ struct AudioBTN: View {
                self.color = .blue
             },
             onPressingChanged: { changes in
+               actionOnPressed()
+               
                // changes dia awal pencet itu true buat ngerecord
                if changes {
                   //                                                controller.startRecording()
@@ -62,5 +66,5 @@ struct AudioBTN: View {
 }
 
 #Preview {
-   AudioBTN(responseText: .constant("Hello"))
+   AudioBTN(responseText: .constant("Hello"), actionOnPressed: {})
 }
