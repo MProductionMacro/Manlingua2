@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "Wǒmen lái quèrèn jiāohuò de shíjiān ba.",
+        "hanzi": "我们来确认交货的时间吧。",
+        "meaning": "Mari kita konfirmasi jadwal pengiriman."
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "Hǎo de, nín xīwàng shénme shíhòu fāhuò?",
+        "hanzi": "好的，您希望什么时候发货？",
+        "meaning": "Baik, kapan Anda ingin barang dikirim?"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "fāhuò",
+        "hanzi": "发货",
+        "meaning": "Mengirim barang",
+        "choice": [
+            "Mengirim barang",
+            "Membayar barang",
+            "Memesan barang",
+            "Menerima barang"
+        ],
+        "question": "Apa arti dari 发货?",
+        "answer": "Mengirim barang"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "Wǒmen xīwàng zài xià zhōuyī fāhuò, kěyǐ ma?",
+        "hanzi": "我们希望在下周一发货，可以吗？",
+        "meaning": "Kami ingin barang dikirim pada Senin depan, apakah bisa?"
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "quèrèn",
+        "hanzi": "确认",
+        "meaning": "Konfirmasi",
+        "choice": [
+            "Mengirim",
+            "Konfirmasi",
+            "Menolak",
+            "Menunggu"
+        ],
+        "question": "Coba dengar, apa arti dari 确认?",
+        "answer": "Konfirmasi"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "Xià zhōuyī fāhuò kěyǐ, bùguò xūyào tíqián quèrèn.",
+        "hanzi": "下周一发货可以，不过需要提前确认。",
+        "meaning": "Pengiriman Senin depan bisa, tetapi perlu konfirmasi sebelumnya."
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "Wǒmen huì zài zhōuwǔ zhīqián quèrèn dìngdān.",
+        "hanzi": "我们会在周五之前确认订单。",
+        "meaning": "Kami akan mengonfirmasi pesanan sebelum Jumat."
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "dìngdān",
+        "hanzi": "订单",
+        "meaning": "Pesanan",
+        "speaking": "repeating",
+        "question": "Coba ulangi 订单."
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "Tài hǎo le, zhōuwǔ quèrèn zhīhòu, wǒmen jiù ānpái fāhuò.",
+        "hanzi": "太好了，周五确认之后，我们就安排发货。",
+        "meaning": "Bagus sekali, setelah konfirmasi Jumat, kami akan mengatur pengiriman."
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "Hǎo de, wǒmen huì děng nín de quèrèn.",
+        "hanzi": "好的，我们会等您的确认。",
+        "meaning": "Baik, kami akan menunggu konfirmasi Anda."
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "Fāhuò zhīhòu, wǒmen huì tōngzhī nín.",
+        "hanzi": "发货之后，我们会通知您。",
+        "meaning": "Setelah pengiriman, kami akan memberitahukan Anda."
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "Hěn hǎo, wǒmen qídài hézuò!",
+        "hanzi": "很好，我们期待合作！",
+        "meaning": "Bagus, kami menantikan kerja sama!"
+    }
+]

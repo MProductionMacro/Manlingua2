@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ConfirmationView: View {
     @Binding var isShowingConfirmation: Bool
     @ObservedObject var homeVM: HomeViewModel

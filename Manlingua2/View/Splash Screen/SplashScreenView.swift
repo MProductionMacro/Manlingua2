@@ -19,9 +19,16 @@ struct SplashScreenView: View {
          router.build(.mainScreen)
          
          ZStack{
-            Color.gold1
-               .edgesIgnoringSafeArea(.all)
-
+            LinearGradient(
+               stops: [
+                  Gradient.Stop(color: Color(red: 1, green: 0.72, blue: 0.3), location: 0.00),
+                  Gradient.Stop(color: Color(red: 1, green: 0.83, blue: 0), location: 1.00),
+               ],
+               startPoint: UnitPoint(x: 0.5, y: 0),
+               endPoint: UnitPoint(x: 0.5, y: 1)
+            )
+            .ignoresSafeArea()
+            
             VStack {
                LogoAnimationView(images: ["orangeLeft1", "orangeRight1", "orangeMiddle1"], logoAnimation: logoAnimation)
                   .onAppear {
@@ -63,6 +70,10 @@ struct SplashScreenView: View {
    }
 }
 
-//#Preview {
-//   SplashScreenView()
-//}
+#Preview {
+   SplashScreenView()
+      .environmentObject(Router())
+      .environmentObject(HomeViewModel())
+      .environmentObject(StoryViewModel())
+      .environmentObject(LearnViewModel())
+}

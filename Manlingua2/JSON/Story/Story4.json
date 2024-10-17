@@ -1,0 +1,31 @@
+{
+    "id": 4,
+    "title": "Pembayaran",
+    "pinyin": "zhī fù",
+    "hanzi": "支付",
+    "introduction": "Nama saya Abai. Saatnya menuntaskan transaksi dari pembayaran hingga penerimaan barang. Bisakah saya menyelesaikan semua dengan lancar dan memastikan kerjasama yang sukses? Yuk, kita pelajari caranya bersama!",
+    "subChapter": [
+        {
+            "id": 1,
+            "title": "Pembayaran",
+            "pinyin": "zhī fù",
+            "hanzi": "支付",
+            "duration": 10
+        },
+        {
+            "id": 2,
+            "title": "Penerimaan Barang",
+            "pinyin": "shōu huò",
+            "hanzi": "收货",
+            "duration": 10
+        },
+        {
+            "id": 3,
+            "title": "Penyelesaian Akhir",
+            "pinyin": "zuì zhōng jiě jué",
+            "hanzi": "最终解决",
+            "duration": 10
+        }
+    ]
+}
+

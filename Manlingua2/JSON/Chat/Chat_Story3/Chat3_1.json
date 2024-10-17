@@ -1,15 +1,104 @@
 [
-  {
-    "id": 1,
-    "speaker": "Teacher",
-    "pinyin": "Shuǐ, chá",
-    "hanzi": "水, 茶",
-    "meaning": "Water, Tea"
-  },
-  {
-    "id": 2,
-    "speaker": "Student",
-    "pinyin": "Kāfēi, guǒzhī",
-    "hanzi": "咖啡, 果汁",
-    "meaning": "Coffee, Juice"
-  }
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "Wǒmen lái tǎolùn hétóng ba.",
+        "hanzi": "我们来讨论合同吧。",
+        "meaning": "Mari kita bahas kontrak."
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "Hǎo de, wǒmen kěyǐ cóng tiáojiàn kāishǐ ma?",
+        "hanzi": "好的，我们可以从条件开始吗？",
+        "meaning": "Baik, bisakah kita mulai dari syarat-syaratnya?"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "hétóng",
+        "hanzi": "合同",
+        "meaning": "Kontrak",
+        "choices": {
+            "a": "Perjanjian",
+            "b": "Syarat",
+            "c": "Kontrak",
+            "d": "Penawaran"
+        },
+        "answer": "c",
+        "question": "Apa arti dari 合同 (hétóng)?"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "Dāngrán kěyǐ. Wǒmen huì quèbǎo suǒyǒu tiáojiàn dōu qīngchǔ.",
+        "hanzi": "当然可以。我们会确保所有条件都清楚。",
+        "meaning": "Tentu saja. Kami akan memastikan semua syarat jelas."
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "tiáojiàn",
+        "hanzi": "条件",
+        "meaning": "Syarat",
+        "choices": {
+            "a": "Harga",
+            "b": "Syarat",
+            "c": "Barang",
+            "d": "Waktu"
+        },
+        "answer": "b",
+        "question": "Coba dengar, apa arti dari 条件 (tiáojiàn)?"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "Zhè cì hétóng de jiāohuò shíjiān shì duō jiǔ?",
+        "hanzi": "这次合同的交货时间是多久？",
+        "meaning": "Berapa lama waktu pengiriman untuk kontrak kali ini?"
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "Jiāohuò shíjiān shì liǎng zhōu. Kěyǐ ma?",
+        "hanzi": "交货时间是两周。可以吗？",
+        "meaning": "Waktu pengirimannya adalah dua minggu. Apakah itu baik?"
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "jiāohuò shíjiān",
+        "hanzi": "交货时间",
+        "meaning": "Waktu pengiriman",
+        "speaking": "repeating",
+        "question": "Coba ulangi 交货时间 (jiāohuò shíjiān)."
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "Liǎng zhōu de jiāohuò shíjiān kěyǐ jiēshòu.",
+        "hanzi": "两周的交货时间可以接受。",
+        "meaning": "Waktu pengiriman dua minggu dapat diterima."
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "Hǎo de, wǒmen huì zūnshǒu shíjiān biǎo.",
+        "hanzi": "好的，我们会遵守时间表。",
+        "meaning": "Baik, kita akan mematuhi jadwalnya."
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "Jiàgé fāngmiàn ne? Kěyǐ zài tántán ma?",
+        "hanzi": "价格方面呢？可以再谈谈吗？",
+        "meaning": "Bagaimana dengan harga? Bisakah kita membahasnya lebih lanjut?"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "Méi wèntí, wǒmen kěyǐ zài tǎolùn jiàgé.",
+        "hanzi": "没问题，我们可以再讨论价格。",
+        "meaning": "Tidak masalah, kita bisa membahas harga lagi."
+    }
+]
