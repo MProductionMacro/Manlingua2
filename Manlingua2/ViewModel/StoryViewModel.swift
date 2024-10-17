@@ -106,6 +106,20 @@ class StoryViewModel: ObservableObject {
 //      print(stories)
    }
    
+   func onTapDetectionChat(_ location: CGPoint, _ midPoint: CGFloat, _ currentIndex: inout Int){
+      if location.x < midPoint {
+         // Tapped left screen, move to previous item
+         if currentIndex > 0 {
+            currentIndex -= 1
+         }
+      } else {
+         // Tapped right screen, move to next item
+         if currentIndex < chat_example.count - 1 {
+            currentIndex += 1
+         }
+      }
+   }
+   
    func loadChat(){
       guard let url = Bundle.main.url(forResource: "Chat1_1", withExtension: "json") else {
          print("File not found")

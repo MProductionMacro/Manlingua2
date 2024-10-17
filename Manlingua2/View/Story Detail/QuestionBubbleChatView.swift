@@ -11,6 +11,8 @@ struct QuestionBubbleChatView: View {
    var hanzi: String
    var pinyin: String
    
+   @State private var showQuestionModal: Bool = false
+   
    var body: some View {
       HStack {
          Spacer()
@@ -23,6 +25,7 @@ struct QuestionBubbleChatView: View {
                
                Text(pinyin)
                   .font(.pinyin())
+                  .fontWeight(.bold)
                   .foregroundColor(.gray)
                
                // Chinese characters
@@ -47,6 +50,9 @@ struct QuestionBubbleChatView: View {
          Image(.orangeSpeaker2)
             .resizable()
             .frame(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.height  * 0.08)
+      }
+      .onAppear {
+         showQuestionModal = true
       }
    }
 }

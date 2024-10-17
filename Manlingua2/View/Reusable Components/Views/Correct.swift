@@ -11,7 +11,9 @@ struct Correct: View {
    var hanzi: String
    var pinyin: String
    var meaning: String
-   @ObservedObject var viewModel: StoryViewModel
+   
+   @Binding var modalAppeared: Bool
+   @Binding var currentIndex: Int
    
    var body: some View {
       VStack(alignment: .leading, spacing: 24) {
@@ -53,22 +55,26 @@ struct Correct: View {
          
          HStack(spacing: 16) {
             TryAgainButton(action: {
-               
+               modalAppeared = false
+               currentIndex -= 1
             })
             
             ContinueButton(action: {
-               
+               modalAppeared = false
+               currentIndex += 1
             })
          }
       }
+      .edgesIgnoringSafeArea(.bottom)
       .frame(maxWidth: .infinity)
       .padding(.horizontal)
-      .padding(.vertical, 24)
+      .padding(.top, 24)
+      .padding(.bottom, 36)
       .background(.greenLight)
       .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
    }
 }
 
 #Preview {
-   Correct(hanzi: "猫", pinyin: "Māo", meaning: "How many people", viewModel: StoryViewModel())
+   Correct(hanzi: "猫", pinyin: "Māo", meaning: "How many people", modalAppeared: .constant(true), currentIndex: .constant(1))
 }

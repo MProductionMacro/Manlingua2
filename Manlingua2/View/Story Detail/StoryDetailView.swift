@@ -15,6 +15,7 @@ struct StoryDetailView: View {
    
    @State var currentIndex: Int = 0
    @State var tutorialOverlay: Int = 1
+   @State var modalAppeared: Bool = false
    
    var body: some View {
       GeometryReader { geometry in
@@ -37,34 +38,44 @@ struct StoryDetailView: View {
                }
                .padding(.horizontal)
                
-               ScrollView{
-                  ForEach(0...currentIndex, id: \.self) { index in
-                     let chat = viewModel.chat_example[index]
-                     
-                     BubbleChatView(chat: .constant(chat), type: chat.type)
+               ScrollViewReader { proxy in
+                  ScrollView{
+                     VStack(spacing: 0){
+                        ForEach(0...currentIndex, id: \.self) { index in
+                           let chat = viewModel.chat_example[index]
+                           
+                           BubbleChatView(chat: .constant(chat), type: chat.type)
+                              .id(index)
+                        }
+                     }
+                  }
+                  .onChange(of: currentIndex) { oldValue, newValue in
+                     //                     withAnimation {
+                     proxy.scrollTo(newValue, anchor: .bottom)
+                     //                     }
                   }
                }
+               .padding(.bottom)
                
-               Spacer()
+               //TODO: Ini jadi view baru buat bedain Question, Correct, atau Wrong modality
+               if viewModel.chat_example[currentIndex].type == .question {
+                  ChatModalityView(chat: viewModel.chat_example[currentIndex], modalAppeared: $modalAppeared, currentIndex: $currentIndex)
+                     .onAppear {
+                        modalAppeared = true
+                     }
+               }
             }
+            .edgesIgnoringSafeArea(.bottom)
             .background(
                Image(.chatBackground)
                   .scaledToFill()
             )
             .onTapGesture { location in
-               let screenWidth = geometry.size.width
-               let midPoint = screenWidth / 2
-               
-               if location.x < midPoint {
-                  // Tapped left screen, move to previous item
-                  if currentIndex > 0 {
-                     currentIndex -= 1
-                  }
-               } else {
-                  // Tapped right screen, move to next item
-                  if currentIndex < viewModel.chat_example.count - 1 {
-                     currentIndex += 1
-                  }
+               if !modalAppeared {
+                  let screenWidth = geometry.size.width
+                  let midPoint = screenWidth / 2
+                  
+                  viewModel.onTapDetectionChat(location, midPoint, &currentIndex)
                }
             }
             

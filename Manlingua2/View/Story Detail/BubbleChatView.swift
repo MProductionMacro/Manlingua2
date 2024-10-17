@@ -12,7 +12,6 @@ struct BubbleChatView: View {
    var type: ChatType
    
    var body: some View {
-      //      GeometryReader { geometry in
       HStack(spacing: 0) {
          switch type {
          case .speaker1:
@@ -28,7 +27,6 @@ struct BubbleChatView: View {
                .padding(.trailing)
          }
       }
-      //      }
    }
 }
 
