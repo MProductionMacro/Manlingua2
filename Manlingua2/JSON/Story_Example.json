@@ -13,6 +13,7 @@
         "pinyin": "Wèn hòu hé jièshào",
         "hanzi": "问候和介绍",
         "duration": 300,
+        "chat_json": "Chat1_1",
         "isDone": false
       },
       {
@@ -21,6 +22,7 @@
         "pinyin": "Wèn hòu hé jièshào",
         "hanzi": "问候和介绍",
         "duration": 300,
+        "chat_json": "Chat1_2",
         "isDone": false
       },
       {
@@ -29,6 +31,7 @@
         "pinyin": "Wèn hòu hé jièshào",
         "hanzi": "问候和介绍",
         "duration": 300,
+        "chat_json": "Chat1_3",
         "isDone": false
       },
       {
@@ -37,6 +40,7 @@
         "pinyin": "Wèn hòu hé jièshào",
         "hanzi": "问候和介绍",
         "duration": 300,
+        "chat_json": "Chat1_3",
         "isDone": false
       },
       {
@@ -45,6 +49,7 @@
         "pinyin": "Wèn hòu hé jièshào",
         "hanzi": "问候和介绍",
         "duration": 300,
+        "chat_json": "Chat1_3",
         "isDone": false
       }
     ],
@@ -64,6 +69,7 @@
         "pinyin": "Jīchǔ shùzì",
         "hanzi": "基础数字",
         "duration": 300,
+        "chat_json": "Chat2_1",
         "isDone": false
       },
       {
@@ -72,6 +78,7 @@
         "pinyin": "Jīchǔ yánsè",
         "hanzi": "基础颜色",
         "duration": 300,
+        "chat_json": "Chat2_2",
         "isDone": false
       },
       {
@@ -80,6 +87,7 @@
         "pinyin": "Jīchǔ shùzì",
         "hanzi": "基础数字",
         "duration": 300,
+        "chat_json": "Chat2_3",
         "isDone": false
       },
       {
@@ -88,6 +96,7 @@
         "pinyin": "Jīchǔ yánsè",
         "hanzi": "基础颜色",
         "duration": 300,
+        "chat_json": "Chat2_3",
         "isDone": false
       },
       {
@@ -96,6 +105,7 @@
         "pinyin": "Jīchǔ shùzì",
         "hanzi": "基础数字",
         "duration": 300,
+        "chat_json": "Chat2_3",
         "isDone": false
       }
     ],
@@ -115,6 +125,7 @@
         "pinyin": "Shíwù",
         "hanzi": "食物",
         "duration": 300,
+        "chat_json": "Chat3_1",
         "isDone": false
       },
       {
@@ -123,6 +134,7 @@
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
         "duration": 300,
+        "chat_json": "Chat3_2",
         "isDone": false
       },
       {
@@ -131,6 +143,7 @@
         "pinyin": "Shíwù",
         "hanzi": "食物",
         "duration": 300,
+        "chat_json": "Chat3_3",
         "isDone": false
       },
       {
@@ -139,6 +152,7 @@
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
         "duration": 300,
+        "chat_json": "Chat3_3",
         "isDone": false
       },
       {
@@ -147,6 +161,7 @@
         "pinyin": "Shíwù",
         "hanzi": "食物",
         "duration": 300,
+        "chat_json": "Chat3_3",
         "isDone": false
       }
     ],
@@ -166,6 +181,7 @@
         "pinyin": "Shíwù",
         "hanzi": "食物",
         "duration": 300,
+        "chat_json": "Chat4_1",
         "isDone": false
       },
       {
@@ -174,6 +190,7 @@
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
         "duration": 300,
+        "chat_json": "Chat4_2",
         "isDone": false
       },
       {
@@ -182,6 +199,7 @@
         "pinyin": "Shíwù",
         "hanzi": "食物",
         "duration": 300,
+        "chat_json": "Chat4_3",
         "isDone": false
       },
       {
@@ -190,6 +208,7 @@
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
         "duration": 300,
+        "chat_json": "Chat4_3",
         "isDone": false
       },
       {
@@ -198,6 +217,7 @@
         "pinyin": "Shíwù",
         "hanzi": "食物",
         "duration": 300,
+        "chat_json": "Chat4_3",
         "isDone": false
       }
     ],
@@ -217,6 +237,7 @@
         "pinyin": "Shíwù",
         "hanzi": "食物",
         "duration": 300,
+        "chat_json": "Chat4_3",
         "isDone": false
       },
       {
@@ -225,6 +246,7 @@
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
         "duration": 300,
+        "chat_json": "Chat4_3",
         "isDone": false
       },
       {
@@ -233,6 +255,7 @@
         "pinyin": "Shíwù",
         "hanzi": "食物",
         "duration": 300,
+        "chat_json": "Chat4_3",
         "isDone": false
       },
       {
@@ -241,6 +264,7 @@
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
         "duration": 300,
+        "chat_json": "Chat4_3",
         "isDone": false
       },
       {
@@ -249,6 +273,7 @@
         "pinyin": "Shíwù",
         "hanzi": "食物",
         "duration": 300,
+        "chat_json": "Chat4_3",
         "isDone": false
       }
     ],

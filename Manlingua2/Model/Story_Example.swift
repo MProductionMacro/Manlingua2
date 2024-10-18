@@ -41,5 +41,6 @@ struct SubChapter_Example: Codable, Identifiable, Hashable {
    let pinyin: String
    let hanzi: String
    let duration: Int
+   let chat_json: String
    let isDone: Bool
 }

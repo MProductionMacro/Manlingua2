@@ -35,6 +35,9 @@ struct Manlingua2App: App {
          .environmentObject(storyViewModel)
          .environmentObject(learnViewModel)
          .environmentObject(FlashcardViewModel())
+         .onAppear {
+            StoryProgressManager.unlockFirstChapterIfNeeded()
+         }
          //         SidebarButton()
       }
       

@@ -38,7 +38,7 @@ struct HomeCardView: View {
          }
          
          HStack {
-            PrimaryButtonView(isDisabled: isDisabled)
+            PrimaryButtonView(isDisabled: isDisabled, id: story.id)
             CardMenuButtonView(isDisabled: isDisabled)
          }
       }
@@ -46,11 +46,7 @@ struct HomeCardView: View {
       .background(.white)
       .clipShape(.rect(cornerRadius: 24))
       .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
-//      .frame(width: 232)
       .frame(maxHeight: .infinity, alignment: .top)
-      .onAppear {
-         isDisabled = !StoryProgressManager.isChapterUnlocked(chapterId: story.id)
-      }
    }
 }
 

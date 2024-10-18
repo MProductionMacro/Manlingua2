@@ -10,13 +10,17 @@ import SwiftUI
 struct HomeCardScrollView: View {
    @EnvironmentObject var viewModel: HomeViewModel
    
+   let currentChapter: Int = StoryProgressManager.getCurrentChapter()
+   
    var body: some View {
       ScrollView(.horizontal, showsIndicators: false) {
          HStack(spacing: 24) {
             ForEach(viewModel.stories_example, id: \.id) { stories in
+               let isDisabled = stories.id > currentChapter
+               
                HomeCardView(
                   homeCard: .story1Thumbnail,
-                  isDisabled: !StoryProgressManager.isChapterUnlocked(chapterId: stories.id),
+                  isDisabled: isDisabled,
                   isComplete: false,
                   story: stories
                )
@@ -27,9 +31,6 @@ struct HomeCardScrollView: View {
          .padding(.top, 36)
       }
       .ignoresSafeArea()
-      .onAppear {
-         StoryProgressManager.unlockFirstChapterIfNeeded()
-      }
    }
 }
 

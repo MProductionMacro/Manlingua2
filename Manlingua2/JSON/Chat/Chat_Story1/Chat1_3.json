@@ -4,14 +4,16 @@
         "speaker": "Abai",
         "pinyin": "Wǒmen lái hē chá ba!",
         "hanzi": "我们来喝茶吧！",
-        "meaning": "Mari kita minum teh!"
+        "meaning": "Mari kita minum teh!",
+        "type": "speaker1"
     },
     {
         "id": 2,
         "speaker": "Asui",
         "pinyin": "Hǎo de, wǒ gāng pào le yì hú lǜchá.",
         "hanzi": "好的，我刚泡了一壶绿茶。",
-        "meaning": "Baiklah, saya baru saja menyeduh teh hijau."
+        "meaning": "Baiklah, saya baru saja menyeduh teh hijau.",
+        "type": "speaker2"
     },
     {
         "id": 3,
@@ -21,14 +23,16 @@
         "meaning": "Teh hijau",
         "choice": ["Teh hijau", "Teh hitam", "Teh susu", "Teh manis"],
         "answer": "Teh hijau",
-        "question": "Apa arti dari 绿茶?"
+        "question": "Apa arti dari 绿茶?",
+        "type": "questiohn"
     },
     {
         "id": 4,
         "speaker": "Abai",
         "pinyin": "Xièxiè! Wǒ hěn xǐhuān hē lǜchá.",
         "hanzi": "谢谢！我很喜欢喝绿茶。",
-        "meaning": "Terima kasih! Saya sangat suka teh hijau."
+        "meaning": "Terima kasih! Saya sangat suka teh hijau.",
+        "type": "speaker1"
     },
     {
         "id": 5,
@@ -38,21 +42,24 @@
         "meaning": "Menyukai",
         "choice": ["Menyukai", "Membeli", "Memesan", "Mencoba"],
         "answer": "Menyukai",
-        "question": "Apa arti dari 喜欢?"
+        "question": "Apa arti dari 喜欢?",
+        "type": "question"
     },
     {
         "id": 6,
         "speaker": "Asui",
         "pinyin": "Nǐ juéde zhè cì huìyì yǒu shōuhuò ma?",
         "hanzi": "你觉得这次会议有收获吗？",
-        "meaning": "Menurut Anda, apakah konferensi kali ini bermanfaat?"
+        "meaning": "Menurut Anda, apakah konferensi kali ini bermanfaat?",
+        "type": "speaker2"
     },
     {
         "id": 7,
         "speaker": "Abai",
         "pinyin": "Shì de, zhè cì huìyì gěi le wǒmen hěn duō xīn de jīhuì.",
         "hanzi": "是的，这次会议给了我们很多新的机会。",
-        "meaning": "Ya, konferensi ini memberi kami banyak peluang baru."
+        "meaning": "Ya, konferensi ini memberi kami banyak peluang baru.",
+        "type": "speaker1"
     },
     {
         "id": 8,
@@ -61,34 +68,39 @@
         "hanzi": "收获",
         "meaning": "Manfaat",
         "speaking": "repeating",
-        "question": "Coba ulangi 收获."
+        "question": "Coba ulangi 收获.",
+        "type": "question"
     },
     {
         "id": 9,
         "speaker": "Asui",
         "pinyin": "Nà tài hǎo le, jīhuì zǒng shì hěn zhòngyào de.",
         "hanzi": "那太好了，机会总是很重要的。",
-        "meaning": "Itu sangat bagus, peluang selalu sangat penting."
+        "meaning": "Itu sangat bagus, peluang selalu sangat penting.",
+        "type": "speaker2"
     },
     {
         "id": 10,
         "speaker": "Abai",
         "pinyin": "Shì de, fēicháng zhòngyào.",
         "hanzi": "是的，非常重要。",
-        "meaning": "Ya, sangat penting."
+        "meaning": "Ya, sangat penting.",
+        "type": "speaker1"
     },
     {
         "id": 11,
         "speaker": "Asui",
         "pinyin": "Hǎo de, wǒmen jìxù hē chá ba!",
         "hanzi": "好的，我们继续喝茶吧！",
-        "meaning": "Baiklah, mari kita lanjutkan minum teh!"
+        "meaning": "Baiklah, mari kita lanjutkan minum teh!",
+        "type": "speaker2"
     },
     {
         "id": 12,
         "speaker": "Abai",
         "pinyin": "Hǎo de, xièxiè nǐ zhāodài wǒmen!",
         "hanzi": "好的，谢谢你招待我们！",
-        "meaning": "Baiklah, terima kasih telah menjamu kami!"
+        "meaning": "Baiklah, terima kasih telah menjamu kami!",
+        "type": "speaker1"
     }
 ]

@@ -4,14 +4,16 @@
         "speaker": "Abai",
         "pinyin": "Nǐ zuìjìn qù nǎlǐ lǚxíng le ma?",
         "hanzi": "你最近去哪里旅行了吗？",
-        "meaning": "Apakah Anda bepergian akhir-akhir ini?"
+        "meaning": "Apakah Anda bepergian akhir-akhir ini?",
+        "type": "speaker1"
     },
     {
         "id": 2,
         "speaker": "Asui",
         "pinyin": "Shì de, wǒ gāng cóng Běijīng huílái. Nǐ ne?",
         "hanzi": "是的，我刚从北京回来。你呢？",
-        "meaning": "Ya, saya baru saja kembali dari Beijing. Bagaimana dengan Anda?"
+        "meaning": "Ya, saya baru saja kembali dari Beijing. Bagaimana dengan Anda?",
+        "type": "speaker2"
     },
     {
         "id": 3,
@@ -21,14 +23,16 @@
         "meaning": "Bepergian",
         "choice": ["Makan", "Bepergian", "Tidur", "Bermain"],
         "answer": "Bepergian",
-        "question": "Apa arti dari 旅行?"
+        "question": "Apa arti dari 旅行?",
+        "type": "question"
     },
     {
         "id": 4,
         "speaker": "Abai",
         "pinyin": "Wǒ zuìjìn qù le Shànghǎi cānjiā yí gè huìyì.",
         "hanzi": "我最近去了上海参加一个会议。",
-        "meaning": "Saya baru saja pergi ke Shanghai untuk menghadiri sebuah konferensi."
+        "meaning": "Saya baru saja pergi ke Shanghai untuk menghadiri sebuah konferensi.",
+        "type": "speaker1"
     },
     {
         "id": 5,
@@ -38,21 +42,24 @@
         "meaning": "Konferensi",
         "choice": ["Konferensi", "Makan malam", "Berbelanja", "Beristirahat"],
         "answer": "Konferensi",
-        "question": "Coba dengar, apa arti dari 会议?"
+        "question": "Coba dengar, apa arti dari 会议?",
+        "type": "question"
     },
     {
         "id": 6,
         "speaker": "Asui",
         "pinyin": "Wā, Shànghǎi hěn hǎo! Nǐmen tǎolùn le shénme?",
         "hanzi": "哇，上海很好！你们讨论了什么？",
-        "meaning": "Wah, Shanghai itu bagus! Apa yang kalian diskusikan?"
+        "meaning": "Wah, Shanghai itu bagus! Apa yang kalian diskusikan?",
+        "type": "speaker2"
     },
     {
         "id": 7,
         "speaker": "Abai",
         "pinyin": "Wǒmen tǎolùn le jīnnián de chūkǒu jīhuì.",
         "hanzi": "我们讨论了今年的出口机会。",
-        "meaning": "Kami mendiskusikan peluang ekspor tahun ini."
+        "meaning": "Kami mendiskusikan peluang ekspor tahun ini.",
+        "type": "speaker1"
     },
     {
         "id": 8,
@@ -61,35 +68,40 @@
         "hanzi": "机会",
         "meaning": "Peluang",
         "speaking": "repeating",
-        "question": "Coba ulangi 机会."
+        "question": "Coba ulangi 机会.",
+        "type": "question"
     },
     {
         "id": 9,
         "speaker": "Asui",
         "pinyin": "Nà tài hǎo le! Wǒmen yě zài xúnzhǎo xīn de hézuò jīhuì.",
         "hanzi": "那太好了！我们也在寻找新的合作机会。",
-        "meaning": "Itu luar biasa! Kami juga sedang mencari peluang kerja sama baru."
+        "meaning": "Itu luar biasa! Kami juga sedang mencari peluang kerja sama baru.",
+        "type": "speaker2"
     },
     {
         "id": 10,
         "speaker": "Abai",
         "pinyin": "Xīwàng wǒmen kěyǐ hézuò!",
         "hanzi": "希望我们可以合作！",
-        "meaning": "Semoga kita bisa bekerja sama!"
+        "meaning": "Semoga kita bisa bekerja sama!",
+        "type": "speaker1"
     },
     {
         "id": 11,
         "speaker": "Asui",
         "pinyin": "Hǎo de, qídài hézuò de jīhuì!",
         "hanzi": "好的，期待合作的机会！",
-        "meaning": "Baik, menantikan kesempatan bekerja sama!"
+        "meaning": "Baik, menantikan kesempatan bekerja sama!",
+        "type": "speaker2"
     },
     {
         "id": 12,
         "speaker": "Abai",
         "pinyin": "Yídìng huì yǒu hěn hǎo de jīhuì.",
         "hanzi": "一定会有很好的机会。",
-        "meaning": "Pasti akan ada peluang yang baik."
+        "meaning": "Pasti akan ada peluang yang baik.",
+        "type": "speaker1"
     }
 ]
 
