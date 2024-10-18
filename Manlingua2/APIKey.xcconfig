@@ -1,0 +1,11 @@
+//
+//  APIKey.xcconfig
+//  SampleMacro
+//
+//  Created by Reynard Octavius Tan on 15/10/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY = Bearer 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
