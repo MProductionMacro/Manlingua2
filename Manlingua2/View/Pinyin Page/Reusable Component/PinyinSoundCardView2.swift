@@ -14,7 +14,7 @@ struct PinyinSoundCardView2: View {
     var speak: String
 
     
-    @State var angka = 0
+    @State var audioController = AudioController()
     
     var body: some View {
         VStack(spacing: 10) {
@@ -26,7 +26,7 @@ struct PinyinSoundCardView2: View {
             BubbleSoundButton(
                 icon: "sound",
                 buttonAction: {
-                    let tts = TextToSpeech()
+                    audioController.playSoundFromData(speak: speak)
 
                     //tts.speakSlow(text: text)
                     /*

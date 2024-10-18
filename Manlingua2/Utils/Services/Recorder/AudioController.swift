@@ -1,8 +1,8 @@
 //
-//  AudioController.swift
-//  Manlingua2
+//  AudioRecordingManager.swift
+//  SampleMacro
 //
-//  Created by Reynard Octavius Tan on 15/10/24.
+//  Created by Reynard Octavius Tan on 11/10/24.
 //
 
 import Foundation
@@ -113,6 +113,23 @@ class AudioController: NSObject {
     
     func getAudioFileName() -> URL?{
         return audioFileName
+    }
+    
+    func requestPermission(completion: @escaping (Bool) -> Void){
+        AVAudioApplication.requestRecordPermission {  granted in
+            DispatchQueue.main.async {
+                if granted {
+                    completion(true)
+                    print("Permission granted.")
+//                    print("Permission granted.")
+//                    self?.startRecording()
+                    
+                }else{
+                    completion(false)
+//                    print("Permission denied.")
+                }
+            }
+        }
     }
     
 }

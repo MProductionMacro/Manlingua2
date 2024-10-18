@@ -42,6 +42,7 @@ enum ChatType: String, Codable {
 }
 
 
+
 /// Terdapat 2 jenis aktivitas speaking yang dapat dilakukan oleh user
 /// - Case :
 ///   - `repeating`: aktivitas speaking ketika user diminta untuk mengulangi sebuah kalimat

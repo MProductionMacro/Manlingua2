@@ -4,7 +4,7 @@
 //
 //  Created by Paulus Michael on 07/10/24.
 //
-
+/*
 import SwiftUI
 
 struct FlashcardSwipeView: View {
@@ -220,4 +220,150 @@ extension View {
       condition ? AnyView(transform(self)) : AnyView(self)
    }
 }
+*/
 
+/*
+import SwiftUI
+
+struct FlashcardView: View {
+   let vocab: String
+   var width: CGFloat = 300
+   var height: CGFloat = 200
+   
+   var body: some View {
+      //        let soundButtonSize = min(40, 40)
+      ZStack {
+         Image(vocab)
+            .resizable()
+            .scaledToFit()
+            .frame(width: width, height: height)
+      }
+      //            .shadow(radius: 1.5)
+      //            .overlay(
+      //                SoundButton(vocab: vocab)
+      //                    .frame(width: 30, height: 30)
+      //                    .padding(.top, height * 0.65)
+      //                    .padding(.leading, width * 0.24)
+      //            )
+   }
+}
+
+#Preview {
+   FlashcardView(vocab: "谢谢", width: 300, height: 400)
+}
+*/
+
+
+
+
+
+/*
+struct FlashcardPageView: View {
+    @ObservedObject var viewModel1: StoryViewModel
+    @StateObject var viewModel = FlashcardViewModel()
+    @State var tutorialOverlay: Int = 1
+    
+    var body: some View {
+        ZStack {
+            VStack {
+                HStack(spacing: 4) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 32))
+                            .frame(width: 32, height: 32)
+                            .foregroundStyle(.orange3)
+                    }
+                    Spacer()
+                    ProgressView(value: viewModel.getProgress())
+                        .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
+                }
+                .padding(.horizontal)
+                
+                Spacer()
+                
+                ZStack{
+                    ForEach(0 ..< viewModel.stories[viewModel.currentIndex].flashcard.count, id: \.self) { index in
+            
+                        if index >= viewModel.currentIndex {
+        
+                            createFlashcardView(for: index)
+                                .zIndex(Double(viewModel.stories[viewModel.currentIndex].flashcard.count - index))
+                                .onAppear{
+                                    print(0)
+                                }
+                            
+                        }
+                    }
+                }
+                .gesture(createDragGesture())
+                .padding(.bottom, 90)
+                
+                
+                if viewModel.isCheck{
+                    
+                }
+                else if viewModel.checkResult {
+                    Correct(hanzi: "ABCD", pinyin: "ABCD", meaning: "ABCD", viewModel: viewModel1)
+                }
+                else{
+                    Wrong(hanzi: "ABCD", pinyin: "ABCD", meaning: "ABCD", viewModel: viewModel1)
+                }
+                
+            }
+            .background(.customBeige)
+            .ignoresSafeArea(.container, edges: .bottom)
+            .overlay{
+                //FlashcardTutorialOverlay(tutorialOverlay: $tutorialOverlay)
+            }
+            
+            FlashcardSidebarButton(){
+                tutorialOverlay = tutorialOverlay + 1
+            }
+            .offset(y: 165)
+
+        }
+        
+    }
+   
+    private func createFlashcardView(for index: Int) -> some View {
+        ZStack {
+            FlashcardView(vocab: viewModel.stories[viewModel.currentIndex].flashcard[index], width: 300, height: 400)
+                .if(index == viewModel.currentIndex) { view in
+                    view
+                        //.opacity(opacity)
+                        .opacity(1.0)
+                        .offset(x: viewModel.offset.width)
+                        .offset(y: viewModel.offset.height * 0.4)
+                        .rotationEffect(.degrees(viewModel.offset.width / 40.0))
+                        .animation(.spring(), value: viewModel.offset)
+                }
+                .if(index == viewModel.currentIndex - 1) { view in
+                    view
+                        .opacity(1.0)
+                        .offset(x: -300 + viewModel.offset.width)
+                        .zIndex(Double(viewModel.stories[viewModel.currentIndex].flashcard.count - index))
+                        .animation(.spring(), value: viewModel.offset)
+                }
+                .onAppear{
+                    print(1)
+                }
+             
+        }
+        .frame(width: 300, height: 400)
+    }
+    
+    private func createDragGesture() -> some Gesture {
+        DragGesture()
+            .onChanged { gesture in
+                print(2)
+                viewModel.handleDragChanged(gesture: gesture)
+            }
+            .onEnded { gesture in
+                print(2)
+                viewModel.handleDragEnded(gesture: gesture)
+            }
+    }
+}
+*/
