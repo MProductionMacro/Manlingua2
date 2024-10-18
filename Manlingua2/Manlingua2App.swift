@@ -34,6 +34,7 @@ struct Manlingua2App: App {
          .environmentObject(homeViewModel)
          .environmentObject(storyViewModel)
          .environmentObject(learnViewModel)
+         .environmentObject(FlashcardViewModel())
          //         SidebarButton()
       }
       

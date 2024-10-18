@@ -94,7 +94,7 @@ struct FlashcardPageView: View {
         .overlay{
             if viewModel.showDonePage {
                 //FlashcardTutorialOverlay(tutorialOverlay: $tutorialOverlay)
-                DonePageView(viewModel: viewModel)
+                DonePageView()
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     .background(.white)
             }

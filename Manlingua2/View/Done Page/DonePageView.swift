@@ -12,7 +12,7 @@ struct DonePageView: View {
     
     @State private var currentPage : DonePageString = .flashCard
     @State private var currentPart : PartOfTheStory = .first
-    @ObservedObject var viewModel: FlashcardViewModel
+   @EnvironmentObject var viewModel: FlashcardViewModel
     
     var body: some View {
         ZStack{

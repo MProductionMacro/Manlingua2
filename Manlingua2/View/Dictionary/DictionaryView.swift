@@ -13,16 +13,16 @@ struct DictionaryView: View {
     var judul: String = "Perkenalan"
     var story: Int = 1
     var showFavoriteVocab: Bool = false
-    
-    init(judul:String, showFavoriteVocab: Bool){
-        self.judul = judul
-        self.showFavoriteVocab = showFavoriteVocab
-    }
-    
-    init(judul:String, story: Int){
-        self.judul = judul
-        self.story = story
-    }
+//    
+//    init(judul:String, showFavoriteVocab: Bool){
+//        self.judul = judul
+//        self.showFavoriteVocab = showFavoriteVocab
+//    }
+//    
+//    init(judul:String, story: Int){
+//        self.judul = judul
+//        self.story = story
+//    }
     
     var body: some View {
         ZStack{
