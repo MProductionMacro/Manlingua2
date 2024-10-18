@@ -57,9 +57,9 @@ class Router: ObservableObject {
       case .storyPage:
          StoryDetailView()
             .navigationBarBackButtonHidden(true)
-      case .dictionary:
-         DictionaryView()
-            .navigationBarBackButtonHidden(true)
+      //case .dictionary:
+         //DictionaryView()
+           // .navigationBarBackButtonHidden(true)
       }
    }
 }

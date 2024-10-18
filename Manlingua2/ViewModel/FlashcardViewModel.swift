@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class FlashcardViewModel: ObservableObject {
     @Published var currentIndex: Int = 0
