@@ -25,19 +25,21 @@ import Foundation
 ///   - `subChapter` : Properti yang berisikan tentang seluruh subChapter untuk story tersebut
 
 struct Story_Example: Codable, Identifiable, Hashable {
-    let id: Int
-    let number: Int
-    let title: String
-    let hanzi: String
-    let description: String
-    let pinyin: String
-    let subChapter: [SubChapter_Example]
+   let id: Int
+   let number: Int
+   let title: String
+   let hanzi: String
+   let description: String
+   let pinyin: String
+   let subChapter: [SubChapter_Example]
+   let isDone: Bool
 }
 
 struct SubChapter_Example: Codable, Identifiable, Hashable {
-    let id: Int
-    let title: String
-    let pinyin: String
-    let hanzi: String
-    let duration: Int
+   let id: Int
+   let title: String
+   let pinyin: String
+   let hanzi: String
+   let duration: Int
+   let isDone: Bool
 }

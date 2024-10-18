@@ -27,15 +27,12 @@ struct StoryListView: View {
          VStack(spacing: 32) {
             ScrollView(showsIndicators: false) {
                HomeCardScrollView()
-               
                KataKataView()
-               
                TantanganView()
             }
             .padding(.bottom, 64)
             .ignoresSafeArea()
          }
-//         .padding(.bottom, 48)
          .background(.white)
          .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft]))
       }

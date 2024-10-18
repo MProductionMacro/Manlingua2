@@ -16,8 +16,7 @@ struct HomeCardScrollView: View {
             ForEach(viewModel.stories_example, id: \.id) { stories in
                HomeCardView(
                   homeCard: .story1Thumbnail,
-                  storyName: "Go to Chinese Hotpot\nRestaurant",
-                  isDisabled: false,
+                  isDisabled: !StoryProgressManager.isChapterUnlocked(chapterId: stories.id),
                   isComplete: false,
                   story: stories
                )
@@ -26,12 +25,12 @@ struct HomeCardScrollView: View {
          .padding(.horizontal, 24)
          .padding(.bottom, 32)
          .padding(.top, 36)
-//         .frame(maxHeight: .infinity, alignment: .top)
       }
-//      .frame(maxHeight: .infinity, alignment: .top)
       .ignoresSafeArea()
+      .onAppear {
+         StoryProgressManager.unlockFirstChapterIfNeeded()
+      }
    }
-   
 }
 
 #Preview {
