@@ -37,7 +37,7 @@ struct StoryDetailView: View {
                      .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
                      .onChange(of: currentIndex) { newValue in
                         if newValue + 1 == viewModel.chat_example.count {
-                           router.push(.donePage)
+                           //router.push(.donePage)
                         }
                      }
                }

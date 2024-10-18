@@ -58,11 +58,11 @@ class Router: ObservableObject {
          StoryDetailView()
             .navigationBarBackButtonHidden(true)
       case .dictionary:
-         DictionaryView()
+          DictionaryView(judul: "Perkenalan", showFavoriteVocab: true)
             .navigationBarBackButtonHidden(true)
-      case .donePage:
-         DonePageView()
-            .navigationBarBackButtonHidden(true)
+      //case .donePage:
+         //DonePageView()
+            //.navigationBarBackButtonHidden(true)
       }
    }
 }

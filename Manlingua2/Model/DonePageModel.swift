@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+/*
 enum DonePageString: String, CaseIterable{
    case story
    case flashCard
@@ -48,3 +48,4 @@ struct DonePageModel{
     static let buttonWidth : CGFloat = 361
     static let buttonHeight : CGFloat = 64
 }
+*/

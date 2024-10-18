@@ -9,9 +9,11 @@
 import Foundation
 
 // Define the structure of the expected API response
+
 struct APIResponse: Decodable {
     let text: String
 }
+
 
 struct APIData{
     // It's recommended to load the API key from a secure source, such as the Keychain or environment variables.
