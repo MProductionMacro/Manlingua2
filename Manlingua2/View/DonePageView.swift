@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DonePageView: View {
     
-    @State private var currentPage : DonePageString = .flashCard
+    @State private var currentPage : DonePageString = .story
     @State private var currentPart : PartOfTheStory = .first
     
     var body: some View {
