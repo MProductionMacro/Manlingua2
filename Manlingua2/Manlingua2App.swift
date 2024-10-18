@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 @main
 struct Manlingua2App: App {
@@ -14,6 +16,10 @@ struct Manlingua2App: App {
    @StateObject var homeViewModel = HomeViewModel()
    @StateObject var storyViewModel = StoryViewModel()
    @StateObject var learnViewModel = LearnViewModel()
+   
+   init() {
+      FirebaseApp.configure()
+   }
    
    var body: some Scene {
       WindowGroup {
@@ -28,7 +34,8 @@ struct Manlingua2App: App {
          .environmentObject(homeViewModel)
          .environmentObject(storyViewModel)
          .environmentObject(learnViewModel)
-//         SidebarButton()
+         //         SidebarButton()
       }
+      
    }
 }

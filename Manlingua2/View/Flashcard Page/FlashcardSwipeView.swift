@@ -35,13 +35,13 @@ struct FlashcardSwipeView: View {
                            .padding(.bottom, 85)
                      }
                      else{
-                        ForEach(0 ..< viewModel.currentStory.flashcard.count, id: \.self) { index in
-                           if index >= currentIndex {
-                              createFlashcardView(for: index)
-                                 .zIndex(Double(viewModel.currentStory.flashcard.count - index))
-                           }
-                            
-                        }
+                        //FIXME: ganti jadi flashcard yg seharusnya
+//                        ForEach(0 ..< viewModel.currentStory.flashcard.count, id: \.self) { index in
+//                           if index >= currentIndex {
+//                              createFlashcardView(for: index)
+//                                 .zIndex(Double(viewModel.currentStory.flashcard.count - index))
+//                           }
+//                        }
                      }
                      VStack {
                         HStack (alignment: .top) {
@@ -86,7 +86,8 @@ struct FlashcardSwipeView: View {
             //                .contentShape(Rectangle())
             if done {
                Button(action: {
-                  viewModel.moveToNextStage()
+                  //FIXME: juga
+//                  viewModel.moveToNextStage()
                   //                        homeViewModel.switchStage(to: .home)
                }) {
                   HStack {
@@ -108,7 +109,8 @@ struct FlashcardSwipeView: View {
             }
          }
          .padding()
-         .background(Image(viewModel.currentStory.background))
+         //FIXME: juga
+//         .background(Image(viewModel.currentStory.background))
       }
    }
    
@@ -116,26 +118,29 @@ struct FlashcardSwipeView: View {
    
    private func createFlashcardView(for index: Int) -> some View {
       ZStack {
-         FlashcardView(vocab: viewModel.currentStory.flashcard[index], width: 300, height: 400)
-            .if(index == currentIndex) { view in
-               view
-                  .opacity(opacity)
-                  .offset(x: offset.width)
-                  .offset(y: offset.height * 0.4)
-                  .rotationEffect(.degrees(offset.width / 40.0))
-                  .animation(.spring(), value: offset)
-            }
-            .if(index == currentIndex - 1) { view in
-               view
-                  .opacity(1.0)
-                  .offset(x: -300 + offset.width)
-                  .zIndex(Double(viewModel.currentStory.flashcard.count - index))
-                  .animation(.spring(), value: offset)
-            }
+         //FIXME: flashcard viewnya fix
+//         FlashcardView(vocab: viewModel.currentStory.flashcard[index], width: 300, height: 400)
+//            .if(index == currentIndex) { view in
+//               view
+//                  .opacity(opacity)
+//                  .offset(x: offset.width)
+//                  .offset(y: offset.height * 0.4)
+//                  .rotationEffect(.degrees(offset.width / 40.0))
+//                  .animation(.spring(), value: offset)
+//            }
+//            .if(index == currentIndex - 1) { view in
+//               view
+//                  .opacity(1.0)
+//                  .offset(x: -300 + offset.width)
+//                  .zIndex(Double(viewModel.currentStory.flashcard.count - index))
+//                  .animation(.spring(), value: offset)
+//            }
          
-         SoundButtonView(vocab: viewModel.currentStory.flashcard[index])
-            .frame(width: 30, height: 30)
-            .offset(x: 36, y: 130)
+         //FIXME: sound button
+         
+//         SoundButtonView(vocab: viewModel.currentStory.flashcard[index])
+//            .frame(width: 30, height: 30)
+//            .offset(x: 36, y: 130)
       }
       .frame(width: 300, height: 400)
    }
@@ -184,14 +189,16 @@ struct FlashcardSwipeView: View {
          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             offset = .zero
             opacity = 1.0
-            if currentIndex == viewModel.currentStory.flashcard.count - 1 {
-               currentIndex = 0
-            } else if currentIndex == viewModel.currentStory.flashcard.count - 2 {
-               done.toggle()
-               currentIndex = min(currentIndex + 1, viewModel.currentStory.flashcard.count - 1)
-            } else {
-               currentIndex = min(currentIndex + 1, viewModel.currentStory.flashcard.count - 1)
-            }
+            
+            //FIXME: flashcard count
+//            if currentIndex == viewModel.currentStory.flashcard.count - 1 {
+//               currentIndex = 0
+//            } else if currentIndex == viewModel.currentStory.flashcard.count - 2 {
+//               done.toggle()
+//               currentIndex = min(currentIndex + 1, viewModel.currentStory.flashcard.count - 1)
+//            } else {
+//               currentIndex = min(currentIndex + 1, viewModel.currentStory.flashcard.count - 1)
+//            }
          }
       }
    }

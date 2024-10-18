@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct StoryListView: View {
-   @ObservedObject var homeViewModel: HomeViewModel
-   @ObservedObject var viewModel: StoryViewModel
-   
    var body: some View {
       //      TODO: Beberapa size masih hard coded
       VStack(spacing: 0) {
@@ -28,12 +25,12 @@ struct StoryListView: View {
          .padding(.bottom, 27)
          
          VStack(spacing: 32) {
-            ScrollView {
-               HomeCardScrollView(homeViewModel: homeViewModel, viewModel: viewModel)
-               
+            ScrollView(showsIndicators: false) {
+               HomeCardScrollView()
                KataKataView()
+               TantanganView()
             }
-            .padding(.bottom, 48)
+            .padding(.bottom, 64)
             .ignoresSafeArea()
          }
          .background(.white)
@@ -46,5 +43,6 @@ struct StoryListView: View {
 }
 
 #Preview {
-   StoryListView(homeViewModel: HomeViewModel(), viewModel: StoryViewModel())
+   StoryListView()
+      .environmentObject(HomeViewModel())
 }

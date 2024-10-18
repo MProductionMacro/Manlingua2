@@ -16,4 +16,5 @@ enum Screen: Hashable {
    case journeyPage
    case storyPage
    case dictionary
+   case donePage
 }

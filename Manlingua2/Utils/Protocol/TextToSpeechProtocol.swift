@@ -8,6 +8,6 @@
 import Foundation
 
 protocol TextToSpeechProtocol {
-    func speak(text: String, language: String)
-    func speakSlow(text: String, language: String)
+    func speak(text: String)
+    func speakSlow(text: String)
 }

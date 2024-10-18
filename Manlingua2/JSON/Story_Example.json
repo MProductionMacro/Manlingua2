@@ -12,37 +12,43 @@
         "title": "Greetings and Introductions",
         "pinyin": "Wèn hòu hé jièshào",
         "hanzi": "问候和介绍",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 2,
         "title": "Greetings and Introductions",
         "pinyin": "Wèn hòu hé jièshào",
         "hanzi": "问候和介绍",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 3,
         "title": "Greetings and Introductions",
         "pinyin": "Wèn hòu hé jièshào",
         "hanzi": "问候和介绍",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 4,
         "title": "Greetings and Introductions",
         "pinyin": "Wèn hòu hé jièshào",
         "hanzi": "问候和介绍",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 5,
         "title": "Greetings and Introductions",
         "pinyin": "Wèn hòu hé jièshào",
         "hanzi": "问候和介绍",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       }
-    ]
+    ],
+    "isDone": false
   },
   {
     "id": 2,
@@ -57,37 +63,43 @@
         "title": "Basic Numbers",
         "pinyin": "Jīchǔ shùzì",
         "hanzi": "基础数字",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 2,
         "title": "Basic Colors",
         "pinyin": "Jīchǔ yánsè",
         "hanzi": "基础颜色",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 3,
         "title": "Basic Numbers",
         "pinyin": "Jīchǔ shùzì",
         "hanzi": "基础数字",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 4,
         "title": "Basic Colors",
         "pinyin": "Jīchǔ yánsè",
         "hanzi": "基础颜色",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 5,
         "title": "Basic Numbers",
         "pinyin": "Jīchǔ shùzì",
         "hanzi": "基础数字",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       }
-    ]
+    ],
+    "isDone": false
   },
   {
     "id": 3,
@@ -102,37 +114,43 @@
         "title": "Food",
         "pinyin": "Shíwù",
         "hanzi": "食物",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 2,
         "title": "Drinks",
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 3,
         "title": "Food",
         "pinyin": "Shíwù",
         "hanzi": "食物",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 4,
         "title": "Drinks",
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 5,
         "title": "Food",
         "pinyin": "Shíwù",
         "hanzi": "食物",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       }
-    ]
+    ],
+    "isDone": false
   },
   {
     "id": 4,
@@ -147,37 +165,43 @@
         "title": "Food",
         "pinyin": "Shíwù",
         "hanzi": "食物",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 2,
         "title": "Drinks",
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 3,
         "title": "Food",
         "pinyin": "Shíwù",
         "hanzi": "食物",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 4,
         "title": "Drinks",
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 5,
         "title": "Food",
         "pinyin": "Shíwù",
         "hanzi": "食物",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       }
-    ]
+    ],
+    "isDone": false
   },
   {
     "id": 5,
@@ -192,37 +216,43 @@
         "title": "Food",
         "pinyin": "Shíwù",
         "hanzi": "食物",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 2,
         "title": "Drinks",
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 3,
         "title": "Food",
         "pinyin": "Shíwù",
         "hanzi": "食物",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 4,
         "title": "Drinks",
         "pinyin": "Yǐnliào",
         "hanzi": "饮料",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       },
       {
         "id": 5,
         "title": "Food",
         "pinyin": "Shíwù",
         "hanzi": "食物",
-        "duration": 300
+        "duration": 300,
+        "isDone": false
       }
-    ]
+    ],
+    "isDone": false
   }
 ]
 

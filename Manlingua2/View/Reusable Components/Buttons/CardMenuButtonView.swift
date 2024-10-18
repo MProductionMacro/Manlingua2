@@ -18,14 +18,14 @@ struct CardMenuButtonView: View {
          Image(systemName: "point.bottomleft.forward.to.point.topright.scurvepath.fill")
             .background(.white)
             .font(.system(size: 20, weight: .bold))
-            .foregroundStyle(.orange3)
+            .foregroundStyle(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.orange3)
             .padding()
             .clipShape(
                RoundedRectangle(cornerRadius: 16)
             )
             .overlay(
                RoundedRectangle(cornerRadius: 16)
-                  .stroke(.orange3, lineWidth: 2)
+                  .stroke(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.orange3, lineWidth: 2)
             )
       }
       .disabled(isDisabled)

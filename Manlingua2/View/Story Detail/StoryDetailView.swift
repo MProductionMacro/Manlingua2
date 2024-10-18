@@ -13,14 +13,9 @@ struct StoryDetailView: View {
    @EnvironmentObject var homeViewModel: HomeViewModel
    @EnvironmentObject var router: Router
    
-   @State var hanziArray: [String] = ["您好， 明先生。我们商量价格。", "再见，李小姐。", "明天见！"]
-   @State var pinyinArray: [String] = ["nín hǎo, míng xiānshēng. wǒmen shāngliáng jiàgé", "zàijiàn, lǐ xiǎojiě.", "míngtiān jiàn!"]
-   
    @State var currentIndex: Int = 0
-   @State var hanzi: String = "您好， 明先生。我们商量价格。"
-   @State var pinyin: String = "nín hǎo, míng xiānshēng. wǒmen shāngliáng jiàgé"
-   
    @State var tutorialOverlay: Int = 1
+   @State var modalAppeared: Bool = false
    
    var body: some View {
       GeometryReader { geometry in
@@ -38,58 +33,70 @@ struct StoryDetailView: View {
                   
                   Spacer()
                   
-                  ProgressView(value: Double(currentIndex + 1) / Double(hanziArray.count))
+                  ProgressView(value: Double(currentIndex + 1) / Double(viewModel.chat_example.count))
                      .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
+                     .onChange(of: currentIndex) { newValue in
+                        if newValue + 1 == viewModel.chat_example.count {
+                           router.push(.donePage)
+                        }
+                     }
                }
+               .padding(.horizontal)
                
-               ForEach(0...currentIndex, id: \.self) { index in
-                  BubbleChatView(pinyin: .constant(pinyinArray[index]), hanzi: .constant(hanziArray[index]))
-                     .padding(.leading, 4)
+               ScrollViewReader { proxy in
+                  ScrollView{
+                     VStack(spacing: 16){
+                        ForEach(0...currentIndex, id: \.self) { index in
+                           let chat = viewModel.chat_example[index]
+                           
+                           BubbleChatView(chat: .constant(chat), type: chat.type)
+                              .id(index)
+                        }
+                     }
+                  }
+                  .onChange(of: currentIndex) { oldValue, newValue in
+                     proxy.scrollTo(newValue, anchor: .bottom)
+                  }
                }
+               .padding(.bottom, viewModel.chat_example[currentIndex].type == .question ? 0 : 64)
                
-               
-               Spacer()
+               if viewModel.chat_example[currentIndex].type == .question {
+                  ChatModalityView(chat: viewModel.chat_example[currentIndex], modalAppeared: $modalAppeared, currentIndex: $currentIndex)
+                     .onAppear {
+                        modalAppeared = true
+                     }
+               }
             }
-            .padding(.horizontal)
+            .edgesIgnoringSafeArea(.bottom)
             .background(
                Image(.chatBackground)
                   .scaledToFill()
             )
             .onTapGesture { location in
-               let screenWidth = geometry.size.width
-               let midPoint = screenWidth / 2
-               
-               if location.x < midPoint {
-                  // Tapped left screen, move to previous item
-                  if currentIndex > 0 {
-                     currentIndex -= 1
-                     hanzi = hanziArray[currentIndex] // Update displayed hanzi
-                     pinyin = pinyinArray[currentIndex] // Update displayed pinyin
-                  }
-               } else {
-                  // Tapped right screen, move to next item
-                  if currentIndex < hanziArray.count - 1 {
-                     currentIndex += 1
-                     hanzi = hanziArray[currentIndex] // Update displayed hanzi
-                     pinyin = pinyinArray[currentIndex] // Update displayed pinyin
-                  }
+               if !modalAppeared {
+                  let screenWidth = geometry.size.width
+                  let midPoint = screenWidth / 2
+                  
+                  viewModel.onTapDetectionChat(location, midPoint, &currentIndex)
                }
             }
             
             SidebarButton()
          }
          .overlay {
-             TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.7)
+            TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.7)
          }
       }
    }
 }
 
 #Preview {
-   StoryDetailView()
-      .environmentObject(StoryViewModel())
-      .environmentObject(LearnViewModel())
-      .environmentObject(HomeViewModel())
-      .environmentObject(Router())
+   NavigationStack {
+      StoryDetailView()
+         .environmentObject(StoryViewModel())
+         .environmentObject(LearnViewModel())
+         .environmentObject(HomeViewModel())
+         .environmentObject(Router())
+   }
 }
 
