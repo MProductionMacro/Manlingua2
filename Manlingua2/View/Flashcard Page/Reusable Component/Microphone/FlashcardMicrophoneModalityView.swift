@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct FlashcardMicrophoneModalityView: View {
-    var hanzi: String
+   var hanzi: String
    @Binding var responseText : String
-    @Binding var showMicrophone: Bool
-    @Binding var audioController: AudioController
-   var onPressedMic: () -> Void
+   @Binding var showMicrophone: Bool
+   @Binding var audioController: AudioController
+//   var onPressedMic: () -> Void
    
    var body: some View {
       VStack(spacing: 32){
-        
+         
          ZStack {
             RoundedRectangle(cornerRadius: 16)
                .fill(.gold2)
@@ -24,10 +24,10 @@ struct FlashcardMicrophoneModalityView: View {
             
             Text("Ucapkan \(hanzi)")
          }
-          FlashcardAudioBTN(message: $responseText, showMicrophone: $showMicrophone, audioController: $audioController)
-              .padding(.top, -15)
-              //.padding(.vertical, 10)
-              //.padding(.bottom, 10)
+         FlashcardAudioBTN(message: $responseText, showMicrophone: $showMicrophone, audioController: $audioController)
+            .padding(.top, -15)
+         //.padding(.vertical, 10)
+         //.padding(.bottom, 10)
       }
       .frame(width: 368, height: 180)
       .padding()
@@ -37,22 +37,21 @@ struct FlashcardMicrophoneModalityView: View {
 }
 
 #Preview {
-    FlashcardMicrophoneModalityView(
-        hanzi: "Halo",
-        responseText: .constant("Hello World"), // default binding value
-        showMicrophone: .constant(false),      // default binding value
-        audioController: .constant(AudioController()),
-        onPressedMic: {}                      // empty closure
-    )
-    .frame(maxHeight: .infinity)
-    .background(.black)
+   FlashcardMicrophoneModalityView(
+      hanzi: "Halo",
+      responseText: .constant("Hello World"), // default binding value
+      showMicrophone: .constant(false),      // default binding value
+      audioController: .constant(AudioController())
+   )
+   .frame(maxHeight: .infinity)
+   .background(.black)
 }
 
 /*
-#Preview {
-   MicrophoneModalityView(onPressedMic: {})
-      .frame(maxHeight: .infinity)
-      .background(.black)
-}
-*/
+ #Preview {
+ MicrophoneModalityView(onPressedMic: {})
+ .frame(maxHeight: .infinity)
+ .background(.black)
+ }
+ */
 

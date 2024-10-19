@@ -8,19 +8,38 @@
 import SwiftUI
 
 struct AudioBTN: View {
-   private let controller = AudioController()
+   //private let controller = AudioController()
    private let instance = APIController.instance
    
-   @State var color : Color = .black
+   @State var color : Color = .white
+   @State var responseText : String = ""
    
-   @Binding var responseText : String
-   //   @Binding var showMicrophone: Bool
+   @State private var isRecording = false
+   @State private var showAlert = false
+   @State private var alertMessage = ""
+   @State private var isAllowSendAPI = true
    
+   @Binding var message:  String
+   @Binding var audioController: AudioController
    var actionOnPressed : (String) -> Void
    
+   init(message: Binding<String>, audioController: Binding<AudioController>, actionOnPressed: @escaping (String) -> Void){
+      _message = message  // Menginisialisasi @Binding dari parent
+      _audioController = audioController
+      self.actionOnPressed = actionOnPressed
+      self.audioController.requestPermission { granted in
+         if granted{
+            print("Granted Permission")
+         }else{
+            print("Denied Permission")
+         }
+      }
+   }
+   
    func sendAudioToAPI() {
-      guard let audioURL = controller.getAudioFileName() else {
+      guard let audioURL = audioController.getAudioFileName() else {
          print("No audio file to send")
+         isAllowSendAPI = true
          return
       }
       
@@ -28,58 +47,86 @@ struct AudioBTN: View {
       Task {
          if let response = await APIController.instance.getResponse(audioPath: audioURL.path) {
             print("API response: \(response)")
-            responseText = response
+            message = response
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+               actionOnPressed(message)
+            }
+            isAllowSendAPI = true
+         } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+               actionOnPressed(message)
+            }
+            print("Failed to get API response")
+            isAllowSendAPI = true
+         }
+      }
+   }
+   
+   func sendAudioToAPISecond() {
+      guard let audioURL = audioController.getAudioFileName() else {
+         print("No audio file to send")
+         return
+      }
+      
+      Task {
+         if let response = await APIController.instance.getResponseSecond(audioPath: audioURL.path) {
+            print("API response: \(response)")
+            message = response
          } else {
             print("Failed to get API response")
          }
       }
    }
    
+   
    var body: some View {
-      Image(systemName:"mic.fill")
-         .font(.system(size: 50))
-         .foregroundColor(color)
-         .padding()
-         .background(Circle()
-            .fill(Color(.systemBackground))
-            .shadow(radius: 4))
-         .onLongPressGesture (
-            minimumDuration: 0.2,
-            perform: {
-               self.color = .blue
-               controller.startRecording()
-            },
-            onPressingChanged: { changes in
-               if changes {
-                  
-               } else {
-                  self.color = .orange
-                  controller.stopRecording()
-                  if let path = controller.getAudioFileName()?.path{
-                     APIController.instance.convertAudioToData(audioPath:path)
-                     sendAudioToAPI()
+      VStack{
+         Image(systemName:"mic.fill")
+            .font(.system(size: 50))
+            .foregroundColor(color)
+            .padding()
+            .background(Circle()
+               .fill(Color.orange)
+               .shadow(radius: 4))
+            .onLongPressGesture (
+               minimumDuration: 0.1,
+               perform: {
+                  self.color = .gray
+                  if isAllowSendAPI {
+                     audioController.startRecording()
+                  }
+               },
+               onPressingChanged: { changes in
+                  // changes dia awal pencet itu true buat ngerecord
+                  if changes {
+                     //do nothing karena uda di perform
                      
-                     actionOnPressed(responseText)
                   }
-                  else{
-                     print("Error getting audio file")
+                  
+                  else {
+                     self.color = .white
+                     if isAllowSendAPI {
+                        audioController.stopRecording()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                           if let path = audioController.getAudioFileName()?.path{
+                              instance.convertAudioToData(audioPath:path)
+                              sendAudioToAPI()
+                           }
+                           else{
+                              print("Error getting audio file")
+                           }
+                        }
+                        isAllowSendAPI = false
+                     }
+                     
+                     //APIController.instance.convertAudioToData(audioPath: controller.getAudioFileName()!.path())
+                     //sendAudioToAPI()
+                     
                   }
-                  //APIController.instance.convertAudioToData(audioPath: controller.getAudioFileName()!.path())
-                  //sendAudioToAPI()
                   
                }
-               
-            }
-         )
-         .onAppear{
-            controller.requestPermission { granted in
-                if granted{
-                    print("Granted Permission")
-                }else{
-                    print("Denied Permission")
-                }
-            }
-         }
+            )
+      }
    }
 }
 

@@ -124,66 +124,8 @@ struct FlashcardAudioBTN: View {
                         
                     }
                 )
-            
-            /*
-            Button(action:{
-                print("Button Pressed")
-                controller.playRecording()
-                
-            }){
-                Image(systemName: "play.circle.fill").font(.system(size: 60))
-            }
-            
-            Button (action:{
-                print("\(String(describing: instance.convertAudioToData(audioPath: controller.getAudioFileName()!.path())))")
-            }){
-                Image(systemName: "map.circle.fill").font(.system(size: 60))
-            }
-            Button (action:{
-                //            instance.getResponse(audioPath: controller.getAudioFileName()!.path())
-                sendAudioToAPI()
-                
-            }){
-                Image(systemName: "circle.fill").font(.system(size: 60)).foregroundStyle(Color(.red))
-            }
-            
-            Button (action:{
-                //            instance.getResponse(audioPath: controller.getAudioFileName()!.path())
-    //            print(String(describing: instance.getApiKey()))
-                sendAudioToAPISecond()
-            }){
-                Image(systemName: "circle.fill").font(.system(size: 60)).foregroundStyle(Color(.yellow))
-            }
-            Text(message)
-            
-            Button (action:{
-                //            instance.getResponse(audioPath: controller.getAudioFileName()!.path())
-    //            print(String(describing: instance.getApiKey()))
-                //controller.playSoundFromData(speak: "SoundTest")
-            }){
-                Image(systemName: "circle.fill").font(.system(size: 60)).foregroundStyle(Color(.green))
-            }
-
-            
-            //        Button(action: {}) {
-            //                    Image(systemName: isRecording ? "stop.circle.fill" : "mic.circle")
-            //                        .font(.system(size: 60))
-            //                        .foregroundColor(isRecording ? .red : .orange)
-            //                }
-            //                .gesture(
-            //                    LongPressGesture(minimumDuration: 0.3)
-            //                        .onEnded { _ in
-            //                            print("abc")
-            //                        }
-            //                )
-            //                .alert(isPresented: $showAlert) {
-            //                    Alert(title: Text("Recording"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-            //                }
-            */
         }
     }
-        
-    
 }
 /*
 #Preview {

@@ -24,13 +24,12 @@ struct Manlingua2App: App {
    var body: some Scene {
       WindowGroup {
          NavigationStack(path: $router.path){
-             /*
             EmptyView()
                .navigationDestination(for: Screen.self) { screen in
                   router.build(screen)
                }
-            */
-             FlashcardPageView(viewModel1: storyViewModel)
+            
+            //             FlashcardPageView(viewModel1: storyViewModel)
          }
          .environment(\.managedObjectContext, persistenceController.container.viewContext)
          .environmentObject(router)

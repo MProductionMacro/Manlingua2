@@ -55,10 +55,7 @@ struct FlashcardPageView: View {
                
                 FlashcardMicrophoneModalityView(
                     hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi,
-                    responseText: $viewModel.apiResult, showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
-                  //audioController.startRecording()
-                  
-               }
+                    responseText: $viewModel.apiResult, showMicrophone: $viewModel.showMicrophone, audioController: $audioController)
  
                
                /*
