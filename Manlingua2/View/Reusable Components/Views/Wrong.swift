@@ -56,15 +56,19 @@ struct Wrong: View {
          
          HStack(spacing: 16) {
             TryAgainButton(action: {
-               modalAppeared = false
-               currentIndex -= 1
-               hasAnswered = false
+               DispatchQueue.main.async {
+                  modalAppeared = false
+                  currentIndex -= 1
+                  hasAnswered = false
+               }
             })
             
             ContinueButton(action: {
-               modalAppeared = false
-               currentIndex += 1
-               hasAnswered = false
+               DispatchQueue.main.async {
+                  modalAppeared = false
+                  currentIndex += 1
+                  hasAnswered = false
+               }
             })
          }
       }

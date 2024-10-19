@@ -10,17 +10,15 @@ import SwiftUI
 struct MicrophoneModalityView: View {
    @State var responseText : String = ""
    
-   var onPressedMic: () -> Void
+   var onPressedMic: (String) -> Void
    
    var body: some View {
       VStack(spacing: 32){
-         ZStack {
-            RoundedRectangle(cornerRadius: 16)
-               .fill(.gold2)
-               .frame(height: UIScreen.main.bounds.height * 0.08)
-            
-            Text(responseText)
-         }
+         Text(responseText)
+            .frame(maxWidth: .infinity)
+            .frame(height: UIScreen.main.bounds.height * 0.08)
+            .background(.gold2)
+            .clipShape(.rect(cornerRadius: 16))
          
          AudioBTN(responseText: $responseText, actionOnPressed: onPressedMic)
       }
@@ -31,8 +29,8 @@ struct MicrophoneModalityView: View {
    }
 }
 
-#Preview {
-   MicrophoneModalityView(onPressedMic: {})
-      .frame(maxHeight: .infinity)
-      .background(.black)
-}
+//#Preview {
+//   MicrophoneModalityView(onPressedMic: {})
+//      .frame(maxHeight: .infinity)
+//      .background(.black)
+//}

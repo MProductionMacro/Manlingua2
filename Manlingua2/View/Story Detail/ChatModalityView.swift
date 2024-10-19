@@ -38,8 +38,9 @@ struct ChatModalityView: View {
                }
                .transition(.move(edge: .bottom))
             }else{
-               MicrophoneModalityView() {
+               MicrophoneModalityView() { answer in
                   withAnimation{
+                     isCorrect = (answer == chat.answer)
                      hasAnswered = true
                   }
                }
@@ -48,6 +49,9 @@ struct ChatModalityView: View {
          }
       }
       .animation(.easeInOut, value: hasAnswered)
+      .onAppear {
+         modalAppeared = true
+      }
    }
 }
 

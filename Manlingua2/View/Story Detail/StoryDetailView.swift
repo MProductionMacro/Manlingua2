@@ -67,9 +67,6 @@ struct StoryDetailView: View {
                
                if viewModel.chat_example[currentIndex].type == .question {
                   ChatModalityView(chat: viewModel.chat_example[currentIndex], modalAppeared: $modalAppeared, currentIndex: $currentIndex)
-                     .onAppear {
-                        modalAppeared = true
-                     }
                }
             }
             .edgesIgnoringSafeArea(.bottom)
@@ -95,13 +92,13 @@ struct StoryDetailView: View {
    }
 }
 
-#Preview {
-   NavigationStack {
-      StoryDetailView()
-         .environmentObject(StoryViewModel())
-         .environmentObject(LearnViewModel())
-         .environmentObject(HomeViewModel())
-         .environmentObject(Router())
-   }
-}
+//#Preview {
+//   NavigationStack {
+//      StoryDetailView()
+//         .environmentObject(StoryViewModel())
+//         .environmentObject(LearnViewModel())
+//         .environmentObject(HomeViewModel())
+//         .environmentObject(Router())
+//   }
+//}
 

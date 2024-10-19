@@ -12,9 +12,28 @@ struct AudioBTN: View {
    private let instance = APIController.instance
    
    @State var color : Color = .black
-   @Binding var responseText : String
    
-   var actionOnPressed : () -> Void
+   @Binding var responseText : String
+   //   @Binding var showMicrophone: Bool
+   
+   var actionOnPressed : (String) -> Void
+   
+   func sendAudioToAPI() {
+      guard let audioURL = controller.getAudioFileName() else {
+         print("No audio file to send")
+         return
+      }
+      
+      
+      Task {
+         if let response = await APIController.instance.getResponse(audioPath: audioURL.path) {
+            print("API response: \(response)")
+            responseText = response
+         } else {
+            print("Failed to get API response")
+         }
+      }
+   }
    
    var body: some View {
       Image(systemName:"mic.fill")
@@ -28,43 +47,42 @@ struct AudioBTN: View {
             minimumDuration: 0.2,
             perform: {
                self.color = .blue
+               controller.startRecording()
             },
             onPressingChanged: { changes in
-               actionOnPressed()
-               
-               // changes dia awal pencet itu true buat ngerecord
                if changes {
-                  //                                                controller.startRecording()
-               }
-               // kalau false kirim data ke API
-               else {
-                  //                                                controller.stopRecording()
-                  self.color = .black
                   
-                  print("\(String(describing: controller.getAudioFileName()))")
-                  //                        //baru data urlnya di kirim ke API
-                  //                        if let audioURL = controller.getAudioFileName() {
-                  //
-                  //                            Task{
-                  //                                if let response = await instance.getResponse(audioPath: audioURL.path){
-                  //                                    responseText = response
-                  //                                }
-                  //                                else {
-                  //                                    responseText = "Failed to get text"
-                  //                                }
-                  //                            }
-                  //                        }
-                  //
-                  //
+               } else {
+                  self.color = .orange
+                  controller.stopRecording()
+                  if let path = controller.getAudioFileName()?.path{
+                     APIController.instance.convertAudioToData(audioPath:path)
+                     sendAudioToAPI()
+                     
+                     actionOnPressed(responseText)
+                  }
+                  else{
+                     print("Error getting audio file")
+                  }
+                  //APIController.instance.convertAudioToData(audioPath: controller.getAudioFileName()!.path())
+                  //sendAudioToAPI()
+                  
                }
                
             }
          )
-      
-      
+         .onAppear{
+            controller.requestPermission { granted in
+                if granted{
+                    print("Granted Permission")
+                }else{
+                    print("Denied Permission")
+                }
+            }
+         }
    }
 }
 
-#Preview {
-   AudioBTN(responseText: .constant("Hello"), actionOnPressed: {})
-}
+//#Preview {
+//   AudioBTN(responseText: .constant("Hello"), actionOnPressed: {})
+//}

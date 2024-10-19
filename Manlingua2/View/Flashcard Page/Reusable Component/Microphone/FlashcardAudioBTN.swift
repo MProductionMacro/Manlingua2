@@ -22,9 +22,8 @@ struct FlashcardAudioBTN: View {
 
 
     init(message: Binding<String>, showMicrophone: Binding<Bool>){
-        
-        _message = message  // Menginisialisasi @Binding dari parent
-        _showMicrophone = showMicrophone
+       _message = message  // Menginisialisasi @Binding dari parent
+       _showMicrophone = showMicrophone
         controller.requestPermission { granted in
             if granted{
                 print("Granted Permission")

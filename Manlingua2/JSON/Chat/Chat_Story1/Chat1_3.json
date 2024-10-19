@@ -24,7 +24,7 @@
         "choice": ["Teh hijau", "Teh hitam", "Teh susu", "Teh manis"],
         "answer": "Teh hijau",
         "question": "Apa arti dari 绿茶?",
-        "type": "questiohn"
+        "type": "question"
     },
     {
         "id": 4,
@@ -67,6 +67,7 @@
         "pinyin": "shōuhuò",
         "hanzi": "收获",
         "meaning": "Manfaat",
+        "answer": "收获",
         "speaking": "repeating",
         "question": "Coba ulangi 收获.",
         "type": "question"
