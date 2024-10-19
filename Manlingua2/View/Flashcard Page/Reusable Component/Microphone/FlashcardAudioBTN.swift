@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FlashcardAudioBTN: View {
-    private let controller = AudioController()
+    //private let controller = AudioController()
     private let instance = APIController.instance
     
     @State var color : Color = .white
@@ -17,27 +17,32 @@ struct FlashcardAudioBTN: View {
     @State private var isRecording = false
     @State private var showAlert = false
     @State private var alertMessage = ""
+    @State private var isAllowSendAPI = true
+    
+    
     @Binding var message:  String
     @Binding var showMicrophone: Bool
+    @Binding var audioController: AudioController
 
 
-    init(message: Binding<String>, showMicrophone: Binding<Bool>){
-       _message = message  // Menginisialisasi @Binding dari parent
-       _showMicrophone = showMicrophone
-        controller.requestPermission { granted in
+    init(message: Binding<String>, showMicrophone: Binding<Bool>, audioController: Binding<AudioController>){
+        _message = message  // Menginisialisasi @Binding dari parent
+        _showMicrophone = showMicrophone
+        _audioController = audioController
+        self.audioController.requestPermission { granted in
             if granted{
                 print("Granted Permission")
             }else{
                 print("Denied Permission")
             }
         }
-        
     }
 
 
     func sendAudioToAPI() {
-        guard let audioURL = controller.getAudioFileName() else {
+        guard let audioURL = audioController.getAudioFileName() else {
             print("No audio file to send")
+            isAllowSendAPI = true
             return
         }
         
@@ -46,14 +51,17 @@ struct FlashcardAudioBTN: View {
             if let response = await APIController.instance.getResponse(audioPath: audioURL.path) {
                 print("API response: \(response)")
                 message = response
+                showMicrophone.toggle()
+                isAllowSendAPI = true
             } else {
                 print("Failed to get API response")
+                isAllowSendAPI = true
             }
         }
     }
     
     func sendAudioToAPISecond() {
-        guard let audioURL = controller.getAudioFileName() else {
+        guard let audioURL = audioController.getAudioFileName() else {
             print("No audio file to send")
             return
         }
@@ -82,7 +90,9 @@ struct FlashcardAudioBTN: View {
                     minimumDuration: 0.1,
                     perform: {
                         self.color = .gray
-                        controller.startRecording()
+                        if isAllowSendAPI {
+                            audioController.startRecording()
+                        }
                     },
                     onPressingChanged: { changes in
                         // changes dia awal pencet itu true buat ngerecord
@@ -92,16 +102,21 @@ struct FlashcardAudioBTN: View {
                         }
                         // kalau false kirim data ke API
                         else {
-                            self.color = .orange
-                            controller.stopRecording()
-                            if let path = controller.getAudioFileName()?.path{
-                                APIController.instance.convertAudioToData(audioPath:path)
-                                sendAudioToAPI()
-                                showMicrophone.toggle()
+                            self.color = .white
+                            if isAllowSendAPI {
+                                audioController.stopRecording()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    if let path = audioController.getAudioFileName()?.path{
+                                        instance.convertAudioToData(audioPath:path)
+                                        sendAudioToAPI()
+                                    }
+                                    else{
+                                        print("Error getting audio file")
+                                    }
+                                }
+                                isAllowSendAPI = false
                             }
-                            else{
-                                print("Error getting audio file")
-                            }
+
                             //APIController.instance.convertAudioToData(audioPath: controller.getAudioFileName()!.path())
                             //sendAudioToAPI()
                             
@@ -166,9 +181,8 @@ struct FlashcardAudioBTN: View {
             //                }
             */
         }
-
-        
     }
+        
     
 }
 /*

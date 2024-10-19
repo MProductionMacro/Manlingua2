@@ -20,7 +20,7 @@ struct FlashcardTutorialOverlay: View{
                         .font(Font.hanzi())
                         .foregroundColor(.white)
                 })
-                .offset(x:160, y:-390)
+                .offset(x:150, y:-390)
                HStack{
                     Text("Tekan untuk membuka menu kumpulan kata atau putar audio")
                         .font(.subJudul())
@@ -47,7 +47,7 @@ struct FlashcardTutorialOverlay: View{
                         .font(Font.hanzi())
                         .foregroundColor(.white)
                 })
-                .offset(x:160, y:-390)
+                .offset(x:150, y:-390)
                 HStack{
                     Text("Tekan lagi untuk tutup")
                         .font(.subJudul())

@@ -85,6 +85,8 @@ class FlashcardViewModel: ObservableObject {
             return
         }
         
+        showMicrophone = true
+        
         withAnimation {
             self.offset = CGSize(width: 500, height: 0)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {

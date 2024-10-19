@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct FlashcardCorrect: View {
-   var hanzi: String
-   var pinyin: String
-   var meaning: String
    @ObservedObject var viewModel: StoryViewModel
     @Binding var showMicrophone: Bool
+    @Binding var audioController: AudioController
     var action: () -> Void
 
    var body: some View {
@@ -20,7 +18,7 @@ struct FlashcardCorrect: View {
          VStack(alignment: .leading) {
             HStack(spacing: 12) {
                Button {
-                  
+                   audioController.playRecording()
                } label: {
                   Image(systemName: "waveform")
                      .foregroundStyle(.white)
@@ -65,8 +63,8 @@ struct FlashcardCorrect: View {
       }
       .frame(width: 368, height: 180)
       //.frame(maxWidth: .infinity)
-      .padding(.horizontal)
-      .padding(.vertical, 24)
+      //.padding(.horizontal)
+      .padding()
       .background(.greenLight)
       .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
    }

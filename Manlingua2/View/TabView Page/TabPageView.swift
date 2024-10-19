@@ -28,7 +28,7 @@ struct TabPageView: View {
             }
             .tag(0)
          
-         PinyinView(viewModel: learnVM)
+         PinyinPageView()
             .tabItem {
                Label {
                   Text("Pinyin")

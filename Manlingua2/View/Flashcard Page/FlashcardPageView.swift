@@ -53,11 +53,13 @@ struct FlashcardPageView: View {
             
             if viewModel.showMicrophone{
                
-               FlashcardMicrophoneModalityView(responseText: $viewModel.apiResult, showMicrophone: $viewModel.showMicrophone){
+                FlashcardMicrophoneModalityView(
+                    hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi,
+                    responseText: $viewModel.apiResult, showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
                   //audioController.startRecording()
                   
                }
-               
+ 
                
                /*
                 Correct(hanzi: "ABCD", pinyin: "ABCD", meaning: "ABCD", viewModel: viewModel1, showMicrophone: $viewModel.showMicrophone){
@@ -68,12 +70,12 @@ struct FlashcardPageView: View {
                
             }
             else if viewModel.checkResult() {
-               FlashcardCorrect(hanzi: "ABCD", pinyin: "ABCD", meaning: "ABCD", viewModel: viewModel1, showMicrophone: $viewModel.showMicrophone){
+                FlashcardCorrect(viewModel: viewModel1, showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
                   viewModel.performSwipeRight()
                }
             }
             else{
-               FlashcardWrong(hanzi: "ABCD", pinyin: "ABCD", meaning: "ABCD", viewModel: viewModel1, showMicrophone: $viewModel.showMicrophone){
+                FlashcardWrong(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, viewModel: viewModel1, showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
                   viewModel.performSwipeRight()
                }
             }
@@ -137,6 +139,11 @@ struct FlashcardPageView: View {
             viewModel.handleDragEnded(gesture: gesture)
          }
    }
+}
+
+
+#Preview {
+   FlashcardPageView(viewModel1: StoryViewModel())
 }
 
 

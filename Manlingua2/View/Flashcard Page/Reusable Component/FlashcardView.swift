@@ -19,7 +19,7 @@ struct FlashcardView: View {
                 .font(Font.bold32())
                 .padding(.horizontal, 30)
             
-            Image("商量")
+            Image("\(vocab.meaning)")
                 .resizable()
                 .frame(width: 150, height: 150)
             
