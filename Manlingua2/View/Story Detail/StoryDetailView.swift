@@ -43,9 +43,9 @@ struct StoryDetailView: View {
                            if isFromHome {
                               viewModel.oneSubChapterDone(chapterId)
                               viewModel.allSubChapterDone(chapterId: chapterId)
-                              
-                              router.push(.donePage)
                            }
+                           
+                           router.push(.donePage(currentPage: .story, currentPart: .first))
                         }
                      }
                }

@@ -62,8 +62,8 @@ class Router: ObservableObject {
       case .flashcardPage:
           FlashcardPageView()
               .navigationBarBackButtonHidden(true)
-      case .donePage:
-         DonePageView()
+      case .donePage(let currentPage, let currentPart):
+         DonePageView(currentPage: currentPage, currentPart: currentPart)
             .navigationBarBackButtonHidden(true)
       }
    }

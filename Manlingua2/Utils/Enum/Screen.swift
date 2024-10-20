@@ -17,6 +17,6 @@ enum Screen: Hashable {
    case journeyPage(storyId: Int)
    case storyPage(chapterId: Int, isFromHome: Bool)
    case dictionary(judul:String, storyId: Int, showFavoriteVocab: Bool)
-   case donePage
+   case donePage(currentPage: DonePageString, currentPart: PartOfTheStory)
    case flashcardPage
 }

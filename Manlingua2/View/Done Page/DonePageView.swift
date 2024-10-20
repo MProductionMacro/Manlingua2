@@ -9,9 +9,9 @@ import SwiftUI
 
 
 struct DonePageView: View {
+   var currentPage : DonePageString
+   var currentPart : PartOfTheStory
    
-   @State private var currentPage : DonePageString = .flashCard
-   @State private var currentPart : PartOfTheStory = .first
    @EnvironmentObject var viewModel: FlashcardViewModel
    @EnvironmentObject var router: Router
    
