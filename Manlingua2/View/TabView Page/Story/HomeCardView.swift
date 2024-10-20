@@ -8,51 +8,48 @@
 import SwiftUI
 
 struct HomeCardView: View {
-   @ObservedObject var homeViewModel: HomeViewModel
-   @ObservedObject var viewModel: StoryViewModel
    @State var homeCard: ImageResource
-   @State var story: String
-   @State var storyName: String
    @State var isDisabled: Bool
    @State var isComplete: Bool
    
+   var story: Story_Example
+   
    var body: some View {
       //TODO: Framenya hard coded, takut ga responsive
-      VStack(alignment: .center) {
+      VStack(alignment: .leading, spacing: 16) {
          Image(.story1Thumbnail)
          
-         HStack {
-            Text(story)
-               .fontWeight(.bold)
+         Text("Cerita \(story.id)")
+            .font(.subJudul())
+            .foregroundStyle(.black)
+         
+         VStack(alignment: .leading) {
+            Text(story.title)
+               .font(.judulBiasa())
                .foregroundStyle(.black)
             
-            Spacer()
+            Text(story.pinyin)
+               .font(.pinyin())
+               .foregroundStyle(.darkGrey)
             
-            CompleteStatusLabel(isComplete: isComplete)
+            Text(story.hanzi)
+               .font(.subJudul())
+               .foregroundStyle(.darkGrey)
          }
-         .padding(.top, 10)
-         
-         Text(storyName)
-            .font(.title)
-            .fontWeight(.bold)
-            .foregroundStyle(.black)
-            .frame(maxWidth: .infinity, alignment: .leading)
          
          HStack {
-            PrimaryButtonView(homeViewModel: homeViewModel,isDisabled: isDisabled)
-            
-            CardMenuButtonView(isDisabled: isDisabled)
+            PrimaryButtonView(isDisabled: isDisabled, id: story.id)
+            CardMenuButtonView(isDisabled: isDisabled, storyId:story.id)
          }
       }
       .padding()
       .background(.white)
       .clipShape(.rect(cornerRadius: 24))
       .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
-      .padding(.top, 30)
       .frame(maxHeight: .infinity, alignment: .top)
    }
 }
 
-#Preview {
-   HomeCardView(homeViewModel: HomeViewModel(), viewModel: StoryViewModel(), homeCard: .story1Thumbnail, story: "Story 1", storyName: "Go to Chinese Hotpot\nRestaurant", isDisabled: false, isComplete: false)
-}
+//#Preview {
+//   HomeCardView(homeCard: .story1Thumbnail, storyName: "Go to Chinese Hotpot\nRestaurant", isDisabled: false, isComplete: false, story: <#Binding<Story_Example>#>)
+//}

@@ -10,10 +10,11 @@ import Combine
 
 class StoryViewModel: ObservableObject {
    //TODO: Perbaikin VM nya (quizView, quizView2, toneView, convView, recall)
-   @Published var stories: [Story] = []
+   @Published var chat_example: [Chat_Example] = []
+   @Published var currentSubChapter: SubChapter_Example? = nil
+   @Published var currentIndex: Int = 0
+   
    @Published var currentStoryIndex = 0
-   @Published var currentStage: StoryStage = .onboarding
-   @Published var currentPage: Page = .story
    @Published var currentOnboardingIndex = 0
    @Published var currentFlashcardIndex = 0
    @Published var currentQuiz1Index = 0
@@ -28,83 +29,32 @@ class StoryViewModel: ObservableObject {
    @Published var recall: String = "Home"
    @Published var showChoice: Bool = true
    
-   enum StoryStage {
-      case onboarding
-      case flashcard
-      case quiz1
-      case quiz2
-      case toneTest
-      case conversation
-      case completed
-   }
+   @Published var error: String = ""
    
-   enum Page {
-      case home
-      case story
-   }
+   @Published var chapterId: Int = 0
    
-   var currentStory: Story {
-      stories[currentStoryIndex]
-   }
+   //   init() {
+   //            loadChat()
+   //            print(chat_example)
+   //            print(stories)
+   //   }
    
-   func setcurrentStory(index: Int) {
-      stories[index]
-   }
-   
-   // Method to move to the next stage or story
-   func moveToNextStage() {
-      switch currentStage {
-      case .onboarding:
-         if currentOnboardingIndex < currentStory.onboarding.count - 1 {
-            currentOnboardingIndex += 1
-         } else {
-            currentStage = .flashcard
-            currentOnboardingIndex = 0
+   func onTapDetectionChat(_ location: CGPoint, _ midPoint: CGFloat, _ currentIndex: inout Int){
+      if location.x < midPoint {
+         // Tapped left screen, move to previous item
+         if currentIndex > 0 {
+            currentIndex -= 1
          }
-      case .flashcard:
-         quizView = "Quiz"
-         currentStage = .quiz1
-      case .quiz1:
-         quizView2 = "Quiz"
-         currentStage = .quiz2
-      case .quiz2:
-         toneView = "Quiz"
-         currentStage = .toneTest
-      case .toneTest:
-         currentStage = .conversation
-         if currentStoryIndex < stories.count - 1 {
-            //
-         } else {
-            currentPage = .home
+      } else {
+         // Tapped right screen, move to next item
+         if currentIndex < chat_example.count - 1 {
+            currentIndex += 1
          }
-      case .conversation:
-         if currentConversationIndex < currentStory.conversation.count - 1 {
-            currentConversationIndex += 1
-            currentConversationIndex2 += 1
-         } else {
-            currentStage = .completed
-            currentConversationIndex = 0
-            currentConversationIndex2 = 0
-            if currentStoryIndex < stories.count - 1 {
-               currentStoryIndex += 1
-               currentStage = .onboarding
-            } else {
-               //
-            }
-         }
-      case .completed:
-         break
       }
    }
    
-   init() {
-      loadStories()
-      print(stories)
-   }
-   
-   func loadStories() {
-      // Locate the JSON file in the bundle
-      guard let url = Bundle.main.url(forResource: "quizpage", withExtension: "json") else {
+   func loadChatExample(_ filename: String){
+      guard let url = Bundle.main.url(forResource: filename, withExtension: "json") else {
          print("File not found")
          return
       }
@@ -113,9 +63,65 @@ class StoryViewModel: ObservableObject {
          // Load and decode the JSON data
          let data = try Data(contentsOf: url)
          let decoder = JSONDecoder()
-         self.stories = try decoder.decode([Story].self, from: data)
+         self.chat_example = try decoder.decode([Chat_Example].self, from: data)
+      } catch {
+         //         print("Failed to decode JSON: \(error.localizedDescription)")
+         self.error = error.localizedDescription
+      }
+   }
+   
+   func loadChat(){
+      guard let url = Bundle.main.url(forResource: "Chat1_1", withExtension: "json") else {
+         print("File not found")
+         return
+      }
+      
+      do {
+         // Load and decode the JSON data
+         let data = try Data(contentsOf: url)
+         let decoder = JSONDecoder()
+         self.chat_example = try decoder.decode([Chat_Example].self, from: data)
       } catch {
          print("Failed to decode JSON: \(error.localizedDescription)")
+      }
+   }
+   
+   func loadChatForSubChapter(_ subChapter: SubChapter_Example) {
+      self.currentSubChapter = subChapter
+      loadChatExample(subChapter.chat_json)
+      
+      // Save the current subchapter progress
+      StoryProgressManager.setCurrentSubChapter(for: chapterId, subChapterId: subChapter.id)
+   }
+   
+   func oneSubChapterDone(_ chapterId: Int){
+      let subChapterId = StoryProgressManager.getCurrentSubChapter(for: chapterId) ?? 0
+      
+      StoryProgressManager.setCurrentSubChapter(for: chapterId, subChapterId: subChapterId + 1)
+   }
+   
+   func allSubChapterDone(chapterId: Int){
+      if let currentSubChap = StoryProgressManager.getCurrentSubChapter(for: chapterId) {
+         if currentSubChap >= 4 {
+            StoryProgressManager.setCurrentSubChapter(for: chapterId, subChapterId: 1)
+            StoryProgressManager.setCurrentSubChapter(for: chapterId + 1, subChapterId: 1)
+            StoryProgressManager.setCurrentChapter(for: chapterId + 1)
+         }
+      }
+   }
+   
+   func loadProgressForChapter(_ chapterId: Int, subChapters: [SubChapter_Example]) {
+      self.chapterId = chapterId
+      
+      // Check if there's a saved subchapter progress
+      if let savedSubChapterId = StoryProgressManager.getCurrentSubChapter(for: chapterId),
+         let savedSubChapter = subChapters.first(where: { $0.id == savedSubChapterId }) {
+         loadChatForSubChapter(savedSubChapter)
+      } else {
+         // If no saved progress, start with the first subchapter
+         if let firstSubChapter = subChapters.first {
+            loadChatForSubChapter(firstSubChapter)
+         }
       }
    }
 }

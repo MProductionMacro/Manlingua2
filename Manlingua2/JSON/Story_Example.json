@@ -1,0 +1,283 @@
+[
+  {
+    "id": 1,
+    "number": 1,
+    "title": "Perkenalan",
+    "hanzi": "介绍",
+    "description": "A basic introduction to learning the Mandarin language.",
+    "pinyin": "jiè shào",
+    "subChapter": [
+      {
+        "id": 1,
+        "title": "Greetings and Introductions",
+        "pinyin": "Wèn hòu hé jièshào",
+        "hanzi": "问候和介绍",
+        "duration": 300,
+        "chat_json": "Chat1_1",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "title": "Greetings and Introductions",
+        "pinyin": "Wèn hòu hé jièshào",
+        "hanzi": "问候和介绍",
+        "duration": 300,
+        "chat_json": "Chat1_2",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "title": "Greetings and Introductions",
+        "pinyin": "Wèn hòu hé jièshào",
+        "hanzi": "问候和介绍",
+        "duration": 300,
+        "chat_json": "Chat1_3",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "title": "Greetings and Introductions",
+        "pinyin": "Wèn hòu hé jièshào",
+        "hanzi": "问候和介绍",
+        "duration": 300,
+        "chat_json": "Chat1_3",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "title": "Greetings and Introductions",
+        "pinyin": "Wèn hòu hé jièshào",
+        "hanzi": "问候和介绍",
+        "duration": 300,
+        "chat_json": "Chat1_3",
+        "isDone": false
+      }
+    ],
+    "isDone": false
+  },
+  {
+    "id": 2,
+    "number": 2,
+    "title": "Negosiasi",
+    "hanzi": "谈 判",
+    "description": "Learning numbers and colors in Mandarin.",
+    "pinyin": "tán pàn",
+    "subChapter": [
+      {
+        "id": 1,
+        "title": "Basic Numbers",
+        "pinyin": "Jīchǔ shùzì",
+        "hanzi": "基础数字",
+        "duration": 300,
+        "chat_json": "Chat2_1",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "title": "Basic Colors",
+        "pinyin": "Jīchǔ yánsè",
+        "hanzi": "基础颜色",
+        "duration": 300,
+        "chat_json": "Chat2_2",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "title": "Basic Numbers",
+        "pinyin": "Jīchǔ shùzì",
+        "hanzi": "基础数字",
+        "duration": 300,
+        "chat_json": "Chat2_3",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "title": "Basic Colors",
+        "pinyin": "Jīchǔ yánsè",
+        "hanzi": "基础颜色",
+        "duration": 300,
+        "chat_json": "Chat2_3",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "title": "Basic Numbers",
+        "pinyin": "Jīchǔ shùzì",
+        "hanzi": "基础数字",
+        "duration": 300,
+        "chat_json": "Chat2_3",
+        "isDone": false
+      }
+    ],
+    "isDone": false
+  },
+  {
+    "id": 3,
+    "number": 3,
+    "title": "Kontrak",
+    "hanzi": "合 同",
+    "description": "Learning vocabulary related to food and drinks in Mandarin.",
+    "pinyin": "hé tóng",
+    "subChapter": [
+      {
+        "id": 1,
+        "title": "Food",
+        "pinyin": "Shíwù",
+        "hanzi": "食物",
+        "duration": 300,
+        "chat_json": "Chat3_1",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "title": "Drinks",
+        "pinyin": "Yǐnliào",
+        "hanzi": "饮料",
+        "duration": 300,
+        "chat_json": "Chat3_2",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "title": "Food",
+        "pinyin": "Shíwù",
+        "hanzi": "食物",
+        "duration": 300,
+        "chat_json": "Chat3_3",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "title": "Drinks",
+        "pinyin": "Yǐnliào",
+        "hanzi": "饮料",
+        "duration": 300,
+        "chat_json": "Chat3_3",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "title": "Food",
+        "pinyin": "Shíwù",
+        "hanzi": "食物",
+        "duration": 300,
+        "chat_json": "Chat3_3",
+        "isDone": false
+      }
+    ],
+    "isDone": false
+  },
+  {
+    "id": 4,
+    "number": 3,
+    "title": "Pengiriman",
+    "hanzi": "交 货",
+    "description": "Learning vocabulary related to food and drinks in Mandarin.",
+    "pinyin": "jiā   huò",
+    "subChapter": [
+      {
+        "id": 1,
+        "title": "Food",
+        "pinyin": "Shíwù",
+        "hanzi": "食物",
+        "duration": 300,
+        "chat_json": "Chat4_1",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "title": "Drinks",
+        "pinyin": "Yǐnliào",
+        "hanzi": "饮料",
+        "duration": 300,
+        "chat_json": "Chat4_2",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "title": "Food",
+        "pinyin": "Shíwù",
+        "hanzi": "食物",
+        "duration": 300,
+        "chat_json": "Chat4_3",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "title": "Drinks",
+        "pinyin": "Yǐnliào",
+        "hanzi": "饮料",
+        "duration": 300,
+        "chat_json": "Chat4_3",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "title": "Food",
+        "pinyin": "Shíwù",
+        "hanzi": "食物",
+        "duration": 300,
+        "chat_json": "Chat4_3",
+        "isDone": false
+      }
+    ],
+    "isDone": false
+  },
+  {
+    "id": 5,
+    "number": 3,
+    "title": "Pembayaran",
+    "hanzi": "付款",
+    "description": "Learning vocabulary related to food and drinks in Mandarin.",
+    "pinyin": "fù kuǎn",
+    "subChapter": [
+      {
+        "id": 1,
+        "title": "Food",
+        "pinyin": "Shíwù",
+        "hanzi": "食物",
+        "duration": 300,
+        "chat_json": "Chat4_3",
+        "isDone": false
+      },
+      {
+        "id": 2,
+        "title": "Drinks",
+        "pinyin": "Yǐnliào",
+        "hanzi": "饮料",
+        "duration": 300,
+        "chat_json": "Chat4_3",
+        "isDone": false
+      },
+      {
+        "id": 3,
+        "title": "Food",
+        "pinyin": "Shíwù",
+        "hanzi": "食物",
+        "duration": 300,
+        "chat_json": "Chat4_3",
+        "isDone": false
+      },
+      {
+        "id": 4,
+        "title": "Drinks",
+        "pinyin": "Yǐnliào",
+        "hanzi": "饮料",
+        "duration": 300,
+        "chat_json": "Chat4_3",
+        "isDone": false
+      },
+      {
+        "id": 5,
+        "title": "Food",
+        "pinyin": "Shíwù",
+        "hanzi": "食物",
+        "duration": 300,
+        "chat_json": "Chat4_3",
+        "isDone": false
+      }
+    ],
+    "isDone": false
+  }
+]
+

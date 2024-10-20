@@ -1,0 +1,94 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "Nǐmen duì chǎnpǐn de guīgé yǒu shénme yāoqiú?",
+        "hanzi": "你们对产品的规格有什么要求？",
+        "meaning": "Apa spesifikasi yang Anda butuhkan untuk produk ini?"
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "Wǒmen xūyào chǎnpǐn de chǐcùn hé zhòngliàng dōu fúhé biāozhǔn.",
+        "hanzi": "我们需要产品的尺寸和重量都符合标准。",
+        "meaning": "Kami memerlukan ukuran dan berat produk yang sesuai dengan standar."
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "guīgé",
+        "hanzi": "规格",
+        "meaning": "Spesifikasi",
+        "choice": ["Harga", "Spesifikasi", "Jumlah", "Kualitas"],
+        "answer": "Spesifikasi",
+        "question": "Apa arti dari 规格?"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "Wǒmen kěyǐ tígōng duō zhǒng chǐcùn, nín xǐhuān nǎ yī zhǒng?",
+        "hanzi": "我们可以提供多种尺寸，您喜欢哪一种？",
+        "meaning": "Kami bisa menyediakan berbagai ukuran, Anda suka yang mana?"
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "chǐcùn",
+        "hanzi": "尺寸",
+        "meaning": "Ukuran",
+        "choice": ["Ukuran", "Berat", "Tinggi", "Lebar"],
+        "answer": "Ukuran",
+        "question": "Coba dengar, apa arti dari 尺寸?"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "Wǒmen xūyào de shì jiào xiǎo de chǐcùn, zhòngliàng bù néng tài zhòng.",
+        "hanzi": "我们需要的是较小的尺寸，重量不能太重。",
+        "meaning": "Kami membutuhkan ukuran yang lebih kecil, beratnya tidak boleh terlalu berat."
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "Hǎo de, wǒmen de qīngxíng chǎnpǐn kěnéng gèng shìhé nín.",
+        "hanzi": "好的，我们的轻型产品可能更适合您。",
+        "meaning": "Baiklah, produk ringan kami mungkin lebih cocok untuk Anda."
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "qīngxíng chǎnpǐn",
+        "hanzi": "轻型产品",
+        "meaning": "Produk ringan",
+        "speaking": "repeating",
+        "question": "Coba ulangi 轻型产品."
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "Nà tài hǎo le, wǒmen yě gèng xǐhuān qīngxíng de chǎnpǐn.",
+        "hanzi": "那太好了，我们也更喜欢轻型的产品。",
+        "meaning": "Bagus sekali, kami juga lebih menyukai produk ringan."
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "Wǒmen huì quèbǎo yīqiè fúhé guīgé.",
+        "hanzi": "我们会确保一切符合规格。",
+        "meaning": "Kami akan memastikan semuanya sesuai dengan spesifikasi."
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "Zhèyàng wǒmen huì gèng fàngxīn. Xièxiè nín!",
+        "hanzi": "这样我们会更放心。谢谢您！",
+        "meaning": "Dengan demikian, kami akan lebih tenang. Terima kasih!"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "Bù kèqì, qídài wǒmen de hézuò!",
+        "hanzi": "不客气，期待我们的合作！",
+        "meaning": "Sama-sama, menantikan kerja sama kita!"
+    }
+]

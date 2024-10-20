@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct StoryListView: View {
-   @ObservedObject var homeViewModel: HomeViewModel
-   @ObservedObject var viewModel: StoryViewModel
-   
    var body: some View {
-      //TODO: Beberapa size masih hard coded
+      //      TODO: Beberapa size masih hard coded
       VStack(spacing: 0) {
          VStack(alignment: .leading) {
-            //               Spacer()
             Text("Cerita seru apa yang ingin kamu")
                .fontWeight(.semibold)
                .foregroundStyle(.white)
@@ -26,23 +22,27 @@ struct StoryListView: View {
          .frame(maxWidth: .infinity, alignment: .leading)
          .padding(.leading, 20)
          .padding(.top)
-         .padding(.bottom, 24)
+         .padding(.bottom, 27)
          
-         ZStack {
-            Rectangle()
-               .fill(.white)
-               .clipShape(CustomRoundedRectangle(cornerRadius: 32))
-            
-            HomeCardScrollView(homeViewModel: homeViewModel, viewModel: viewModel)
-//               .padding(.top, 40)
-//               .ignoresSafeArea()
+         VStack(spacing: 32) {
+            ScrollView(showsIndicators: false) {
+               HomeCardScrollView()
+               KataKataView()
+               TantanganView()
+            }
+            .padding(.bottom, 64)
+            .ignoresSafeArea()
          }
-         .ignoresSafeArea()
+         .background(.white)
+         .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft]))
       }
+      .padding(.top, 64)
+      .ignoresSafeArea()
       .background(Image(.homeBackground))
    }
 }
 
 #Preview {
-   StoryListView(homeViewModel: HomeViewModel(), viewModel: StoryViewModel())
+   StoryListView()
+      .environmentObject(HomeViewModel())
 }

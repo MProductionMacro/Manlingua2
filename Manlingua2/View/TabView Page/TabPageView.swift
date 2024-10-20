@@ -15,7 +15,7 @@ struct TabPageView: View {
    
    var body: some View {
       TabView(selection: $selectedTab) {
-         StoryListView(homeViewModel: homeViewModel, viewModel: viewModel)
+         StoryListView()
             .tabItem {
                Label {
                   Text("Story")
@@ -26,8 +26,9 @@ struct TabPageView: View {
                      .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
                }
             }
+            .tag(0)
          
-         PinyinView(viewModel: learnVM)
+         PinyinPageView()
             .tabItem {
                Label {
                   Text("Pinyin")
@@ -38,8 +39,37 @@ struct TabPageView: View {
                      .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
                }
             }
+            .tag(1)
+         
+         PhotoChallengeView()
+            .tabItem {
+               Label {
+                  Text("Challenge")
+                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
+               } icon: {
+                  Image("challenge")
+                     .resizable()
+                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
+               }
+            }
+         
+         ProfilePageView()
+            .tabItem {
+               Label {
+                  Text("Profile")
+                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
+               } icon: {
+                  Image("profile")
+                     .resizable()
+                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
+               }
+            }
       }
       .tint(.orange3)
+      .onAppear{
+          UITabBar.appearance().backgroundColor = UIColor.white
+
+      }
    }
 }
 

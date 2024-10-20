@@ -1,0 +1,95 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "Nǐmen xūyào nǎxiē chǎnpǐn?",
+        "hanzi": "你们需要哪些产品？",
+        "meaning": "Produk apa yang Anda butuhkan?"
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "Wǒmen xūyào yìxiē diànzǐ chǎnpǐn. Nǐmen yǒu ma?",
+        "hanzi": "我们需要一些电子产品。你们有吗？",
+        "meaning": "Kami membutuhkan beberapa produk elektronik. Apakah Anda punya?"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "diànzǐ chǎnpǐn",
+        "hanzi": "电子产品",
+        "meaning": "Produk elektronik",
+        "choice": ["Produk elektronik", "Produk makanan", "Produk tekstil", "Produk furnitur"],
+        "answer": "Produk elektronik",
+        "question": "Apa arti dari 电子产品?"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "Shì de, wǒmen yǒu hěn duō bùtóng de diànzǐ chǎnpǐn.",
+        "hanzi": "是的，我们有很多不同的电子产品。",
+        "meaning": "Ya, kami memiliki banyak produk elektronik yang berbeda."
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "bùtóng",
+        "hanzi": "不同",
+        "meaning": "Berbeda",
+        "choice": ["Berbeda", "Sama", "Bagus", "Baru"],
+        "answer": "Berbeda",
+        "question": "Coba dengar, apa arti dari 不同?"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "Nǐmen de chǎnpǐn zhìliàng zěnme yàng?",
+        "hanzi": "你们的产品质量怎么样？",
+        "meaning": "Bagaimana kualitas produk Anda?"
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "Wǒmen de chǎnpǐn zhìliàng fēicháng hǎo, fúhé guójì biāozhǔn.",
+        "hanzi": "我们的产品质量非常好，符合国际标准。",
+        "meaning": "Kualitas produk kami sangat baik, sesuai dengan standar internasional."
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "zhìliàng",
+        "hanzi": "质量",
+        "meaning": "Kualitas",
+        "speaking": "repeating",
+        "question": "Coba ulangi 质量."
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "Nà tài hǎo le, chǎnpǐn zhìliàng duì wǒmen hěn zhòngyào.",
+        "hanzi": "那太好了，产品质量对我们很重要。",
+        "meaning": "Bagus sekali, kualitas produk sangat penting bagi kami."
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "Wǒmen yě fēicháng guānxīn zhìliàng.",
+        "hanzi": "我们也非常关心质量。",
+        "meaning": "Kami juga sangat peduli dengan kualitas."
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "Nín néng gěi wǒ yìxiē chǎnpǐn yàngpǐn ma?",
+        "hanzi": "您能给我一些产品样品吗？",
+        "meaning": "Bisakah Anda memberi saya beberapa sampel produk?"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "Méi wèntí, wǒmen huì jǐnkuài gěi nín jì yàngpǐn.",
+        "hanzi": "没问题，我们会尽快给您寄样品。",
+        "meaning": "Tidak masalah, kami akan segera mengirimkan sampelnya."
+    }
+]
+

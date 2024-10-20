@@ -4,65 +4,89 @@
 //
 //  Created by Paulus Michael on 03/10/24.
 //
-
 import SwiftUI
 
 struct DictionaryView: View {
-   @EnvironmentObject var viewModel: StoryViewModel
-   
-   var body: some View {
-      ZStack{
-         Rectangle()
-            .ignoresSafeArea()
-            .foregroundColor(.white)
-         VStack {
-            Text("Dictionary")
-               .font(.title)
-               .bold()
-               .frame(maxWidth: .infinity, alignment: .center)
-               .padding(.top, 16)
-               .foregroundColor(.black)
-            
-            Text("Story 1 - Chapter \(viewModel.currentStoryIndex + 1)")
-               .font(.subheadline)
-               .foregroundColor(.black)
-               .frame(maxWidth: .infinity, alignment: .center)
-               .padding(.bottom, 16)
-            
-            //TODO: Sizenya hard coded
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-               ForEach(0..<viewModel.currentStory.flashcard.count) { index in
-                  ZStack {
-                     FlashcardView(vocab: viewModel.currentStory.flashcard[index], width: 170, height: 236)
-//                        .padding(0)
-                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(.gray, lineWidth: 2)
-                     SoundButtonView(vocab: viewModel.currentStory.flashcard[index])
-                        .frame(width: 30, height: 30)
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .offset(x: 20, y: 75)
-                  }
-               }
-            }
-            .padding(.horizontal, 16)
-            
-            Spacer()
-         }
-         .navigationBarItems(leading: Button(action: {
-            
-         }) {
-            HStack {
-               Image(systemName: "chevron.left")
-               Text("Back")
-            }
-            .foregroundColor(.orange)
-         })
-      }
-   }
-}
+    //@EnvironmentObject var viewModel: StoryViewModel
+    @EnvironmentObject var router: Router
+    @StateObject var viewModel1 = DictionaryViewModel()
+    
+    var judul: String
+    var storyId: Int
+    var showFavoriteVocab: Bool
+    
+    var body: some View {
+        ZStack{
+            Rectangle()
+                .ignoresSafeArea()
+                .foregroundColor(.white)
+            VStack {
+                Text("\(judul)")
+                //                 .font(Font.title())
+                    .foregroundStyle(.black)
+                    .padding(.top, 2)
+                //            Text("Perkenalan")
+                
+                    .font(.title)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.top, 16)
+                    .foregroundColor(.black)
+                
+                Text("\(viewModel1.vocabularies.count) Kata")
+                    .font(.subheadline)
+                    .foregroundColor(.black)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.bottom, 16)
+                
+                //TODO: Sizenya hard coded
+                ScrollView{
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
+                        ForEach(viewModel1.vocabularies, id:\.self){
+                            vocabulary in
+                            
+                            FlashcardDictionaryView(vocab: vocabulary)
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.top, 10)
+                }
+                .padding(.bottom, 15)
 
-#Preview {
-   DictionaryView()
-      .environmentObject(StoryViewModel())
+                
+                //Spacer()
+            }
+            .navigationBarItems(leading: Button(action: {
+                router.pop()
+            }) {
+                HStack {
+                    Image(systemName: "chevron.left")
+                        .bold()
+                    Text("Kembali")
+                        .bold()
+
+                }
+                .foregroundColor(.orange)
+            })
+        }
+        .ignoresSafeArea(edges: .bottom)
+        .navigationBarBackButtonHidden(true)
+        .onAppear{
+            //print(2)
+            viewModel1.loadVocabularies(storyId: storyId, showFavoriteVocab: showFavoriteVocab)
+
+        }
+    }
 }
+/*
+#Preview {
+    NavigationView{
+        //DictionaryView(judul:"Perkenalan", story: 3)
+        //.environmentObject(StoryViewModel())
+
+        DictionaryView(judul:"Perkenalan", showFavoriteVocab: true)
+           //.environmentObject(StoryViewModel())
+    }
+
+}
+*/
