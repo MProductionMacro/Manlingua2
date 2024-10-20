@@ -14,6 +14,7 @@ struct Correct: View {
    
    @Binding var modalAppeared: Bool
    @Binding var currentIndex: Int
+   @Binding var hasAnswered: Bool
    
    var body: some View {
       VStack(alignment: .leading, spacing: 24) {
@@ -55,13 +56,19 @@ struct Correct: View {
          
          HStack(spacing: 16) {
             TryAgainButton(action: {
-               modalAppeared = false
-               currentIndex -= 1
+               DispatchQueue.main.async {
+                  modalAppeared = false
+                  currentIndex -= 1
+                  hasAnswered = false
+               }
             })
             
             ContinueButton(action: {
-               modalAppeared = false
-               currentIndex += 1
+               DispatchQueue.main.async {
+                  modalAppeared = false
+                  currentIndex += 1
+                  hasAnswered = false
+               }
             })
          }
       }
@@ -76,5 +83,5 @@ struct Correct: View {
 }
 
 #Preview {
-   Correct(hanzi: "猫", pinyin: "Māo", meaning: "How many people", modalAppeared: .constant(true), currentIndex: .constant(1))
+   Correct(hanzi: "猫", pinyin: "Māo", meaning: "How many people", modalAppeared: .constant(true), currentIndex: .constant(1), hasAnswered: .constant(true))
 }

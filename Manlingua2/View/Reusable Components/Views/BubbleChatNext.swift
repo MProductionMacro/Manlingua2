@@ -29,7 +29,8 @@ struct BubbleChatNext: View {
                HStack {
                   Spacer()
                   Button(action: {
-                     viewModel.moveToNextStage()
+                     //FIXME: Ini diganti jadi function yg seharusnya
+//                     viewModel.moveToNextStage()
                   }) {
                      //TODO: Modifiernya kasih spacing
                      Text("Next").font(.title3).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/).foregroundStyle(.orange3)

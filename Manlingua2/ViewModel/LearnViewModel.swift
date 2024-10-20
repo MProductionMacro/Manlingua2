@@ -24,20 +24,20 @@ class LearnViewModel: ObservableObject {
         ["z", "c", "s"],
         ["zh", "ch", "sh", "r"]
     ]
-    let pinyinFinalTunggal = [
+    let pinyinFinals = [
         ["a", "o", "e", "i"],
-        ["u", "ü"]
-    ]
-    let pinyinFinalGanda = [
+        ["u", "ü"],
         ["ai", "ao", "an", "ang"],
         ["ou", "ong"],
         ["ei", "en", "eng", "er"],
-        ["ab", "cd", "ef", "gh"]
+        ["ab", "cd", "ef", "gh"],
+        ["ün", "er"],
+        ["ang", "eng", "ing", "ong"]
     ]
     
     init() {
         loadLearnData()
-        print(learnData)
+//        print(learnData)
     }
    
     enum pinyinCase {

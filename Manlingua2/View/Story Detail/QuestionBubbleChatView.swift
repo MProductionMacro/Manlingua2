@@ -10,6 +10,7 @@ import SwiftUI
 struct QuestionBubbleChatView: View {
    var hanzi: String
    var pinyin: String
+   var question: String
    
    @State private var showQuestionModal: Bool = false
    
@@ -19,7 +20,7 @@ struct QuestionBubbleChatView: View {
          
          HStack(alignment: .top, spacing: 0) {
             VStack(alignment: .leading, spacing: 2) {
-               Text("Apa artinya \(hanzi)?")
+               Text(question)
                   .font(.subJudul())
                   .padding(.bottom, 8)
                
@@ -58,5 +59,5 @@ struct QuestionBubbleChatView: View {
 }
 
 #Preview {
-   QuestionBubbleChatView(hanzi: "Halo", pinyin: "Halo")
+   QuestionBubbleChatView(hanzi: "Halo", pinyin: "Halo", question: "Halo")
 }

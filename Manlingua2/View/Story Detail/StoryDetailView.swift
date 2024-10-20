@@ -35,6 +35,16 @@ struct StoryDetailView: View {
                   
                   ProgressView(value: Double(currentIndex + 1) / Double(viewModel.chat_example.count))
                      .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
+                     .onChange(of: currentIndex) { newValue in
+                        if newValue + 1 == viewModel.chat_example.count {
+                           let chapterId = StoryProgressManager.getCurrentChapter()
+                           
+                           viewModel.oneSubChapterDone(chapterId)
+                           viewModel.allSubChapterDone(chapterId: chapterId)
+                           
+                           router.push(.donePage)
+                        }
+                     }
                }
                .padding(.horizontal)
                
@@ -50,19 +60,13 @@ struct StoryDetailView: View {
                      }
                   }
                   .onChange(of: currentIndex) { oldValue, newValue in
-                     //                     withAnimation {
                      proxy.scrollTo(newValue, anchor: .bottom)
-                     //                     }
                   }
                }
                .padding(.bottom, viewModel.chat_example[currentIndex].type == .question ? 0 : 64)
                
                if viewModel.chat_example[currentIndex].type == .question {
                   ChatModalityView(chat: viewModel.chat_example[currentIndex], modalAppeared: $modalAppeared, currentIndex: $currentIndex)
-                     .onAppear {
-                        modalAppeared = true
-                     }
-//                     .padding(.top, 8)
                }
             }
             .edgesIgnoringSafeArea(.bottom)
@@ -88,11 +92,13 @@ struct StoryDetailView: View {
    }
 }
 
-#Preview {
-   StoryDetailView()
-      .environmentObject(StoryViewModel())
-      .environmentObject(LearnViewModel())
-      .environmentObject(HomeViewModel())
-      .environmentObject(Router())
-}
+//#Preview {
+//   NavigationStack {
+//      StoryDetailView()
+//         .environmentObject(StoryViewModel())
+//         .environmentObject(LearnViewModel())
+//         .environmentObject(HomeViewModel())
+//         .environmentObject(Router())
+//   }
+//}
 

@@ -1,8 +1,8 @@
 //
-//  AudioController.swift
-//  Manlingua2
+//  AudioRecordingManager.swift
+//  SampleMacro
 //
-//  Created by Reynard Octavius Tan on 15/10/24.
+//  Created by Reynard Octavius Tan on 11/10/24.
 //
 
 import Foundation
@@ -43,26 +43,29 @@ class AudioController: NSObject {
         }
     }
     
-    private func setUpRecorder(){
-        let tempDir = URL(fileURLWithPath: NSTemporaryDirectory()) /*FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]*/
-        let fileURL = tempDir.appendingPathComponent("recording.wav")
-        
-        let settings: [String: Any] = [
-            AVFormatIDKey: Int(kAudioFormatLinearPCM),
-            AVSampleRateKey: 44_100.0,
-            AVNumberOfChannelsKey: 1,
-            AVLinearPCMBitDepthKey: 16,
-            AVEncoderAudioQualityKey : AVAudioQuality.high.rawValue
-        ]
-        
-        do {
-            audioRecorder = try AVAudioRecorder(url: fileURL, settings: settings)
-            audioRecorder.delegate = self
-            audioRecorder.prepareToRecord()
-        } catch {
-            fatalError("Unable to create audio recorder: \(error.localizedDescription)")
-        }
-    }
+   private func setUpRecorder() {
+       let tempDir = URL(fileURLWithPath: NSTemporaryDirectory())
+       let fileURL = tempDir.appendingPathComponent("recording.wav")
+       
+       print("File path for recording: \(fileURL.path)") // Log the file path to check if it’s valid
+       
+       let settings: [String: Any] = [
+           AVFormatIDKey: Int(kAudioFormatLinearPCM),
+           AVSampleRateKey: 44_100.0,
+           AVNumberOfChannelsKey: 1,
+           AVLinearPCMBitDepthKey: 16,
+           AVEncoderAudioQualityKey : AVAudioQuality.high.rawValue
+       ]
+       
+       do {
+           audioRecorder = try AVAudioRecorder(url: fileURL, settings: settings)
+           audioRecorder.delegate = self
+           audioRecorder.prepareToRecord()
+       } catch {
+           print("Error initializing audio recorder: \(error.localizedDescription)")
+           audioRecorder = nil // Explicitly set to nil if initialization fails
+       }
+   }
     
     @discardableResult
     func startRecording() -> Bool {
@@ -113,6 +116,23 @@ class AudioController: NSObject {
     
     func getAudioFileName() -> URL?{
         return audioFileName
+    }
+    
+    func requestPermission(completion: @escaping (Bool) -> Void){
+        AVAudioApplication.requestRecordPermission {  granted in
+            DispatchQueue.main.async {
+                if granted {
+                    completion(true)
+                    print("Permission granted.")
+//                    print("Permission granted.")
+//                    self?.startRecording()
+                    
+                }else{
+                    completion(false)
+//                    print("Permission denied.")
+                }
+            }
+        }
     }
     
 }

@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
+
 @main
 struct Manlingua2App: App {
    let persistenceController = PersistenceController.shared
@@ -14,6 +17,10 @@ struct Manlingua2App: App {
    @StateObject var storyViewModel = StoryViewModel()
    @StateObject var learnViewModel = LearnViewModel()
    
+   init() {
+      FirebaseApp.configure()
+   }
+   
    var body: some Scene {
       WindowGroup {
          NavigationStack(path: $router.path){
@@ -21,14 +28,20 @@ struct Manlingua2App: App {
                .navigationDestination(for: Screen.self) { screen in
                   router.build(screen)
                }
+            
+            //             FlashcardPageView(viewModel1: storyViewModel)
          }
          .environment(\.managedObjectContext, persistenceController.container.viewContext)
          .environmentObject(router)
          .environmentObject(homeViewModel)
          .environmentObject(storyViewModel)
          .environmentObject(learnViewModel)
+         .environmentObject(FlashcardViewModel())
+         .onAppear {
+            StoryProgressManager.unlockFirstChapterIfNeeded()
+         }
          //         SidebarButton()
       }
-
+      
    }
 }

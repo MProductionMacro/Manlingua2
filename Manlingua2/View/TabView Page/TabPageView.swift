@@ -15,7 +15,7 @@ struct TabPageView: View {
    
    var body: some View {
       TabView(selection: $selectedTab) {
-         StoryListView(homeViewModel: homeViewModel, viewModel: viewModel)
+         StoryListView()
             .tabItem {
                Label {
                   Text("Story")
@@ -28,7 +28,7 @@ struct TabPageView: View {
             }
             .tag(0)
          
-         PinyinView(viewModel: learnVM)
+         PinyinPageView()
             .tabItem {
                Label {
                   Text("Pinyin")
@@ -41,7 +41,7 @@ struct TabPageView: View {
             }
             .tag(1)
          
-         ChallengeView()
+         PhotoChallengeView()
             .tabItem {
                Label {
                   Text("Challenge")
@@ -53,7 +53,7 @@ struct TabPageView: View {
                }
             }
          
-         ProfileView()
+         ProfilePageView()
             .tabItem {
                Label {
                   Text("Profile")
@@ -66,6 +66,10 @@ struct TabPageView: View {
             }
       }
       .tint(.orange3)
+      .onAppear{
+          UITabBar.appearance().backgroundColor = UIColor.white
+
+      }
    }
 }
 

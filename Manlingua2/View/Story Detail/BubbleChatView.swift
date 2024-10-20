@@ -23,7 +23,7 @@ struct BubbleChatView: View {
                .padding(.trailing)
             
          case .question:
-            QuestionBubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin)
+            QuestionBubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, question: chat.question ?? "")
                .padding(.trailing)
          }
       }

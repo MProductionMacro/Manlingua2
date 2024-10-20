@@ -43,23 +43,34 @@ class Router: ObservableObject {
          TabPageView()
             .navigationBarBackButtonHidden(true)
       case .pinyinInisial:
-         InitialView()
+         PinyinInitView()
             .navigationBarBackButtonHidden(true)
       case .pinyinFinal:
-         FinalView()
+         PinyinFinalView()
             .navigationBarBackButtonHidden(true)
       case .pinyinNada:
-         ToneView2()
+         PinyinNadaView()
             .navigationBarBackButtonHidden(true)
-      case .journeyPage:
-         JourneyView()
+      case .journeyPage(let storyId):
+          JourneyPageView(storyId: storyId)
             .navigationBarBackButtonHidden(true)
       case .storyPage:
          StoryDetailView()
             .navigationBarBackButtonHidden(true)
-      case .dictionary:
-         DictionaryView()
+      case .dictionary(let judul, let storyId, let showFavoriteVocab):
+          DictionaryView(judul: judul, storyId:storyId, showFavoriteVocab: showFavoriteVocab)
+      case .flashcardPage:
+          FlashcardPageView()
+              .navigationBarBackButtonHidden(true)
+      case .donePage:
+         DonePageView()
             .navigationBarBackButtonHidden(true)
       }
    }
 }
+                         /*
+                     case dictionary(judul:String, story: Int)
+                     case .dictionary(var test):
+                         DictionaryView()
+                           .navigationBarBackButtonHidden(true)
+                          */

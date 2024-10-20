@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct HomeCardScrollView: View {
-   @ObservedObject var homeViewModel: HomeViewModel
-   @ObservedObject var viewModel: StoryViewModel
+   @EnvironmentObject var viewModel: HomeViewModel
+   
+   let currentChapter: Int = StoryProgressManager.getCurrentChapter()
    
    var body: some View {
       ScrollView(.horizontal, showsIndicators: false) {
          HStack(spacing: 24) {
             ForEach(viewModel.stories_example, id: \.id) { stories in
+               let isDisabled = stories.id > currentChapter
+               
                HomeCardView(
                   homeCard: .story1Thumbnail,
-                  storyName: "Go to Chinese Hotpot\nRestaurant",
-                  isDisabled: false,
+                  isDisabled: isDisabled,
                   isComplete: false,
                   story: stories
                )
@@ -27,14 +29,12 @@ struct HomeCardScrollView: View {
          .padding(.horizontal, 24)
          .padding(.bottom, 32)
          .padding(.top, 36)
-//         .frame(maxHeight: .infinity, alignment: .top)
       }
-//      .frame(maxHeight: .infinity, alignment: .top)
       .ignoresSafeArea()
    }
-   
 }
 
 #Preview {
-   HomeCardScrollView(homeViewModel: HomeViewModel(), viewModel: StoryViewModel())
+   HomeCardScrollView()
+      .environmentObject(HomeViewModel())
 }
