@@ -40,12 +40,12 @@ struct StoryDetailView: View {
                      .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
                      .onChange(of: currentIndex) { newValue in
                         if newValue + 1 == viewModel.chat_example.count {
-                           if isFromHome{
+                           if isFromHome {
                               viewModel.oneSubChapterDone(chapterId)
                               viewModel.allSubChapterDone(chapterId: chapterId)
+                              
+                              router.push(.donePage)
                            }
-                           
-                           router.push(.donePage)
                         }
                      }
                }
@@ -86,7 +86,7 @@ struct StoryDetailView: View {
                }
             }
             
-            SidebarButton()
+             SidebarButton(chatIndex: $currentIndex, storyId: chapterId)
          }
          .overlay {
             TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.7)
