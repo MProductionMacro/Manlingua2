@@ -21,7 +21,7 @@ struct PrimaryButtonView: View {
          
          viewModel.loadProgressForChapter(id, subChapters: homeVM.stories_example[id - 1].subChapter)
          
-         router.push(.storyPage)
+         router.push(.storyPage(chapterId: id))
       }){
          Text("Mulai")
             .frame(maxWidth: .infinity)

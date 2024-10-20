@@ -41,6 +41,7 @@ struct Manlingua2App: App {
             StoryProgressManager.unlockFirstChapterIfNeeded()
          }
          //         SidebarButton()
+         .preferredColorScheme(.light)
       }
       
    }

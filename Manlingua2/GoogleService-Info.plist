@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyCJRk4Gpjvzeoj76eTT3rD10fMyt6DBjns</string>
+	<string>AIzaSyDNHfwL2T_YAF5RBAObLmJkzjlVW1YxCqw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>418258927590</string>
+	<string>545764523654</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mproduction.Manlingua2</string>
+	<string>com.mproduction-macro.Manlingua2</string>
 	<key>PROJECT_ID</key>
-	<string>testsignin-7d989</string>
+	<string>macrochallenge-a5199</string>
 	<key>STORAGE_BUCKET</key>
-	<string>testsignin-7d989.appspot.com</string>
+	<string>macrochallenge-a5199.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:418258927590:ios:945f2fb17230c9fc32a027</string>
+	<string>1:545764523654:ios:20a5b7ddc7a3323ecbdb07</string>
+	<key>DATABASE_URL</key>
+	<string>https://macrochallenge-a5199-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>
