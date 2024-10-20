@@ -41,7 +41,7 @@ struct TabPageView: View {
             }
             .tag(1)
          
-         ChallengeView()
+         PhotoChallengeView()
             .tabItem {
                Label {
                   Text("Challenge")
@@ -53,7 +53,7 @@ struct TabPageView: View {
                }
             }
          
-         ProfileView()
+         ProfilePageView()
             .tabItem {
                Label {
                   Text("Profile")
@@ -66,6 +66,10 @@ struct TabPageView: View {
             }
       }
       .tint(.orange3)
+      .onAppear{
+          UITabBar.appearance().backgroundColor = UIColor.white
+
+      }
    }
 }
 

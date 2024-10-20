@@ -151,4 +151,8 @@ extension Font {
    public static func pinyin() -> Font {
       return .system(size: 11, weight: .regular)
    }
+    
+   public static func titleKe2() -> Font {
+      return .system(size: 28, weight: .bold)
+   }
 }

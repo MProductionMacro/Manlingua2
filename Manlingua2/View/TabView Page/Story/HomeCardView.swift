@@ -39,7 +39,7 @@ struct HomeCardView: View {
          
          HStack {
             PrimaryButtonView(isDisabled: isDisabled, id: story.id)
-            CardMenuButtonView(isDisabled: isDisabled)
+            CardMenuButtonView(isDisabled: isDisabled, storyId:story.id)
          }
       }
       .padding()

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PinyinPageView: View {
+    @EnvironmentObject var router: Router
+    
     var body: some View {
         VStack(spacing: 32) {
             Text("Pelajari Pin Yin")
@@ -16,26 +18,21 @@ struct PinyinPageView: View {
                 .foregroundStyle(.white)
                 .padding(.top)
          
+            
             PinYinExampleCardView2()
                 .padding(.horizontal)
          
             VStack(spacing: 16) {
-                PinYinNavigationButton(labelImage: .initialIcon, title: "Inisial", content: "Huruf awal berupa konsonan"){
-                    withAnimation{
-                        print("Inisial")
-                    }
+                PinYinNavigationButton(labelImage: .inisialLogoNew, title: "Inisial", content: "Huruf awal berupa konsonan"){
+                    router.push(.pinyinInisial)
                 }
 
-                PinYinNavigationButton(labelImage: .finalIcon, title: "Final", content: "Huruf akhir terdiri dari vokal"){
-                    withAnimation{
-                        print("Final")
-                    }
+                PinYinNavigationButton(labelImage: .finalLogoNew, title: "Final", content: "Huruf akhir terdiri dari vokal"){
+                    router.push(.pinyinFinal)
                 }
 
-                PinYinNavigationButton(labelImage: .toneIcon, title: "Nada", content: "Nada mengubah arti kata"){
-                    withAnimation{
-                        print("Nada")
-                    }
+                PinYinNavigationButton(labelImage: .nadaLogoNew, title: "Nada", content: "Nada mengubah arti kata"){
+                    router.push(.pinyinNada)
                 }
             }
             Spacer()
@@ -47,4 +44,5 @@ struct PinyinPageView: View {
 
 #Preview {
     PinyinPageView()
+        .environmentObject(Router())
 }

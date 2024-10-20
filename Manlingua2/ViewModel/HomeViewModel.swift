@@ -45,8 +45,9 @@ class HomeViewModel: ObservableObject {
       currentStage = stage
 //      print(currentStage)
    }
-   
+   /*
    func navigateToJourney(router: Router){
       router.push(.journeyPage)
    }
+    */
 }

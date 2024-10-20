@@ -11,22 +11,25 @@ struct PinYinExampleCardView2: View {
         VStack {
             HStack(alignment: .bottom) {
                 VStack {
-                    HStack {
-                        Image("initialN")
-                        Image("finalI")
+                    HStack (alignment: .bottom){
+                        Image("InisialNew")
+                        Image("FinalNadaNew")
                     }
                
-                    Text("Suku Karakter")
+                    Text("Suku Kata")
                         .bold()
                 }
-            
+                .padding(.leading, 5)
                 Spacer()
             
                 VStack {
-                    Image("characterNI")
+                    Image("KarakterNew")
+                        .padding(.bottom, 36)
                     Text("Karakter")
                         .bold()
                 }
+                .padding(.trailing, 5)
+
             }
         }
         .padding(.horizontal, 40)

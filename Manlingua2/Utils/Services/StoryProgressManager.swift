@@ -61,6 +61,26 @@ struct StoryProgressManager {
       let subChapterId = UserDefaults.standard.integer(forKey: "\(UserDefaultsKey.currentSubChapter.rawValue)_\(chapterId)")
       return subChapterId > 0 ? subChapterId : nil
    }
+    
+    static func hasNotOpenFlashcardPage() -> Bool {
+        if UserDefaults.standard.bool(forKey: "hasOpenFlashcardPage") == false{
+            UserDefaults.standard.set(true, forKey: "hasOpenFlashcardPage")
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    static func hasOpenStoryDetailPage() -> Bool {
+        if UserDefaults.standard.bool(forKey: "hasOpenStoryDetailPage") == false{
+            UserDefaults.standard.set(true, forKey: "hasOpenStoryDetailPage")
+            return true
+        }
+        else{
+            return false
+        }
+    }
 }
 
 enum UserDefaultsKey: String {

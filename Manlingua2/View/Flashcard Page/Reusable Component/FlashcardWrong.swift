@@ -10,7 +10,6 @@ import SwiftUI
 struct FlashcardWrong: View {
    var hanzi: String
    var meaning: String
-   @ObservedObject var viewModel: StoryViewModel
     @Binding var showMicrophone: Bool
     @Binding var audioController: AudioController
     var action: () -> Void

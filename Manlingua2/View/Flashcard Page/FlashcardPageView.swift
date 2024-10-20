@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct FlashcardPageView: View {
-   @ObservedObject var viewModel1: StoryViewModel
+    
+    @EnvironmentObject var router: Router
+   //@ObservedObject var viewModel1: StoryViewModel
    @StateObject var viewModel = FlashcardViewModel()
    @State var tutorialOverlay: Int = 1
    
@@ -19,7 +21,7 @@ struct FlashcardPageView: View {
          VStack {
             HStack(spacing: 4) {
                Button {
-                  
+                   router.pop()
                } label: {
                   Image(systemName: "rectangle.portrait.and.arrow.right")
                      .resizable()
@@ -67,12 +69,12 @@ struct FlashcardPageView: View {
                
             }
             else if viewModel.checkResult() {
-                FlashcardCorrect(viewModel: viewModel1, showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
+                FlashcardCorrect(showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
                   viewModel.performSwipeRight()
                }
             }
             else{
-                FlashcardWrong(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, viewModel: viewModel1, showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
+                FlashcardWrong(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
                   viewModel.performSwipeRight()
                }
             }
@@ -81,13 +83,15 @@ struct FlashcardPageView: View {
          .background(.customBeige)
          .ignoresSafeArea(.container, edges: .bottom)
          .overlay{
-            FlashcardTutorialOverlay(tutorialOverlay: $tutorialOverlay)
+             if StoryProgressManager.hasNotOpenFlashcardPage(){
+                 FlashcardTutorialOverlay(tutorialOverlay: $tutorialOverlay)
+             }
          }
          
-         FlashcardSidebarButton(viewModel: viewModel){
+          FlashcardSidebarButton(viewModel: viewModel){
             tutorialOverlay = tutorialOverlay + 1
          }
-         .offset(y: 165)
+         .offset(y: 160)
          
       }
       .overlay{
@@ -140,7 +144,8 @@ struct FlashcardPageView: View {
 
 
 #Preview {
-   FlashcardPageView(viewModel1: StoryViewModel())
+   FlashcardPageView()
+        .environmentObject(Router())
 }
 
 

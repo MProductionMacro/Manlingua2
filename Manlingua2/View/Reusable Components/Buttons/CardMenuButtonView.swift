@@ -9,11 +9,12 @@ import SwiftUI
 
 struct CardMenuButtonView: View {
    var isDisabled: Bool = false
+    var storyId: Int
    @EnvironmentObject var router: Router
    
    var body: some View {
       Button(action: {
-         router.push(.journeyPage)
+          router.push(.journeyPage(storyId: storyId))
       }) {
          Image(systemName: "point.bottomleft.forward.to.point.topright.scurvepath.fill")
             .background(.white)
@@ -34,6 +35,6 @@ struct CardMenuButtonView: View {
 }
 
 #Preview {
-   CardMenuButtonView()
+    CardMenuButtonView(storyId: 1)
       .environmentObject(Router())
 }
