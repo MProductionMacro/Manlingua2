@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PinyinNadaView: View {
+    @EnvironmentObject var router: Router
     @StateObject var viewModel = LearnViewModel()
     var body : some View{
         ScrollView{
@@ -15,7 +16,7 @@ struct PinyinNadaView: View {
                 Text("Nada")
                     .font(.system(size: 25, weight: .bold))
 
-                Image("final")
+                Image("NadaNew")
                     .resizable()
                     .scaledToFit()
                     .frame(width:100, height: 100)
@@ -46,7 +47,7 @@ struct PinyinNadaView: View {
             ToolbarItem(placement: .topBarLeading) {
                 HStack(alignment: .top){
                     Button(action:{
-                        
+                        router.pop()
                     }){
                         Image(systemName: "chevron.left")
                             .foregroundColor(.orange3)
@@ -66,5 +67,6 @@ struct PinyinNadaView: View {
 #Preview {
     NavigationView{
         PinyinNadaView()
+            .environmentObject(Router())
     }
 }

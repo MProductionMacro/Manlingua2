@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FlashcardCorrect: View {
-   @ObservedObject var viewModel: StoryViewModel
+   //@ObservedObject var viewModel: StoryViewModel
     @Binding var showMicrophone: Bool
     @Binding var audioController: AudioController
     var action: () -> Void

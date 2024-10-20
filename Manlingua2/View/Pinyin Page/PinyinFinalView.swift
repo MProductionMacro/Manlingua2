@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct PinyinFinalView: View {
+    @EnvironmentObject var router: Router
     @StateObject var viewModel = LearnViewModel()
-    
+
     var body : some View{
         ScrollView{
             VStack(spacing: 16){
                 Text("Final")
                     .font(.system(size: 25, weight: .bold))
 
-                Image("final")
+                Image("FinalNew")
                     .resizable()
                     .scaledToFit()
                     .frame(width:100, height: 100)
@@ -33,19 +34,7 @@ struct PinyinFinalView: View {
                 }
      
                 VStack(alignment: .leading){
-                    Text("Final Tunggal")
-                        .font(Font.judulBiasa())
-                        .padding(.horizontal)
-                    
-                    ForEach(viewModel.pinyinFinalTunggal, id: \.self){ pinyins in
-                        RowOfPinyinView(listPinyin: pinyins)
-                    }
-                    
-                    Text("Final Ganda")
-                        .font(Font.judulBiasa())
-                        .padding(.horizontal)
-
-                    ForEach(viewModel.pinyinFinalGanda, id: \.self){ pinyins in
+                    ForEach(viewModel.pinyinFinals, id: \.self){ pinyins in
                         RowOfPinyinView(listPinyin: pinyins)
                     }
                 }
@@ -58,7 +47,7 @@ struct PinyinFinalView: View {
             ToolbarItem(placement: .topBarLeading) {
                 HStack(alignment: .top){
                     Button(action:{
-                        
+                        router.pop()
                     }){
                         Image(systemName: "chevron.left")
                             .foregroundColor(.orange3)
@@ -78,7 +67,7 @@ struct PinyinFinalView: View {
 #Preview {
     NavigationView{
         PinyinFinalView()
-
+            .environmentObject(Router())
     }
 }
 

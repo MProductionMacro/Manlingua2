@@ -58,7 +58,7 @@ struct ProfilePageView: View {
                             )
                             .foregroundStyle(.green)
                         }
-                        .frame(width: 282, height: 169)
+                        .frame(width: 300, height: 169)
    
                     }
                     .padding(.top, 32)

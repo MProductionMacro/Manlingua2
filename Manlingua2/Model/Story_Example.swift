@@ -35,6 +35,9 @@ struct Story_Example: Codable, Identifiable, Hashable {
    let isDone: Bool
 }
 
+
+
+
 struct SubChapter_Example: Codable, Identifiable, Hashable {
    let id: Int
    let title: String

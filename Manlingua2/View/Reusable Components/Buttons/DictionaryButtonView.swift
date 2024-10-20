@@ -13,7 +13,7 @@ struct DictionaryButtonView: View {
    //TODO: Paddingnya
    var body: some View {
       Button(action: {
-         router.push(.dictionary)
+         //router.push(.dictionary)
       }) {
          HStack {
             Image("Flashcard")

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PinyinInitView: View {
+    @EnvironmentObject var router: Router
     @StateObject var viewModel = LearnViewModel()
    
     var body: some View {
@@ -19,7 +20,7 @@ struct PinyinInitView: View {
                     .font(.system(size: 25, weight: .bold))
                     .foregroundStyle(.black)
 
-                Image("Initial")
+                Image("InisialNew")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100)
@@ -49,7 +50,7 @@ struct PinyinInitView: View {
             ToolbarItem(placement: .topBarLeading) {
                 HStack(alignment: .top) {
                     Button(action: {
-                        //router.pop()
+                        router.pop()
                     }) {
                         Image(systemName: "chevron.left")
                             .foregroundColor(.orange3)
@@ -70,5 +71,6 @@ struct PinyinInitView: View {
 #Preview {
     NavigationView{
         PinyinInitView()
+            .environmentObject(Router())
     }
 }

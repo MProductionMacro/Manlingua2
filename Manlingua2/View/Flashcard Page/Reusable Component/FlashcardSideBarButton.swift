@@ -10,6 +10,9 @@ struct FlashcardSidebarButton: View {
    @State private var showContent: Bool = false
     @ObservedObject var viewModel: FlashcardViewModel
     @State var tts = TextToSpeech()
+    
+    @EnvironmentObject var router:Router
+    
     var action: () -> Void // Fungsi sebagai parameter
 
    var body: some View {
@@ -30,7 +33,7 @@ struct FlashcardSidebarButton: View {
          if showContent {
             HStack(spacing: 12) {
                Button(action: {
-                  
+                   router.push(.dictionary(judul: "Kata Favorit", storyId:1, showFavoriteVocab: true))
                }) {
                   Image(systemName: "book.fill")
                      .frame(width: 24, height: 24)

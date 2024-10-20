@@ -7,22 +7,13 @@
 import SwiftUI
 
 struct DictionaryView: View {
-    @EnvironmentObject var viewModel: StoryViewModel
-    
+    //@EnvironmentObject var viewModel: StoryViewModel
+    @EnvironmentObject var router: Router
     @StateObject var viewModel1 = DictionaryViewModel()
-    var judul: String = "Perkenalan"
-    var story: Int = 1
-    var showFavoriteVocab: Bool = false
-//    
-//    init(judul:String, showFavoriteVocab: Bool){
-//        self.judul = judul
-//        self.showFavoriteVocab = showFavoriteVocab
-//    }
-//    
-//    init(judul:String, story: Int){
-//        self.judul = judul
-//        self.story = story
-//    }
+    
+    var judul: String
+    var storyId: Int
+    var showFavoriteVocab: Bool
     
     var body: some View {
         ZStack{
@@ -66,32 +57,36 @@ struct DictionaryView: View {
                 //Spacer()
             }
             .navigationBarItems(leading: Button(action: {
-                
+                router.pop()
             }) {
                 HStack {
                     Image(systemName: "chevron.left")
+                        .bold()
                     Text("Kembali")
+                        .bold()
+
                 }
                 .foregroundColor(.orange)
             })
         }
         .ignoresSafeArea(edges: .bottom)
+        .navigationBarBackButtonHidden(true)
         .onAppear{
             //print(2)
-            viewModel1.loadVocabularies(storyId: story, showFavoriteVocab: showFavoriteVocab)
+            viewModel1.loadVocabularies(storyId: storyId, showFavoriteVocab: showFavoriteVocab)
 
         }
     }
 }
-
+/*
 #Preview {
     NavigationView{
         //DictionaryView(judul:"Perkenalan", story: 3)
         //.environmentObject(StoryViewModel())
 
         DictionaryView(judul:"Perkenalan", showFavoriteVocab: true)
-           .environmentObject(StoryViewModel())
+           //.environmentObject(StoryViewModel())
     }
 
 }
-
+*/
