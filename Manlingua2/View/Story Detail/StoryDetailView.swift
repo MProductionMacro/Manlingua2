@@ -18,6 +18,7 @@ struct StoryDetailView: View {
    @State var modalAppeared: Bool = false
    
    var chapterId: Int
+   var isFromHome: Bool
    
    var body: some View {
       GeometryReader { geometry in
@@ -39,8 +40,10 @@ struct StoryDetailView: View {
                      .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
                      .onChange(of: currentIndex) { newValue in
                         if newValue + 1 == viewModel.chat_example.count {
-                           viewModel.oneSubChapterDone(chapterId)
-                           viewModel.allSubChapterDone(chapterId: chapterId)
+                           if isFromHome{
+                              viewModel.oneSubChapterDone(chapterId)
+                              viewModel.allSubChapterDone(chapterId: chapterId)
+                           }
                            
                            router.push(.donePage)
                         }

@@ -54,8 +54,8 @@ class Router: ObservableObject {
       case .journeyPage(let storyId):
           JourneyPageView(storyId: storyId)
             .navigationBarBackButtonHidden(true)
-      case .storyPage(var id):
-         StoryDetailView(chapterId: id)
+      case .storyPage(let id, let condition):
+         StoryDetailView(chapterId: id, isFromHome: condition)
             .navigationBarBackButtonHidden(true)
       case .dictionary(let judul, let storyId, let showFavoriteVocab):
           DictionaryView(judul: judul, storyId:storyId, showFavoriteVocab: showFavoriteVocab)

@@ -83,17 +83,9 @@ struct JourneyPageView: View {
                            VStack(spacing: 24) {
                               ForEach(story.subChapter, id: \.self){ subChapter in
                                  if let progress = StoryProgressManager.getCurrentSubChapter(for: story.id){
-                                    SubChapterCard(labelImage: .schoolChapter, chapter: "Bagian \(subChapter.id)", title: "\(subChapter.title)", pinyin: "\(subChapter.pinyin)", hanzi: "\(subChapter.hanzi)" ,isLocked: subChapter.id <= progress ? false : true, id: story.id)
+                                    SubChapterCard(labelImage: .schoolChapter, chapter: "Bagian \(subChapter.id)", title: "\(subChapter.title)", pinyin: "\(subChapter.pinyin)", hanzi: "\(subChapter.hanzi)" ,isLocked: subChapter.id <= progress ? false : true, id: story.id, subChapter: subChapter)
                                        .padding(.horizontal)
                                  }
-                                 
-//                                 if subChapter.id <= 2{
-//                                    SubChapterCard(labelImage: .schoolChapter, chapter: "Bagian \(subChapter.id)", title: "\(subChapter.title)", pinyin: "\(subChapter.pinyin)", hanzi: "\(subChapter.hanzi)" ,isLocked: false).padding(.horizontal)
-//                                 }
-//                                 else{
-//                                    SubChapterCard(labelImage: .lockChapter, chapter: "Bagian \(subChapter.id)", title: "\(subChapter.title)", pinyin: "\(subChapter.pinyin)", hanzi: "\(subChapter.hanzi)" ,isLocked: true)
-//                                       .padding(.horizontal)
-//                                 }
                               }
                            }
                            .padding(.top, 5)

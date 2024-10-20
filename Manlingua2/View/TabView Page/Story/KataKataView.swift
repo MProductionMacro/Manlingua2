@@ -22,8 +22,13 @@ struct KataKataView: View {
             } label: {
                VStack {
                   VStack(alignment: .leading, spacing: 10) {
-                     Circle()
-                        .frame(width: UIScreen.main.bounds.width * 0.08, height: UIScreen.main.bounds.width * 0.08)
+                     Image(.flashcard)
+                        .resizable()
+                        .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.width * 0.05)
+                        .padding(12)
+                        .background(.orange2)
+                        .clipShape(.circle)
+                     
                      
                      Text("Flashcard")
                         .font(.pinyin())
@@ -43,8 +48,12 @@ struct KataKataView: View {
             } label: {
                VStack {
                   VStack(alignment: .leading, spacing: 10) {
-                     Circle()
-                        .frame(width: UIScreen.main.bounds.width * 0.08, height: UIScreen.main.bounds.width * 0.08)
+                     Image(.love)
+                        .resizable()
+                        .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.width * 0.05)
+                        .padding(12)
+                        .background(.orange2)
+                        .clipShape(.circle)
                      
                      Text("Favorit")
                         .font(.pinyin())
@@ -64,8 +73,12 @@ struct KataKataView: View {
             } label: {
                VStack {
                   VStack(alignment: .leading, spacing: 10) {
-                     Circle()
-                        .frame(width: UIScreen.main.bounds.width * 0.08, height: UIScreen.main.bounds.width * 0.08)
+                     Image(.catatan)
+                        .resizable()
+                        .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.width * 0.05)
+                        .padding(12)
+                        .background(.orange2)
+                        .clipShape(.circle)
                      
                      Text("Catatan")
                         .font(.pinyin())
@@ -81,7 +94,8 @@ struct KataKataView: View {
             }
             
          }
-         .padding()
+         .padding(.vertical)
+         .padding(.leading, 24)
          //         }
       }
       .frame(maxWidth: .infinity, alignment: .leading)
