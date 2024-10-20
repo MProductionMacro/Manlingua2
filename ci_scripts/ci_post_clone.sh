@@ -27,9 +27,20 @@ echo "Creating Package.resolved..."
 cat <<EOL > Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 # CREATE YOUR EXAMPLE DEPENDENCY HERE, ONLY FOR CREATING Package.resolved
 {
-  "originHash" : "",
-  "pins" : [ ],
-  "version" : 3
+  "version" : 3,
+  "object" : {
+    "pins" : [
+      {
+        "package" : "firebase-ios-sdk",
+        "repositoryURL" : "https://github.com/firebase/firebase-ios-sdk.git",
+        "state" : {
+          "branch" : null,
+          "revision" : "latest",
+          "version" : "11.3.0"
+        }
+      }
+    ]
+  }
 }
 EOL
 # Resolve package dependencies to generate Package.resolved
