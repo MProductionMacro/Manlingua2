@@ -15,11 +15,11 @@ struct BubbleChatView: View {
       HStack(spacing: 0) {
          switch type {
          case .speaker1:
-            Speaker1BubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin)
+            Speaker1BubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning)
                .padding(.leading)
             
          case .speaker2:
-            Speaker2BubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin)
+            Speaker2BubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning)
                .padding(.trailing)
             
          case .question:

@@ -64,9 +64,7 @@ struct SubChapterCard: View {
                .foregroundStyle(.orange)
                .fontWeight(.bold)
                .onTapGesture {
-//                  viewModel.loadProgressForChapter(id, subChapters: homeVM.stories_example[id - 1].subChapter)
-                  viewModel.loadChatExample(subChapter.chat_json)
-                  
+                  viewModel.loadProgressForChapter(id, subChapters: homeVM.stories_example[id - 1].subChapter)
                   router.push(.storyPage(chapterId: id, isFromHome: false))
                }
          }

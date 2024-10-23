@@ -33,6 +33,14 @@ struct QuestionBubbleChatView: View {
                Text(hanzi)
                   .font(.hanzi())
                   .foregroundColor(.black)
+                  .overlay {
+                     DottedUnderline()
+                        .frame(height: UIScreen.main.bounds.height * 0.015)
+                        .offset(y: UIScreen.main.bounds.height * 0.02)
+                  }
+                  .onTapGesture {
+                     
+                  }
             }
             .padding(8)
             .background(

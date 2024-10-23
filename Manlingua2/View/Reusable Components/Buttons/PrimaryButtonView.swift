@@ -21,7 +21,7 @@ struct PrimaryButtonView: View {
          
          viewModel.loadProgressForChapter(id, subChapters: homeVM.stories_example[id - 1].subChapter)
          
-         router.push(.storyPage(chapterId: id, isFromHome: true))
+            router.push(.storyPage(chapterId: id, isFromHome: true))
       }){
          Text("Mulai")
             .frame(maxWidth: .infinity)
@@ -35,9 +35,9 @@ struct PrimaryButtonView: View {
    }
 }
 
-#Preview {
-   PrimaryButtonView(id: 1)
-      .environmentObject(Router())
-      .environmentObject(StoryViewModel())
-      .environmentObject(HomeViewModel())
-}
+//#Preview {
+//   PrimaryButtonView(id: 1)
+//      .environmentObject(Router())
+//      .environmentObject(StoryViewModel())
+//      .environmentObject(HomeViewModel())
+//}

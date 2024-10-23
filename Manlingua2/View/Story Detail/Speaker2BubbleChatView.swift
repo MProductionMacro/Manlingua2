@@ -10,6 +10,9 @@ import SwiftUI
 struct Speaker2BubbleChatView: View {
    var hanzi: String
    var pinyin: String
+   var meaning: String
+   
+   @State var isShowingMeaning = false
    
    var body: some View {
       HStack{
@@ -26,6 +29,27 @@ struct Speaker2BubbleChatView: View {
                Text(hanzi)
                   .font(.hanzi())
                   .foregroundColor(.black)
+                  .overlay {
+                     DottedUnderline()
+                        .frame(height: UIScreen.main.bounds.height * 0.015)
+                        .offset(y: UIScreen.main.bounds.height * 0.02)
+                  }
+                  .onTapGesture {
+                     isShowingMeaning.toggle()
+                  }
+                  .popover(isPresented: $isShowingMeaning, attachmentAnchor: .point(.bottom)) {
+                     ZStack {
+                        Color.customLightGray
+                           .scaleEffect(1.5)
+                        
+                        Text(meaning)
+                           .font(.hanzi())
+                           .foregroundColor(.black)
+                           .padding(.trailing)
+                           .multilineTextAlignment(.leading)
+                     }
+                     .presentationCompactAdaptation(.popover)
+                  }
             }
             .padding(8)
             .background(
@@ -49,6 +73,6 @@ struct Speaker2BubbleChatView: View {
 }
 
 #Preview {
-   Speaker2BubbleChatView(hanzi: "Halo", pinyin: "Halo")
+   Speaker2BubbleChatView(hanzi: "Halo", pinyin: "Halo", meaning: "Halo")
       .background(.black)
 }

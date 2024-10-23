@@ -12,7 +12,6 @@ import AVFoundation
 struct PinyinSoundCardView2: View {
     var text: String
     var speak: String
-
     
     @State var audioController = AudioController()
     

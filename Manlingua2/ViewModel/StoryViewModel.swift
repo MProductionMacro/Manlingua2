@@ -53,7 +53,7 @@ class StoryViewModel: ObservableObject {
       }
    }
    
-   func loadChatExample(_ filename: String){
+   func loadChatExample(_ filename: String) {
       guard let url = Bundle.main.url(forResource: filename, withExtension: "json") else {
          print("File not found")
          return
@@ -65,8 +65,7 @@ class StoryViewModel: ObservableObject {
          let decoder = JSONDecoder()
          self.chat_example = try decoder.decode([Chat_Example].self, from: data)
       } catch {
-         //         print("Failed to decode JSON: \(error.localizedDescription)")
-         self.error = error.localizedDescription
+         fatalError(error.localizedDescription)
       }
    }
    
