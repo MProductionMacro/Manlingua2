@@ -1,95 +1,110 @@
 [
-    {
-        "id": 1,
-        "speaker": "Abai",
-        "pinyin": "Wǒmen lái tǎolùn hétóng ba.",
-        "hanzi": "我们来讨论合同吧。",
-        "meaning": "Mari kita bahas kontrak."
-    },
-    {
-        "id": 2,
-        "speaker": "Asui",
-        "pinyin": "Hǎo de, wǒmen kěyǐ cóng tiáojiàn kāishǐ ma?",
-        "hanzi": "好的，我们可以从条件开始吗？",
-        "meaning": "Baik, bisakah kita mulai dari syarat-syaratnya?"
-    },
-    {
-        "id": 3,
-        "speaker": "Asui",
-        "pinyin": "hétóng",
-        "hanzi": "合同",
-        "meaning": "Kontrak",
-        "choice": ["Perjanjian", "Syarat", "Kontrak", "Penawaran"],
-        "answer": "Kontrak",
-        "question": "Apa arti dari 合同?"
-    },
-    {
-        "id": 4,
-        "speaker": "Abai",
-        "pinyin": "Dāngrán kěyǐ. Wǒmen huì quèbǎo suǒyǒu tiáojiàn dōu qīngchǔ.",
-        "hanzi": "当然可以。我们会确保所有条件都清楚。",
-        "meaning": "Tentu saja. Kami akan memastikan semua syarat jelas."
-    },
-    {
-        "id": 5,
-        "speaker": "Asui",
-        "pinyin": "tiáojiàn",
-        "hanzi": "条件",
-        "meaning": "Syarat",
-        "choice": ["Harga", "Syarat", "Barang", "Waktu"],
-        "answer": "Syarat",
-        "question": "Coba dengar, apa arti dari 条件?"
-    },
-    {
-        "id": 6,
-        "speaker": "Asui",
-        "pinyin": "Zhè cì hétóng de jiāohuò shíjiān shì duō jiǔ?",
-        "hanzi": "这次合同的交货时间是多久？",
-        "meaning": "Berapa lama waktu pengiriman untuk kontrak kali ini?"
-    },
-    {
-        "id": 7,
-        "speaker": "Abai",
-        "pinyin": "Jiāohuò shíjiān shì liǎng zhōu. Kěyǐ ma?",
-        "hanzi": "交货时间是两周。可以吗？",
-        "meaning": "Waktu pengirimannya adalah dua minggu. Apakah itu baik?"
-    },
-    {
-        "id": 8,
-        "speaker": "Asui",
-        "pinyin": "jiāohuò shíjiān",
-        "hanzi": "交货时间",
-        "meaning": "Waktu pengiriman",
-        "speaking": "repeating",
-        "question": "Coba ulangi 交货时间."
-    },
-    {
-        "id": 9,
-        "speaker": "Asui",
-        "pinyin": "Liǎng zhōu de jiāohuò shíjiān kěyǐ jiēshòu.",
-        "hanzi": "两周的交货时间可以接受。",
-        "meaning": "Waktu pengiriman dua minggu dapat diterima."
-    },
-    {
-        "id": 10,
-        "speaker": "Abai",
-        "pinyin": "Hǎo de, wǒmen huì zūnshǒu shíjiān biǎo.",
-        "hanzi": "好的，我们会遵守时间表。",
-        "meaning": "Baik, kita akan mematuhi jadwalnya."
-    },
-    {
-        "id": 11,
-        "speaker": "Asui",
-        "pinyin": "Jiàgé fāngmiàn ne? Kěyǐ zài tántán ma?",
-        "hanzi": "价格方面呢？可以再谈谈吗？",
-        "meaning": "Bagaimana dengan harga? Bisakah kita membahasnya lebih lanjut?"
-    },
-    {
-        "id": 12,
-        "speaker": "Abai",
-        "pinyin": "Méi wèntí, wǒmen kěyǐ zài tǎolùn jiàgé.",
-        "hanzi": "没问题，我们可以再讨论价格。",
-        "meaning": "Tidak masalah, kita bisa membahas harga lagi."
-    }
+  {
+    "id": 1,
+    "speaker": "Abai",
+    "pinyin": "Wǒmen lái tǎolùn jiāohuò de xìjié ba.",
+    "hanzi": "我们来讨论交货的细节吧。",
+    "meaning": "Mari kita bahas detail pengiriman.",
+    "type": "speaker1"
+  },
+  {
+    "id": 2,
+    "speaker": "Asui",
+    "pinyin": "Hǎo de, nǐmen tōngcháng shǐyòng shénme fāngshì yùnsòng?",
+    "hanzi": "好的，你们通常使用什么方式运送？",
+    "meaning": "Baik, biasanya Anda menggunakan metode pengiriman apa?",
+    "type": "speaker2"
+  },
+  {
+    "id": 3,
+    "speaker": "Asui",
+    "pinyin": "jiāohuò",
+    "hanzi": "交货",
+    "meaning": "Pengiriman",
+    "choice": ["Pengiriman", "Pembayaran", "Produksi", "Sampel"],
+    "answer": "Pengiriman",
+    "question": "Apa arti dari 交货 (jiāohuò)?",
+    "type": "question"
+  },
+  {
+    "id": 4,
+    "speaker": "Abai",
+    "pinyin": "Wǒmen tōngcháng shǐyòng hǎiyùn hé kōngyùn.",
+    "hanzi": "我们通常使用海运和空运。",
+    "meaning": "Biasanya, kami menggunakan pengiriman lewat laut dan udara.",
+    "type": "speaker1"
+  },
+  {
+    "id": 5,
+    "speaker": "Asui",
+    "pinyin": "hǎiyùn",
+    "hanzi": "海运",
+    "meaning": "Pengiriman laut",
+    "choice": ["Pengiriman udara", "Pengiriman laut", "Pengiriman darat", "Pengiriman ekspres"],
+    "answer": "Pengiriman laut",
+    "question": "Coba dengar, apa arti dari 海运 (hǎiyùn)?",
+    "type": "question"
+  },
+  {
+    "id": 6,
+    "speaker": "Asui",
+    "pinyin": "Kōngyùn xūyào duōcháng shíjiān?",
+    "hanzi": "空运需要多长时间？",
+    "meaning": "Berapa lama pengiriman udara membutuhkan waktu?",
+    "type": "speaker2"
+  },
+  {
+    "id": 7,
+    "speaker": "Abai",
+    "pinyin": "Kōngyùn tōngcháng xūyào wǔ dào qī tiān.",
+    "hanzi": "空运通常需要五到七天。",
+    "meaning": "Pengiriman udara biasanya membutuhkan waktu lima sampai tujuh hari.",
+    "type": "speaker1"
+  },
+  {
+    "id": 8,
+    "speaker": "Asui",
+    "pinyin": "kōngyùn",
+    "hanzi": "空运",
+    "meaning": "Pengiriman udara",
+    "answer": "Pengiriman udara",
+    "question": "Coba ulangi 空运 (kōngyùn).",
+    "type": "question"
+  },
+  {
+    "id": 9,
+    "speaker": "Asui",
+    "pinyin": "Wǒmen gèng xǐhuān yòng kōngyùn, yīnwèi sùdù bǐjiào kuài.",
+    "hanzi": "我们更喜欢用空运，因为速度比较快。",
+    "meaning": "Kami lebih suka menggunakan pengiriman udara karena lebih cepat.",
+    "type": "speaker2"
+  },
+  {
+    "id": 10,
+    "speaker": "Abai",
+    "pinyin": "Hǎiyùn bǐjiào piányí.",
+    "hanzi": "海运比较便宜。",
+    "meaning": "Pengiriman laut lebih murah.",
+    "type": "question",
+    "answer": "海运比较便宜。",
+    "question": "Jawablah dalam bahasa Mandarin 'Pengiriman laut lebih murah.'"
+  },
+  {
+    "id": 11,
+    "speaker": "Asui",
+    "pinyin": "Wǒmen kěyǐ xiān yòng kōngyùn, ránhòu zài yòng hǎiyùn.",
+    "hanzi": "我们可以先用空运，然后再用海运。",
+    "meaning": "Kita bisa menggunakan pengiriman udara dulu, lalu pengiriman laut.",
+    "type": "speaker2"
+  },
+  {
+    "id": 12,
+    "speaker": "Abai",
+    "pinyin": "Méi wèntí, wǒmen huì ànzhào nín de yāoqiú ānpái.",
+    "hanzi": "没问题，我们会按照您的要求安排。",
+    "meaning": "Tidak masalah, kami akan mengatur sesuai dengan permintaan Anda.",
+    "type": "speaker1"
+  }
 ]
+
 

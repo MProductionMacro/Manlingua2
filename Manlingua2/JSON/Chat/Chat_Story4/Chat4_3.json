@@ -1,103 +1,109 @@
 [
-    {
-        "id": 1,
-        "speaker": "Abai",
-        "pinyin": "Wǒmen lái tǎolùn yíxià zuìzhōng de xìjié ba.",
-        "hanzi": "我们来讨论一下最终的细节吧。",
-        "meaning": "Mari kita bahas detail akhir."
-    },
-    {
-        "id": 2,
-        "speaker": "Asui",
-        "pinyin": "Hǎo de, nín duì zhè cì jiāoyì hái mǎnyì ma?",
-        "hanzi": "好的，您对这次交易还满意吗？",
-        "meaning": "Baik, apakah Anda puas dengan transaksi kali ini?"
-    },
-    {
-        "id": 3,
-        "speaker": "Asui",
-        "pinyin": "jiāoyì",
-        "hanzi": "交易",
-        "meaning": "Transaksi",
-        "choice": [
-            "Pembayaran",
-            "Transaksi",
-            "Pengiriman",
-            "Kontrak"
-        ],
-        "question": "Apa arti dari 交易?",
-        "answer": "Transaksi"
-    },
-    {
-        "id": 4,
-        "speaker": "Abai",
-        "pinyin": "Shì de, wǒ duì zhè cì de hézuò fēicháng mǎnyì.",
-        "hanzi": "是的，我对这次的合作非常满意。",
-        "meaning": "Ya, saya sangat puas dengan kerja sama kali ini."
-    },
-    {
-        "id": 5,
-        "speaker": "Asui",
-        "pinyin": "zuìzhōng",
-        "hanzi": "最终",
-        "meaning": "Akhir",
-        "choice": [
-            "Akhir",
-            "Awal",
-            "Pertengahan",
-            "Rencana"
-        ],
-        "question": "Coba dengar, apa arti dari 最终?",
-        "answer": "Akhir"
-    },
-    {
-        "id": 6,
-        "speaker": "Asui",
-        "pinyin": "Nà tài hǎo le, nín xūyào wǒmen zuò xiē shénme lái jiéshù zhè cì hézuò ma?",
-        "hanzi": "那太好了，您需要我们做些什么来结束这次合作吗？",
-        "meaning": "Bagus sekali, apakah ada yang perlu kami lakukan untuk menyelesaikan kerja sama ini?"
-    },
-    {
-        "id": 7,
-        "speaker": "Abai",
-        "pinyin": "Bù xūyào le, yīqiè dōu jìnxíng de hěn shùnlì.",
-        "hanzi": "不需要了，一切都进行得很顺利。",
-        "meaning": "Tidak perlu, semuanya berjalan dengan sangat lancar."
-    },
-    {
-        "id": 8,
-        "speaker": "Asui",
-        "pinyin": "Cǎo hǎo, zài shuō yīcì shùnlì.",
-        "hanzi": "Coba ulangi 顺利。",
-        "meaning": "Coba ulangi kata 'lancar.'"
-    },
-    {
-        "id": 9,
-        "speaker": "Asui",
-        "pinyin": "Fēicháng gǎnxiè nín de xìnrèn, wǒmen qídài xià yī cì hézuò.",
-        "hanzi": "非常感谢您的信任，我们期待下一次合作。",
-        "meaning": "Terima kasih atas kepercayaan Anda, kami menantikan kerja sama berikutnya."
-    },
-    {
-        "id": 10,
-        "speaker": "Abai",
-        "pinyin": "Wǒmen yě fēicháng qídài xià cì hézuò.",
-        "hanzi": "我们也非常期待下次合作。",
-        "meaning": "Kami juga sangat menantikan kerja sama berikutnya."
-    },
-    {
-        "id": 11,
-        "speaker": "Asui",
-        "pinyin": "Qǐng suíshí liánxì wǒ, bǎochí hézuò de shùnlì.",
-        "hanzi": "请随时联系我，保持合作的顺利。",
-        "meaning": "Silakan hubungi saya kapan saja, untuk memastikan kelancaran kerja sama."
-    },
-    {
-        "id": 12,
-        "speaker": "Abai",
-        "pinyin": "Méi wèntí, wǒmen yídìng huì bǎochí liánxì.",
-        "hanzi": "没问题，我们一定会保持联系。",
-        "meaning": "Tidak masalah, kami pasti akan terus berhubungan."
-    }
+  {
+    "id": 1,
+    "speaker": "Abai",
+    "pinyin": "Wǒmen lái tǎolùn yíxià zuìzhōng de xìjié ba.",
+    "hanzi": "我们来讨论一下最终的细节吧。",
+    "meaning": "Mari kita bahas detail akhir.",
+    "type": "speaker1"
+  },
+  {
+    "id": 2,
+    "speaker": "Asui",
+    "pinyin": "Hǎo de, nín duì zhè cì jiāoyì hái mǎnyì ma?",
+    "hanzi": "好的，您对这次交易还满意吗？",
+    "meaning": "Baik, apakah Anda puas dengan transaksi kali ini?",
+    "type": "speaker2"
+  },
+  {
+    "id": 3,
+    "speaker": "Asui",
+    "pinyin": "jiāoyì",
+    "hanzi": "交易",
+    "meaning": "Transaksi",
+    "choice": ["Pembayaran", "Transaksi", "Pengiriman", "Kontrak"],
+    "answer": "Transaksi",
+    "question": "Apa arti dari 交易 (jiāoyì)?",
+    "type": "question"
+  },
+  {
+    "id": 4,
+    "speaker": "Abai",
+    "pinyin": "Shì de, wǒ duì zhè cì de hézuò fēicháng mǎnyì.",
+    "hanzi": "是的，我对这次的合作非常满意。",
+    "meaning": "Ya, saya sangat puas dengan kerja sama kali ini.",
+    "type": "speaker1"
+  },
+  {
+    "id": 5,
+    "speaker": "Asui",
+    "pinyin": "zuìzhōng",
+    "hanzi": "最终",
+    "meaning": "Akhir",
+    "choice": ["Akhir", "Awal", "Pertengahan", "Rencana"],
+    "answer": "Akhir",
+    "question": "Coba dengar, apa arti dari 最终 (zuìzhōng)?",
+    "type": "question"
+  },
+  {
+    "id": 6,
+    "speaker": "Asui",
+    "pinyin": "Nà tài hǎo le, nín xūyào wǒmen zuò xiē shénme lái jiéshù zhè cì hézuò ma?",
+    "hanzi": "那太好了，您需要我们做些什么来结束这次合作吗？",
+    "meaning": "Bagus sekali, apakah ada yang perlu kami lakukan untuk menyelesaikan kerja sama ini?",
+    "type": "speaker2"
+  },
+  {
+    "id": 7,
+    "speaker": "Abai",
+    "pinyin": "Bù xūyào le, yīqiè dōu jìnxíng de hěn shùnlì.",
+    "hanzi": "不需要了，一切都进行得很顺利。",
+    "meaning": "Tidak perlu, semuanya berjalan dengan sangat lancar.",
+    "type": "speaker1"
+  },
+  {
+    "id": 8,
+    "speaker": "Asui",
+    "pinyin": "shùnlì",
+    "hanzi": "顺利",
+    "meaning": "Lancar",
+    "answer": "Lancar",
+    "question": "Coba ulangi 顺利 (shùnlì).",
+    "type": "question"
+  },
+  {
+    "id": 9,
+    "speaker": "Asui",
+    "pinyin": "Fēicháng gǎnxiè nín de xìnrèn, wǒmen qídài xià yī cì hézuò.",
+    "hanzi": "非常感谢您的信任，我们期待下一次合作。",
+    "meaning": "Terima kasih atas kepercayaan Anda, kami menantikan kerja sama berikutnya.",
+    "type": "speaker2"
+  },
+  {
+    "id": 10,
+    "speaker": "Abai",
+    "pinyin": "Wǒmen yě fēicháng qídài xià cì hézuò.",
+    "hanzi": "我们也非常期待下次合作。",
+    "meaning": "Kami juga sangat menantikan kerja sama berikutnya.",
+    "type": "question",
+    "answer": "我们也非常期待下次合作。",
+    "question": "Jawablah dalam bahasa Mandarin 'Kami juga sangat menantikan kerja sama berikutnya.'"
+  },
+  {
+    "id": 11,
+    "speaker": "Asui",
+    "pinyin": "Qǐng suíshí liánxì wǒ, bǎochí hézuò de shùnlì.",
+    "hanzi": "请随时联系我，保持合作的顺利。",
+    "meaning": "Silakan hubungi saya kapan saja, untuk memastikan kelancaran kerja sama.",
+    "type": "speaker2"
+  },
+  {
+    "id": 12,
+    "speaker": "Abai",
+    "pinyin": "Méi wèntí, wǒmen yídìng huì bǎochí liánxì.",
+    "hanzi": "没问题，我们一定会保持联系。",
+    "meaning": "Tidak masalah, kami pasti akan terus berhubungan.",
+    "type": "speaker1"
+  }
 ]
 

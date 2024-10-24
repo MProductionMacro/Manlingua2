@@ -1,94 +1,110 @@
 [
-    {
-        "id": 1,
-        "speaker": "Abai",
-        "pinyin": "Nín duì chǎnpǐn de jiàgé yǒu shénme qīwàng?",
-        "hanzi": "您对产品的价格有什么期望？",
-        "meaning": "Apa harapan Anda mengenai harga produk ini?"
-    },
-    {
-        "id": 2,
-        "speaker": "Asui",
-        "pinyin": "Wǒmen xīwàng jiàgé néng gèng hélǐ yìxiē.",
-        "hanzi": "我们希望价格能更合理一些。",
-        "meaning": "Kami berharap harganya bisa lebih masuk akal."
-    },
-    {
-        "id": 3,
-        "speaker": "Asui",
-        "pinyin": "jiàgé",
-        "hanzi": "价格",
-        "meaning": "Harga",
-        "choice": ["Kualitas", "Harga", "Jumlah", "Produk"],
-        "answer": "Harga",
-        "question": "Apa arti dari 价格?"
-    },
-    {
-        "id": 4,
-        "speaker": "Abai",
-        "pinyin": "Wǒmen de jiàgé yǐjīng hěn yōuhuì le, nín néng jiēshòu ma?",
-        "hanzi": "我们的价格已经很优惠了，您能接受吗？",
-        "meaning": "Harga kami sudah sangat kompetitif, apakah Anda bisa menerimanya?"
-    },
-    {
-        "id": 5,
-        "speaker": "Asui",
-        "pinyin": "yōuhuì",
-        "hanzi": "优惠",
-        "meaning": "Diskon",
-        "choice": ["Diskon", "Lebih baik", "Jumlah", "Sesuai"],
-        "answer": "Diskon",
-        "question": "Coba dengar, apa arti dari 优惠?"
-    },
-    {
-        "id": 6,
-        "speaker": "Asui",
-        "pinyin": "Wǒmen de yùsuàn yǒuxiē jǐnzhāng, néng zài jiàngdī yìxiē ma?",
-        "hanzi": "我们的预算有些紧张，能再降低一些吗？",
-        "meaning": "Anggaran kami cukup ketat, bisakah Anda menurunkan sedikit lagi?"
-    },
-    {
-        "id": 7,
-        "speaker": "Abai",
-        "pinyin": "Wǒmen kěyǐ tígōng yìdiǎn zhékòu, búguò bùnéng tài duō.",
-        "hanzi": "我们可以提供一点折扣，不过不能太多。",
-        "meaning": "Kami bisa memberikan sedikit diskon, tetapi tidak terlalu banyak."
-    },
-    {
-        "id": 8,
-        "speaker": "Asui",
-        "pinyin": "zhékòu",
-        "hanzi": "折扣",
-        "meaning": "Diskon",
-        "speaking": "repeating",
-        "question": "Coba ulangi 折扣."
-    },
-    {
-        "id": 9,
-        "speaker": "Asui",
-        "pinyin": "Hǎo de, rúguǒ yǒu zhékòu, wǒ xiǎng wǒmen kěyǐ jiēshòu.",
-        "hanzi": "好的，如果有折扣，我想我们可以接受。",
-        "meaning": "Baik, jika ada diskon, saya rasa kami bisa menerimanya."
-    },
-    {
-        "id": 10,
-        "speaker": "Abai",
-        "pinyin": "Wǒmen kěyǐ tígōng bǎi fēn zhī wǔ de zhékòu.",
-        "hanzi": "我们可以提供百分之五的折扣。",
-        "meaning": "Kami bisa memberikan diskon 5%."
-    },
-    {
-        "id": 11,
-        "speaker": "Asui",
-        "pinyin": "Fēicháng gǎnxiè, zhè duì wǒmen de yùsuàn bāngzhù hěn dà.",
-        "hanzi": "非常感谢，这对我们的预算帮助很大。",
-        "meaning": "Terima kasih banyak, ini sangat membantu anggaran kami."
-    },
-    {
-        "id": 12,
-        "speaker": "Abai",
-        "pinyin": "Bù kèqì, wǒ xiāngxìn wǒmen huì hézuò de hěn hǎo.",
-        "hanzi": "不客气，我相信我们会合作得很好。",
-        "meaning": "Sama-sama, saya yakin kita akan bekerja sama dengan baik."
-    }
+  {
+    "id": 1,
+    "speaker": "Abai",
+    "pinyin": "Nín duì chǎnpǐn de jiàgé yǒu shénme qīwàng?",
+    "hanzi": "您对产品的价格有什么期望？",
+    "meaning": "Apa harapan Anda mengenai harga produk ini?",
+    "type": "speaker1"
+  },
+  {
+    "id": 2,
+    "speaker": "Asui",
+    "pinyin": "Wǒmen xīwàng jiàgé néng gèng hélǐ yìxiē.",
+    "hanzi": "我们希望价格能更合理一些。",
+    "meaning": "Kami berharap harganya bisa lebih masuk akal.",
+    "type": "speaker2"
+  },
+  {
+    "id": 3,
+    "speaker": "Asui",
+    "pinyin": "jiàgé",
+    "hanzi": "价格",
+    "meaning": "Harga",
+    "choice": ["Kualitas", "Harga", "Jumlah", "Produk"],
+    "answer": "Harga",
+    "question": "Apa arti dari 价格 (jiàgé)?",
+    "type": "question"
+  },
+  {
+    "id": 4,
+    "speaker": "Abai",
+    "pinyin": "Wǒmen de jiàgé yǐjīng hěn yōuhuì le, nín néng jiēshòu ma?",
+    "hanzi": "我们的价格已经很优惠了，您能接受吗？",
+    "meaning": "Harga kami sudah sangat kompetitif, apakah Anda bisa menerimanya?",
+    "type": "speaker1"
+  },
+  {
+    "id": 5,
+    "speaker": "Asui",
+    "pinyin": "yōuhuì",
+    "hanzi": "优惠",
+    "meaning": "Diskon",
+    "choice": ["Diskon", "Lebih baik", "Jumlah", "Sesuai"],
+    "answer": "Diskon",
+    "question": "Coba dengar, apa arti dari 优惠 (yōuhuì)?",
+    "type": "question"
+  },
+  {
+    "id": 6,
+    "speaker": "Asui",
+    "pinyin": "Wǒmen de yùsuàn yǒuxiē jǐnzhāng, néng zài jiàngdī yìxiē ma?",
+    "hanzi": "我们的预算有些紧张，能再降低一些吗？",
+    "meaning": "Anggaran kami cukup ketat, bisakah Anda menurunkan sedikit lagi?",
+    "type": "speaker2"
+  },
+  {
+    "id": 7,
+    "speaker": "Abai",
+    "pinyin": "Wǒmen kěyǐ tígōng yìdiǎn zhékòu, búguò bùnéng tài duō.",
+    "hanzi": "我们可以提供一点折扣，不过不能太多。",
+    "meaning": "Kami bisa memberikan sedikit diskon, tetapi tidak terlalu banyak.",
+    "type": "speaker1"
+  },
+  {
+    "id": 8,
+    "speaker": "Asui",
+    "pinyin": "zhékòu",
+    "hanzi": "折扣",
+    "meaning": "Diskon",
+    "answer": "Diskon",
+    "question": "Coba ulangi 折扣 (zhékòu).",
+    "type": "question"
+  },
+  {
+    "id": 9,
+    "speaker": "Asui",
+    "pinyin": "Hǎo de, rúguǒ yǒu zhékòu, wǒ xiǎng wǒmen kěyǐ jiēshòu.",
+    "hanzi": "好的，如果有折扣，我想我们可以接受。",
+    "meaning": "Baik, jika ada diskon, saya rasa kami bisa menerimanya.",
+    "type": "speaker2"
+  },
+  {
+    "id": 10,
+    "speaker": "Abai",
+    "pinyin": "Wǒmen kěyǐ tígōng bǎi fēn zhī wǔ de zhékòu.",
+    "hanzi": "我们可以提供百分之五的折扣。",
+    "meaning": "Kami bisa memberikan diskon 5%.",
+    "type": "question",
+    "answer": "我们可以提供百分之五的折扣。",
+    "question": "Jawablah dalam bahasa Mandarin 'Kami bisa memberikan diskon 5%.'"
+  },
+  {
+    "id": 11,
+    "speaker": "Asui",
+    "pinyin": "Fēicháng gǎnxiè, zhè duì wǒmen de yùsuàn bāngzhù hěn dà.",
+    "hanzi": "非常感谢，这对我们的预算帮助很大。",
+    "meaning": "Terima kasih banyak, ini sangat membantu anggaran kami.",
+    "type": "speaker2"
+  },
+  {
+    "id": 12,
+    "speaker": "Abai",
+    "pinyin": "Bù kèqì, wǒ xiāngxìn wǒmen huì hézuò de hěn hǎo.",
+    "hanzi": "不客气，我相信我们会合作得很好。",
+    "meaning": "Sama-sama, saya yakin kita akan bekerja sama dengan baik.",
+    "type": "speaker1"
+  }
 ]
+
+
