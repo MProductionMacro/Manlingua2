@@ -4,7 +4,6 @@
 //
 //  Created by Paulus Michael on 27/09/24.
 //
-
 import SwiftUI
 
 class Router: ObservableObject {
@@ -54,8 +53,8 @@ class Router: ObservableObject {
       case .journeyPage(let storyId):
           JourneyPageView(storyId: storyId)
             .navigationBarBackButtonHidden(true)
-      case .storyPage(let id, let condition):
-         StoryDetailView(chapterId: id, isFromHome: condition)
+      case .storyPage(let chapterId, let subChapterId, let condition):
+          StoryDetailView(chapterId: chapterId, subChapterId: subChapterId, isFromHome: condition)
             .navigationBarBackButtonHidden(true)
       case .dictionary(let judul, let storyId, let showFavoriteVocab):
           DictionaryView(judul: judul, storyId:storyId, showFavoriteVocab: showFavoriteVocab)
@@ -68,6 +67,7 @@ class Router: ObservableObject {
       }
    }
 }
+         
                          /*
                      case dictionary(judul:String, story: Int)
                      case .dictionary(var test):

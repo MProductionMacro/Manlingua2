@@ -11,7 +11,6 @@ struct HomeCardView: View {
    @State var homeCard: ImageResource
    @State var isDisabled: Bool
    @State var isComplete: Bool
-   @State var subChapterId = 0
    
    var story: Story_Example
    
@@ -48,12 +47,8 @@ struct HomeCardView: View {
       .clipShape(.rect(cornerRadius: 24))
       .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
       .frame(maxHeight: .infinity, alignment: .top)
-      .onAppear {
-         subChapterId = StoryProgressManager.getCurrentSubChapter(for: story.id) ?? 1
-      }
    }
 }
-
 //#Preview {
 //   HomeCardView(homeCard: .story1Thumbnail, storyName: "Go to Chinese Hotpot\nRestaurant", isDisabled: false, isComplete: false, story: <#Binding<Story_Example>#>)
 //}

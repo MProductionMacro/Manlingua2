@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+/*
 struct StoryProgressManager {
    //   static func unlockFirstChapterIfNeeded() {
    //      let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
@@ -82,6 +82,7 @@ struct StoryProgressManager {
         }
     }
 }
+*/
 
 enum UserDefaultsKey: String {
    case hasLaunchedBefore

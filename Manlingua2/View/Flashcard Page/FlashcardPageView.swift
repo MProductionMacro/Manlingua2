@@ -12,6 +12,7 @@ struct FlashcardPageView: View {
    @EnvironmentObject var router: Router
    //@ObservedObject var viewModel1: StoryViewModel
    @StateObject var viewModel = FlashcardViewModel()
+   @StateObject var singleton = UserDefaultSingleton.shared
    @State var tutorialOverlay: Int = 1
    
    @State var audioController = AudioController()
@@ -54,19 +55,9 @@ struct FlashcardPageView: View {
             
             
             if viewModel.showMicrophone{
-               
                FlashcardMicrophoneModalityView(
                   hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi,
                   responseText: $viewModel.apiResult, showMicrophone: $viewModel.showMicrophone, audioController: $audioController)
-               
-               
-               /*
-                Correct(hanzi: "ABCD", pinyin: "ABCD", meaning: "ABCD", viewModel: viewModel1, showMicrophone: $viewModel.showMicrophone){
-                viewModel.performSwipeRight()
-                }
-                */
-               //.frame(height:200)
-               
             }
             else if viewModel.checkResult() {
                FlashcardCorrect(showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
@@ -83,7 +74,7 @@ struct FlashcardPageView: View {
          .background(.customBeige)
          .ignoresSafeArea(.container, edges: .bottom)
          .overlay{
-            if StoryProgressManager.hasNotOpenFlashcardPage(){
+            if singleton.hasNotOpenFlashcardPage(){
                FlashcardTutorialOverlay(tutorialOverlay: $tutorialOverlay)
             }
          }

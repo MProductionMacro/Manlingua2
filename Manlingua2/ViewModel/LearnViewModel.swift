@@ -30,7 +30,6 @@ class LearnViewModel: ObservableObject {
         ["ai", "ao", "an", "ang"],
         ["ou", "ong"],
         ["ei", "en", "eng", "er"],
-        ["ab", "cd", "ef", "gh"],
         ["ün", "er"],
         ["ang", "eng", "ing", "ong"]
     ]

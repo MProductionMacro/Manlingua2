@@ -19,7 +19,8 @@ struct SubChapterCard: View {
    @EnvironmentObject var router: Router
    @EnvironmentObject var viewModel: StoryViewModel
    @EnvironmentObject var homeVM: HomeViewModel
-   
+   @StateObject var singleton = UserDefaultSingleton.shared
+
    var body: some View {
       HStack() {
          HStack(spacing: 12) {
@@ -64,8 +65,11 @@ struct SubChapterCard: View {
                .foregroundStyle(.orange)
                .fontWeight(.bold)
                .onTapGesture {
-                  viewModel.loadProgressForChapter(id, subChapters: homeVM.stories_example[id - 1].subChapter)
-                  router.push(.storyPage(chapterId: id, isFromHome: false))
+//                  viewModel.loadProgressForChapter(id, subChapters: homeVM.stories_example[id - 1].subChapter)
+                  viewModel.loadChatExample(subChapter.chat_json)
+                  
+                  singleton.updateSpecificStoryProgress(story: id, subChapterProgress: subChapter.id)
+                  router.push(.storyPage(chapterId: id, subChapterId: subChapter.id, isFromHome: false))
                }
          }
          Spacer()

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StoryDetailView: View {
-   @EnvironmentObject private var viewModel: StoryViewModel
+   //@EnvironmentObject private var viewModel: StoryViewModel
    @EnvironmentObject private var learnVM: LearnViewModel
    @EnvironmentObject var homeViewModel: HomeViewModel
    @EnvironmentObject var router: Router
@@ -16,9 +16,20 @@ struct StoryDetailView: View {
    @State var currentIndex: Int = 0
    @State var tutorialOverlay: Int = 1
    @State var modalAppeared: Bool = false
+   @State var viewModel = StoryViewModel()
+   @StateObject var singleton = UserDefaultSingleton.shared
    
    var chapterId: Int
+   var subChapterId: Int
    var isFromHome: Bool
+    
+    init(chapterId: Int, subChapterId: Int, isFromHome: Bool){
+        self.chapterId = chapterId
+        self.subChapterId = subChapterId
+        self.isFromHome = isFromHome
+        viewModel.loadChat(storyId: chapterId, subChapterId: subChapterId)
+        //print(viewModel.chat_example)
+    }
    
    var body: some View {
       GeometryReader { geometry in
@@ -40,11 +51,15 @@ struct StoryDetailView: View {
                      .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
                      .onChange(of: currentIndex) { newValue in
                         if newValue + 1 == viewModel.chat_example.count {
-                           if isFromHome {
-                              viewModel.oneSubChapterDone(chapterId)
-                              viewModel.allSubChapterDone(chapterId: chapterId)
-                           }
+                           //if isFromHome {
+                              //viewModel.oneSubChapterDone(chapterId)
+                              //viewModel.allSubChapterDone(chapterId: chapterId)
+                           //}
                            
+                            viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
+                            //StoryProgressManager.updateSpecificStoryProgress(story: chapterId, subChapterProgress: 1)
+                            //print("==Hasil : \(StoryProgressManager.getSpecificStoryProgress(story: chapterId))")
+
                            router.push(.donePage(currentPage: .story, currentPart: .first))
                         }
                      }
@@ -67,10 +82,20 @@ struct StoryDetailView: View {
                   }
                }
                .padding(.bottom, viewModel.chat_example[currentIndex].type == .question ? 0 : 64)
-               
+                //currentIndex
+                /*
+               .onAppear{
+                   print("currentIndex : \(currentIndex)")
+                   print("chat example : \(viewModel.chat_example.count)")
+               }
+               */
+                
+                //Ini nanti uncomment
+               /*
                if viewModel.chat_example[currentIndex].type == .question {
                   ChatModalityView(chat: viewModel.chat_example[currentIndex], modalAppeared: $modalAppeared, currentIndex: $currentIndex)
                }
+               */
             }
             .edgesIgnoringSafeArea(.bottom)
             .background(
@@ -86,11 +111,16 @@ struct StoryDetailView: View {
                }
             }
             
-             SidebarButton(chatIndex: $currentIndex, storyId: chapterId)
+            SidebarButton(chatIndex: $currentIndex, storyId: chapterId)
          }
          .overlay {
             TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.7)
          }
+         
+      }
+      .onAppear{
+          singleton.updateSpecificStoryProgress(story: chapterId, subChapterProgress: subChapterId)
+          print("Entering Story Detail View")
       }
    }
 }

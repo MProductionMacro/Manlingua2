@@ -49,16 +49,15 @@ class UserDefaultSingleton : ObservableObject{
     }
     
     
-    //Ini perbaikin coba...
     func setAllSpecificStoryProgress() {
-        for chapter_id in 0..<storyProgress.count {
+        for chapter_id in 0..<4 {
             if UserDefaults.standard.integer(forKey: "Chapter_\(chapter_id + 1)") == 0 {
                 //updateSpecificStoryProgress(story: story, subChapterProgress: 1)
                 UserDefaults.standard.set(1, forKey: "Chapter_\(chapter_id + 1)")
-                storyProgress[chapter_id + 1] = 1
+                storyProgress[chapter_id] = 1
             }
             else{
-                storyProgress[chapter_id + 1] = UserDefaults.standard.integer(forKey: "Chapter_\(chapter_id + 1)")
+                storyProgress[chapter_id] = UserDefaults.standard.integer(forKey: "Chapter_\(chapter_id + 1)")
             }
         }
     }
