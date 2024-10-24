@@ -46,7 +46,8 @@ struct PinyinView: View {
          
          Spacer()
       }
-      .background(Image(.pinyinBackground))
+      .ignoresSafeArea()
+      .background(Image(.pinyinBackground).resizable().scaledToFill())
    }
 }
 

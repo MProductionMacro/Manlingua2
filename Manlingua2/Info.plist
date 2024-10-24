@@ -22,6 +22,8 @@
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Allow access to the microphone to record audio for Mandarin Tone Checking</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Allow access to speech to text</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

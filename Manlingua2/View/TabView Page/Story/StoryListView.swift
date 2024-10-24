@@ -38,7 +38,7 @@ struct StoryListView: View {
       }
       .padding(.top, 64)
       .ignoresSafeArea()
-      .background(Image(.homeBackground))
+      .background(Image(.homeBackground).resizable().scaledToFill())
    }
 }
 

@@ -40,8 +40,7 @@ struct ChatModalityView: View {
             }else{
                MicrophoneModalityView() { answer in
                   withAnimation{
-//                     isCorrect = (answer == chat.answer)
-                     isCorrect = true
+                     isCorrect = (answer == chat.answer)
                      hasAnswered = true
                   }
                }

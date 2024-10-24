@@ -60,6 +60,14 @@ struct StoryDetailView: View {
                            BubbleChatView(chat: .constant(chat), type: chat.type)
                               .id(index)
                         }
+                        
+                        if currentIndex >= viewModel.chat_example.count {
+                           Button {
+                              
+                           } label: {
+                              Text("Continue")
+                           }
+                        }
                      }
                   }
                   .onChange(of: currentIndex) { oldValue, newValue in

@@ -24,7 +24,6 @@ struct FlashcardAudioBTN: View {
     @Binding var showMicrophone: Bool
     @Binding var audioController: AudioController
 
-
     init(message: Binding<String>, showMicrophone: Binding<Bool>, audioController: Binding<AudioController>){
         _message = message  // Menginisialisasi @Binding dari parent
         _showMicrophone = showMicrophone

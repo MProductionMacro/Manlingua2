@@ -33,6 +33,8 @@ struct PhotoChallengeView: View {
       .edgesIgnoringSafeArea(.bottom)
       .background(
          Image(.homeBackground)
+            .resizable()
+            .scaledToFill()
             .ignoresSafeArea()
       )
       .toolbar {

@@ -10,7 +10,6 @@ import SwiftUI
 struct MicrophoneModalityView: View {
    @State var responseText : String = ""
    
-   @State var audioController: AudioController = AudioController()
    var onPressedMic: (String) -> Void
    
    var body: some View {
@@ -22,7 +21,7 @@ struct MicrophoneModalityView: View {
             .background(.gold2)
             .clipShape(.rect(cornerRadius: 16))
          
-         AudioBTN(message: $responseText, audioController: $audioController, actionOnPressed: onPressedMic)
+         AudioBTN(transcribedText: $responseText, onPressedMic: onPressedMic)
       }
       .frame(maxWidth: .infinity)
       .padding()
