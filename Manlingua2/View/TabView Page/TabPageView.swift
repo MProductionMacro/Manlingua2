@@ -27,7 +27,9 @@ struct TabPageView: View {
                }
             }
             .tag(0)
-         
+
+          
+          
          PinyinPageView()
             .tabItem {
                Label {
