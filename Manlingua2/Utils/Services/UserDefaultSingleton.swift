@@ -63,7 +63,6 @@ class UserDefaultSingleton : ObservableObject{
         }
     }
     
-    
     func getSpecificStoryProgress(storyId: Int) -> Int {
         return storyProgress[storyId - 1]
     }
