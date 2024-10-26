@@ -9,16 +9,7 @@ import SwiftUI
 import Combine
 
 class HomeViewModel: ObservableObject {
-   @Published var currentStage: Stage = .open
    @Published var stories_example: [Story_Example] = []
-   
-   enum Stage {
-      case open
-      case home
-      case story
-      case dictionary
-      case outlineStory
-   }
    
    init(){
       loadStories()
@@ -39,11 +30,6 @@ class HomeViewModel: ObservableObject {
       } catch {
          print("Failed to decode JSON: \(error.localizedDescription)")
       }
-   }
-   
-   func switchStage(to stage: Stage) {
-      currentStage = stage
-//      print(currentStage)
    }
    /*
    func navigateToJourney(router: Router){

@@ -11,8 +11,11 @@ struct FlashcardPageView: View {
    
    @EnvironmentObject var router: Router
    //@ObservedObject var viewModel1: StoryViewModel
+   //   @EnvironmentObject var audioController: AudioRecordAndSpeechController
+   
    @StateObject var viewModel = FlashcardViewModel()
    @State var tutorialOverlay: Int = 1
+   @State var isAnswered = false
    
    @State var audioController = AudioController()
    
@@ -43,13 +46,10 @@ struct FlashcardPageView: View {
                      
                      createFlashcardView(for: index)
                         .zIndex(Double(viewModel.showVocabularies.count - index))
-                     
-                     
                   }
                   
                }
             }
-            //.gesture(createDragGesture())
             .padding(.bottom, 90)
             
             
@@ -59,24 +59,16 @@ struct FlashcardPageView: View {
                   hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi,
                   responseText: $viewModel.apiResult, showMicrophone: $viewModel.showMicrophone, audioController: $audioController)
                
-               
-               /*
-                Correct(hanzi: "ABCD", pinyin: "ABCD", meaning: "ABCD", viewModel: viewModel1, showMicrophone: $viewModel.showMicrophone){
-                viewModel.performSwipeRight()
-                }
-                */
-               //.frame(height:200)
-               
-            }
-            else if viewModel.checkResult() {
+            }else if viewModel.checkResult() {
                FlashcardCorrect(showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
                   viewModel.performSwipeRight()
                }
-            }
-            else{
+            }else{
                FlashcardWrong(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
                   viewModel.performSwipeRight()
                }
+               
+               
             }
             
          }

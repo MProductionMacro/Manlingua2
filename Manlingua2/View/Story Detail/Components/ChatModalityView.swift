@@ -21,11 +21,35 @@ struct ChatModalityView: View {
       ZStack{
          if hasAnswered {
             if isCorrect {
-               Correct(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, modalAppeared: $modalAppeared, currentIndex: $currentIndex, hasAnswered: $hasAnswered)
-                  .transition(.move(edge: .bottom))
+               Correct(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, continueFunc: {
+                  DispatchQueue.main.async {
+                     modalAppeared = false
+                     currentIndex += 1
+                     hasAnswered = false
+                  }
+               }, tryAgainFunc: {
+                  DispatchQueue.main.async {
+                     modalAppeared = false
+                     currentIndex -= 1
+                     hasAnswered = false
+                  }
+               })
+               .transition(.move(edge: .bottom))
             }else{
-               Wrong(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, modalAppeared: $modalAppeared, currentIndex: $currentIndex, hasAnswered: $hasAnswered)
-                  .transition(.move(edge: .bottom))
+               Wrong(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, continueFunc: {
+                  DispatchQueue.main.async {
+                     modalAppeared = false
+                     currentIndex += 1
+                     hasAnswered = false
+                  }
+               }, tryAgainFunc: {
+                  DispatchQueue.main.async {
+                     modalAppeared = false
+                     currentIndex -= 1
+                     hasAnswered = false
+                  }
+               })
+               .transition(.move(edge: .bottom))
             }
          }else {
             if let choices = chat.choice {

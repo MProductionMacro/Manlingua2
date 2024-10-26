@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AudioBTN: View {
-   @StateObject private var audioRecorder = AudioRecordAndSpeechController()
+   @EnvironmentObject private var audioRecorder: AudioRecordAndSpeechController
    
    @Binding var transcribedText: String
    
@@ -22,9 +22,8 @@ struct AudioBTN: View {
          // Recording Button
          Image(systemName: isRecording ? "stop.circle.fill" : "mic.circle.fill")
             .resizable()
-            .frame(width: 100, height: 100)
+            .frame(width: UIScreen.main.bounds.width * 0.2, height: UIScreen.main.bounds.width * 0.2)
             .foregroundColor(isRecording ? .red : .orange3)
-         
             .simultaneousGesture(
                DragGesture(minimumDistance: 0)
                   .onChanged { _ in
@@ -43,20 +42,13 @@ struct AudioBTN: View {
                            }
                         }
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                            onPressedMic(transcribedText)
                         })
                      }
                   }
             )
-            .padding()
-      }
-      .onAppear {
-         audioRecorder.requestPermissions()
-         audioRecorder.prepareForRecording()
-      }
-      .onChange(of: transcribedText) { _, newValue in
-         audioRecorder.setUtterance(text: newValue)
+            .padding(.bottom)
       }
    }
 }

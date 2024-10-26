@@ -15,6 +15,11 @@ class AudioRecordAndSpeechController: ObservableObject {
    private let speechSynthesizer = AVSpeechSynthesizer()
    private var utterance: AVSpeechUtterance?
    
+   init(){
+      requestPermissions()
+      prepareForRecording()
+   }
+   
    func requestPermissions() {
       AVAudioSession.sharedInstance().requestRecordPermission { granted in
          if !granted {

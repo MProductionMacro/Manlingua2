@@ -11,7 +11,6 @@ class Router: ObservableObject {
    @Published var path: [Screen] = [Screen.splashScreen]
    @Published var rootView: Screen = Screen.splashScreen
    
-   
    // MARK: - Navigation Functions
    func push(_ screen: Screen) {
       path.append(screen)

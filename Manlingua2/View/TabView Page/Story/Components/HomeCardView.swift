@@ -13,6 +13,10 @@ struct HomeCardView: View {
    @State var isComplete: Bool
    @State var subChapterId = 0
    
+   @EnvironmentObject var router: Router
+   @EnvironmentObject var homeVM: HomeViewModel
+   @EnvironmentObject var storyVM: StoryViewModel
+   
    var story: Story_Example
    
    var body: some View {
@@ -39,8 +43,24 @@ struct HomeCardView: View {
          }
          
          HStack {
-            PrimaryButtonView(isDisabled: isDisabled, id: story.id)
-            CardMenuButtonView(isDisabled: isDisabled, storyId: story.id)
+//            PrimaryButtonView(isDisabled: isDisabled, id: story.id)
+            Button {
+               storyVM.loadProgressForChapter(story.id, subChapters: homeVM.stories_example[story.id - 1].subChapter)
+               router.push(.storyPage(chapterId: story.id, isFromHome: true))
+            } label: {
+               Text("Mulai")
+            }
+            .buttonStyle(PrimaryButton(isDisabled: isDisabled))
+            .disabled(isDisabled)
+
+//            CardMenuButtonView(isDisabled: isDisabled, storyId: story.id)
+            Button {
+               router.push(.journeyPage(storyId: story.id))
+            } label: {
+               Image(systemName: "point.bottomleft.forward.to.point.topright.scurvepath.fill")
+            }
+            .buttonStyle(SecondaryButton(isDisabled: isDisabled))
+            .disabled(isDisabled)
          }
       }
       .padding()

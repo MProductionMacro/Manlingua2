@@ -30,8 +30,8 @@ struct MicrophoneModalityView: View {
    }
 }
 
-//#Preview {
-//   MicrophoneModalityView(onPressedMic: {})
-//      .frame(maxHeight: .infinity)
-//      .background(.black)
-//}
+#Preview {
+   MicrophoneModalityView(onPressedMic: {result in})
+      .frame(maxHeight: .infinity)
+      .background(.black)
+}

@@ -17,3 +17,4 @@ struct APIData{
     static let apiURL = "https://api-inference.huggingface.co/models/jonatasgrosman/wav2vec2-large-xlsr-53-chinese-zh-cn"
 }
 
+
