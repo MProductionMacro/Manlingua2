@@ -33,7 +33,7 @@ struct PinyinFinalView: View {
                         .multilineTextAlignment(.center)
                 }
      
-                VStack(alignment: .leading){
+               VStack(alignment: .leading, spacing: 16){
                     ForEach(viewModel.pinyinFinals, id: \.self){ pinyins in
                         RowOfPinyinView(listPinyin: pinyins)
                     }

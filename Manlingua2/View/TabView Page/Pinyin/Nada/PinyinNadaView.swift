@@ -10,6 +10,7 @@ import SwiftUI
 struct PinyinNadaView: View {
     @EnvironmentObject var router: Router
     @StateObject var viewModel = LearnViewModel()
+   
     var body : some View{
         ScrollView{
             VStack(spacing: 16){
@@ -21,7 +22,6 @@ struct PinyinNadaView: View {
                     .scaledToFit()
                     .frame(width:100, height: 100)
                     
-                
                 VStack{
                     Text("Tekan karakter untuk tahu cara")
                         .font(.system(size: 20))

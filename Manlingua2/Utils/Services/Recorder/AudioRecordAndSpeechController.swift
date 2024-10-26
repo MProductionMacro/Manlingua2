@@ -14,6 +14,7 @@ class AudioRecordAndSpeechController: ObservableObject {
    private let audioSession = AVAudioSession.sharedInstance()
    private let speechSynthesizer = AVSpeechSynthesizer()
    private var utterance: AVSpeechUtterance?
+   private var player: AVAudioPlayer?
    
    init(){
       requestPermissions()
@@ -91,18 +92,37 @@ class AudioRecordAndSpeechController: ObservableObject {
       }
    }
    
-   func setUtterance(text: String) {
+   func setUtterance(text: String, rate: Float) {
       utterance = AVSpeechUtterance(string: text)
       utterance?.voice = AVSpeechSynthesisVoice(language: "zh-CN")
-      utterance?.rate = AVSpeechUtteranceDefaultSpeechRate
+      utterance?.rate = rate
       utterance?.volume = 1.0
    }
    
-   func speak(text: String) {
+   func speak(text: String, rate: Float) {
+      setUtterance(text: text, rate: rate)
       guard let utterance = utterance else { return }
       speechSynthesizer.speak(utterance)
    }
    
+   func speakSlow(text: String) {
+      
+   }
+   
+   func playSoundFromData(speak: String) {
+      guard let folderURL = Bundle.main.url(forResource: speak, withExtension: "m4a") else {
+         print("Sound file not found.")
+         return
+      }
+      do {
+         player = try AVAudioPlayer(contentsOf: folderURL)
+         player?.prepareToPlay()
+         player?.play()
+         print("Playing sound.")
+      } catch let error {
+         print("Error initializing audio player: \(error.localizedDescription)")
+      }
+   }
    
    private func getAudioFileURL() -> URL {
       let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

@@ -26,7 +26,7 @@ struct BubbleSoundButton: View {
                .padding()
                .foregroundColor(.white)
                .background(.orange3)
-               .clipShape(.rect(cornerRadius: 16))
+               .clipShape(Circle())
 //         }
       }
    }
