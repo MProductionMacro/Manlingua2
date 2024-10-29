@@ -53,11 +53,11 @@ class Router: ObservableObject {
       case .journeyPage(let storyId):
           JourneyPageView(storyId: storyId)
             .navigationBarBackButtonHidden(true)
-      case .storyPage(let id, let condition):
-         StoryDetailView(chapterId: id, isFromHome: condition)
+      case .storyPage(let chapterId, let condition):
+          StoryDetailView(chapterId: chapterId, isFromHome: condition)
             .navigationBarBackButtonHidden(true)
-      case .dictionary(let judul, let storyId, let showFavoriteVocab):
-          DictionaryView(judul: judul, storyId:storyId, showFavoriteVocab: showFavoriteVocab)
+      case .dictionary(let judul, let displayMode):
+          DictionaryView(judul: judul, displayMode: displayMode)
       case .flashcardPage:
           FlashcardPageView()
               .navigationBarBackButtonHidden(true)
@@ -67,6 +67,20 @@ class Router: ObservableObject {
       }
    }
 }
+
+enum Screen: Hashable {
+   case splashScreen
+   case mainScreen
+   case pinyinInisial
+   case pinyinFinal
+   case pinyinNada
+   case journeyPage(storyId: Int)
+   case storyPage(chapterId: Int, isFromHome: Bool)
+   case dictionary(judul:String, displayMode: DictionaryDisplayMode)
+   case donePage(currentPage: DonePageString, currentPart: PartOfTheStory)
+   case flashcardPage
+}
+
                          /*
                      case dictionary(judul:String, story: Int)
                      case .dictionary(var test):

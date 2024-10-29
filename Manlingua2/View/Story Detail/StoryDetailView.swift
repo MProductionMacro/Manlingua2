@@ -94,7 +94,7 @@ struct StoryDetailView: View {
                }
             }
             
-             SidebarButton(chatIndex: $currentIndex, storyId: chapterId)
+            SidebarButton(chatIndex: $currentIndex, storyId: chapterId)
          }
          .overlay {
             TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.7)

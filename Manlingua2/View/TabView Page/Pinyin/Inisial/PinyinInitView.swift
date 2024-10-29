@@ -10,12 +10,14 @@ import SwiftUI
 struct PinyinInitView: View {
    @EnvironmentObject var router: Router
    @StateObject var viewModel = LearnViewModel()
+   @State var audioController = AudioController()
    
    var body: some View {
       //TODO: Jadiin ScrollView
       ScrollView {
          //TODO: Sizenya hard coded
          VStack(spacing: 16) {
+            
             Text("Inisial")
                .font(.system(size: 25, weight: .bold))
                .foregroundStyle(.black)
@@ -36,11 +38,12 @@ struct PinyinInitView: View {
                   .multilineTextAlignment(.center)
             }
             
-            VStack(alignment: .leading, spacing: 16){
+            VStack(alignment: .leading){
                ForEach(viewModel.pinyinInisial, id: \.self){ pinyins in
-                  RowOfPinyinView(listPinyin: pinyins)
+                  RowOfPinyinView(listPinyin: pinyins, audioController: $audioController)
                }
             }
+            
          }
          .background(.white)
          .ignoresSafeArea()

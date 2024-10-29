@@ -8,19 +8,19 @@ import SwiftUI
 
 struct FlashcardSidebarButton: View {
    @State private var showContent: Bool = false
-    @ObservedObject var viewModel: FlashcardViewModel
-    @State var tts = TextToSpeech()
-    
-    @EnvironmentObject var router:Router
-    
-    var action: () -> Void // Fungsi sebagai parameter
-
+   @ObservedObject var viewModel: FlashcardViewModel
+   @State var tts = TextToSpeech()
+   
+   @EnvironmentObject var router:Router
+   
+   var action: () -> Void // Fungsi sebagai parameter
+   
    var body: some View {
       HStack(spacing: 0) {
-          Button(action: {
+         Button(action: {
             withAnimation {
                showContent.toggle()
-                action()
+               action()
             }
          }) {
             Image(systemName: showContent ? "chevron.right" : "chevron.left")
@@ -33,7 +33,7 @@ struct FlashcardSidebarButton: View {
          if showContent {
             HStack(spacing: 12) {
                Button(action: {
-                   router.push(.dictionary(judul: "Kata Favorit", storyId:1, showFavoriteVocab: true))
+                  router.push(.dictionary(judul: "Kata Favorit", displayMode: .favorite))
                }) {
                   Image(systemName: "book.fill")
                      .frame(width: 24, height: 24)
@@ -45,7 +45,7 @@ struct FlashcardSidebarButton: View {
                
                Button(action: {
                   // Action for speaker icon
-                   tts.speak(text: viewModel.showVocabularies[viewModel.currentIndex].hanzi)
+                  tts.speak(text: viewModel.showVocabularies[viewModel.currentIndex].hanzi)
                }) {
                   Image(systemName: "speaker.wave.2.fill")
                      .frame(width: 24, height: 24)
@@ -57,7 +57,7 @@ struct FlashcardSidebarButton: View {
                
                Button(action: {
                   // Action for turtle icon
-                   tts.speakSlow(text: viewModel.showVocabularies[viewModel.currentIndex].hanzi)
+                  tts.speakSlow(text: viewModel.showVocabularies[viewModel.currentIndex].hanzi)
                }) {
                   Image(systemName: "tortoise.fill")
                      .frame(width: 24, height: 24)

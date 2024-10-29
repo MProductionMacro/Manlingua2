@@ -9,88 +9,45 @@ import Foundation
 import SwiftUI
 
 class DictionaryViewModel: ObservableObject {
-    @Published var currentIndex: Int = 0
-    @Published var offset: CGSize = .zero
-    @Published var checkResult: Bool = false
-    @Published var isCheck: Bool = false
-    @Published var flashcards: [Flashcard_Example] = []
-    @Published var showFlashcards: [Flashcard_Example] = []
-    @Published var showDonePage: Bool = false
-
-    
     @Published var vocabularies: [Vocabulary] = []
-    @Published var showVocabularies: [Vocabulary] = []
     
-    init(){
-        //loadVocabularies()
-    }
-    
-    func loadVocabularies(storyId: Int, showFavoriteVocab: Bool){
-        if showFavoriteVocab{
+    func loadVocabularies(from displayMode: DictionaryDisplayMode) {
+        switch displayMode {
+        case .favorite:
             loadFavoriteVocabularies()
-        }
-        else{
-            loadStoryVocabularies(storyId: storyId)
+        case .story(let id):
+            loadStoryVocabularies(storyId: id)
         }
     }
     
-    func loadFavoriteVocabularies(){
+    private func loadFavoriteVocabularies() {
         vocabularies = []
         for vocab in SwiftDataServices.shared.vocabs{
             vocabularies.append(Vocabulary(hanzi: vocab.hanzi, pinyin: vocab.pinyin, meaning: vocab.meaning))
             print(Vocabulary(hanzi: vocab.hanzi, pinyin: vocab.pinyin, meaning: vocab.meaning))
         }
-
     }
     
-    func loadStoryVocabularies(storyId: Int){
+    private func loadStoryVocabularies(storyId: Int) {
+        vocabularies = []
+        for subIndex in 1...3 {
+            loadVocabulary(from: storyId, subIndex: subIndex)
+        }
+    }
+    
+    private func loadVocabulary(from storyId: Int, subIndex: Int) {
+        guard let url = Bundle.main.url(forResource: "Kosakata\(storyId)_\(subIndex)", withExtension: "json") else {
+            print("Error: File 'Kosakata\(storyId)_\(subIndex).json' not found.")
+            return
+        }
         
-        for subIndex in 1..<4{
-            var vocabulary = [Vocabulary]()
-            guard let url = Bundle.main.url(forResource: "Kosakata\(storyId)_\(subIndex)", withExtension: "json") else {
-                print("File not found: Kosakata\(String(describing: index))_\(subIndex)")
-                return
-            }
-            
-            do {
-                let data = try Data(contentsOf: url)
-                let decoder = JSONDecoder()
-                vocabulary = try decoder.decode([Vocabulary].self, from: data)
-            } catch {
-                print("Error decoding JSON: \(error)")
-            }
-            self.vocabularies.append(contentsOf: vocabulary)
-            print("Vocabularies: ")
-            print(self.vocabularies)
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            let vocabulary = try decoder.decode([Vocabulary].self, from: data)
+            vocabularies.append(contentsOf: vocabulary)
+        } catch {
+            print("Error decoding JSON from 'Kosakata\(storyId)_\(subIndex).json': \(error.localizedDescription)")
         }
-    }
-    
-    func loadAllVocabularies(){
-        for index in 1..<5{
-            var vocabulary = [Vocabulary]()
-            for subIndex in 1..<4{
-                guard let url = Bundle.main.url(forResource: "Kosakata\(index)_\(subIndex)", withExtension: "json") else {
-                    print("File not found: Kosakata\(index)_\(subIndex)")
-                    return
-                }
-                
-                do {
-                    let data = try Data(contentsOf: url)
-                    let decoder = JSONDecoder()
-                    vocabulary = try decoder.decode([Vocabulary].self, from: data)
-                } catch {
-                    print("Error decoding JSON: \(error)")
-                }
-            }
-            self.vocabularies.append(contentsOf: vocabulary)
-        }
-    }
-    
-    func reshuffleCards(){
-        //flashcards.shuffle()
-        //showFlashcards = Array(flashcards.prefix(5))
-        vocabularies.shuffle()
-        //showVocabularies = Array(vocabularies.prefix(10))
     }
 }
-

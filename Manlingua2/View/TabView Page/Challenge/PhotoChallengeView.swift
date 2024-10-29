@@ -18,11 +18,23 @@ struct PhotoChallengeView: View {
             .padding()
          
          VStack{
-            Rectangle()
-               .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [10]))
-               .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.4)
+            ZStack {
+               Rectangle()
+                  .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [10]))
+                  .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.width * 0.8)
+               
+               ZStack {
+                  Circle()
+                     .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [8]))
+                     .frame(width: UIScreen.main.bounds.width * 0.3)
+                  Image(systemName: "camera")
+                     .font(.title)
+               }
+            }
+            
+            Text("Izinkan akses kamera")
          }
-         .frame(maxWidth: .infinity, maxHeight: .infinity)
+         .frame(maxWidth: .infinity)
          .background(.white)
          .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
          .ignoresSafeArea()

@@ -11,8 +11,10 @@ struct QuestionBubbleChatView: View {
    var hanzi: String
    var pinyin: String
    var question: String
+   var meaning: String
    
    @State private var showQuestionModal: Bool = false
+   @State private var showMeaningModal: Bool = false
    
    var body: some View {
       HStack {
@@ -39,7 +41,20 @@ struct QuestionBubbleChatView: View {
                         .offset(y: UIScreen.main.bounds.height * 0.02)
                   }
                   .onTapGesture {
-                     
+                     showMeaningModal.toggle()
+                  }
+                  .popover(isPresented: $showMeaningModal, attachmentAnchor: .point(.bottom)) {
+                     ZStack {
+                        Color.customLightGray
+                           .scaleEffect(1.5)
+                        
+                        Text(meaning)
+                           .font(.hanzi())
+                           .foregroundColor(.black)
+                           .padding(.horizontal)
+                           .multilineTextAlignment(.leading)
+                     }
+                     .presentationCompactAdaptation(.popover)
                   }
             }
             .padding(8)
@@ -67,5 +82,5 @@ struct QuestionBubbleChatView: View {
 }
 
 #Preview {
-   QuestionBubbleChatView(hanzi: "Halo", pinyin: "Halo", question: "Halo")
+   QuestionBubbleChatView(hanzi: "Halo", pinyin: "Halo", question: "Halo", meaning: "Halo")
 }

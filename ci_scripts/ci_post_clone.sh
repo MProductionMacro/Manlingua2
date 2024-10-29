@@ -30,15 +30,7 @@ cat <<EOL > Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Packag
   "version" : 3,
   "object" : {
     "pins" : [
-      {
-        "package" : "firebase-ios-sdk",
-        "repositoryURL" : "https://github.com/firebase/firebase-ios-sdk.git",
-        "state" : {
-          "branch" : null,
-          "revision" : "latest",
-          "version" : "11.3.0"
-        }
-      }
+
     ]
   }
 }

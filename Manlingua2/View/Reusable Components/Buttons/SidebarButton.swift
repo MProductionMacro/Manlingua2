@@ -37,7 +37,7 @@ struct SidebarButton: View {
             HStack(spacing: 12) {
                Button(action: {
                   //router.push(.dictionary(storyId: storyId))
-                  router.push(.dictionary(judul: homeViewModel.stories_example[storyId-1].title, storyId: storyId, showFavoriteVocab: false))
+                  router.push(.dictionary(judul: homeViewModel.stories_example[storyId-1].title, displayMode: .story(id: storyId)))
                }) {
                   Image(systemName: "book.fill")
                      .frame(width: 24, height: 24)

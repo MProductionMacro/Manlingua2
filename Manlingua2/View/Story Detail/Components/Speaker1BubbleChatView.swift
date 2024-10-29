@@ -51,7 +51,7 @@ struct Speaker1BubbleChatView: View {
                         Text(meaning)
                            .font(.hanzi())
                            .foregroundColor(.black)
-                           .padding(.trailing)
+                           .padding(.horizontal, 4)
                            .multilineTextAlignment(.leading)
                      }
                      .presentationCompactAdaptation(.popover)

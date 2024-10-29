@@ -34,7 +34,7 @@ struct JourneyPageView: View {
                }
                
                Button {
-                  router.push(.dictionary(judul: story.title, storyId: story.id, showFavoriteVocab: false))
+                  router.push(.dictionary(judul: story.title, displayMode: .story(id: story.id)))
                } label: {
                   HStack {
                      Image(.bookOpenText)

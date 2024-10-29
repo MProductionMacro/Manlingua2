@@ -44,7 +44,7 @@ struct KataKataView: View {
             }
             
             Button {
-               router.push(.dictionary(judul: "Kata Favorit", storyId: 1, showFavoriteVocab: true))
+               router.push(.dictionary(judul: "Kata Favorit", displayMode: .favorite))
             } label: {
                VStack {
                   VStack(alignment: .leading, spacing: 10) {

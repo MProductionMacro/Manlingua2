@@ -7,19 +7,16 @@
 import SwiftUI
 
 struct RowOfPinyinView: View {
-    var listPinyin: [String]
-    
-    var body: some View {
-        HStack(spacing: 16) {
-            ForEach(listPinyin, id: \.self) { pinyin in
-                PinyinSoundCardView(text: pinyin, speak: pinyin)
-                  .frame(width: UIScreen.main.bounds.width * 0.18, height: UIScreen.main.bounds.width * 0.18)
-            }
-        }
-        .padding(.horizontal)
-    }
-}
-
-#Preview {
-    RowOfPinyinView(listPinyin: ["a", "e", "i", "o", "u"])
+   var listPinyin: [String]
+   @Binding var audioController: AudioController
+   
+   var body: some View {
+      HStack(spacing: 12) {
+         ForEach(listPinyin, id: \.self) { pinyin in
+            PinyinSoundCardView(text: pinyin, speak: pinyin, audioController: $audioController)
+               .frame(width: 80, height: 78.45)
+         }
+      }
+      .padding(.horizontal)
+   }
 }

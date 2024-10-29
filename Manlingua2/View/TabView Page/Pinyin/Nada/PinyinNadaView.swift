@@ -8,65 +8,65 @@
 import SwiftUI
 
 struct PinyinNadaView: View {
-    @EnvironmentObject var router: Router
-    @StateObject var viewModel = LearnViewModel()
+   @EnvironmentObject var router: Router
+   @StateObject var viewModel = LearnViewModel()
+   @State var audioController = AudioController()
    
-    var body : some View{
-        ScrollView{
-            VStack(spacing: 16){
-                Text("Nada")
-                    .font(.system(size: 25, weight: .bold))
-
-                Image("NadaNew")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width:100, height: 100)
-                    
-                VStack{
-                    Text("Tekan karakter untuk tahu cara")
-                        .font(.system(size: 20))
-                        .foregroundStyle(.black)
-                        .multilineTextAlignment(.center)
-                    Text("pengucapannya")
-                        .font(.system(size: 20))
-                        .foregroundStyle(.black)
-                        .multilineTextAlignment(.center)
-                }
-                //.padding(.top, 32)
-                .padding(.bottom, 32)
-                
-                //Text(" ")
-                
-                RowOfPinyinView(listPinyin: viewModel.pinyinNada)
+   var body : some View{
+      ScrollView{
+         VStack(spacing: 16){
+            Text("Nada")
+               .font(.system(size: 25, weight: .bold))
+            
+            Image("NadaNew")
+               .resizable()
+               .scaledToFit()
+               .frame(width:100, height: 100)
+            
+            
+            VStack{
+               Text("Tekan karakter untuk tahu cara")
+                  .font(.system(size: 20))
+                  .foregroundStyle(.black)
+                  .multilineTextAlignment(.center)
+               Text("pengucapannya")
+                  .font(.system(size: 20))
+                  .foregroundStyle(.black)
+                  .multilineTextAlignment(.center)
             }
-            .background(.white)
-            .ignoresSafeArea()
-            .padding(.top)
-        }
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                HStack(alignment: .top){
-                    Button(action:{
-                        router.pop()
-                    }){
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.orange3)
-                            .font(.title3)
-                            .bold()
-                        
-                        Text("Kembali")
-                            .foregroundColor(.orange3)
-                            .bold()
-                    }
-                }
+            //.padding(.top, 32)
+            .padding(.bottom, 32)
+            
+            RowOfPinyinView(listPinyin: viewModel.pinyinNada, audioController: $audioController)
+         }
+         .background(.white)
+         .ignoresSafeArea()
+         .padding(.top)
+      }
+      .toolbar {
+         ToolbarItem(placement: .topBarLeading) {
+            HStack(alignment: .top){
+               Button(action:{
+                  router.pop()
+               }){
+                  Image(systemName: "chevron.left")
+                     .foregroundColor(.orange3)
+                     .font(.title3)
+                     .bold()
+                  
+                  Text("Kembali")
+                     .foregroundColor(.orange3)
+                     .bold()
+               }
             }
-        }
-    }
+         }
+      }
+   }
 }
 
 #Preview {
-    NavigationView{
-        PinyinNadaView()
-            .environmentObject(Router())
-    }
+   NavigationView{
+      PinyinNadaView()
+         .environmentObject(Router())
+   }
 }
