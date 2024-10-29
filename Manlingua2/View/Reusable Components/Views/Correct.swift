@@ -12,9 +12,8 @@ struct Correct: View {
    var pinyin: String
    var meaning: String
    
-   @Binding var modalAppeared: Bool
-   @Binding var currentIndex: Int
-   @Binding var hasAnswered: Bool
+   var continueFunc: () -> Void
+   var tryAgainFunc: () -> Void
    
    var body: some View {
       VStack(alignment: .leading, spacing: 24) {
@@ -56,19 +55,11 @@ struct Correct: View {
          
          HStack(spacing: 16) {
             TryAgainButton(action: {
-               DispatchQueue.main.async {
-                  modalAppeared = false
-                  currentIndex -= 1
-                  hasAnswered = false
-               }
+               tryAgainFunc()
             })
             
             ContinueButton(action: {
-               DispatchQueue.main.async {
-                  modalAppeared = false
-                  currentIndex += 1
-                  hasAnswered = false
-               }
+               continueFunc()
             })
          }
       }
@@ -83,5 +74,5 @@ struct Correct: View {
 }
 
 #Preview {
-   Correct(hanzi: "猫", pinyin: "Māo", meaning: "How many people", modalAppeared: .constant(true), currentIndex: .constant(1), hasAnswered: .constant(true))
+   Correct(hanzi: "猫", pinyin: "Māo", meaning: "How many people", continueFunc: {}, tryAgainFunc: {})
 }

@@ -16,14 +16,15 @@ struct DictionaryButtonView: View {
          //router.push(.dictionary)
       }) {
          HStack {
-            Image("Flashcard")
+            Image("BookOpenText")
             Text("Dictionary")
-               .font(.system(size: 18, weight: .bold))
+               .font(.button())
+               .foregroundStyle(.orange3)
          }
-         .padding(.vertical, 14.5)
-         .padding(.horizontal, 16)
+         .padding()
          .foregroundColor(.orange)
-         .background(RoundedRectangle(cornerRadius: 12).fill(Color.gold2))
+         .background(.gold2)
+         .clipShape(.rect(cornerRadius: 12))
       }
       
    }
