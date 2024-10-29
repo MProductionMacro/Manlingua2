@@ -26,26 +26,8 @@ touch Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.reso
 echo "Creating Package.resolved..."
 cat <<EOL > Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 # CREATE YOUR EXAMPLE DEPENDENCY HERE, ONLY FOR CREATING Package.resolved
-{
-   "version" : 3,
-   "object" : {
-      "pins" : [
-      {
-         "package" : "firebase-ios-sdk",
-         "repositoryURL" : "https://github.com/firebase/firebase-ios-sdk",
-         "state" : {
-            "branch" : null,
-            "revision" : "<FirebaseRevisionID>",
-            "version" : "<FirebaseVersion>"
-         }
-      }
-      ]
-   }
-}
-EOL
-# Resolve package dependencies to generate Package.resolved
-echo "Resolving package dependencies..."
-xcodebuild -resolvePackageDependencies -project Manlingua2.xcodeproj -scheme Manlingua2
+xcodebuild -resolvePackageDependencies -project Manlingua2.xcodeproj -scheme Manlingua2 -package-url https://github.com/firebase/firebase-ios-sdk -package-version 11.3.0
+
 # Check if Package.resolved was created
 if [ -f "Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" ]; then
 echo "Package.resolved generated successfully."
