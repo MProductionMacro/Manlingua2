@@ -25,7 +25,6 @@ mkdir Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm
 touch Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 echo "Creating Package.resolved..."
 cat <<EOL > Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
-# CREATE YOUR EXAMPLE DEPENDENCY HERE, ONLY FOR CREATING Package.resolved
 {
   "originHash" : "",
   "pins" : [
@@ -34,7 +33,7 @@ cat <<EOL > Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Packag
       "kind" : "package",
       "location" : "https://github.com/firebase/firebase-ios-sdk.git",
       "state" : {
-        "revision" : "11.3.0",  # Replace with the desired version
+        "revision" : "11.3.0",
         "version" : "11.3.0"
       }
     }
