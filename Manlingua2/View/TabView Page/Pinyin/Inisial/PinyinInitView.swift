@@ -10,7 +10,7 @@ import SwiftUI
 struct PinyinInitView: View {
    @EnvironmentObject var router: Router
    @StateObject var viewModel = LearnViewModel()
-   @State var audioController = AudioController()
+   @State var audioController = AudioController.shared
    
    var body: some View {
       //TODO: Jadiin ScrollView

@@ -8,14 +8,36 @@
 import SwiftUI
 
 struct AudioBTN: View {
-   @EnvironmentObject private var audioRecorder: AudioRecordAndSpeechController
+   //   @EnvironmentObject private var audioRecorder: AudioRecordAndSpeechController
+   
+   private let instance = APIController.instance
    
    @Binding var transcribedText: String
+   @Binding var message:  String
+   @Binding var showMicrophone: Bool
    
+   @State var audioController = AudioController.shared
    @State private var isRecording = false
    @State private var isPlayingSpeech = false
    
    var onPressedMic: (String) -> Void
+   
+   func sendAudioToAPI() {
+      guard let audioURL = audioController.getAudioFileName() else {
+         print("No audio file to send")
+         return
+      }
+      
+      Task {
+         if let response = await APIController.instance.getResponse(audioPath: audioURL.path) {
+            print("API response: \(response)")
+            message = response
+            showMicrophone.toggle()
+         } else {
+            print("Failed to get API response")
+         }
+      }
+   }
    
    var body: some View {
       VStack {
@@ -29,22 +51,33 @@ struct AudioBTN: View {
                   .onChanged { _ in
                      if !isRecording {
                         self.isRecording = true
-                        audioRecorder.startRecording()
+                        //                        audioRecorder.startRecording()
+                        audioController.startRecording()
                      }
                   }
                   .onEnded { _ in
                      if isRecording {
                         self.isRecording = false
-                        audioRecorder.stopRecording()
-                        audioRecorder.transcribeAudio { result in
-                           DispatchQueue.main.async {
-                              self.transcribedText = result
+                        audioController.stopRecording()
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                           if let path = audioController.getAudioFileName()?.path {
+                              instance.convertAudioToData(audioPath:path)
+                              sendAudioToAPI()
+                           }
+                           else{
+                              print("Error getting audio file")
                            }
                         }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                           onPressedMic(transcribedText)
-                        })
+                        //                        audioRecorder.transcribeAudio { result in
+                        //                           DispatchQueue.main.async {
+                        //                              self.transcribedText = result
+                        //                           }
+                        //                        }
+                        //
+                        //                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                        //                           onPressedMic(transcribedText)
+                        //                        })
                      }
                   }
             )

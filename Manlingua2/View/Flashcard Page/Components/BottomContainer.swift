@@ -11,6 +11,7 @@ struct BottomContainerView : View {
    @EnvironmentObject var router: Router
    @ObservedObject var viewModel: FlashcardViewModel
    @Binding var audioController: AudioController
+   
    var body : some View {
       if viewModel.showMicrophone{
          FlashcardMicrophoneModalityView(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, responseText: $viewModel.apiResult, showMicrophone: $viewModel.showMicrophone, audioController: $audioController)

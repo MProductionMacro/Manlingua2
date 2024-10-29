@@ -28,6 +28,8 @@ class AudioController: NSObject {
    private var player: AVAudioPlayer! // buat ngeplay suaranya
    weak var delegate: AudioControllerDelegate?
    
+   static let shared = AudioController()
+   
    override init() {
       super.init()
       setupAudioSession()
@@ -74,6 +76,7 @@ class AudioController: NSObject {
    @discardableResult
    func startRecording() -> Bool {
       setUpRecorder()
+      
       guard let audioRecorder = audioRecorder else {
          print("Audio Recorder is not set up.")
          return false
@@ -201,3 +204,9 @@ extension AudioController: AVAudioPlayerDelegate {
       deactivateAudioSession()
    }
 }
+
+/*
+ -AudioController dijadiin singleton
+ -TextToSpeech dan AudioController dipisah
+ -
+ */
