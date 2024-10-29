@@ -2,8 +2,8 @@ bash
 #!/bin/bash
 # Install XcodeGen if it's not already installed
 if ! command -v xcodegen &> /dev/null; then
-    echo "XcodeGen not found. Installing..."
-    brew install xcodegen
+echo "XcodeGen not found. Installing..."
+brew install xcodegen
 fi
 ls .
 # Change to the project directory
@@ -27,20 +27,20 @@ echo "Creating Package.resolved..."
 cat <<EOL > Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 # CREATE YOUR EXAMPLE DEPENDENCY HERE, ONLY FOR CREATING Package.resolved
 {
-  "version" : 3,
-  "object" : {
-    "pins" : [
+   "version" : 3,
+   "object" : {
+      "pins" : [
       {
-        "package" : "firebase-ios-sdk",
-        "repositoryURL" : "https://github.com/firebase/firebase-ios-sdk.git",
-        "state" : {
-          "branch" : null,
-          "revision" : "latest",
-          "version" : "11.3.0"
-        }
+         "package" : "firebase-ios-sdk",
+         "repositoryURL" : "https://github.com/firebase/firebase-ios-sdk",
+         "state" : {
+            "branch" : null,
+            "revision" : "<FirebaseRevisionID>",
+            "version" : "<FirebaseVersion>"
+         }
       }
-    ]
-  }
+      ]
+   }
 }
 EOL
 # Resolve package dependencies to generate Package.resolved
@@ -48,8 +48,8 @@ echo "Resolving package dependencies..."
 xcodebuild -resolvePackageDependencies -project Manlingua2.xcodeproj -scheme Manlingua2
 # Check if Package.resolved was created
 if [ -f "Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" ]; then
-    echo "Package.resolved generated successfully."
+echo "Package.resolved generated successfully."
 else
-    echo "Failed to generate Package.resolved."
-    exit 1
+echo "Failed to generate Package.resolved."
+exit 1
 fi

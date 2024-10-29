@@ -17,6 +17,9 @@ struct StoryDetailView: View {
    @State var tutorialOverlay: Int = 1
    @State var modalAppeared: Bool = false
    
+   var chapterId: Int
+   var isFromHome: Bool
+   
    var body: some View {
       GeometryReader { geometry in
          ZStack {
@@ -37,12 +40,12 @@ struct StoryDetailView: View {
                      .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
                      .onChange(of: currentIndex) { newValue in
                         if newValue + 1 == viewModel.chat_example.count {
-                           let chapterId = StoryProgressManager.getCurrentChapter()
+                           if isFromHome {
+                              viewModel.oneSubChapterDone(chapterId)
+                              viewModel.allSubChapterDone(chapterId: chapterId)
+                           }
                            
-                           viewModel.oneSubChapterDone(chapterId)
-                           viewModel.allSubChapterDone(chapterId: chapterId)
-                           
-                           router.push(.donePage)
+                           router.push(.donePage(currentPage: .story, currentPart: .first))
                         }
                      }
                }
@@ -56,6 +59,14 @@ struct StoryDetailView: View {
                            
                            BubbleChatView(chat: .constant(chat), type: chat.type)
                               .id(index)
+                        }
+                        
+                        if currentIndex >= viewModel.chat_example.count {
+                           Button {
+                              
+                           } label: {
+                              Text("Continue")
+                           }
                         }
                      }
                   }
@@ -83,7 +94,7 @@ struct StoryDetailView: View {
                }
             }
             
-            SidebarButton()
+            SidebarButton(chatIndex: $currentIndex, storyId: chapterId)
          }
          .overlay {
             TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.7)

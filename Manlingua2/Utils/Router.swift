@@ -11,7 +11,6 @@ class Router: ObservableObject {
    @Published var path: [Screen] = [Screen.splashScreen]
    @Published var rootView: Screen = Screen.splashScreen
    
-   
    // MARK: - Navigation Functions
    func push(_ screen: Screen) {
       path.append(screen)
@@ -54,20 +53,34 @@ class Router: ObservableObject {
       case .journeyPage(let storyId):
           JourneyPageView(storyId: storyId)
             .navigationBarBackButtonHidden(true)
-      case .storyPage:
-         StoryDetailView()
+      case .storyPage(let chapterId, let condition):
+          StoryDetailView(chapterId: chapterId, isFromHome: condition)
             .navigationBarBackButtonHidden(true)
-      case .dictionary(let judul, let storyId, let showFavoriteVocab):
-          DictionaryView(judul: judul, storyId:storyId, showFavoriteVocab: showFavoriteVocab)
+      case .dictionary(let judul, let displayMode):
+          DictionaryView(judul: judul, displayMode: displayMode)
       case .flashcardPage:
           FlashcardPageView()
               .navigationBarBackButtonHidden(true)
-      case .donePage:
-         DonePageView()
+      case .donePage(let currentPage, let currentPart):
+         DonePageView(currentPage: currentPage, currentPart: currentPart)
             .navigationBarBackButtonHidden(true)
       }
    }
 }
+
+enum Screen: Hashable {
+   case splashScreen
+   case mainScreen
+   case pinyinInisial
+   case pinyinFinal
+   case pinyinNada
+   case journeyPage(storyId: Int)
+   case storyPage(chapterId: Int, isFromHome: Bool)
+   case dictionary(judul:String, displayMode: DictionaryDisplayMode)
+   case donePage(currentPage: DonePageString, currentPart: PartOfTheStory)
+   case flashcardPage
+}
+
                          /*
                      case dictionary(judul:String, story: Int)
                      case .dictionary(var test):

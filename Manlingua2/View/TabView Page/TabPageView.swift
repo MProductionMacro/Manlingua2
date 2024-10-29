@@ -1,10 +1,3 @@
-//
-//  TabPageView.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 27/09/24.
-//
-
 import SwiftUI
 
 struct TabPageView: View {
@@ -17,61 +10,56 @@ struct TabPageView: View {
       TabView(selection: $selectedTab) {
          StoryListView()
             .tabItem {
-               Label {
-                  Text("Story")
-                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
-               } icon: {
-                  Image("story")
-                     .resizable()
-                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
-               }
+               TabItemView(selectedTab: $selectedTab, text:"Beranda", image: "house", tag: 0)
             }
             .tag(0)
          
          PinyinPageView()
             .tabItem {
-               Label {
-                  Text("Pinyin")
-                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
-               } icon: {
-                  Image("pinyin")
-                     .resizable()
-                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
-               }
+               TabItemView(selectedTab: $selectedTab, text:"Challenge", image: "lightbulb", tag: 1)
             }
             .tag(1)
          
          PhotoChallengeView()
             .tabItem {
-               Label {
-                  Text("Challenge")
-                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
-               } icon: {
-                  Image("challenge")
-                     .resizable()
-                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
-               }
+               TabItemView(selectedTab: $selectedTab, text:"Challenge", image: "dice", tag: 2)
             }
+            .tag(2)
          
          ProfilePageView()
             .tabItem {
-               Label {
-                  Text("Profile")
-                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
-               } icon: {
-                  Image("profile")
-                     .resizable()
-                     .foregroundStyle(selectedTab == 0 ? Color.orange3 : Color.gray)
-               }
+               TabItemView(selectedTab: $selectedTab,  text:"Profile", image: "person", tag: 3)
             }
+            .tag(3)
       }
-      .tint(.orange3)
       .onAppear{
-          UITabBar.appearance().backgroundColor = UIColor.white
-
+         setTabViewAppearance()
       }
    }
+   
+   func setTabViewAppearance(){
+      UITabBar.appearance().backgroundColor = UIColor.white
+      
+      let appearance = UITabBarAppearance()
+      
+      let selectedAttributes: [NSAttributedString.Key: Any] = [
+         .foregroundColor: UIColor.darkGray,
+         .font: UIFont.systemFont(ofSize: 12, weight: .bold)
+      ]
+      appearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedAttributes
+      appearance.stackedLayoutAppearance.selected.iconColor = UIColor.orange3
+      
+      let normalAttributes: [NSAttributedString.Key: Any] = [
+         .foregroundColor: UIColor.lightGray,
+         .font: UIFont.systemFont(ofSize: 12)
+      ]
+      appearance.stackedLayoutAppearance.normal.titleTextAttributes = normalAttributes
+      appearance.stackedLayoutAppearance.normal.iconColor = UIColor.lightGray
+      
+      UITabBar.appearance().standardAppearance = appearance
+   }
 }
+
 
 #Preview {
    TabPageView()

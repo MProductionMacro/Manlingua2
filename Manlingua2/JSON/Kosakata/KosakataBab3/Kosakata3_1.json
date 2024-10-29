@@ -1,18 +1,8 @@
 [
     {
-        "hanzi": "合同",
-        "pinyin": "hétóng",
-        "meaning": "Kontrak"
-    },
-    {
         "hanzi": "条件",
         "pinyin": "tiáojiàn",
         "meaning": "Syarat"
-    },
-    {
-        "hanzi": "交货时间",
-        "pinyin": "jiāohuò shíjiān",
-        "meaning": "Waktu pengiriman"
     },
     {
         "hanzi": "清楚",
@@ -28,11 +18,6 @@
         "hanzi": "时间表",
         "pinyin": "shíjiān biǎo",
         "meaning": "Jadwal"
-    },
-    {
-        "hanzi": "价格",
-        "pinyin": "jiàgé",
-        "meaning": "Harga"
     },
     {
         "hanzi": "讨论",

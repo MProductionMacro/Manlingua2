@@ -8,38 +8,12 @@
 import SwiftUI
 
 struct StoryProgressManager {
-   //   static func unlockFirstChapterIfNeeded() {
-   //      let hasLaunchedBefore = UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
-   //
-   //      if !hasLaunchedBefore {
-   //         unlockChapter(chapterId: 1)
-   //         UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
-   //      }
-   //   }
-   //
-   //   static func isChapterUnlocked(chapterId: Int) -> Bool {
-   //      // Fetch the progress from UserDefaults
-   //      return UserDefaults.standard.bool(forKey: "chapterUnlocked_\(chapterId)")
-   //   }
-   //
-   //   static func unlockChapter(chapterId: Int) {
-   //      // Save the progress to UserDefaults
-   //      UserDefaults.standard.set(true, forKey: "chapterUnlocked_\(chapterId)")
-   //   }
-   //
-   //   static func isSubChapterCompleted(subChapterId: Int) -> Bool {
-   //      return UserDefaults.standard.bool(forKey: "subChapterCompleted_\(subChapterId)")
-   //   }
-   //
-   //   static func completeSubChapter(subChapterId: Int) {
-   //      UserDefaults.standard.set(true, forKey: "subChapterCompleted_\(subChapterId)")
-   //   }
-   
    static func unlockFirstChapterIfNeeded() {
       let hasLaunchedBefore = UserDefaults.standard.bool(forKey: UserDefaultsKey.hasLaunchedBefore.rawValue)
       
       if !hasLaunchedBefore {
          UserDefaults.standard.set(1, forKey: UserDefaultsKey.currentChapter.rawValue)
+         UserDefaults.standard.set(1, forKey:"\(UserDefaultsKey.currentSubChapter.rawValue)_1")
          UserDefaults.standard.set(true, forKey: UserDefaultsKey.hasLaunchedBefore.rawValue)
       }
    }
@@ -61,26 +35,26 @@ struct StoryProgressManager {
       let subChapterId = UserDefaults.standard.integer(forKey: "\(UserDefaultsKey.currentSubChapter.rawValue)_\(chapterId)")
       return subChapterId > 0 ? subChapterId : nil
    }
-    
-    static func hasNotOpenFlashcardPage() -> Bool {
-        if UserDefaults.standard.bool(forKey: "hasOpenFlashcardPage") == false{
-            UserDefaults.standard.set(true, forKey: "hasOpenFlashcardPage")
-            return true
-        }
-        else{
-            return false
-        }
-    }
-    
-    static func hasOpenStoryDetailPage() -> Bool {
-        if UserDefaults.standard.bool(forKey: "hasOpenStoryDetailPage") == false{
-            UserDefaults.standard.set(true, forKey: "hasOpenStoryDetailPage")
-            return true
-        }
-        else{
-            return false
-        }
-    }
+   
+   static func hasNotOpenFlashcardPage() -> Bool {
+      if UserDefaults.standard.bool(forKey: "hasOpenFlashcardPage") == false{
+         UserDefaults.standard.set(true, forKey: "hasOpenFlashcardPage")
+         return true
+      }
+      else{
+         return false
+      }
+   }
+   
+   static func hasOpenStoryDetailPage() -> Bool {
+      if UserDefaults.standard.bool(forKey: "hasOpenStoryDetailPage") == false{
+         UserDefaults.standard.set(true, forKey: "hasOpenStoryDetailPage")
+         return true
+      }
+      else{
+         return false
+      }
+   }
 }
 
 enum UserDefaultsKey: String {

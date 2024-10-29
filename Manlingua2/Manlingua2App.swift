@@ -16,6 +16,7 @@ struct Manlingua2App: App {
    @StateObject var homeViewModel = HomeViewModel()
    @StateObject var storyViewModel = StoryViewModel()
    @StateObject var learnViewModel = LearnViewModel()
+   @StateObject var audioRecorder = AudioRecordAndSpeechController()
    
    init() {
       FirebaseApp.configure()
@@ -37,10 +38,12 @@ struct Manlingua2App: App {
          .environmentObject(storyViewModel)
          .environmentObject(learnViewModel)
          .environmentObject(FlashcardViewModel())
+         .environmentObject(audioRecorder)
          .onAppear {
             StoryProgressManager.unlockFirstChapterIfNeeded()
          }
          //         SidebarButton()
+         .preferredColorScheme(.light)
       }
       
    }

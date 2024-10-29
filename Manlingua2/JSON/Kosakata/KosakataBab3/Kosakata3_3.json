@@ -1,52 +1,12 @@
 [
     {
-        "hanzi": "交货",
-        "pinyin": "jiāohuò",
-        "meaning": "Pengiriman"
+        "hanzi": "订单",
+        "pinyin": "dìngdān",
+        "meaning": "Pesanan"
     },
     {
-        "hanzi": "细节",
-        "pinyin": "xìjié",
-        "meaning": "Detail"
-    },
-    {
-        "hanzi": "方式",
-        "pinyin": "fāngshì",
-        "meaning": "Metode"
-    },
-    {
-        "hanzi": "海运",
-        "pinyin": "hǎiyùn",
-        "meaning": "Pengiriman laut"
-    },
-    {
-        "hanzi": "空运",
-        "pinyin": "kōngyùn",
-        "meaning": "Pengiriman udara"
-    },
-    {
-        "hanzi": "运送",
-        "pinyin": "yùnsòng",
-        "meaning": "Pengiriman"
-    },
-    {
-        "hanzi": "时间",
-        "pinyin": "shíjiān",
-        "meaning": "Waktu"
-    },
-    {
-        "hanzi": "要求",
-        "pinyin": "yāoqiú",
-        "meaning": "Permintaan"
-    },
-    {
-        "hanzi": "安排",
-        "pinyin": "ānpái",
-        "meaning": "Mengatur"
-    },
-    {
-        "hanzi": "便宜",
-        "pinyin": "piányí",
-        "meaning": "Murah"
+        "hanzi": "通知",
+        "pinyin": "tōngzhī",
+        "meaning": "Memberitahukan"
     }
 ]
