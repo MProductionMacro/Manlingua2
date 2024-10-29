@@ -1,9 +1,9 @@
-bash
+
 #!/bin/bash
 # Install XcodeGen if it's not already installed
 if ! command -v xcodegen &> /dev/null; then
-echo "XcodeGen not found. Installing..."
-brew install xcodegen
+   echo "XcodeGen not found. Installing..."
+   brew install xcodegen
 fi
 ls .
 # Change to the project directory
@@ -17,21 +17,20 @@ ls Manlingua2.xcodeproj
 echo "Check file on project.xcworkspace"
 echo "Check file on xcshareddata"
 ls Manlingua2.xcodeproj/project.xcworkspace/xcshareddata
-# BASED ON MY EXPERIENCE xcshareddata DIRECTORY IS NOT EXIST, YOU NEED TO CREATE THE DIRECTORY
-mkdir Manlingua2.xcodeproj/project.xcworkspace/xcshareddata
-# BASED ON MY EXPERIENCE swiftpm DIRECTORY IS NOT EXIST, YOU NEED TO CREATE THE DIRECTORY
-mkdir Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm
-# BASED ON MY EXPERIENCE Package.resolved DIRECTORY IS NOT EXIST, YOU NEED TO CREATE THE DIRECTORY
-touch Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
-echo "Creating Package.resolved..."
-cat <<EOL > Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
-# CREATE YOUR EXAMPLE DEPENDENCY HERE, ONLY FOR CREATING Package.resolved
-xcodebuild -resolvePackageDependencies -project Manlingua2.xcodeproj -scheme Manlingua2 -package-url https://github.com/firebase/firebase-ios-sdk -package-version 11.3.0
+# Ensure necessary directories exist
+mkdir -p Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm
+
+# Remove any pre-existing Package.resolved file to avoid conflicts
+rm -f Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
+# Resolve package dependencies to generate a new Package.resolved file
+echo "Resolving package dependencies..."
+xcodebuild -resolvePackageDependencies -project Manlingua2.xcodeproj -scheme Manlingua2
 
 # Check if Package.resolved was created
 if [ -f "Manlingua2.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved" ]; then
-echo "Package.resolved generated successfully."
+   echo "Package.resolved generated successfully."
 else
-echo "Failed to generate Package.resolved."
-exit 1
+   echo "Failed to generate Package.resolved."
+   exit 1
 fi
