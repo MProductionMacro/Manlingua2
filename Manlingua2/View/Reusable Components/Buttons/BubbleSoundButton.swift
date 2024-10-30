@@ -17,17 +17,12 @@ struct BubbleSoundButton: View {
       Button(action: {
          buttonAction()
       }) {
-//         ZStack {
-//            Rectangle()
-//               .fill(Color.orange3)
-//               .frame(width: size, height: size)
-//               .cornerRadius(16)
             Image(icon)
                .padding()
                .foregroundColor(.white)
                .background(.orange3)
                .clipShape(Circle())
-//         }
+
       }
    }
 }
