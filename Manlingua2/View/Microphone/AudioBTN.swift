@@ -50,7 +50,6 @@ struct AudioBTN: View {
                   .onChanged { _ in
                      if !isRecording {
                         self.isRecording = true
-                        //                        audioRecorder.startRecording()
                         audioController.startRecording()
                      }
                   }
