@@ -102,12 +102,3 @@ struct GoalPageView: View {
 #Preview {
     GoalPageView(remainHour: 12, firstTask: 1, secondTask: 1, thirdTask: 0)
 }
-
-
-
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        //clipShape(RoundedCornersShape(radius: radius, corners: corners))
-        clipShape(CustomRoundedRectangle(cornerRadius: radius, corners: corners))
-    }
-}
