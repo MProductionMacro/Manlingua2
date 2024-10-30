@@ -21,6 +21,9 @@ packages:
    firebase:
       url: https://github.com/firebase/firebase-ios-sdk
       from: 11.3.0
+   siriwaveview:
+      url: https://github.com/alfianlosari/SiriWaveView
+      from: 1.1.0
 targets:
    Manlingua2:
       type: application
@@ -36,6 +39,8 @@ targets:
           product: FirebaseDatabase
         - package: firebase
           product: FirebaseStorage
+        - package: siriwaveview
+          product: SiriWaveView
       settings:
          PRODUCT_BUNDLE_IDENTIFIER: com.mproduction-macro.Manlingua2
          ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
