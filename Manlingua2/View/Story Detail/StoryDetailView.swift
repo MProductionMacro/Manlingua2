@@ -38,7 +38,7 @@ struct StoryDetailView: View {
                   
                   ProgressView(value: Double(currentIndex + 1) / Double(viewModel.chat_example.count))
                      .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
-                     .onChange(of: currentIndex) { newValue in
+                     .onChange(of: currentIndex) { _, newValue in
                         if newValue + 1 == viewModel.chat_example.count {
                            if isFromHome {
                               viewModel.oneSubChapterDone(chapterId)

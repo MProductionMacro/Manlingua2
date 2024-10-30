@@ -58,7 +58,10 @@ struct FlashcardPageView: View {
          
       }
       .frame(maxHeight: .infinity)
-      .background(.customBeige)
+      .background(
+         Image(.chatBackground)
+            .scaledToFill()
+      )
       .overlay{
          if viewModel.showDonePage {
             DonePageView(currentPage: .flashCard, currentPart: .first)
