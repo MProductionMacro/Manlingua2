@@ -14,6 +14,41 @@ class CameraController: NSObject, ObservableObject {
    
    @Published var capturedImage: UIImage?
    @Published var isCameraActive = false
+   @Published var hasCameraPermission = false
+   
+   static let shared = CameraController()
+   
+   override init(){
+      super.init()
+      
+      checkPermission()
+   }
+   
+   func checkPermission() {
+      let status = AVCaptureDevice.authorizationStatus(for: .video)
+      
+      switch status {
+      case .notDetermined:
+         // Request permission if status is not determined
+         requestPermission()
+      case .authorized:
+         // If already authorized, set permission status to true
+         hasCameraPermission = true
+      case .denied, .restricted:
+         // If denied or restricted, set permission status to false
+         hasCameraPermission = false
+      @unknown default:
+         hasCameraPermission = false
+      }
+   }
+   
+   func requestPermission(){
+      AVCaptureDevice.requestAccess(for: .video) { granted in
+         DispatchQueue.main.async {
+            self.hasCameraPermission = granted
+         }
+      }
+   }
    
    func startSession() {
       if captureSession == nil {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SoundBubbleButton: ButtonStyle {
+struct CircleButton: ButtonStyle {
    func makeBody(configuration: Configuration) -> some View {
       configuration.label
          .padding(10)

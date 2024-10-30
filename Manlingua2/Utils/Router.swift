@@ -64,6 +64,9 @@ class Router: ObservableObject {
       case .donePage(let currentPage, let currentPart):
          DonePageView(currentPage: currentPage, currentPart: currentPart)
             .navigationBarBackButtonHidden(true)
+      case .photoChallenge:
+         PhotoChallengeView()
+            .navigationBarBackButtonHidden(true)
       }
    }
 }
@@ -79,6 +82,7 @@ enum Screen: Hashable {
    case dictionary(judul:String, displayMode: DictionaryDisplayMode)
    case donePage(currentPage: DonePageString, currentPart: PartOfTheStory)
    case flashcardPage
+   case photoChallenge
 }
 
                          /*

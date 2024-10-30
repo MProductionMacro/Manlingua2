@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CameraNotGrantedView: View {
+   var primaryButtonPressed: () -> Void
+   var secondaryButtonPressed: () -> Void
+   
    var body: some View {
       ZStack {
          VStack(spacing: 24) {
@@ -34,14 +37,14 @@ struct CameraNotGrantedView: View {
             
             VStack {
                Button {
-                  
+                  primaryButtonPressed()
                } label: {
                   Text("Berikan Izin Akses Kamera")
                }
                .buttonStyle(PrimaryButton(isDisabled: false))
                
                Button {
-                  
+                  secondaryButtonPressed()
                } label: {
                   Text("Batalkan")
                      .frame(maxWidth: .infinity)
@@ -60,5 +63,5 @@ struct CameraNotGrantedView: View {
 }
 
 #Preview {
-   CameraNotGrantedView()
+   CameraNotGrantedView(primaryButtonPressed: {}, secondaryButtonPressed: {})
 }

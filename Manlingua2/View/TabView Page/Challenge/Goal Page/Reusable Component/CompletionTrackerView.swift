@@ -17,7 +17,9 @@ struct CompletionTrackerView: View{
             VStack(alignment: .leading){
                 Text("Selesaikan 3 tugas")
                     .font(Font.subJudul())
-                CompletionBarView(width: 334, doneTask: (firstTask + secondTask + thirdTask), totalTask: 3)
+               
+               ProgressView(value: 0, total: 1)
+                  .progressViewStyle(CustomProgressViewStyle(height: UIScreen.main.bounds.height * 0.02, filledColor: .green2, unfilledColor: .customLighterGray))
             }
             .frame(width: 334)
         }
