@@ -12,7 +12,6 @@ struct AudioBTN: View {
    
    private let instance = APIController.instance
    
-   @Binding var transcribedText: String
    @Binding var message:  String
    @Binding var showMicrophone: Bool
    
@@ -60,24 +59,9 @@ struct AudioBTN: View {
                         self.isRecording = false
                         audioController.stopRecording()
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                           if let path = audioController.getAudioFileName()?.path {
-                              instance.convertAudioToData(audioPath:path)
-                              sendAudioToAPI()
-                           }
-                           else{
-                              print("Error getting audio file")
-                           }
+                        audioController.transcribeAudio { result in
+                           onPressedMic(result)
                         }
-                        //                        audioRecorder.transcribeAudio { result in
-                        //                           DispatchQueue.main.async {
-                        //                              self.transcribedText = result
-                        //                           }
-                        //                        }
-                        //
-                        //                        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                        //                           onPressedMic(transcribedText)
-                        //                        })
                      }
                   }
             )

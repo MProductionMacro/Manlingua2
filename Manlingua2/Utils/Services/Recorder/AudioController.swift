@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import Speech
 
 protocol AudioControllerDelegate: AnyObject {
    func audioControllerDidStopPlaying()
@@ -55,6 +56,8 @@ class AudioController: NSObject {
       
       print("File path for recording: \(fileURL.path)") // Log the file path to check if it’s valid
       
+      audioFileName = fileURL
+      
       let settings: [String: Any] = [
          AVFormatIDKey: Int(kAudioFormatLinearPCM),
          AVSampleRateKey: 44_100.0,
@@ -81,6 +84,7 @@ class AudioController: NSObject {
          print("Audio Recorder is not set up.")
          return false
       }
+      
       let started = audioRecorder.record()
       state = .recording
       return started
@@ -97,6 +101,26 @@ class AudioController: NSObject {
          try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
       } catch {
          print("Failed to deactivate session: \(error.localizedDescription).")
+      }
+   }
+   
+   func transcribeAudio(completion: @escaping (String) -> Void) {
+      guard let audioURL = audioFileName else {
+         completion("No audio to transcribe")
+         return
+      }
+      
+      let recognizer = SFSpeechRecognizer(locale: Locale(identifier: "zh-CN"))
+      
+      let request = SFSpeechURLRecognitionRequest(url: audioURL)
+      
+      recognizer?.recognitionTask(with: request) { result, error in
+         if let error = error {
+            print("Transcription error: \(error.localizedDescription)")
+            completion("Transcription error: \(error.localizedDescription)")
+         } else if let result = result {
+            completion(result.bestTranscription.formattedString)
+         }
       }
    }
    

@@ -16,7 +16,8 @@ struct PinyinFinalView: View {
       ScrollView{
          VStack(spacing: 16){
             Text("Final")
-               .font(.system(size: 25, weight: .bold))
+               .font(.title)
+               .fontWeight(.bold)
             
             Image("FinalNew")
                .resizable()
@@ -24,11 +25,7 @@ struct PinyinFinalView: View {
                .frame(width:100, height: 100)
             
             VStack{
-               Text("Tekan karakter untuk tahu cara")
-                  .font(.system(size: 20))
-                  .foregroundStyle(.black)
-                  .multilineTextAlignment(.center)
-               Text("pengucapannya")
+               Text("Tekan karakter untuk tahu cara pengucapannya")
                   .font(.system(size: 20))
                   .foregroundStyle(.black)
                   .multilineTextAlignment(.center)
