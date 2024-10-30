@@ -14,10 +14,12 @@ struct BottomContainerView : View {
    
    var body : some View {
       if viewModel.showMicrophone{
-         FlashcardMicrophoneModalityView(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, responseText: $viewModel.apiResult, showMicrophone: $viewModel.showMicrophone, audioController: $audioController)
+//         FlashcardMicrophoneModalityView(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, responseText: $viewModel.apiResult, showMicrophone: $viewModel.showMicrophone, audioController: $audioController)
+         MicrophoneModalityView { result in
+            viewModel.apiResult = result
+         }
          
-      }
-      else if viewModel.checkResult() {
+      }else if viewModel.checkResult() {
          FlashcardCorrect(showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
             viewModel.performSwipeRight()
          }
