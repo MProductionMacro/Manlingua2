@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import Speech
 
 protocol AudioControllerDelegate: AnyObject {
    func audioControllerDidStopPlaying()
@@ -27,6 +28,8 @@ class AudioController: NSObject {
    private(set) var state = AudioControllerState.stopped // inisialisasi statenya
    private var player: AVAudioPlayer! // buat ngeplay suaranya
    weak var delegate: AudioControllerDelegate?
+   
+   static let shared = AudioController()
    
    override init() {
       super.init()
@@ -53,6 +56,8 @@ class AudioController: NSObject {
       
       print("File path for recording: \(fileURL.path)") // Log the file path to check if it’s valid
       
+      audioFileName = fileURL
+      
       let settings: [String: Any] = [
          AVFormatIDKey: Int(kAudioFormatLinearPCM),
          AVSampleRateKey: 44_100.0,
@@ -74,10 +79,12 @@ class AudioController: NSObject {
    @discardableResult
    func startRecording() -> Bool {
       setUpRecorder()
+      
       guard let audioRecorder = audioRecorder else {
          print("Audio Recorder is not set up.")
          return false
       }
+      
       let started = audioRecorder.record()
       state = .recording
       return started
@@ -94,6 +101,26 @@ class AudioController: NSObject {
          try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
       } catch {
          print("Failed to deactivate session: \(error.localizedDescription).")
+      }
+   }
+   
+   func transcribeAudio(completion: @escaping (String) -> Void) {
+      guard let audioURL = audioFileName else {
+         completion("No audio to transcribe")
+         return
+      }
+      
+      let recognizer = SFSpeechRecognizer(locale: Locale(identifier: "zh-CN"))
+      
+      let request = SFSpeechURLRecognitionRequest(url: audioURL)
+      
+      recognizer?.recognitionTask(with: request) { result, error in
+         if let error = error {
+            print("Transcription error: \(error.localizedDescription)")
+            completion("Transcription error: \(error.localizedDescription)")
+         } else if let result = result {
+            completion(result.bestTranscription.formattedString)
+         }
       }
    }
    
@@ -201,3 +228,9 @@ extension AudioController: AVAudioPlayerDelegate {
       deactivateAudioSession()
    }
 }
+
+/*
+ -AudioController dijadiin singleton
+ -TextToSpeech dan AudioController dipisah
+ -
+ */

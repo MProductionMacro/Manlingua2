@@ -12,7 +12,7 @@ struct SoundBubbleButton: ButtonStyle {
       configuration.label
          .padding(10)
          .foregroundColor(.white)
-         .background(.orange3)
+         .background(.orange1)
          .clipShape(Circle())
    }
 }

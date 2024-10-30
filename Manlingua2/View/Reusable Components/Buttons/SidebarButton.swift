@@ -12,7 +12,7 @@ struct SidebarButton: View {
    @State private var showContent: Bool = false
    @EnvironmentObject var storyViewModel: StoryViewModel
    @EnvironmentObject var homeViewModel: HomeViewModel
-   @EnvironmentObject var audioController: AudioRecordAndSpeechController
+//   @EnvironmentObject var audioController: AudioRecordAndSpeechController
    
    @State var textToSpeech = TextToSpeech()
    
@@ -49,7 +49,7 @@ struct SidebarButton: View {
                
                Button(action: {
                   // Action for speaker icon
-                  audioController.speak(text: storyViewModel.chat_example[chatIndex].hanzi, rate: 0.5)
+                  textToSpeech.speak(text: storyViewModel.chat_example[chatIndex].hanzi)
                }) {
                   Image(systemName: "speaker.wave.2.fill")
                      .frame(width: 24, height: 24)
@@ -62,7 +62,7 @@ struct SidebarButton: View {
                Button(action: {
                   // Action for turtle icon
 //                  textToSpeech.speakSlow(text: storyViewModel.chat_example[chatIndex].hanzi)
-                  audioController.speak(text: storyViewModel.chat_example[chatIndex].hanzi, rate: 0.2)
+                  textToSpeech.speakSlow(text: storyViewModel.chat_example[chatIndex].hanzi)
                }) {
                   Image(systemName: "tortoise.fill")
                      .frame(width: 24, height: 24)

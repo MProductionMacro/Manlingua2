@@ -17,24 +17,52 @@ struct PhotoChallengeView: View {
             .foregroundStyle(.white)
             .padding()
          
-         VStack{
-            ZStack {
-               Rectangle()
-                  .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [10]))
-                  .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.width * 0.8)
-               
-               ZStack {
-                  Circle()
-                     .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [8]))
-                     .frame(width: UIScreen.main.bounds.width * 0.3)
+         ZStack {
+            VStack(spacing: 24) {
+               VStack(spacing: 16) {
                   Image(systemName: "camera")
-                     .font(.title)
+                     .font(.largeTitle)
+                     .padding(UIScreen.main.bounds.width * 0.08)
+                     .background(
+                        Circle()
+                           .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [8]))
+                     )
+                  
+                  Text("Izinkan Akses Kamera")
+                     .font(.judulBiasa())
+                  
+                  Text("Untuk mengerjakan tantangan, kami memerlukan kameramu untuk mendeteksi foto")
+                     .multilineTextAlignment(.center)
+                     .font(.normalText())
+                     .frame(width: UIScreen.main.bounds.width * 0.7)
                }
+               .frame(maxWidth: .infinity, maxHeight: .infinity)
+//               .padding(.vertical, UIScreen.main.bounds.height * 0.12)
+               .background(Rectangle()
+                  .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [10])))
+               
+               VStack {
+                  Button {
+                     
+                  } label: {
+                     Text("Berikan Izin Akses Kamera")
+                  }
+                  .buttonStyle(PrimaryButton(isDisabled: false))
+                  
+                  Button {
+                     
+                  } label: {
+                     Text("Batalkan")
+                        .frame(maxWidth: .infinity)
+                  }
+                  .buttonStyle(SecondaryButton(isDisabled: false))
+               }
+//               Spacer()
             }
-            
-            Text("Izinkan akses kamera")
+            .padding(.vertical, UIScreen.main.bounds.height * 0.08)
+            .padding(.horizontal)
          }
-         .frame(maxWidth: .infinity)
+         .frame(maxWidth: .infinity, maxHeight: .infinity)
          .background(.white)
          .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
          .ignoresSafeArea()

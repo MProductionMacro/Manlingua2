@@ -12,8 +12,7 @@ struct StoryDetailView: View {
     @EnvironmentObject private var learnVM: LearnViewModel
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var router: Router
-   
-    
+
     @State private var showConfirmationAlert = false
     @State var currentIndex: Int = 0
     @State var tutorialOverlay: Int = 1
