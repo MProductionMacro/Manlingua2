@@ -46,7 +46,7 @@ struct HomeCardView: View {
 //            PrimaryButtonView(isDisabled: isDisabled, id: story.id)
             Button {
                storyVM.loadProgressForChapter(story.id, subChapters: homeVM.stories_example[story.id - 1].subChapter)
-               router.push(.storyPage(chapterId: story.id, isFromHome: true))
+               router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId, isFromHome: true))
             } label: {
                Text("Mulai")
             }

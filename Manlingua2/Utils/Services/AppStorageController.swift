@@ -1,18 +1,14 @@
 //
-//  ChallengeViewModel.swift
+//  AppStorageController.swift
 //  Manlingua2
 //
-//  Created by Paulus Michael on 28/09/24.
+//  Created by Paulus Michael on 31/10/24.
 //
 
 import SwiftUI
 import Combine
-import SystemConfiguration
 
-class ChallengeViewModel: ObservableObject {
-   @Published var objects: [String] = []
-   @Published var errorMessage: String?
-   
+class AppStorageController: ObservableObject {
    @AppStorage("firstTaskProgress") var firstTask: Int = 0
    @AppStorage("secondTaskProgress") var secondTask: Int = 0
    @AppStorage("thirdTaskProgress") var thirdTask: Int = 0
@@ -22,7 +18,6 @@ class ChallengeViewModel: ObservableObject {
    @AppStorage("remainingTime") var remainingTime: TimeInterval = 12 * 3600
    
    private let userDefaults = UserDefaults.standard
-   private let baseURL = "http://10.60.32.8:8000"
    
    var startTime: Date {
       get {
@@ -123,38 +118,11 @@ class ChallengeViewModel: ObservableObject {
          
       }
    }
-   
-   func fetchObjects() {
-      guard let url = URL(string: "\(baseURL)/get_objects") else { return }
-      
-      URLSession.shared.dataTask(with: url) { data, response, error in
-         if let error = error {
-            DispatchQueue.main.async {
-               self.errorMessage = "Failed to fetch objects: \(error.localizedDescription)"
-            }
-            return
-         }
-         
-         if let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) {
-            guard let data = data else { return }
-            
-            do {
-               if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                  let objectNames = json["objects"] as? [String] {
-                  DispatchQueue.main.async {
-                     self.objects = objectNames
-                  }
-               }
-            } catch {
-               DispatchQueue.main.async {
-                  self.errorMessage = "Failed to parse object data"
-               }
-            }
-         } else {
-            DispatchQueue.main.async {
-               self.errorMessage = "Failed with status code: \((response as? HTTPURLResponse)?.statusCode ?? -1)"
-            }
-         }
-      }.resume()
-   }
+}
+
+// Enum to make task selection more readable
+enum TaskType {
+   case first
+   case second
+   case third
 }

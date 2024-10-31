@@ -8,7 +8,9 @@
 import SwiftUI
 import AVFoundation
 
-struct CameraTestView: View {
+struct CameraView: View {
+   @EnvironmentObject var router: Router
+   
    @StateObject private var cameraController = CameraController()
    
    var body: some View {
@@ -64,9 +66,31 @@ struct CameraTestView: View {
       .onDisappear {
          cameraController.stopSession()
       }
+      .toolbar {
+         ToolbarItem(placement: .topBarLeading) {
+            Button {
+               router.pop()
+            } label: {
+               HStack{
+                  Image(systemName: "chevron.left")
+                     .font(.title3)
+                     .bold()
+                  
+                  Text("Kembali")
+                     .bold()
+               }
+               .foregroundStyle(.white)
+            }
+         }
+      }
+      .frame(maxWidth: .infinity)
+      .background(.black)
    }
 }
 
 #Preview {
-   CameraTestView()
+   NavigationStack {
+      CameraView()
+   }
+   .environmentObject(Router())
 }

@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct GoalTrackerView : View {
+   @EnvironmentObject var router: Router
+   @StateObject var appStorageController = AppStorageController.shared
    
+   var task: TaskType
    var image: String
    var height: CGFloat
-   
    var doneTask: Int
-   var totalTask: Int
    
    var body : some View {
       HStack{
@@ -25,20 +26,28 @@ struct GoalTrackerView : View {
          
          Spacer()
          
-         VStack(alignment: .leading){
+         VStack(alignment: .leading) {
             Text("Selesaikan 1 tantangan foto")
                .font(Font.subJudul())
-            ProgressView(value: 0, total: 1)
-               .progressViewStyle(CustomProgressViewStyle(height: UIScreen.main.bounds.height * 0.02, filledColor: .green2, unfilledColor: .customLighterGray))
+            ProgressView(value: Double(doneTask), total: 1)
+               .progressViewStyle(CustomProgressViewStyle(
+                  height: UIScreen.main.bounds.height * 0.02,
+                  filledColor: .green2,
+                  unfilledColor: .customLighterGray
+               ))
          }
          .frame(width: 245)
          
          Spacer()
          
-         Image(systemName : "chevron.right")
-            .font(Font.bpmf())
-            .foregroundStyle(.orange)
-         
+         Button(action: {
+//            appStorageController.incrementTaskProgress(task: task)
+            router.push(.photoChallenge)
+         }) {
+            Image(systemName: "chevron.right")
+               .font(Font.bpmf())
+               .foregroundStyle(.orange)
+         }
          
          Spacer()
       }
@@ -48,5 +57,6 @@ struct GoalTrackerView : View {
 }
 
 #Preview {
-   GoalTrackerView(image: "Koin Cina", height: 40, doneTask: 0, totalTask : 1)
+   GoalTrackerView(task: .first, image: "Koin Cina", height: 40, doneTask: 0)
+      .environmentObject(Router())
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CameraGrantedView: View {
+   @EnvironmentObject var router: Router
+   
    var body: some View {
       VStack(spacing: 24){
          VStack(alignment: .leading) {
@@ -28,15 +30,13 @@ struct CameraGrantedView: View {
             Image(.placeholderChallenge)
             
             Button {
-               
+               router.push(.cameraView)
             } label: {
                Image(systemName: "camera.fill")
                   .font(.system(size: 32))
-//                  .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.width * 0.1)
                   .padding(8)
             }
             .buttonStyle(CircleButton())
-
          }
          .frame(maxWidth: .infinity)
          .padding(.bottom)
@@ -66,4 +66,5 @@ struct CameraGrantedView: View {
 
 #Preview {
    CameraGrantedView()
+      .environmentObject(Router())
 }

@@ -8,23 +8,17 @@ import SwiftUI
 import Charts
 
 struct GoalPageView: View {
-   var remainHour: Int
-   var firstTask: Int
-   var secondTask: Int
-   var thirdTask: Int
+   @StateObject var appStorageController = AppStorageController.shared
    
    var body: some View {
-      ZStack{
-         VStack(alignment: .center, spacing: 24){
-//            Spacer()
-            
-            VStack(spacing: 4){
+      ZStack {
+         VStack(alignment: .center, spacing: 24) {
+            VStack(spacing: 4) {
                Text("Peringkat")
                   .font(Font.judulBesar())
                   .foregroundStyle(.white)
                
-               HStack(alignment: .center){
-                  
+               HStack(alignment: .center) {
                   Text("Murid")
                      .font(Font.bold16())
                      .frame(width: 75, height: 27)
@@ -32,7 +26,7 @@ struct GoalPageView: View {
                      .background(.customBeige)
                      .cornerRadius(12)
                   
-                  HStack{
+                  HStack {
                      Image(systemName: "flame.fill")
                         .resizable()
                         .foregroundStyle(.orange)
@@ -43,19 +37,15 @@ struct GoalPageView: View {
                   .frame(width: 60, height: 25)
                   .background(.white)
                   .cornerRadius(12)
-                  
-                  
                }
                
                LevelIndexView()
             }
             .padding(.horizontal)
-//            .padding(.bottom, 15)
-//            .padding(.top, 25)
             
-            CompletionTrackerView(firstTask: firstTask, secondTask: secondTask, thirdTask: thirdTask)
+            CompletionTrackerView()
             
-            VStack(spacing: 20){
+            VStack(spacing: 20) {
                HStack {
                   Text("Selesaikan tugas dibawah!")
                      .foregroundStyle(.customLightGray)
@@ -63,10 +53,10 @@ struct GoalPageView: View {
                   
                   Spacer()
                   
-                  HStack{
+                  HStack {
                      Image(systemName: "clock.fill")
                         .foregroundStyle(.gray)
-                     Text("\(remainHour) Hour")
+                     Text("\(appStorageController.remainHour) Hour")
                         .foregroundStyle(.gray)
                         .font(.hanzi())
                   }
@@ -74,10 +64,10 @@ struct GoalPageView: View {
                .padding(.top, 20)
                .padding(.horizontal, 20)
                
-               VStack(spacing: 2){
-                  GoalTrackerView(image: "Emas Cina", height: 25, doneTask: firstTask, totalTask: 1)
-                  GoalTrackerView(image: "Koin Cina", height: 40, doneTask: secondTask, totalTask: 1)
-                  GoalTrackerView(image: "Emas Batang", height: 30, doneTask: thirdTask, totalTask: 1)
+               VStack(spacing: 2) {
+                  GoalTrackerView(task: .first, image: "Emas Cina", height: 25, doneTask: appStorageController.firstTask)
+                  GoalTrackerView(task: .second, image: "Koin Cina", height: 40, doneTask: appStorageController.secondTask)
+                  GoalTrackerView(task: .third, image: "Emas Batang", height: 30, doneTask: appStorageController.thirdTask)
                }
                .background(Color.customLightGray)
                .cornerRadius(25)
@@ -90,16 +80,19 @@ struct GoalPageView: View {
             }
             .frame(maxHeight: .infinity)
             .background(.white)
-            .cornerRadius(32, corners:[.topLeft, .topRight])
+            .cornerRadius(32, corners: [.topLeft, .topRight])
          }
          .ignoresSafeArea(edges: .bottom)
       }
       .background(Image("ProfilePage"))
+//      .onAppear {
+//         appStorageController.startHourlyCountdown()
+//      }
    }
 }
 
 
 
 #Preview {
-   GoalPageView(remainHour: 12, firstTask: 1, secondTask: 1, thirdTask: 0)
+   GoalPageView()
 }

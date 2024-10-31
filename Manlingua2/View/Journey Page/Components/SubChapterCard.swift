@@ -65,7 +65,7 @@ struct SubChapterCard: View {
                .fontWeight(.bold)
                .onTapGesture {
                   viewModel.loadProgressForChapter(id, subChapters: homeVM.stories_example[id - 1].subChapter)
-                  router.push(.storyPage(chapterId: id, isFromHome: false))
+                  router.push(.storyPage(chapterId: id, subChapterId: subChapter.id, isFromHome: false))
                }
          }
          Spacer()
