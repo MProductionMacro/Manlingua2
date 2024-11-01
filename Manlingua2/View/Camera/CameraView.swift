@@ -10,8 +10,9 @@ import AVFoundation
 
 struct CameraView: View {
    @EnvironmentObject var router: Router
+   @EnvironmentObject var viewModel: ChallengeViewModel
    
-   @StateObject private var cameraController = CameraController()
+   @StateObject private var cameraController = CameraController.shared
    
    var body: some View {
       ZStack {
@@ -25,6 +26,7 @@ struct CameraView: View {
             
             Button(action: {
                cameraController.capturePhoto()
+               //               router.pop()
             }) {
                Circle()
                   .fill(Color.white)
@@ -37,31 +39,36 @@ struct CameraView: View {
             .padding(.bottom)
          }
          
-         if let capturedImage = cameraController.capturedImage {
-            Color.black.opacity(0.6)
-               .edgesIgnoringSafeArea(.all)
-            
-            Image(uiImage: capturedImage)
-               .resizable()
-               .scaledToFit()
-               .padding()
-            
-            VStack {
-               Spacer()
-               Button(action: {
-                  cameraController.capturedImage = nil
-               }) {
-                  Text("Dismiss")
-                     .padding()
-                     .background(Color.white)
-                     .cornerRadius(10)
-               }
-               .padding(.bottom)
-            }
-         }
+         //         if let capturedImage = cameraController.capturedImage {
+         //            Color.black.opacity(0.6)
+         //               .edgesIgnoringSafeArea(.all)
+         //
+         //            Image(uiImage: capturedImage)
+         //               .resizable()
+         //               .scaledToFit()
+         //               .padding()
+         //
+         //            VStack {
+         //               Spacer()
+         //               Button(action: {
+         //                  cameraController.capturedImage = nil
+         //               }) {
+         //                  Text("Dismiss")
+         //                     .padding()
+         //                     .background(Color.white)
+         //                     .cornerRadius(10)
+         //               }
+         //               .padding(.bottom)
+         //            }
+         //         }
       }
       .onAppear {
          cameraController.startSession()
+         cameraController.onCaptureComplete = { image in
+            cameraController.capturedImage = image // Update captured image to display
+            viewModel.predictImage(image)
+            router.pop() // Navigate back to CameraGrantedView
+         }
       }
       .onDisappear {
          cameraController.stopSession()
@@ -93,4 +100,5 @@ struct CameraView: View {
       CameraView()
    }
    .environmentObject(Router())
+   .environmentObject(ChallengeViewModel())
 }

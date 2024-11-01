@@ -12,6 +12,7 @@ import SystemConfiguration
 class ChallengeViewModel: ObservableObject {
    @Published var objects: [String] = []
    @Published var errorMessage: String?
+   @Published var predictions: [Prediction] = []
    
    @AppStorage("firstTaskProgress") var firstTask: Int = 0
    @AppStorage("secondTaskProgress") var secondTask: Int = 0
@@ -23,6 +24,8 @@ class ChallengeViewModel: ObservableObject {
    
    private let userDefaults = UserDefaults.standard
    private let baseURL = "http://10.60.32.8:8000"
+   
+   static let shared = ChallengeViewModel()
    
    var startTime: Date {
       get {
@@ -37,8 +40,6 @@ class ChallengeViewModel: ObservableObject {
          userDefaults.set(newValue, forKey: "startTime")
       }
    }
-   
-   static let shared = AppStorageController()
    
    private var cancellables = Set<AnyCancellable>()
    
@@ -60,6 +61,58 @@ class ChallengeViewModel: ObservableObject {
          return true
       }
       return false
+   }
+   
+   func predictImage(_ image: UIImage) {
+      guard let url = URL(string: "\(baseURL)/predict") else { return }
+      
+      // Convert UIImage to JPEG data
+      guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+         DispatchQueue.main.async {
+            self.errorMessage = "Failed to convert image to data"
+         }
+         return
+      }
+      
+      // Set up the request with multipart form data
+      var request = URLRequest(url: url)
+      request.httpMethod = "POST"
+      let boundary = UUID().uuidString
+      request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+      
+      var httpBody = Data()
+      httpBody.append("--\(boundary)\r\n".data(using: .utf8)!)
+      httpBody.append("Content-Disposition: form-data; name=\"file\"; filename=\"image.jpg\"\r\n".data(using: .utf8)!)
+      httpBody.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
+      httpBody.append(imageData)
+      httpBody.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+      
+      request.httpBody = httpBody
+      
+      URLSession.shared.dataTask(with: request) { data, response, error in
+         if let error = error {
+            DispatchQueue.main.async {
+               self.errorMessage = "Failed to predict image: \(error.localizedDescription)"
+            }
+            return
+         }
+         
+         guard let data = data else {
+            print("Error disini")
+            return
+         }
+         
+         do {
+            let decodedResponse = try JSONDecoder().decode(PredictionResponse.self, from: data)
+            DispatchQueue.main.async {
+               self.predictions = decodedResponse.predictions
+            }
+         } catch {
+            DispatchQueue.main.async {
+               self.errorMessage = "Failed to parse prediction data"
+            }
+         }
+      }.resume()
    }
    
    func startHourlyCountdown() {

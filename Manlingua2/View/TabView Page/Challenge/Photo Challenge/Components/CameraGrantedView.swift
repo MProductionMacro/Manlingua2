@@ -9,51 +9,72 @@ import SwiftUI
 
 struct CameraGrantedView: View {
    @EnvironmentObject var router: Router
+   @EnvironmentObject var viewModel: ChallengeViewModel
+   @StateObject var cameraController = CameraController.shared
+   
+   @State var image: UIImage = UIImage(resource: .placeholderChallenge)
    
    var body: some View {
-      VStack(spacing: 24){
-         VStack(alignment: .leading) {
-            Text("Cari dan fotokan")
-               .font(.judulBiasa())
+      ScrollView {
+         VStack(spacing: 24){
+            VStack(alignment: .leading) {
+               Text("Cari dan fotokan")
+                  .font(.judulBiasa())
+               
+               Text("pinyin")
+                  .font(.pinyin())
+                  .foregroundStyle(.gray)
+               
+               Text("hanzi")
+                  .font(.hanzi())
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.bottom, 32)
             
-            Text("pinyin")
-               .font(.pinyin())
-               .foregroundStyle(.gray)
-            
-            Text("hanzi")
-               .font(.hanzi())
-         }
-         .frame(maxWidth: .infinity, alignment: .leading)
-         .padding(.bottom, 32)
-         
-         VStack {
-            Image(.placeholderChallenge)
+            VStack {
+               if let capturedImage = cameraController.capturedImage {
+                  Image(uiImage: capturedImage)
+                     .resizable()
+                     .scaledToFit()
+                     .padding()
+               } else {
+                  Image(.placeholderChallenge)
+               }
+               
+               //            Image(uiImage: image)
+               
+               Button {
+                  router.push(.cameraView)
+               } label: {
+                  Image(systemName: "camera.fill")
+                     .font(.system(size: 32))
+                     .padding(8)
+               }
+               .buttonStyle(CircleButton())
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.bottom)
+            .background(.customLighterGray)
+            .clipShape(.rect(cornerRadius: 35))
+            .overlay(
+               RoundedRectangle(cornerRadius: 36)
+                  .stroke(Color.gray, lineWidth: 2)
+            )
             
             Button {
-               router.push(.cameraView)
+               
             } label: {
-               Image(systemName: "camera.fill")
-                  .font(.system(size: 32))
-                  .padding(8)
+               Text("Lewati")
+                  .frame(maxWidth: .infinity)
             }
-            .buttonStyle(CircleButton())
-         }
-         .frame(maxWidth: .infinity)
-         .padding(.bottom)
-         .background(.customLighterGray)
-         .clipShape(.rect(cornerRadius: 35))
-         .overlay(
-            RoundedRectangle(cornerRadius: 36)
-               .stroke(Color.gray, lineWidth: 2)
-         )
-         
-         Button {
+            .buttonStyle(SecondaryButton(isDisabled: false))
             
-         } label: {
-            Text("Lewati")
-               .frame(maxWidth: .infinity)
+            ForEach(viewModel.predictions, id: \.self) { prediction in
+               Text("\(prediction.class) : \(prediction.confidence)")
+            }
+            
+//            Spacer()
          }
-         .buttonStyle(SecondaryButton(isDisabled: false))
       }
       .padding(.horizontal)
       .padding(.top, 32)
@@ -67,4 +88,5 @@ struct CameraGrantedView: View {
 #Preview {
    CameraGrantedView()
       .environmentObject(Router())
+      .environmentObject(ChallengeViewModel())
 }

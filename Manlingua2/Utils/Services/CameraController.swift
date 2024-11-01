@@ -18,6 +18,8 @@ class CameraController: NSObject, ObservableObject {
    
    static let shared = CameraController()
    
+   var onCaptureComplete: ((UIImage) -> Void)?
+   
    override init(){
       super.init()
       
@@ -113,6 +115,7 @@ extension CameraController: AVCapturePhotoCaptureDelegate {
       
       DispatchQueue.main.async {
          self.capturedImage = image
+         self.onCaptureComplete?(image)
       }
    }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PhotoChallengeView: View {
    @EnvironmentObject var router: Router
-   @StateObject var viewModel = ChallengeViewModel()
+//   @StateObject var viewModel = ChallengeViewModel()
    @StateObject var camera = CameraController.shared
    
    var body: some View {
@@ -19,15 +19,17 @@ struct PhotoChallengeView: View {
             .foregroundStyle(.white)
             .padding()
          
-         if camera.hasCameraPermission {
-            CameraGrantedView()
-         }else{
-            CameraNotGrantedView(primaryButtonPressed: {
-               camera.requestPermission()
-            }, secondaryButtonPressed: {
-               
-            })
-         }
+//         if camera.hasCameraPermission {
+//            CameraGrantedView()
+//         }else{
+//            CameraNotGrantedView(primaryButtonPressed: {
+//               camera.requestPermission()
+//            }, secondaryButtonPressed: {
+//               
+//            })
+//         }
+         
+         CameraGrantedView()
       }
       .frame(maxWidth: .infinity, alignment: .leading)
       .edgesIgnoringSafeArea(.bottom)
@@ -62,5 +64,6 @@ struct PhotoChallengeView: View {
    NavigationStack {
       PhotoChallengeView()
          .environmentObject(Router())
+         .environmentObject(ChallengeViewModel())
    }
 }
