@@ -76,6 +76,30 @@ class FlashcardViewModel: ObservableObject {
       }
    }
    
+   func createFlashcardView(for index: Int) -> some View {
+      let flashcardView = FlashcardView(vocab: showVocabularies[index], width: 300, height: 400)
+         .frame(width: 300, height: 400)
+      var modifiedView: AnyView = AnyView(flashcardView)
+      
+      if index == currentIndex {
+         modifiedView = AnyView(modifiedView
+            .opacity(1.0)
+            .offset(x: offset.width)
+            .offset(y: offset.height * 0.4)
+            .rotationEffect(.degrees(offset.width / 40.0))
+            .animation(.spring(), value: offset)
+         )
+      }else if index == currentIndex - 1 {
+         modifiedView = AnyView(modifiedView
+            .opacity(1.0)
+            .offset(x: -300 + offset.width)
+            .zIndex(Double(showVocabularies.count - index))
+            .animation(.spring(), value: offset)
+         )
+      }
+      return modifiedView
+   }
+   
    func getProgress() -> Double {
       return Double(currentIndex+1)/Double(showVocabularies.count)
    }

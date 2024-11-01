@@ -15,26 +15,23 @@ struct PinyinSoundCardView: View {
    @Binding var audioController: AudioController
    
    var body: some View {
-      VStack(spacing: 10) {
+      VStack(spacing: 4) {
          Text(text)
-            .font(.system(size: 18))
+            .font(.system(size: 24))
             .foregroundStyle(.black)
          
-         
-         BubbleSoundButton(
-            icon: "sound",
-            buttonAction: {
-               audioController.playSoundFromData(speak: speak)
-            },
-            size: 25,
-            soundSize: 12
-         )
-         
-         
+         Button {
+            audioController.playSoundFromData(speak: speak)
+         } label: {
+            Image(systemName: "speaker.wave.2")
+               .font(.system(size: 12))
+         }
+         .buttonStyle(SoundBubbleButton())
       }
-      //TODO: Size hard coded
-      .frame(maxWidth: .infinity)
+//      .frame(maxWidth: .infinity)
       .padding(.vertical, 8)
+//      .padding(.horizontal)
+      .frame(maxWidth: .infinity)
       .background(Color.white)
       .overlay(
          RoundedRectangle(cornerRadius: 12)
