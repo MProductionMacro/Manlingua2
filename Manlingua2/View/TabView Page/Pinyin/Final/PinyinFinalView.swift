@@ -10,22 +10,27 @@ import SwiftUI
 struct PinyinFinalView: View {
    @EnvironmentObject var router: Router
    @StateObject var viewModel = LearnViewModel()
-   @State var audioController = AudioController.shared
+   @State var audioController = AudioController()
    
    var body : some View{
       ScrollView{
          VStack(spacing: 16){
             Text("Final")
-               .font(.title)
-               .fontWeight(.bold)
+               .font(.system(size: 25, weight: .bold))
+               .padding(.top, 32)
             
-            Image("FinalNew")
+            Image("Final")
                .resizable()
                .scaledToFit()
                .frame(width:100, height: 100)
+               .padding(.bottom, 16)
             
             VStack{
-               Text("Tekan karakter untuk tahu cara pengucapannya")
+               Text("Tekan karakter untuk tahu cara")
+                  .font(.system(size: 20))
+                  .foregroundStyle(.black)
+                  .multilineTextAlignment(.center)
+               Text("pengucapannya")
                   .font(.system(size: 20))
                   .foregroundStyle(.black)
                   .multilineTextAlignment(.center)
@@ -36,10 +41,10 @@ struct PinyinFinalView: View {
                   RowOfPinyinView(listPinyin: pinyins, audioController: $audioController)
                }
             }
+              
          }
          .background(.white)
          .ignoresSafeArea()
-         .padding(.top)
       }
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {

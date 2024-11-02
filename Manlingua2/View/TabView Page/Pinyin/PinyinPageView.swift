@@ -13,8 +13,7 @@ struct PinyinPageView: View {
    var body: some View {
       VStack(spacing: 32) {
          Text("Pelajari Pin Yin")
-            .fontWeight(.heavy)
-            .font(.system(size: 48))
+            .font(Font.judulBesar())
             .foregroundStyle(.white)
             .padding(.top)
          
@@ -23,15 +22,15 @@ struct PinyinPageView: View {
             .padding(.horizontal)
          
          VStack(spacing: 16) {
-            PinYinNavigationButton(labelImage: .inisialLogoNew, title: "Inisial", content: "Huruf awal berupa konsonan"){
+            PinYinNavigationButton(labelImage: .inisialLogo, title: "Inisial", content: "Huruf awal berupa konsonan"){
                router.push(.pinyinInisial)
             }
             
-            PinYinNavigationButton(labelImage: .finalLogoNew, title: "Final", content: "Huruf akhir terdiri dari vokal"){
+            PinYinNavigationButton(labelImage: .finalLogo, title: "Final", content: "Huruf akhir terdiri dari vokal"){
                router.push(.pinyinFinal)
             }
             
-            PinYinNavigationButton(labelImage: .nadaLogoNew, title: "Nada", content: "Nada mengubah arti kata"){
+            PinYinNavigationButton(labelImage: .nadaLogo, title: "Nada", content: "Nada mengubah arti kata"){
                router.push(.pinyinNada)
             }
          }
