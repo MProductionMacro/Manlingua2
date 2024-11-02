@@ -41,7 +41,7 @@ struct PinyinInitView: View {
                   .multilineTextAlignment(.center)
             }
             
-            VStack(alignment: .leading){
+             VStack(alignment: .leading, spacing: 12){
                ForEach(viewModel.pinyinInisial, id: \.self){ pinyins in
                   RowOfPinyinView(listPinyin: pinyins, audioController: $audioController)
                }

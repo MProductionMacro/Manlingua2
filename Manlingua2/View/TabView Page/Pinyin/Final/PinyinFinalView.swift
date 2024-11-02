@@ -36,12 +36,12 @@ struct PinyinFinalView: View {
                   .multilineTextAlignment(.center)
             }
             
-            VStack(alignment: .leading){
+            VStack(alignment: .leading, spacing: 12){
                ForEach(viewModel.pinyinFinals, id: \.self){ pinyins in
                   RowOfPinyinView(listPinyin: pinyins, audioController: $audioController)
                }
             }
-              
+             
          }
          .background(.white)
          .ignoresSafeArea()
