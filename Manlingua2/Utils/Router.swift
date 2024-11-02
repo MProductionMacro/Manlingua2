@@ -31,7 +31,7 @@ class Router: ObservableObject {
          self.path.removeLast(self.path.count - 1)
       }
    }
-
+   
    @ViewBuilder
    func build(_ screen: Screen) -> some View {
       switch screen {
@@ -51,18 +51,24 @@ class Router: ObservableObject {
          PinyinNadaView()
             .navigationBarBackButtonHidden(true)
       case .journeyPage(let storyId):
-          JourneyPageView(storyId: storyId)
+         JourneyPageView(storyId: storyId)
             .navigationBarBackButtonHidden(true)
       case .storyPage(let chapterId, let subChapterId, let condition):
           StoryDetailView(chapterId: chapterId, subChapterId: subChapterId, isFromHome: condition)
             .navigationBarBackButtonHidden(true)
       case .dictionary(let judul, let displayMode):
-          DictionaryView(judul: judul, displayMode: displayMode)
+         DictionaryView(judul: judul, displayMode: displayMode)
       case .flashcardPage:
-          FlashcardPageView()
-              .navigationBarBackButtonHidden(true)
+         FlashcardPageView()
+            .navigationBarBackButtonHidden(true)
       case .donePage(let currentPage, let currentPart):
          DonePageView(currentPage: currentPage, currentPart: currentPart)
+            .navigationBarBackButtonHidden(true)
+      case .photoChallenge:
+         PhotoChallengeView()
+            .navigationBarBackButtonHidden(true)
+      case .cameraView:
+         CameraView()
             .navigationBarBackButtonHidden(true)
       }
    }
@@ -79,11 +85,13 @@ enum Screen: Hashable {
    case dictionary(judul:String, displayMode: DictionaryDisplayMode)
    case donePage(currentPage: DonePageString, currentPart: PartOfTheStory)
    case flashcardPage
+   case photoChallenge
+   case cameraView
 }
 
-                         /*
-                     case dictionary(judul:String, story: Int)
-                     case .dictionary(var test):
-                         DictionaryView()
-                           .navigationBarBackButtonHidden(true)
-                          */
+/*
+ case dictionary(judul:String, story: Int)
+ case .dictionary(var test):
+ DictionaryView()
+ .navigationBarBackButtonHidden(true)
+ */

@@ -32,6 +32,17 @@ class StoryViewModel: ObservableObject {
       }
    }
    
+   func updatingChapterProgress(isFromHome: Bool, chapterId: Int, subChapterId: Int) {
+      if isFromHome {
+         if chapterId == StoryProgressManager.getCurrentChapter() {
+            if subChapterId == StoryProgressManager.getCurrentSubChapter(for: chapterId) {
+               oneSubChapterDone(chapterId)
+               allSubChapterDone(chapterId: chapterId)
+            }
+         }
+      }
+   }
+   
    func loadChatForSubChapter(_ subChapter: SubChapter_Example) {
       self.currentSubChapter = subChapter
       
