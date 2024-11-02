@@ -11,12 +11,11 @@ struct RowOfPinyinView: View {
    @Binding var audioController: AudioController
    
    var body: some View {
-      LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 4), spacing: 12) {
+      LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 4), spacing: 12) {
          ForEach(listPinyin, id: \.self) { pinyin in
             PinyinSoundCardView(text: pinyin, speak: pinyin, audioController: $audioController)
          }
       }
       .padding(.horizontal)
-      .padding(.vertical, 4)
    }
 }
