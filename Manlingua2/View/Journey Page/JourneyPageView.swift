@@ -10,6 +10,7 @@ import SwiftUI
 struct JourneyPageView: View {
    @EnvironmentObject var router: Router
    @StateObject var viewModel = JourneyViewModel()
+   @StateObject var singleton = UserDefaultSingleton.shared
    var storyId:Int
    
    init(storyId: Int){
@@ -18,70 +19,81 @@ struct JourneyPageView: View {
    
    var body: some View {
       VStack(alignment: .leading, spacing: 0) {
+         
          if let story = viewModel.story {
-            VStack(alignment: .leading, spacing: 16) {
-               VStack(alignment: .leading) {
-                  Text("\(story.title)")
-                     .font(Font.titleKe2())
-                     .foregroundStyle(.white)
-                     .padding(.top, 2)
-                  Text("\(story.pinyin)")
-                     .font(Font.normalText())
-                     .foregroundStyle(.white)
-                  Text("\(story.hanzi)")
-                     .font(Font.judulBiasa())
-                     .foregroundStyle(.white)
-               }
-               
-               Button {
-                  router.push(.dictionary(judul: story.title, displayMode: .story(id: story.id)))
-               } label: {
-                  HStack {
-                     Image(.bookOpenText)
-                     Text("List Kata-Kata")
-                        .font(.button())
-                        .foregroundStyle(.orange3)
-                  }
-               }
-               .buttonStyle(JourneyPageButton())
-               
+             VStack(alignment: .leading) {
+                 Text("\(story.title)")
+                  .font(Font.titleKe2())
+                  .foregroundStyle(.white)
+                  .padding(.top, 2)
+                 Text("\(story.pinyin)")
+                  .font(Font.normalText())
+                  .foregroundStyle(.white)
+                 Text("\(story.hanzi)")
+                  .font(Font.judulBiasa())
+                  .foregroundStyle(.white)
+                 Button {
+                     router.push(.dictionary(judul: story.title, displayMode: .story(id: story.id)))
+                 } label: {
+                     HStack {
+                         Image(.bookOpenText)
+                         Text("List Kata-Kata")
+                             .font(.button())
+                             .foregroundStyle(.orange3)
+                     }
+                 }
+                 .buttonStyle(JourneyPageButton())
             }
-            .padding(.horizontal)
-            .padding(.bottom)
-            
-            // List of Chapters
+            .padding()
             
             ZStack {
-               CustomRoundedRectangle(cornerRadius: 24, corners: [.topLeft, .topRight])
-                  .fill(.white)
-                  .edgesIgnoringSafeArea(.bottom)
+               Rectangle()
+                  .foregroundStyle(.white)
+                  .clipShape(.rect(cornerRadius: 32))
+                  .frame(maxHeight: .infinity)
                
-               ScrollView(.vertical, showsIndicators: false) {
-                  VStack(alignment: .leading, spacing: 12) {
-                     Text("Pengantar")
-                        .font(Font.judulBiasa())
-                     
-                     Text(story.description)
-                        .font(.normalText())
-                        .padding()
-                        .overlay(
-                           RoundedRectangle(cornerRadius: 20)
-                              .stroke(.customLightGray, lineWidth: 1)
-                        )
-                     
-                     Text("Sub-bab")
-                        .font(Font.judulBiasa())
-                     
-                     VStack(spacing: 24) {
-                        ForEach(story.subChapter, id: \.self){ subChapter in
-                           if let progress = StoryProgressManager.getCurrentSubChapter(for: story.id){
-                              SubChapterCard(labelImage: .schoolChapter, chapter: "Bagian \(subChapter.id)", title: "\(subChapter.title)", pinyin: "\(subChapter.pinyin)", hanzi: "\(subChapter.hanzi)" ,isLocked: subChapter.id <= progress ? false : true, id: story.id, subChapter: subChapter)
-                           }
+               ZStack {
+                  // List of Chapters
+                  ScrollView(.vertical, showsIndicators: false) {
+                     VStack(spacing: 12) {
+                        HStack{
+                           Text("Pengantar")
+                              .font(Font.judulBiasa())
+                           Spacer()
                         }
+                        .padding(.horizontal, 15.5)
+                        
+                        
+                        Text(story.description)
+                           .font(.normalText())
+                           .frame(width: 340, alignment: .leading)
+                           .padding()
+                           .overlay(
+                              RoundedRectangle(cornerRadius: 20)
+                                 .stroke(.customLightGray, lineWidth: 1)
+                           )
+                        
+                        HStack{
+                           Text("Sub-bab")
+                              .font(Font.judulBiasa())
+                           Spacer()
+                        }
+                        .padding(.horizontal, 16)
+                        
+                        ScrollView(.vertical, showsIndicators: false) {
+                           VStack(spacing: 24) {
+                              ForEach(story.subChapter, id: \.self){ subChapter in
+                                  SubChapterCard(labelImage: .schoolChapter, chapter: "Bagian \(subChapter.id)", title: "\(subChapter.title)", pinyin: "\(subChapter.pinyin)", hanzi: "\(subChapter.hanzi)" ,isLocked: viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter), id: story.id, subChapter: subChapter)
+                                     .padding(.horizontal)
+                              }
+                           }
+                           .padding(.top, 5)
+                        }
+                        
                      }
+                     .padding(.bottom, 25)
                   }
                }
-               .padding(.horizontal)
                .padding(.top, 20)
             }
          }
@@ -89,6 +101,7 @@ struct JourneyPageView: View {
       .onAppear{
          viewModel.loadStoryData(storyId: storyId)
       }
+      .edgesIgnoringSafeArea(.bottom)
       .background(
          Image(.homeBackground)
             .ignoresSafeArea()
@@ -98,7 +111,7 @@ struct JourneyPageView: View {
             Button(action: {
                router.pop()
             }) {
-               HStack(spacing: 12) {
+               HStack {
                   Image(systemName: "chevron.left")
                      .foregroundStyle(Color.white)
                      .font(Font.button())
@@ -108,12 +121,10 @@ struct JourneyPageView: View {
                      .font(Font.button())
                }
             }
-            .padding(8)
          }
       }
    }
 }
-
 #Preview {
    NavigationView{
       JourneyPageView(storyId: 1)

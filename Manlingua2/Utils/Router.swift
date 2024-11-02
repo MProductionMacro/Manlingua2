@@ -53,8 +53,8 @@ class Router: ObservableObject {
       case .journeyPage(let storyId):
           JourneyPageView(storyId: storyId)
             .navigationBarBackButtonHidden(true)
-      case .storyPage(let chapterId, let condition):
-          StoryDetailView(chapterId: chapterId, isFromHome: condition)
+      case .storyPage(let chapterId, let subChapterId, let condition):
+          StoryDetailView(chapterId: chapterId, subChapterId: subChapterId, isFromHome: condition)
             .navigationBarBackButtonHidden(true)
       case .dictionary(let judul, let displayMode):
           DictionaryView(judul: judul, displayMode: displayMode)
@@ -75,7 +75,7 @@ enum Screen: Hashable {
    case pinyinFinal
    case pinyinNada
    case journeyPage(storyId: Int)
-   case storyPage(chapterId: Int, isFromHome: Bool)
+   case storyPage(chapterId: Int, subChapterId: Int, isFromHome: Bool)
    case dictionary(judul:String, displayMode: DictionaryDisplayMode)
    case donePage(currentPage: DonePageString, currentPart: PartOfTheStory)
    case flashcardPage

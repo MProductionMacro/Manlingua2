@@ -23,7 +23,7 @@
         "meaning": "Produk elektronik",
         "choice": ["Produk elektronik", "Produk makanan", "Produk tekstil", "Produk furnitur"],
         "answer": "Produk elektronik",
-        "question": "Apa arti dari 电子产品?",
+        "question": "Apa arti dari 电子产品 (diàn zǐ chǎn pǐn)?",
         "type": "question"
     },
     {
@@ -42,7 +42,7 @@
         "meaning": "Berbeda",
         "choice": ["Berbeda", "Sama", "Bagus", "Baru"],
         "answer": "Berbeda",
-        "question": "Coba dengar, apa arti dari 不同?",
+        "question": "Coba dengar, apa arti dari 不同 (bùtóng)?",
         "type": "question"
     },
     {
@@ -68,7 +68,7 @@
         "hanzi": "质量",
         "meaning": "Kualitas",
         "answer": "质量",
-        "question": "Coba ulangi 质量.",
+        "question": "Coba ulangi 质量 (zhìliàng).",
         "type": "question"
     },
     {
@@ -85,7 +85,9 @@
         "pinyin": "Wǒmen yě fēicháng guānxīn zhìliàng.",
         "hanzi": "我们也非常关心质量。",
         "meaning": "Kami juga sangat peduli dengan kualitas.",
-        "type": "speaker1"
+        "answer": "我们也非常关心质量",
+        "question": "Jawablah dalam bahasa Mandarin “Kami juga sangat peduli dengan kualitas.”",
+        "type": "question"
     },
     {
         "id": 11,
@@ -104,4 +106,3 @@
         "type": "speaker1"
     }
 ]
-

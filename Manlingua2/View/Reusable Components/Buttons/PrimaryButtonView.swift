@@ -19,9 +19,9 @@ struct PrimaryButtonView: View {
       Button(action: {
 //         let chapterId = UserDefaults.standard.integer(forKey: "currentChapter")
          
-         viewModel.loadProgressForChapter(id, subChapters: homeVM.stories_example[id - 1].subChapter)
+         //viewModel.loadProgressForChapter(id, subChapters: homeVM.stories_example[id - 1].subChapter)
          
-            router.push(.storyPage(chapterId: id, isFromHome: true))
+            //router.push(.storyPage(chapterId: id, isFromHome: true))
       }){
          Text("Mulai")
             .frame(maxWidth: .infinity)
