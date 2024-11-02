@@ -70,4 +70,3 @@ struct ProfilePageView: View {
 #Preview {
    ProfilePageView()
 }
-
