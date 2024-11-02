@@ -2,101 +2,107 @@
     {
         "id": 1,
         "speaker": "Abai",
-        "pinyin": "Nǐmen shōudào huòwù le ma?",
+        "pinyin": "nǐ men shōu dào huò wù le ma?",
         "hanzi": "你们收到货物了吗？",
-        "meaning": "Apakah kalian sudah menerima barangnya?"
+        "meaning": "Apakah kalian sudah menerima barangnya?",
+        "type": "speaker1"
     },
     {
         "id": 2,
         "speaker": "Asui",
-        "pinyin": "Shì de, wǒmen yǐjīng shōudào le huòwù.",
+        "pinyin": "shì de, wǒ men yǐ jīng shōu dào le huò wù.",
         "hanzi": "是的，我们已经收到了货物。",
-        "meaning": "Ya, kami sudah menerima barangnya."
+        "meaning": "Ya, kami sudah menerima barangnya.",
+        "type": "speaker2"
     },
     {
         "id": 3,
         "speaker": "Asui",
-        "pinyin": "huòwù",
+        "pinyin": "huò wù",
         "hanzi": "货物",
         "meaning": "Barang",
-        "choice": [
-            "Uang",
-            "Barang",
-            "Dokumen",
-            "Kartu kredit"
-        ],
-        "question": "Apa arti dari 货物?",
-        "answer": "Barang"
+        "choice": ["Uang", "Barang", "Dokumen", "Kartu kredit"],
+        "answer": "Barang",
+        "question": "Apa arti dari 货物 (huò wù)?",
+        "type": "question"
     },
     {
         "id": 4,
         "speaker": "Abai",
-        "pinyin": "Huòwù de zhìliàng zěnme yàng?",
+        "pinyin": "huò wù de zhì liàng zěn me yàng?",
         "hanzi": "货物的质量怎么样？",
-        "meaning": "Bagaimana kualitas barangnya?"
+        "meaning": "Bagaimana kualitas barangnya?",
+        "type": "speaker1"
     },
     {
         "id": 5,
         "speaker": "Asui",
-        "pinyin": "zhìliàng",
+        "pinyin": "zhì liàng",
         "hanzi": "质量",
         "meaning": "Kualitas",
-        "choice": [
-            "Kualitas",
-            "Jumlah",
-            "Ukuran",
-            "Harga"
-        ],
-        "question": "Coba dengar, apa arti dari 质量?",
-        "answer": "Kualitas"
+        "choice": ["Kualitas", "Jumlah", "Ukuran", "Harga"],
+        "answer": "Kualitas",
+        "question": "Coba dengar, apa arti dari 质量 (zhì liàng)?",
+        "type": "question"
     },
     {
         "id": 6,
         "speaker": "Asui",
-        "pinyin": "Huòwù de zhìliàng hěn hǎo, wǒmen fēicháng mǎnyì.",
+        "pinyin": "huò wù de zhì liàng hěn hǎo, wǒ men fēi cháng mǎn yì.",
         "hanzi": "货物的质量很好，我们非常满意。",
-        "meaning": "Kualitas barangnya sangat baik, kami sangat puas."
+        "meaning": "Kualitas barangnya sangat baik, kami sangat puas.",
+        "type": "speaker2"
     },
     {
         "id": 7,
         "speaker": "Abai",
-        "pinyin": "Tài hǎo le, wǒmen huì jìxù wèi nín tígōng yōuzhì de fúwù.",
+        "pinyin": "tài hǎo le, wǒ men huì jì xù wèi nín tí gōng yōu zhì de fú wù.",
         "hanzi": "太好了，我们会继续为您提供优质的服务。",
-        "meaning": "Bagus sekali, kami akan terus memberikan pelayanan yang berkualitas."
+        "meaning": "Bagus sekali, kami akan terus memberikan pelayanan yang berkualitas.",
+        "type": "speaker1"
     },
     {
         "id": 8,
         "speaker": "Asui",
-        "pinyin": "Cǎo hǎo, zài shuō yīcì yōuzhì.",
-        "hanzi": "Coba ulangi 优质。",
-        "meaning": "Coba ulangi kata 'berkualitas.'"
+        "pinyin": "yōu zhì",
+        "hanzi": "优质",
+        "meaning": "Berkualitas",
+        "answer": "优质",
+        "question": "Coba ulangi 优质 (yōu zhì)。",
+        "type": "question"
     },
     {
         "id": 9,
         "speaker": "Asui",
-        "pinyin": "Xièxiè, wǒmen qídài xià cì hézuò.",
+        "pinyin": "xiè xiè, wǒ men qí dài xià cì hé zuò.",
         "hanzi": "谢谢，我们期待下次合作。",
-        "meaning": "Terima kasih, kami menantikan kerja sama berikutnya."
+        "meaning": "Terima kasih, kami menantikan kerja sama berikutnya.",
+        "type": "speaker2"
     },
     {
         "id": 10,
         "speaker": "Abai",
-        "pinyin": "Xièxiè nǐmen de liánghǎo hézuò.",
+        "pinyin": "xiè xiè nǐ men de liáng hǎo hé zuò.",
         "hanzi": "谢谢你们的良好合作。",
-        "meaning": "Terima kasih atas kerja sama yang baik."
+        "meaning": "Terima kasih atas kerja sama yang baik.",
+        "answer": "谢谢你们的良好合作",
+        "question": "Jawablah dalam bahasa Mandarin \"Terima kasih atas kerja sama yang baik.\"",
+        "type": "question"
     },
     {
         "id": 11,
         "speaker": "Asui",
-        "pinyin": "Wǒmen yě hěn gāoxìng nénggòu hézuò, xīwàng xià cì zài hézuò.",
+        "pinyin": "wǒ men yě hěn gāo xìng néng gòu hé zuò, xī wàng xià cì zài hé zuò.",
         "hanzi": "我们也很高兴能够合作，希望下次再合作。",
-        "meaning": "Kami juga senang bisa bekerja sama, semoga kita bisa bekerja sama lagi di masa mendatang."
+        "meaning": "Kami juga senang bisa bekerja sama, semoga kita bisa bekerja sama lagi di masa mendatang.",
+        "type": "speaker2"
     },
     {
         "id": 12,
         "speaker": "Abai",
-        "pinyin": "Shì de, wǒmen yídìng huì bǎochí liánxì.",
+        "pinyin": "shì de, wǒ men yí dìng huì bǎo chí lián xì.",
         "hanzi": "是的，我们一定会保持联系。",
-        "meaning": "Ya, kami pasti akan terus berhubungan."
+        "meaning": "Ya, kami pasti akan terus berhubungan.",
+        "type": "speaker1"
     }
 ]

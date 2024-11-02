@@ -40,7 +40,7 @@ struct Manlingua2App: App {
          .environmentObject(FlashcardViewModel())
          .environmentObject(challengeViewModel)
          .onAppear {
-            StoryProgressManager.unlockFirstChapterIfNeeded()
+            //StoryProgressManager.unlockFirstChapterIfNeeded()
          }
          //         SidebarButton()
          .preferredColorScheme(.light)

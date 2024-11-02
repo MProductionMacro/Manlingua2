@@ -34,5 +34,17 @@ class JourneyViewModel: ObservableObject{
             print("Gagal memuat atau mendekode JSON: \(error)")
         }
     }
+    
+    func isSubChapterLocked(storyId: Int, subChapter: SubChapter_Example) -> Bool{
+        if storyId < UserDefaultSingleton.shared.latestStory {
+            return false
+        }
+        else if subChapter.id <= UserDefaultSingleton.shared.latestSubChapter {
+            return false
+        }
+        else {
+           return true
+        }
+    }
 
 }

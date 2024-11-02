@@ -2,7 +2,7 @@
     {
         "id": 1,
         "speaker": "Abai",
-        "pinyin": "Nǐ zuìjìn qù nǎlǐ lǚxíng le ma?",
+        "pinyin": "Nǐ zuì jìn qù nǎ lǐ lǚ xíng le ma?",
         "hanzi": "你最近去哪里旅行了吗？",
         "meaning": "Apakah Anda bepergian akhir-akhir ini?",
         "type": "speaker1"
@@ -10,7 +10,7 @@
     {
         "id": 2,
         "speaker": "Asui",
-        "pinyin": "Shì de, wǒ gāng cóng Běijīng huílái. Nǐ ne?",
+        "pinyin": "Shì de, wǒ gāng cóng běi jīng huí lái. Nǐ ne?",
         "hanzi": "是的，我刚从北京回来。你呢？",
         "meaning": "Ya, saya baru saja kembali dari Beijing. Bagaimana dengan Anda?",
         "type": "speaker2"
@@ -23,13 +23,13 @@
         "meaning": "Bepergian",
         "choice": ["Makan", "Bepergian", "Tidur", "Bermain"],
         "answer": "Bepergian",
-        "question": "Apa arti dari 旅行?",
+        "question": "Apa arti dari 旅行 (lǚxíng)?",
         "type": "question"
     },
     {
         "id": 4,
         "speaker": "Abai",
-        "pinyin": "Wǒ zuìjìn qù le Shànghǎi cānjiā yí gè huìyì.",
+        "pinyin": "Wǒ zuì jìn qù le shàng hǎi cān jiā yí gè huì yì.",
         "hanzi": "我最近去了上海参加一个会议。",
         "meaning": "Saya baru saja pergi ke Shanghai untuk menghadiri sebuah konferensi.",
         "type": "speaker1"
@@ -37,18 +37,18 @@
     {
         "id": 5,
         "speaker": "Asui",
-        "pinyin": "huìyì",
+        "pinyin": "Huìyì",
         "hanzi": "会议",
         "meaning": "Konferensi",
         "choice": ["Konferensi", "Makan malam", "Berbelanja", "Beristirahat"],
         "answer": "Konferensi",
-        "question": "Coba dengar, apa arti dari 会议?",
+        "question": "Coba dengar, apa arti dari 会议 (huìyì)?",
         "type": "question"
     },
     {
         "id": 6,
         "speaker": "Asui",
-        "pinyin": "Wā, Shànghǎi hěn hǎo! Nǐmen tǎolùn le shénme?",
+        "pinyin": "Wā, shàng hǎi hěn hǎo! Nǐ men tǎo lùn le shén me?",
         "hanzi": "哇，上海很好！你们讨论了什么？",
         "meaning": "Wah, Shanghai itu bagus! Apa yang kalian diskusikan?",
         "type": "speaker2"
@@ -56,7 +56,7 @@
     {
         "id": 7,
         "speaker": "Abai",
-        "pinyin": "Wǒmen tǎolùn le jīnnián de chūkǒu jīhuì.",
+        "pinyin": "Wǒ men tǎo lùn le jīn nián de chū kǒu jī huì.",
         "hanzi": "我们讨论了今年的出口机会。",
         "meaning": "Kami mendiskusikan peluang ekspor tahun ini.",
         "type": "speaker1"
@@ -64,18 +64,17 @@
     {
         "id": 8,
         "speaker": "Asui",
-        "pinyin": "jīhuì",
+        "pinyin": "Cì yīhuì (jīhuì).",
         "hanzi": "机会",
         "meaning": "Peluang",
         "answer": "机会",
-        "speaking": "repeating",
-        "question": "Coba ulangi 机会.",
+        "question": "Coba ulangi 机会 (jīhuì).",
         "type": "question"
     },
     {
         "id": 9,
         "speaker": "Asui",
-        "pinyin": "Nà tài hǎo le! Wǒmen yě zài xúnzhǎo xīn de hézuò jīhuì.",
+        "pinyin": "Nà tài hǎo le! Wǒ men yě zài xún zhǎo xīn de hé zuò jī huì.",
         "hanzi": "那太好了！我们也在寻找新的合作机会。",
         "meaning": "Itu luar biasa! Kami juga sedang mencari peluang kerja sama baru.",
         "type": "speaker2"
@@ -83,15 +82,17 @@
     {
         "id": 10,
         "speaker": "Abai",
-        "pinyin": "Xīwàng wǒmen kěyǐ hézuò!",
+        "pinyin": "Xī wàng wǒ men kě yǐ hé zuò!",
         "hanzi": "希望我们可以合作！",
         "meaning": "Semoga kita bisa bekerja sama!",
-        "type": "speaker1"
+        "answer": "希望我们可以合作",
+        "question": "Jawablah dalam bahasa Mandarin “Semoga kita bisa bekerja sama!”",
+        "type": "question"
     },
     {
         "id": 11,
         "speaker": "Asui",
-        "pinyin": "Hǎo de, qídài hézuò de jīhuì!",
+        "pinyin": "Hǎo de, qí dài hé zuò de jīhuì!",
         "hanzi": "好的，期待合作的机会！",
         "meaning": "Baik, menantikan kesempatan bekerja sama!",
         "type": "speaker2"
@@ -99,10 +100,9 @@
     {
         "id": 12,
         "speaker": "Abai",
-        "pinyin": "Yídìng huì yǒu hěn hǎo de jīhuì.",
+        "pinyin": "Yí dìng huì yǒu hěn hǎo de jī huì.",
         "hanzi": "一定会有很好的机会。",
         "meaning": "Pasti akan ada peluang yang baik.",
         "type": "speaker1"
     }
 ]
-
