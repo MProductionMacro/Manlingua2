@@ -26,7 +26,7 @@ struct PinyinSoundCardView: View {
             Image(systemName: "speaker.wave.2")
                .font(.system(size: 12))
          }
-         .buttonStyle(SoundBubbleButton())
+         .buttonStyle(CircleButton())
       }
 //      .frame(maxWidth: .infinity)
       .padding(.vertical, 8)

@@ -20,9 +20,9 @@ struct TabPageView: View {
             }
             .tag(1)
          
-         PhotoChallengeView()
+         GoalPageView()
             .tabItem {
-               TabItemView(selectedTab: $selectedTab, text:"Challenge", image: "dice", tag: 2)
+               TabItemView(selectedTab: $selectedTab, text: "Challenge", image: "dice", tag: 2)
             }
             .tag(2)
          

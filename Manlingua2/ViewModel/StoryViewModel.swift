@@ -15,6 +15,8 @@ class StoryViewModel: ObservableObject {
    @Published var currentIndex: Int = 0
    @Published var error: String = ""
    @Published var chapterId: Int = 0
+    @StateObject var singleton = UserDefaultSingleton.shared
+
    
    func onTapDetectionChat(_ location: CGPoint, _ midPoint: CGFloat, _ currentIndex: inout Int){
       if location.x < midPoint {
@@ -26,6 +28,17 @@ class StoryViewModel: ObservableObject {
          // Tapped right screen, move to next item
          if currentIndex < chat_example.count - 1 {
             currentIndex += 1
+         }
+      }
+   }
+   
+   func updatingChapterProgress(isFromHome: Bool, chapterId: Int, subChapterId: Int) {
+      if isFromHome {
+         if chapterId == StoryProgressManager.getCurrentChapter() {
+            if subChapterId == StoryProgressManager.getCurrentSubChapter(for: chapterId) {
+               oneSubChapterDone(chapterId)
+               allSubChapterDone(chapterId: chapterId)
+            }
          }
       }
    }
@@ -46,8 +59,9 @@ class StoryViewModel: ObservableObject {
       } catch {
          fatalError(error.localizedDescription)
       }
-      
-      StoryProgressManager.setCurrentSubChapter(for: chapterId, subChapterId: subChapter.id)
+       singleton.updateLatestSubChapter(for: subChapter.id)
+
+      //StoryProgressManager.setCurrentSubChapter(for: chapterId, subChapterId: subChapter.id)
    }
    
    func oneSubChapterDone(_ chapterId: Int){
@@ -56,6 +70,23 @@ class StoryViewModel: ObservableObject {
       StoryProgressManager.setCurrentSubChapter(for: chapterId, subChapterId: subChapterId + 1)
    }
    
+    
+    func loadChat(storyId: Int, subChapterId: Int){
+        guard let url = Bundle.main.url(forResource: "Chat\(storyId)_\(subChapterId)", withExtension: "json") else {
+            print("File not found")
+            return
+        }
+        
+        do {
+            // Load and decode the JSON data
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            self.chat_example = try decoder.decode([Chat_Example].self, from: data)
+        } catch {
+            print("Failed to decode JSON: \(error.localizedDescription)")
+        }
+    }
+    
    func allSubChapterDone(chapterId: Int){
       if let currentSubChap = StoryProgressManager.getCurrentSubChapter(for: chapterId) {
          if currentSubChap >= 4 {
@@ -75,4 +106,24 @@ class StoryViewModel: ObservableObject {
          loadChatForSubChapter(savedSubChapter)
       }
    }
+    
+    func updateUserProgress(currentStory: Int, currentSubChapter: Int){
+        
+        if currentSubChapter == 3 {
+            singleton.updateSpecificStoryProgress(story: currentStory, subChapterProgress: 1)
+        }
+        else{
+            singleton.updateSpecificStoryProgress(story: currentStory, subChapterProgress: currentSubChapter + 1)
+        }
+        
+        if currentStory == singleton.latestStory && currentSubChapter == singleton.latestSubChapter{
+            if currentSubChapter == 3 {
+                singleton.updateLatestSubChapter(for: 1)
+                singleton.updateLatestStory(for: currentStory + 1)
+            }
+            else{
+                singleton.updateLatestSubChapter(for: currentSubChapter + 1)
+            }
+        }
+    }
 }

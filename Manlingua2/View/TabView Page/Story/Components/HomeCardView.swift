@@ -16,6 +16,8 @@ struct HomeCardView: View {
    @EnvironmentObject var router: Router
    @EnvironmentObject var homeVM: HomeViewModel
    @EnvironmentObject var storyVM: StoryViewModel
+    @StateObject var singleton = UserDefaultSingleton.shared
+
    
    var story: Story_Example
    
@@ -45,8 +47,15 @@ struct HomeCardView: View {
          HStack {
 //            PrimaryButtonView(isDisabled: isDisabled, id: story.id)
             Button {
-               storyVM.loadProgressForChapter(story.id, subChapters: homeVM.stories_example[story.id - 1].subChapter)
-               router.push(.storyPage(chapterId: story.id, isFromHome: true))
+                
+                if !isDisabled {
+                    //storyVM.loadProgressForChapter(story.id, subChapters: homeVM.stories_example[story.id - 1].subChapter)
+                     router.push(.storyPage(chapterId: story.id, subChapterId: singleton.getSpecificStoryProgress(storyId: story.id), isFromHome: true))
+                    print("storyId: \(story.id)")
+                    print("subChapterId: \(singleton.getSpecificStoryProgress(storyId: story.id))")
+                }
+
+
             } label: {
                Text("Mulai")
             }

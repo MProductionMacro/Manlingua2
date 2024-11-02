@@ -2,102 +2,109 @@
     {
         "id": 1,
         "speaker": "Abai",
-        "pinyin": "Wǒmen lái tǎolùn fùkuǎn fāngshì ba.",
+        "pinyin": "wǒ men lái tǎo lùn fù kuǎn fāng shì ba",
         "hanzi": "我们来讨论付款方式吧。",
-        "meaning": "Mari kita bahas metode pembayaran."
+        "meaning": "Mari kita bahas metode pembayaran.",
+        "type": "speaker1"
     },
     {
         "id": 2,
         "speaker": "Asui",
-        "pinyin": "Hǎo de, nǐmen tōngcháng zěnme fùkuǎn?",
+        "pinyin": "hǎo de, nǐ men tōng cháng zěn me fù kuǎn?",
         "hanzi": "好的，你们通常怎么付款？",
-        "meaning": "Baik, biasanya bagaimana cara Anda membayar?"
+        "meaning": "Baik, biasanya bagaimana cara Anda membayar?",
+        "type": "speaker2"
     },
     {
         "id": 3,
         "speaker": "Asui",
-        "pinyin": "fùkuǎn",
+        "pinyin": "fù kuǎn",
         "hanzi": "付款",
-        "meaning": "Membayar",
-        "choice": [
-            "Mengirim barang",
-            "Membayar",
-            "Menunggu",
-            "Menjual"
-        ],
-        "question": "Apa arti dari 付款?",
-        "answer": "Membayar"
+        "meaning": "Pembayaran",
+        "choice": ["Mengirim barang", "Membayar", "Menunggu", "Menjual"],
+        "answer": "Membayar",
+        "question": "Apa arti dari 付款 (fù kuǎn)?",
+        "type": "question"
     },
     {
         "id": 4,
         "speaker": "Abai",
-        "pinyin": "Wǒmen kěyǐ tōngguò yínháng zhuǎnzhàng fùkuǎn.",
+        "pinyin": "wǒ men kě yǐ tōng guò yín háng zhuǎn zhàng fù kuǎn.",
         "hanzi": "我们可以通过银行转账付款。",
-        "meaning": "Kami bisa membayar melalui transfer bank."
+        "meaning": "Kami bisa membayar melalui transfer bank.",
+        "type": "speaker1"
     },
     {
         "id": 5,
         "speaker": "Asui",
-        "pinyin": "yínháng",
+        "pinyin": "yín háng",
         "hanzi": "银行",
         "meaning": "Bank",
-        "choice": [
-            "Bank",
-            "Pasar",
-            "Barang",
-            "Toko"
-        ],
-        "question": "Coba dengar, apa arti dari 银行?",
-        "answer": "Bank"
+        "choice": ["Bank", "Pasar", "Barang", "Toko"],
+        "answer": "Bank",
+        "question": "Coba dengar, apa arti dari 银行 (yín háng)?",
+        "type": "question"
     },
     {
         "id": 6,
         "speaker": "Asui",
-        "pinyin": "Yínháng zhuǎnzhàng hěn hǎo, bùguò wǒmen yě jiēshòu xìnyòngkǎ.",
+        "pinyin": "yín háng zhuǎn zhàng hěn hǎo, bù guò wǒ men yě jiē shòu xìn yòng kǎ.",
         "hanzi": "银行转账很好，不过我们也接受信用卡。",
-        "meaning": "Transfer bank bagus, tetapi kami juga menerima kartu kredit."
+        "meaning": "Transfer bank bagus, tetapi kami juga menerima kartu kredit.",
+        "type": "speaker2"
     },
     {
         "id": 7,
         "speaker": "Abai",
-        "pinyin": "Tài hǎo le, wǒ kěyǐ yòng xìnyòngkǎ fùkuǎn.",
+        "pinyin": "tài hǎo le, wǒ kě yǐ yòng xìn yòng kǎ fù kuǎn.",
         "hanzi": "太好了，我可以用信用卡付款。",
-        "meaning": "Bagus sekali, saya bisa membayar dengan kartu kredit."
+        "meaning": "Bagus sekali, saya bisa membayar dengan kartu kredit.",
+        "type": "speaker1"
     },
     {
         "id": 8,
         "speaker": "Asui",
-        "pinyin": "Cǎo hǎo, zài shuō yīcì xìnyòngkǎ.",
-        "hanzi": "Coba ulangi 信用卡。",
-        "meaning": "Coba ulangi kata 'kartu kredit.'"
+        "hanzi": "信用卡",
+        "pinyin": "xìn yòng kǎ",
+        "meaning": "Kartu kredit",
+        "question": "Coba ulangi 信用卡 (xìn yòng kǎ).",
+        "answer" : "信用卡",
+        "type": "question"
     },
     {
         "id": 9,
         "speaker": "Asui",
-        "pinyin": "Hǎo de, fùkuǎn zhīhòu wǒmen huì fāhuò.",
+        "pinyin": "hǎo de, fù kuǎn zhī hòu wǒ men huì fāhuò.",
         "hanzi": "好的，付款之后我们会发货。",
-        "meaning": "Baik, setelah pembayaran kami akan mengirim barang."
+        "meaning": "Baik, setelah pembayaran kami akan mengirim barang.",
+        "type": "speaker2"
     },
     {
         "id": 10,
         "speaker": "Abai",
-        "pinyin": "Fùkuǎn hòu, huòwù jiāng mǎshàng fāchū.",
+        "pinyin": "fù kuǎn hòu, huò wù jiāng mǎ shàng fā chū.",
         "hanzi": "付款后，货物将马上发出。",
-        "meaning": "Setelah pembayaran, barang akan segera dikirim."
+        "meaning": "Setelah pembayaran, barang akan segera dikirim.",
+        "answer": "付款后，货物将马上发出",
+        "question": "Jawablah dalam bahasa Mandarin: 'Setelah pembayaran, barang akan segera dikirim.'",
+        "type": "question"
     },
     {
         "id": 11,
         "speaker": "Asui",
-        "pinyin": "Nín huì shōudào fùkuǎn quèrèn hé fāhuò tōngzhī.",
+        "pinyin": "nín huì shōu dào fùkuǎn què rèn hé fā huò tōng zhī.",
         "hanzi": "您会收到付款确认和发货通知。",
-        "meaning": "Anda akan menerima konfirmasi pembayaran dan pemberitahuan pengiriman."
+        "meaning": "Anda akan menerima konfirmasi pembayaran dan pemberitahuan pengiriman.",
+        "type": "speaker2"
     },
     {
         "id": 12,
         "speaker": "Abai",
-        "pinyin": "Xièxiè! Wǒmen qídài xià yī cì hézuò.",
+        "pinyin": "xiè xiè! wǒ men qí dài xià yī cì hé zuò.",
         "hanzi": "谢谢！我们期待下一次合作。",
-        "meaning": "Terima kasih! Kami menantikan kerja sama selanjutnya."
+        "meaning": "Terima kasih! Kami menantikan kerja sama selanjutnya.",
+        "type": "speaker1"
     }
 ]
+
 

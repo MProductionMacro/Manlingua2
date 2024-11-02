@@ -23,7 +23,7 @@
         "meaning": "Senang",
         "choice": ["Senang", "Sedih", "Marah", "Lelah"],
         "answer": "Senang",
-        "question": "Apa arti dari 高兴?",
+        "question": "Apa arti dari 高兴 (gāo xìng)?",
         "type": "question"
     },
     {
@@ -42,7 +42,7 @@
         "meaning": "Mengenal",
         "choice": ["Mengenal", "Menjual", "Membeli", "Memesan"],
         "answer": "Mengenal",
-        "question": "Apa arti dari 认识?",
+        "question": "Apa arti 认识 (rènshí)?",
         "type": "question"
     },
     {
@@ -66,9 +66,9 @@
         "speaker": "Asui",
         "pinyin": "chūkǒu màoyì",
         "hanzi": "出口贸易",
-        "meaning": "Ekspor perdagangan",
+        "meaning": "Perdagangan ekspor",
         "answer": "出口贸易",
-        "question": "Coba ulangi 出口贸易.",
+        "question": "Ulangi 出口贸易 (chūkǒu màoyì).",
         "type": "question"
     },
     {
@@ -82,10 +82,12 @@
     {
         "id": 10,
         "speaker": "Abai",
-        "pinyin": "Hěn gāoxìng tīngdào zhège xiāoxī!",
+        "pinyin": "hěn gāo xìng tīng dào zhè ge xiāo xī!",
         "hanzi": "很高兴听到这个消息！",
         "meaning": "Senang mendengar kabar itu!",
-        "type": "speaker1"
+        "answer": "很高兴听到这个消息",
+        "question": "Respon dalam bahasa Mandarin: “Senang mendengar kabar itu!”",
+        "type": "question"
     },
     {
         "id": 11,
