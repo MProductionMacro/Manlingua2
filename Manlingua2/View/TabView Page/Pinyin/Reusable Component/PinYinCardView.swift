@@ -12,8 +12,8 @@ struct PinYinCardView: View {
          HStack(alignment: .bottom) {
             VStack {
                HStack (alignment: .bottom){
-                  Image("InisialNew")
-                  Image("FinalNadaNew")
+                  Image("Inisial")
+                  Image("FinalNada")
                }
                
                Text("Suku Kata")
@@ -23,7 +23,7 @@ struct PinYinCardView: View {
             Spacer()
             
             VStack {
-               Image("KarakterNew")
+               Image("Karakter")
                   .padding(.bottom, 36)
                Text("Karakter")
                   .bold()

@@ -16,7 +16,7 @@ struct TabPageView: View {
          
          PinyinPageView()
             .tabItem {
-               TabItemView(selectedTab: $selectedTab, text:"Challenge", image: "lightbulb", tag: 1)
+               TabItemView(selectedTab: $selectedTab, text:"Intonasi", image: "lightbulb", tag: 1)
             }
             .tag(1)
          
