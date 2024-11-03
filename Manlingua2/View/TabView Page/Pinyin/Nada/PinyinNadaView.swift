@@ -10,18 +10,20 @@ import SwiftUI
 struct PinyinNadaView: View {
    @EnvironmentObject var router: Router
    @StateObject var viewModel = LearnViewModel()
-   @State var audioController = AudioController.shared
+   @State var audioController = AudioController()
    
    var body : some View{
       ScrollView{
          VStack(spacing: 16){
             Text("Nada")
                .font(.system(size: 25, weight: .bold))
+               .padding(.top, 32)
             
-            Image("NadaNew")
+            Image("Nada")
                .resizable()
                .scaledToFit()
                .frame(width:100, height: 100)
+               .padding(.bottom, 16)
             
             
             VStack{
@@ -36,12 +38,11 @@ struct PinyinNadaView: View {
             }
             //.padding(.top, 32)
             .padding(.bottom, 32)
-            
+
             RowOfPinyinView(listPinyin: viewModel.pinyinNada, audioController: $audioController)
          }
          .background(.white)
          .ignoresSafeArea()
-         .padding(.top)
       }
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {

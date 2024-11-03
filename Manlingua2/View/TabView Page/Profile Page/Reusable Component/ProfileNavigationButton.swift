@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct ProfileNavigationButton: View {
     
     var title: String
@@ -27,10 +26,12 @@ struct ProfileNavigationButton: View {
                     .padding(.trailing, 10)
                 Text("\(title)")
                     .font(Font.judulBiasa())
-                    .foregroundColor(.black)
+                    .foregroundColor(.lightDarkGrey)
                 Spacer()
                 Image(systemName: "chevron.right")
+                    .resizable()
                     .foregroundStyle(.orange)
+                    .frame(width: 14, height: 25)
             }
         })
 
