@@ -19,24 +19,24 @@ struct SubChapterCard: View {
    @EnvironmentObject var router: Router
    @EnvironmentObject var viewModel: StoryViewModel
    @EnvironmentObject var homeVM: HomeViewModel
-    @StateObject var singleton = UserDefaultSingleton.shared
-
+   @StateObject var singleton = UserDefaultSingleton.shared
+   
    
    var body: some View {
       HStack() {
          HStack(spacing: 12) {
-             
-             if isLocked {
-                 Image("LockChapter")
-                     .resizable()
-                     .frame(width: 86, height: 86)
-             }
-             else{
-                 Image("HaidilaoChapter")
-                    .resizable()
-                    .frame(width: 86, height: 86)
-             }
-
+            
+            if isLocked {
+               Image("LockChapter")
+                  .resizable()
+                  .frame(width: 86, height: 86)
+            }
+            else{
+               Image("HaidilaoChapter")
+                  .resizable()
+                  .frame(width: 86, height: 86)
+            }
+            
             VStack(alignment: .leading) {
                Text(chapter)
                   .font(.title3)
@@ -76,9 +76,10 @@ struct SubChapterCard: View {
                .fontWeight(.bold)
                .onTapGesture {
                   //viewModel.loadProgressForChapter(id, subChapters: homeVM.stories_example[id - 1].subChapter)
-                   singleton.updateSpecificStoryProgress(story: id, subChapterProgress: subChapter.id)
-                   router.push(.storyPage(chapterId: id, subChapterId: subChapter.id, isFromHome: false))
-
+                  //                   singleton.updateSpecificStoryProgress(story: id, subChapterProgress: subChapter.id)
+                  viewModel.loadChat(storyId: id, subChapterId: subChapter.id)
+                  router.push(.storyPage(chapterId: id, subChapterId: subChapter.id, isFromHome: false))
+                  
                }
          }
          Spacer()

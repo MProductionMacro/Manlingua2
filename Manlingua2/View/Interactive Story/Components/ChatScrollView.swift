@@ -23,7 +23,7 @@ struct ChatScrollView: View {
                      .id(index)
                }
                
-               if currentIndex >= chats.count {
+               if currentIndex + 1 >= chats.count {
                   Button {
                      actionOnDone()
                   } label: {
@@ -34,6 +34,10 @@ struct ChatScrollView: View {
          }
          .onChange(of: currentIndex) { oldValue, newValue in
             proxy.scrollTo(newValue, anchor: .bottom)
+            print("Current index: \(currentIndex)")
+            print("New index: \(newValue)")
+            print("Old index: \(oldValue)")
+            print("Chat Index: \(chats.count)")
          }
       }
       .padding(.bottom, chats[currentIndex].type == .question ? 0 : 64)

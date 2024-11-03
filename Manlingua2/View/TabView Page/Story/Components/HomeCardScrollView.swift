@@ -31,8 +31,7 @@ struct HomeCardScrollView: View {
                        isComplete: false,
                        story: stories
                     )
-                }
-                else{
+                }else{
                     HomeCardView(
                        homeCard: .story1Thumbnail,
                        isDisabled: true,

@@ -18,6 +18,8 @@ struct StoryDetailView: View {
    @State var tutorialOverlay: Int = 1
    @State var modalAppeared: Bool = false
    
+   @StateObject var singleton = UserDefaultSingleton.shared
+   
    var chapterId: Int
    var subChapterId: Int
    var isFromHome: Bool
@@ -52,15 +54,47 @@ struct StoryDetailView: View {
                   ProgressView(value: Double(currentIndex + 1) / Double(viewModel.chat_example.count))
                      .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
                      .onChange(of: currentIndex) { _, newValue in
-                        if newValue + 1 == viewModel.chat_example.count {
-                           viewModel.updatingChapterProgress(isFromHome: isFromHome, chapterId: chapterId, subChapterId: subChapterId)
-                        }
+//                        if isFromHome {
+//                           if newValue + 1 == viewModel.chat_example.count {
+//                              singleton.updateLatestSubChapter(for: subChapterId)
+//   //                           viewModel.updatingChapterProgress(isFromHome: isFromHome, chapterId: chapterId, subChapterId: subChapterId)
+//                           }
+//                        }else{
+//                           if newValue + 1 == viewModel.chat_example.count {
+//                              let dataChapterProgress = singleton.latestStory
+//                              let dataSubChapterProgress = singleton.latestSubChapter
+//                              
+//                              if chapterId == dataChapterProgress && subChapterId == dataSubChapterProgress {
+//                                 singleton.updateLatestSubChapter(for: subChapterId)
+//                              }
+//                           }
+//                        }
                      }
                }
                .padding(.horizontal)
                
                ChatScrollView(currentIndex: $currentIndex, chats: viewModel.chat_example) {
+                  if isFromHome {
+                     viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
+                  }
+                  
                   router.push(.journeyPage(storyId: chapterId))
+                  
+//                  if isFromHome {
+//                     if currentIndex + 1 == viewModel.chat_example.count {
+//                        singleton.updateLatestSubChapter(for: subChapterId + 1)
+////                           viewModel.updatingChapterProgress(isFromHome: isFromHome, chapterId: chapterId, subChapterId: subChapterId)
+//                     }
+//                  }else{
+//                     let dataChapterProgress = singleton.latestStory
+//                     let dataSubChapterProgress = singleton.latestSubChapter
+//                     
+//                     if currentIndex + 1 == viewModel.chat_example.count {
+//                        if chapterId == dataChapterProgress && subChapterId == dataSubChapterProgress {
+//                           singleton.updateLatestSubChapter(for: subChapterId + 1)
+//                        }
+//                     }
+//                  }
                }
                
                if viewModel.chat_example[currentIndex].type == .question {
