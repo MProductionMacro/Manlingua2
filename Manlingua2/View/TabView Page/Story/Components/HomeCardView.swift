@@ -11,13 +11,11 @@ struct HomeCardView: View {
    @State var homeCard: ImageResource
    @State var isDisabled: Bool
    @State var isComplete: Bool
-   @State var subChapterId = 0
    
    @EnvironmentObject var router: Router
    @EnvironmentObject var homeVM: HomeViewModel
    @EnvironmentObject var storyVM: StoryViewModel
-    @StateObject var singleton = UserDefaultSingleton.shared
-
+   @StateObject var singleton = UserDefaultSingleton.shared
    
    var story: Story_Example
    
@@ -45,24 +43,20 @@ struct HomeCardView: View {
          }
          
          HStack {
-//            PrimaryButtonView(isDisabled: isDisabled, id: story.id)
             Button {
-                
-                if !isDisabled {
-                    //storyVM.loadProgressForChapter(story.id, subChapters: homeVM.stories_example[story.id - 1].subChapter)
-                     router.push(.storyPage(chapterId: story.id, subChapterId: singleton.getSpecificStoryProgress(storyId: story.id), isFromHome: true))
-                    print("storyId: \(story.id)")
-                    print("subChapterId: \(singleton.getSpecificStoryProgress(storyId: story.id))")
-                }
-
-
+               if !isDisabled {
+                  let subChapterId = singleton.latestSubChapter
+                  
+                  storyVM.loadChat(storyId: story.id, subChapterId: subChapterId)
+                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId, isFromHome: true))
+               }
             } label: {
                Text("Mulai")
             }
             .buttonStyle(PrimaryButton(isDisabled: isDisabled))
             .disabled(isDisabled)
-
-//            CardMenuButtonView(isDisabled: isDisabled, storyId: story.id)
+            
+            //            CardMenuButtonView(isDisabled: isDisabled, storyId: story.id)
             Button {
                router.push(.journeyPage(storyId: story.id))
             } label: {
@@ -77,9 +71,6 @@ struct HomeCardView: View {
       .clipShape(.rect(cornerRadius: 24))
       .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
       .frame(maxHeight: .infinity, alignment: .top)
-      .onAppear {
-         subChapterId = StoryProgressManager.getCurrentSubChapter(for: story.id) ?? 1
-      }
    }
 }
 
