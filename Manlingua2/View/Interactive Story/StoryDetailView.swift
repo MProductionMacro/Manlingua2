@@ -58,10 +58,7 @@ struct StoryDetailView: View {
                .padding(.horizontal)
                
                ChatScrollView(currentIndex: $currentIndex, chats: viewModel.chat_example) {
-                  //                  if isFromHome {
                   viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
-                  //                  }
-                  
                   router.push(.donePage(currentPage: .story, currentPart: .first))
                   
                   //                  if isFromHome {
