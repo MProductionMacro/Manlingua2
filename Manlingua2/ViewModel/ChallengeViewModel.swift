@@ -9,6 +9,8 @@ import SwiftUI
 import Combine
 import SystemConfiguration
 
+//TODO: Fix Timer + Progress Bar di GoalPageView
+
 class ChallengeViewModel: ObservableObject {
    @Published var objects: [String] = []
    @Published var errorMessage: String?
@@ -63,6 +65,7 @@ class ChallengeViewModel: ObservableObject {
       return false
    }
    
+   //MARK: Photo Challenge
    func predictImage(_ image: UIImage) {
       guard let url = URL(string: "\(baseURL)/predict") else { return }
       
@@ -177,6 +180,7 @@ class ChallengeViewModel: ObservableObject {
       }
    }
    
+   //MARK: Photo Challenge
    func fetchObjects() {
       guard let url = URL(string: "\(baseURL)/get_objects") else { return }
       
