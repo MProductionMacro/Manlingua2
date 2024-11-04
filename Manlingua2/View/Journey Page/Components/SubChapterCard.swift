@@ -69,17 +69,13 @@ struct SubChapterCard: View {
             Image(systemName: "lock")
                .foregroundStyle(.gray)
                .fontWeight(.bold)
-         }
-         else{
+         }else{
             Image(systemName: "chevron.right")
                .foregroundStyle(.orange)
                .fontWeight(.bold)
                .onTapGesture {
-                  //viewModel.loadProgressForChapter(id, subChapters: homeVM.stories_example[id - 1].subChapter)
-                  //                   singleton.updateSpecificStoryProgress(story: id, subChapterProgress: subChapter.id)
                   viewModel.loadChat(storyId: id, subChapterId: subChapter.id)
                   router.push(.storyPage(chapterId: id, subChapterId: subChapter.id, isFromHome: false))
-                  
                }
          }
          Spacer()
