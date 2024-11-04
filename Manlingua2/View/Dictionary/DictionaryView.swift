@@ -38,7 +38,6 @@ struct DictionaryView: View {
                .padding(.horizontal, 16)
                .padding(.top, 10)
             }
-            .padding(.bottom, 15)
          }
          .navigationBarItems(leading: Button(action: {
             router.pop()
