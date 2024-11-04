@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FlashcardDictionaryView: View {
     let vocab: Vocabulary
-    @State var textToSpeech = TextToSpeech()
+    @Binding var textToSpeech: TextToSpeech
     @State var isBookmarked = false
     @EnvironmentObject var router: Router
 
@@ -45,7 +45,7 @@ struct FlashcardDictionaryView: View {
                 Text("\(vocab.hanzi)")
                     .font(Font.subJudul())
 
-                HStack(spacing: 24){
+                HStack(spacing: 12){
                     Text("\(vocab.pinyin)")
                         .font(Font.normalText())
                 
@@ -71,12 +71,12 @@ struct FlashcardDictionaryView: View {
         .zIndex(2)
         .background(.white)
         .cornerRadius(16.98)
-        .shadow(color: .black.opacity(0.2), radius: 12, x: 0, y: 0)
+        .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 0)
     }
 }
 
 #Preview {
-   FlashcardDictionaryView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis"))
+    FlashcardDictionaryView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis"), textToSpeech: .constant(TextToSpeech()))
         .environmentObject(Router())
    
 }

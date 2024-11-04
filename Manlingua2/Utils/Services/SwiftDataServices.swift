@@ -42,11 +42,11 @@ class SwiftDataServices: ObservableObject {
     func addData(_ data: Vocabulary) {
         // Menyisipkan (insert) data baru ke dalam konteks
         
-        var vocab = VocabularyModel(vocab: data)
+        let vocab = VocabularyModel(vocab: data)
         context.insert(vocab)
         do {
             try context.save()
-            self.getData()
+            _ = self.getData()
         } catch {
             fatalError(error.localizedDescription)
         }
@@ -62,7 +62,7 @@ class SwiftDataServices: ObservableObject {
         }
         do {
             try context.save()
-            self.getData()
+            _ = self.getData()
         } catch {
             fatalError(error.localizedDescription)
         }
@@ -73,7 +73,7 @@ class SwiftDataServices: ObservableObject {
         for vocab in vocabs {
             context.delete(vocab)
         }
-        self.getData()
+        _ = self.getData()
         vocabs = []
     }
     
