@@ -10,35 +10,18 @@ import SwiftUI
 struct HomeCardScrollView: View {
    @EnvironmentObject var viewModel: HomeViewModel
    
-    @StateObject var singleton = UserDefaultSingleton.shared
-
+   @StateObject var singleton = UserDefaultSingleton.shared
+   
    var body: some View {
       ScrollView(.horizontal, showsIndicators: false) {
          HStack(spacing: 24) {
             ForEach(viewModel.stories_example, id: \.id) { stories in
-               /*
                HomeCardView(
                   homeCard: .story1Thumbnail,
-                  isDisabled: stories.id > singleton.latestStory,
+                  isDisabled: stories.id < singleton.latestStory ? false : true,
                   isComplete: false,
                   story: stories
                )
-                */
-                if stories.id <= singleton.latestStory{
-                    HomeCardView(
-                       homeCard: .story1Thumbnail,
-                       isDisabled: false,
-                       isComplete: false,
-                       story: stories
-                    )
-                }else{
-                    HomeCardView(
-                       homeCard: .story1Thumbnail,
-                       isDisabled: true,
-                       isComplete: false,
-                       story: stories
-                    )
-                }
             }
          }
          .padding(.horizontal, 24)
