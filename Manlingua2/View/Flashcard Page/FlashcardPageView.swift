@@ -4,7 +4,7 @@ import SwiftUI
 
 struct FlashcardPageView: View {
    @EnvironmentObject var router: Router
-   @StateObject var viewModel = FlashcardViewModel()
+    @StateObject var viewModel = FlashcardViewModel()
    @StateObject var singleton = UserDefaultSingleton.shared
    @State var tutorialOverlay: Int = 1
    @State var audioController = AudioController.shared
@@ -31,18 +31,26 @@ struct FlashcardPageView: View {
             
             Spacer()
             
-            ZStack{
-               ForEach(0 ..< viewModel.showVocabularies.count, id: \.self) { index in
-                  if index >= viewModel.currentIndex {
-                     viewModel.createFlashcardView(for: index)
-                        .zIndex(Double(viewModel.showVocabularies.count - index))
-                  }
-               }
+            VStack{
+                ZStack{
+                    ForEach(0 ..< viewModel.showVocabularies.count, id: \.self) { index in
+                        if index >= viewModel.currentIndex {
+                              viewModel.createFlashcardView(for: index)
+                                 .zIndex(Double(viewModel.showVocabularies.count - index))
+                        }
+
+                    }
+                }
+                .shadow(radius: 0, x: 0, y: 0)
             }
+            .shadow(color: .black.opacity(0.2), radius: 12, x: 0, y: 0)
+
             
             Spacer()
             
-            BottomContainerView(viewModel: viewModel, audioController: $audioController)
+             BottomContainerView(viewModel: viewModel, audioController: $audioController).onTapGesture{
+                 router.push(.donePage(currentPage: .story, currentPart: .first))
+             }
          }
          .ignoresSafeArea(.container, edges: .bottom)
          .overlay{
@@ -50,12 +58,12 @@ struct FlashcardPageView: View {
                FlashcardTutorialOverlay(tutorialOverlay: $tutorialOverlay)
             }
          }
-         
+         /*
          FlashcardSidebarButton(viewModel: viewModel){
             tutorialOverlay = tutorialOverlay + 1
          }
          .offset(y: 160)
-         
+         */
       }
       .frame(maxHeight: .infinity)
       .background(

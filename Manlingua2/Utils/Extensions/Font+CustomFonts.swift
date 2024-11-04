@@ -16,6 +16,10 @@ extension Font {
         return .system(size: 48, weight: .bold)
     }
     
+    public static func semibold48() -> Font{
+        return .system(size: 48, weight: .semibold)
+    }
+    
     public static func medium48() -> Font{
         return .system(size: 48, weight: .medium)
     }
@@ -30,6 +34,10 @@ extension Font {
     
     public static func bold40() -> Font{
         return .system(size: 40, weight: .bold)
+    }
+    
+    public static func semibold40() -> Font{
+        return .system(size: 40, weight: .semibold)
     }
     
     public static func medium40() -> Font{
@@ -48,6 +56,10 @@ extension Font {
         return .system(size: 32, weight: .bold)
     }
     
+    public static func semibold32() -> Font{
+        return .system(size: 32, weight: .semibold)
+    }
+    
     public static func medium32() -> Font{
         return .system(size: 32, weight: .medium)
     }
@@ -62,6 +74,10 @@ extension Font {
     
     public static func bold24() -> Font{
         return .system(size: 24, weight: .bold)
+    }
+    
+    public static func semibold24() -> Font{
+        return .system(size: 24, weight: .semibold)
     }
     
     public static func medium24() -> Font{
@@ -80,6 +96,10 @@ extension Font {
         return .system(size: 20, weight: .bold)
     }
     
+    public static func semibold20() -> Font{
+        return .system(size: 20, weight: .semibold)
+    }
+    
     public static func medium20() -> Font{
         return .system(size: 20, weight: .medium)
     }
@@ -96,6 +116,10 @@ extension Font {
         return .system(size: 16, weight: .bold)
     }
     
+    public static func semibold16() -> Font{
+        return .system(size: 16, weight: .semibold)
+    }
+    
     public static func medium16() -> Font{
         return .system(size: 16, weight: .medium)
     }
@@ -110,6 +134,10 @@ extension Font {
     
     public static func bold12() -> Font{
         return .system(size: 12, weight: .bold)
+    }
+    
+    public static func semibold12() -> Font{
+        return .system(size: 12, weight: .semibold)
     }
     
     public static func medium12() -> Font{
@@ -132,6 +160,11 @@ extension Font {
       return .system(size: 16, weight: .semibold)
    }
    
+    
+   public static func boldText() -> Font {
+        return .system(size: 14, weight: .bold)
+    }
+    
    public static func normalText() -> Font {
       return .system(size: 14, weight: .regular)
    }
@@ -156,3 +189,4 @@ extension Font {
       return .system(size: 28, weight: .bold)
    }
 }
+
