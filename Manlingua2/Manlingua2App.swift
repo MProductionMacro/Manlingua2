@@ -17,6 +17,7 @@ struct Manlingua2App: App {
    @StateObject var storyViewModel = StoryViewModel()
    @StateObject var learnViewModel = LearnViewModel()
    @StateObject var challengeViewModel = ChallengeViewModel()
+   @StateObject var coreData = CoreDataSingleton.shared
    
    init() {
       FirebaseApp.configure()

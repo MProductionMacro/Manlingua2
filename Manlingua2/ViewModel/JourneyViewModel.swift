@@ -5,10 +5,12 @@
 //  Created by Paulus Michael on 28/09/24.
 //
 
-import Foundation
+import SwiftUI
 
 class JourneyViewModel: ObservableObject{
     @Published var story: Story_Example?
+   
+   @ObservedObject var singleton = CoreDataSingleton.shared
     
     func loadStoryData(storyId:Int) {
         // Ganti "StoryData" dengan nama file JSON Anda tanpa ekstensi
@@ -36,10 +38,9 @@ class JourneyViewModel: ObservableObject{
     }
     
     func isSubChapterLocked(storyId: Int, subChapter: SubChapter_Example) -> Bool{
-        if storyId < UserDefaultSingleton.shared.latestStory {
+       if storyId < singleton.latestStory {
             return false
-        }
-        else if subChapter.id <= UserDefaultSingleton.shared.latestSubChapter {
+        }else if subChapter.id <= singleton.latestSubChapter {
             return false
         }
         else {

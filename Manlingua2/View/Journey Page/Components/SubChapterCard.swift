@@ -19,7 +19,7 @@ struct SubChapterCard: View {
    @EnvironmentObject var router: Router
    @EnvironmentObject var viewModel: StoryViewModel
    @EnvironmentObject var homeVM: HomeViewModel
-   @StateObject var singleton = UserDefaultSingleton.shared
+   @StateObject var singleton = CoreDataSingleton.shared
    
    
    var body: some View {

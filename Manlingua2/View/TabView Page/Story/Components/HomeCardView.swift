@@ -15,7 +15,7 @@ struct HomeCardView: View {
    @EnvironmentObject var router: Router
    @EnvironmentObject var homeVM: HomeViewModel
    @EnvironmentObject var storyVM: StoryViewModel
-   @StateObject var singleton = UserDefaultSingleton.shared
+   @StateObject var singleton = CoreDataSingleton.shared
    
    var story: Story_Example
    
