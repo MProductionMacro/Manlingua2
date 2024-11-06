@@ -2,43 +2,41 @@
     {
         "hanzi": "旅行",
         "pinyin": "lǚ xíng",
-        "meaning": "Bepergian",
+        "meaning": "Travelling",
         "hanziSentence": "我明天会去北京旅行。",
         "pinyinSentence": "wǒ míng tiān huì qù běi jīng lǚ xíng.",
-        "meaningSentence": "Saya akan bepergian ke Beijing besok."
+        "meaningSentence": "I will be traveling to Beijing tomorrow."
     },
     {
         "hanzi": "会议",
         "pinyin": "huì yì",
-        "meaning": "Konferensi",
+        "meaning": "Conference",
         "hanziSentence": "他正在参加一个国际会议。",
         "pinyinSentence": "tā zhèng zài cān jiā yī gè guó jì huì yì.",
-        "meaningSentence": "Dia sedang menghadiri sebuah konferensi internasional."
+        "meaningSentence": "He is attending an international conference."
     },
     {
         "hanzi": "机会",
         "pinyin": "jī huì",
-        "meaning": "Peluang",
+        "meaning": "Opportunity",
         "hanziSentence": "这是一个很好的机会。",
         "pinyinSentence": "zhè shì yī gè hěn hǎo de jī huì.",
-        "meaningSentence": "Ini adalah peluang yang sangat baik."
+        "meaningSentence": "This is an excellent opportunity."
     },
     {
         "hanzi": "讨论",
         "pinyin": "tǎo lùn",
-        "meaning": "Diskusi",
+        "meaning": "Discussion",
         "hanziSentence": "我们可以一起讨论这个问题。",
         "pinyinSentence": "wǒ men kě yǐ yī qǐ tǎo lùn zhè ge wèn tí.",
-        "meaningSentence": "Kita bisa berdiskusi tentang masalah ini."
+        "meaningSentence": "We can discuss this issue together."
     },
     {
         "hanzi": "希望",
         "pinyin": "xī wàng",
-        "meaning": "Harapan",
+        "meaning": "Hopes",
         "hanziSentence": "我希望明天的会议成功。",
         "pinyinSentence": "wǒ xī wàng míng tiān de huì yì chéng gōng.",
-        "meaningSentence": "Saya berharap rapat besok berhasil."
+        "meaningSentence": "I hope tomorrow’s meeting is successful."
     }
 ]
-
-

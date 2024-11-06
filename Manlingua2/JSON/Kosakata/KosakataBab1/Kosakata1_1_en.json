@@ -2,57 +2,57 @@
     {
         "hanzi": "消息",
         "pinyin": "xiāo xī",
-        "meaning": "Berita",
+        "meaning": "News",
         "hanziSentence": "我有一个好消息。",
         "pinyinSentence": "wǒ yǒu yī gè hǎo xiāo xi.",
-        "meaningSentence": "Saya punya kabar baik."
+        "meaningSentence": "I have good news."
     },
     {
         "hanzi": "出口",
         "pinyin": "chū kǒu",
-        "meaning": "Ekspor",
+        "meaning": "Export",
         "hanziSentence": "中国是世界上最大的出口国家。",
         "pinyinSentence": "zhōng guó shì shì jiè shàng zuì dà de chū kǒu guó jiā.",
-        "meaningSentence": "Tiongkok adalah negara pengekspor terbesar di dunia."
+        "meaningSentence": "China is the largest exporting country in the world."
     },
     {
         "hanzi": "贸易",
         "pinyin": "mào yì",
-        "meaning": "Perdagangan",
+        "meaning": "Trade",
         "hanziSentence": "他对国际贸易很有兴趣。",
         "pinyinSentence": "tā duì guó jì mào yì hěn yǒu xìng qù.",
-        "meaningSentence": "Dia sangat tertarik pada perdagangan internasional."
+        "meaningSentence": "He was particularly interested in international trade."
     },
     {
         "hanzi": "认识",
         "pinyin": "rèn shí",
-        "meaning": "Mengenal",
+        "meaning": "Know",
         "hanziSentence": "我很高兴认识你。",
         "pinyinSentence": "wǒ hěn gāo xìng rèn shí nǐ.",
-        "meaningSentence": "Saya senang mengenal Anda."
+        "meaningSentence": "I'm glad to know you."
     },
     {
         "hanzi": "合作",
         "pinyin": "hé zuò",
-        "meaning": "Kerja sama",
+        "meaning": "Cooperation",
         "hanziSentence": "我们今天签订了合作协议。",
         "pinyinSentence": "wǒ men jīn tiān qiān dìng le hé zuò xié yì.",
-        "meaningSentence": "Kami menandatangani perjanjian kerja sama hari ini."
+        "meaningSentence": "We signed a cooperation agreement today."
     },
     {
         "hanzi": "高兴",
         "pinyin": "gāo xìng",
-        "meaning": "Senang",
+        "meaning": "Happy",
         "hanziSentence": "他很高兴听到这个消息。",
         "pinyinSentence": "tā hěn gāo xìng tīng dào zhè ge xiāo xi.",
-        "meaningSentence": "Dia sangat senang mendengar kabar ini."
+        "meaningSentence": "She was very happy to hear this news."
     },
     {
         "hanzi": "生意",
         "pinyin": "shēng yì",
-        "meaning": "Bisnis",
+        "meaning": "Business",
         "hanziSentence": "他有一家成功的生意。",
         "pinyinSentence": "tā yǒu yī jiā chénggōng de shēngyì.",
-        "meaningSentence": "Dia memiliki bisnis yang sukses."
+        "meaningSentence": "He has a successful business."
     }
 ]
