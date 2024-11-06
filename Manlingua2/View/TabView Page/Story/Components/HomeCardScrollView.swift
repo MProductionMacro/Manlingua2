@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeCardScrollView: View {
    @EnvironmentObject var viewModel: HomeViewModel
    
-   @StateObject var singleton = UserDefaultSingleton.shared
+   @StateObject var singleton = CoreDataSingleton.shared
    
    var body: some View {
       ScrollView(.horizontal, showsIndicators: false) {
@@ -18,7 +18,7 @@ struct HomeCardScrollView: View {
             ForEach(viewModel.stories_example, id: \.id) { stories in
                HomeCardView(
                   homeCard: .story1Thumbnail,
-                  isDisabled: stories.id < singleton.latestStory ? false : true,
+                  isDisabled: stories.id <= singleton.latestStory ? false : true,
                   isComplete: false,
                   story: stories
                )
@@ -29,6 +29,9 @@ struct HomeCardScrollView: View {
          .padding(.top, 36)
       }
       .ignoresSafeArea()
+      .onAppear {
+         print(singleton.latestStory)
+      }
    }
 }
 

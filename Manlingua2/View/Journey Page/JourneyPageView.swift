@@ -10,7 +10,7 @@ import SwiftUI
 struct JourneyPageView: View {
    @EnvironmentObject var router: Router
    @StateObject var viewModel = JourneyViewModel()
-   @StateObject var singleton = UserDefaultSingleton.shared
+   @StateObject var singleton = CoreDataSingleton.shared
    var storyId:Int
    
    init(storyId: Int){

@@ -4,8 +4,10 @@ import SwiftUI
 
 struct FlashcardPageView: View {
    @EnvironmentObject var router: Router
-    @StateObject var viewModel = FlashcardViewModel()
-   @StateObject var singleton = UserDefaultSingleton.shared
+
+   @StateObject var viewModel = FlashcardViewModel()
+   @StateObject var singleton = CoreDataSingleton.shared
+
    @State var tutorialOverlay: Int = 1
    @State var audioController = AudioController.shared
    

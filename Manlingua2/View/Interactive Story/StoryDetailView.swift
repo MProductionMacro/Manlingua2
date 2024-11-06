@@ -18,7 +18,7 @@ struct StoryDetailView: View {
    @State var tutorialOverlay: Int = 1
    @State var modalAppeared: Bool = false
    
-   @StateObject var singleton = UserDefaultSingleton.shared
+   @StateObject var singleton = CoreDataSingleton.shared
    
    var chapterId: Int
    var subChapterId: Int
