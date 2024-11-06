@@ -37,7 +37,7 @@ struct FlashcardDictionaryView: View {
              //.padding(.horizontal, 30)
             //.background(.red)
 
-            Image("\(vocab.pinyin)")
+            Image("\(vocab.meaning)")
                 .resizable()
                 .frame(width: 60, height: 60)
 

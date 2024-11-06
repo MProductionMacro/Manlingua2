@@ -81,6 +81,8 @@ struct FlashcardView: View {
 }
 
 
+
+
 /*
 struct FlashcardView: View {
    let vocab: String
