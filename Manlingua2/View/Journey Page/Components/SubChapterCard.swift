@@ -8,10 +8,6 @@ import SwiftUI
 
 struct SubChapterCard: View {
    @State var labelImage: ImageResource
-   @State var chapter : String
-   @State var title:String
-   @State var pinyin:String
-   @State var hanzi:String
    @State var isLocked:Bool
    var id: Int
    var subChapter: SubChapter_Example
@@ -20,11 +16,6 @@ struct SubChapterCard: View {
    @EnvironmentObject var viewModel: StoryViewModel
    @EnvironmentObject var homeVM: HomeViewModel
    @StateObject var singleton = CoreDataSingleton.shared
-   
-    @EnvironmentObject var router: Router
-    @EnvironmentObject var viewModel: StoryViewModel
-    @EnvironmentObject var homeVM: HomeViewModel
-    @StateObject var singleton = UserDefaultSingleton.shared
 
    
     var body: some View {
