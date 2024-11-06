@@ -12,7 +12,7 @@ struct CompletionTrackerView: View{
    
    var body: some View {
       VStack(alignment: .center) {
-         VStack(alignment: .leading) {
+          VStack(alignment: .leading, spacing: 8) {
             Text("Selesaikan 3 tugas")
                .font(Font.subJudul())
             
@@ -26,10 +26,8 @@ struct CompletionTrackerView: View{
                unfilledColor: .customLighterGray
             ))
          }
-         .frame(width: 334)
+         .frame(width: 321)
       }
-      .frame(width: 355, height: 66)
-      .background(.white)
-      .cornerRadius(12)
+
    }
 }
