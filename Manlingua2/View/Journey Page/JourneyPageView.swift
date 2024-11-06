@@ -18,10 +18,10 @@ struct JourneyPageView: View {
    }
    
    var body: some View {
-      VStack(alignment: .leading, spacing: 0) {
-         
+      VStack(alignment: .center, spacing: 0) {
          if let story = viewModel.story {
-             VStack(alignment: .leading) {
+            /*
+            VStack(alignment: .leading) {
                  Text("\(story.title)")
                   .font(Font.titleKe2())
                   .foregroundStyle(.white)
@@ -45,7 +45,42 @@ struct JourneyPageView: View {
                  .buttonStyle(JourneyPageButton())
             }
             .padding()
-            
+            */
+             
+             HStack(alignment: .top){
+                 VStack(alignment: .leading) {
+                      Text("\(story.title)")
+                       .font(Font.titleKe2())
+                       .foregroundStyle(.white)
+                      Text("\(story.pinyin)")
+                       .font(Font.normalText())
+                       .foregroundStyle(.white)
+                      Text("\(story.hanzi)")
+                       .font(Font.judulBiasa())
+                       .foregroundStyle(.white)
+                 }
+
+                 Spacer()
+                 
+                 Button {
+                     router.push(.dictionary(judul: story.title, displayMode: .story(id: story.id)))
+                 } label: {
+                     HStack(spacing: 8){
+                         Image(systemName: "books.vertical")
+                             .font(Font.semibold16())
+                             .foregroundStyle(.orange3)
+                         Text("List Kata-Kata")
+                             .font(Font.semibold16())
+                             .foregroundStyle(.orange3)
+                     }
+                     .frame(width: 160, height: 35)
+                     .background(Color.gold2)
+                     .cornerRadius(8)
+                 }
+             }
+             .padding(.horizontal, 15.5)
+             .padding(.vertical)
+             
             ZStack {
                Rectangle()
                   .foregroundStyle(.white)
@@ -83,7 +118,14 @@ struct JourneyPageView: View {
                         ScrollView(.vertical, showsIndicators: false) {
                            VStack(spacing: 24) {
                               ForEach(story.subChapter, id: \.self){ subChapter in
-                                  SubChapterCard(labelImage: .schoolChapter, chapter: "Bagian \(subChapter.id)", title: "\(subChapter.title)", pinyin: "\(subChapter.pinyin)", hanzi: "\(subChapter.hanzi)" ,isLocked: viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter), id: story.id, subChapter: subChapter)
+                                  SubChapterCard(labelImage: .schoolChapter ,isLocked: viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter), id: story.id, subChapter: subChapter)
+                                      .onTapGesture{
+                                          if !viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter) {
+                                              singleton.updateSpecificStoryProgress(story: storyId, subChapterProgress: subChapter.id)
+                                              router.push(.storyPage(chapterId: storyId, subChapterId: subChapter.id, isFromHome: false))
+                                          }
+                                          
+                                      }
                                      .padding(.horizontal)
                               }
                            }
@@ -125,8 +167,12 @@ struct JourneyPageView: View {
       }
    }
 }
+
+
+
 #Preview {
    NavigationView{
       JourneyPageView(storyId: 1)
+           .environmentObject(Router())
    }
 }

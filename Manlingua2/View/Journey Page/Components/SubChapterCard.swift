@@ -21,73 +21,67 @@ struct SubChapterCard: View {
    @EnvironmentObject var homeVM: HomeViewModel
    @StateObject var singleton = CoreDataSingleton.shared
    
+    @EnvironmentObject var router: Router
+    @EnvironmentObject var viewModel: StoryViewModel
+    @EnvironmentObject var homeVM: HomeViewModel
+    @StateObject var singleton = UserDefaultSingleton.shared
+
    
-   var body: some View {
-      HStack() {
-         HStack(spacing: 12) {
-            
-            if isLocked {
-               Image("LockChapter")
-                  .resizable()
-                  .frame(width: 86, height: 86)
-            }
-            else{
-               Image("HaidilaoChapter")
-                  .resizable()
-                  .frame(width: 86, height: 86)
-            }
-            
-            VStack(alignment: .leading) {
-               Text(chapter)
-                  .font(.title3)
-               Text(title)
-                  .font(Font.subJudul())
-                  .fontWeight(/*@START_MENU_TOKEN@*/ .bold/*@END_MENU_TOKEN@*/)
-               Text(pinyin)
-                  .multilineTextAlignment(.leading)
-                  .font(.callout)
-                  .frame(maxWidth: .infinity, alignment: .leading)
-                  .foregroundStyle(.gray)
-               Text(hanzi)
-                  .multilineTextAlignment(.leading)
-                  .font(.callout)
-                  .frame(maxWidth: .infinity, alignment: .leading)
-                  .foregroundStyle(.customBlack)
-               HStack{
-                  Image(systemName: "clock.fill")
-                     .foregroundStyle(.gray)
-                  Text("sekitar 10 menit")
-                     .foregroundStyle(.gray)
-               }
+    var body: some View {
+        HStack {
+            HStack(spacing: 12) {
+                if isLocked {
+                    Image("LockChapter")
+                        .resizable()
+                        .frame(width: 86, height: 86)
+                }
+                else{
+                    Image("HaidilaoChapter")
+                        .resizable()
+                        .frame(width: 86, height: 86)
+                }
+
+                VStack(alignment: .leading) {
+                    Text("Bagian \(subChapter.id)")
+                        .font(.title3)
+                    Text(subChapter.title)
+                        .font(Font.subJudul())
+                        .fontWeight(.bold)
+                    Text(subChapter.pinyin)
+                        .multilineTextAlignment(.leading)
+                        .font(.callout)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundStyle(.gray)
+                    Text(subChapter.hanzi)
+                        .multilineTextAlignment(.leading)
+                        .font(.callout)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .foregroundStyle(.customBlack)
+                    HStack{
+                        Image(systemName: "clock.fill")
+                            .foregroundStyle(.gray)
+                        Text("sekitar 10 menit")
+                            .foregroundStyle(.gray)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-         }
-         .frame(maxWidth: .infinity, alignment: .leading)
-         .foregroundStyle(Color(.black))
+            .foregroundStyle(Color(.black))
          
-         if isLocked{
-            Image(systemName: "lock")
-               .foregroundStyle(.gray)
-               .fontWeight(.bold)
-         }else{
-            Image(systemName: "chevron.right")
-               .foregroundStyle(.orange)
-               .fontWeight(.bold)
-               .onTapGesture {
-                  viewModel.loadChat(storyId: id, subChapterId: subChapter.id)
-                  router.push(.storyPage(chapterId: id, subChapterId: subChapter.id, isFromHome: false))
-               }
-         }
-         Spacer()
-      }
-      .frame(width: 340)
-      .padding()
-      .overlay(
-         RoundedRectangle(cornerRadius: 20)
-            .stroke(.customLightGray, lineWidth: 1)
-      )
-      //        .background(.red) //hapus
-   }
+            Image(systemName: isLocked ? "lock" : "chevron.right")
+                .foregroundStyle(.gray)
+                .fontWeight(.bold)
+
+            Spacer()
+        }
+        .frame(width: 340)
+        .padding()
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(.customLightGray, lineWidth: 1)
+        )
+    }
 }
 //
 //#Preview {

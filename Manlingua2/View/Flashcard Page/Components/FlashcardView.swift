@@ -12,67 +12,74 @@ struct FlashcardView: View {
     let vocab: Vocabulary
     var width: CGFloat = 300
     var height: CGFloat = 200
-    @State var isFillHeart = false
+    @State var isBookmarked = false
     var body: some View{
-        VStack{
+        VStack(alignment: .center, spacing: 16){
+            Button(action:{
+                if isBookmarked{
+                    SwiftDataServices.shared.deleteData(vocab)
+                }
+                else{
+                    SwiftDataServices.shared.addData(vocab)
+                }
+                isBookmarked.toggle()
+            }, label: {
+            
+                Image(systemName: isBookmarked ? "bookmark.fill" : "bookmark")
+                    .font(.titleKe2())
+                    .foregroundStyle(.orange3)
+                    .padding(.trailing, 8)
+            })
+            .frame(width: 268, alignment: .trailing)
+            
             Text("\(vocab.meaning)")
-                .font(Font.bold32())
+                .font(Font.bold24())
                 .padding(.horizontal, 30)
             
             Image("\(vocab.meaning)")
                 .resizable()
                 .frame(width: 150, height: 150)
             
-            VStack{
+            VStack(spacing: 5){
                 Text("\(vocab.hanzi)")
-                    .font(Font.bold32())
-                    
-                HStack(spacing: 24){
-                    Text("\(vocab.pinyin)")
-                        .font(Font.bold24())
-                    
-                    Button(action: {
-                        
-                        if isFillHeart{
-                            SwiftDataServices.shared.deleteData(vocab)
-                            print("Masuk sini")
-                        }
-                        else{
-                            SwiftDataServices.shared.addData(vocab)
-
-                        }
-                        isFillHeart.toggle()
-
-                        print("Masuk")
-                        //SwiftDataServices.shared.addData(vocab)
-                        //SwiftDataServices.shared.deleteAll()
-                    },label:{
-                        Image(systemName: isFillHeart ? "heart.fill" : "heart")
-                            .font(.system(size: 25))
-                            .foregroundStyle(.white)
-                            .frame(width: 60, height: 60)
-                            .background(.orange)
-                            .cornerRadius(180)
-                    })
-
-                }
+                    .font(Font.bold24())
+                
+                Text("\(vocab.pinyin)")
+                    .font(Font.judulBiasa())
             }
+
+            
+            VStack(alignment: .leading){
+                Text("Contoh kalimat")
+                    .font(Font.boldText())
+                Text("wǒ yǒu yī gè hǎo xiāo xi.")
+                    .font(Font.normalText())
+                Text("我有一个好消息")
+                    .font(Font.normalText())
+                Text("Saya punya kabar baik.")
+                    .font(Font.normalText())
+            }
+            .frame(width: 210, alignment: .leading)
+            
+            Spacer()
         }
         .onAppear{
-            isFillHeart = SwiftDataServices.shared.isVocabExist(vocab: vocab)
+            isBookmarked = SwiftDataServices.shared.isVocabExist(vocab: vocab)
         }
-        .frame(width: 300, height: 420)
+        .frame(width: 300, height: 426)
         //310
         //.frame(width: 354.55, height: 440)
         //.frame(width: 390, height: 458)
         .background(.white)
-        .cornerRadius(36)
+        .cornerRadius(17)
+        
     }
 }
 
 #Preview {
-    FlashcardView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Labu"))
+    FlashcardView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis"))
 }
+
 
 /*
 struct FlashcardView: View {
