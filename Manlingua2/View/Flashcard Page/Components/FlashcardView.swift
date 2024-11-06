@@ -36,7 +36,7 @@ struct FlashcardView: View {
                 .font(Font.bold24())
                 .padding(.horizontal, 30)
             
-            Image("\(vocab.meaning)")
+            Image("\(vocab.pinyin)")
                 .resizable()
                 .frame(width: 150, height: 150)
             
@@ -52,11 +52,11 @@ struct FlashcardView: View {
             VStack(alignment: .leading){
                 Text("Contoh kalimat")
                     .font(Font.boldText())
-                Text("wǒ yǒu yī gè hǎo xiāo xi.")
+                Text("\(vocab.pinyinSentence)")
                     .font(Font.normalText())
-                Text("我有一个好消息")
+                Text("\(vocab.hanziSentence)")
                     .font(Font.normalText())
-                Text("Saya punya kabar baik.")
+                Text("\(vocab.meaningSentence)")
                     .font(Font.normalText())
             }
             .frame(width: 210, alignment: .leading)
@@ -77,7 +77,7 @@ struct FlashcardView: View {
 }
 
 #Preview {
-    FlashcardView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis"))
+    FlashcardView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis", hanziSentence: "Wowo", pinyinSentence: "Lala", meaningSentence: "Bisnis"))
 }
 
 

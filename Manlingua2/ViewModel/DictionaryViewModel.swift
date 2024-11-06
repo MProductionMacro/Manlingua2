@@ -23,8 +23,8 @@ class DictionaryViewModel: ObservableObject {
     private func loadFavoriteVocabularies() {
         vocabularies = []
         for vocab in SwiftDataServices.shared.vocabs{
-            vocabularies.append(Vocabulary(hanzi: vocab.hanzi, pinyin: vocab.pinyin, meaning: vocab.meaning))
-            print(Vocabulary(hanzi: vocab.hanzi, pinyin: vocab.pinyin, meaning: vocab.meaning))
+            vocabularies.append(Vocabulary(hanzi: vocab.hanzi, pinyin: vocab.pinyin, meaning: vocab.meaning, hanziSentence: vocab.hanziSentence, pinyinSentence: vocab.pinyinSentence, meaningSentence: vocab.meaningSentence))
+            //print(Vocabulary(hanzi: vocab.hanzi, pinyin: vocab.pinyin, meaning: vocab.meaning))
         }
     }
     
