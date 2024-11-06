@@ -66,4 +66,5 @@ struct TabPageView: View {
       .environmentObject(StoryViewModel())
       .environmentObject(HomeViewModel())
       .environmentObject(LearnViewModel())
+      .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
 }

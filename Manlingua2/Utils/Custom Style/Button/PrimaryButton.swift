@@ -13,10 +13,11 @@ struct PrimaryButton: ButtonStyle {
    func makeBody(configuration: Configuration) -> some View {
       configuration.label
          .frame(maxWidth: .infinity)
-         .padding()
+         .padding(.horizontal)
+         .padding(.vertical, 12)
          .foregroundStyle(isDisabled ? Color(red: 0.7, green: 0.7, blue: 0.7) : Color.white)
-         .font(.system(size: 20, weight: .bold))
+         .font(.button())
          .background(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.orange3)
-         .clipShape(.rect(cornerRadius: 16))
+         .clipShape(.rect(cornerRadius: 8))
    }
 }

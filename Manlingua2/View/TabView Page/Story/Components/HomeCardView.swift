@@ -21,26 +21,36 @@ struct HomeCardView: View {
    
    var body: some View {
       //TODO: Framenya hard coded, takut ga responsive
-      VStack(alignment: .leading, spacing: 16) {
+      VStack(alignment: .center, spacing: 16) {
          Image(.story1Thumbnail)
+//            .resizable()
+//            .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.width * 0.5)
+//            .scaledToFit()
          
-         Text("Cerita \(story.id)")
-            .font(.subJudul())
-            .foregroundStyle(.black)
-         
-         VStack(alignment: .leading) {
-            Text(story.title)
-               .font(.judulBiasa())
+         VStack(alignment: .leading, spacing: 4) {
+            Text("Cerita \(story.id)")
+               .font(.pinyin())
+               .bold()
                .foregroundStyle(.black)
             
-            Text(story.pinyin)
-               .font(.pinyin())
-               .foregroundStyle(.darkGrey)
-            
-            Text(story.hanzi)
+            Text(story.title)
                .font(.subJudul())
-               .foregroundStyle(.darkGrey)
+               .foregroundStyle(.black)
+            
+            VStack(alignment: .leading, spacing: 0){
+               Text(story.pinyin)
+                  .font(.pinyin())
+                  .foregroundStyle(.darkGrey)
+               
+               Text(story.hanzi)
+                  .font(.subJudul())
+                  .foregroundStyle(.darkGrey)
+            }
          }
+         .frame(maxWidth: .infinity, alignment: .leading)
+         
+         ProgressView(value: 0, total: 1)
+            .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
          
          HStack {
             Button {

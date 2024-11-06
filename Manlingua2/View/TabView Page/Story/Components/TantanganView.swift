@@ -20,22 +20,21 @@ struct TantanganView: View {
              } label: {
                 VStack {
                    VStack(alignment: .leading, spacing: 10) {
-                      Image(.foto)
-                         .resizable()
-                         .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.width * 0.05)
-                         .padding(12)
-                         .background(.gold1)
+                      Image(systemName: "camera")
+                         .foregroundStyle(.orange1)
+                         .font(.pinyin())
+                         .bold()
+                         .padding(UIScreen.main.bounds.width * 0.025)
+                         .background(.orange2.opacity(0.35))
                          .clipShape(.circle)
-                      
                       
                       Text("Foto")
                          .font(.pinyin())
                          .foregroundStyle(.black)
                    }
-                   .frame(maxWidth: .infinity, alignment: .leading)
+                   .frame(width: UIScreen.main.bounds.width * 0.14, height: UIScreen.main.bounds.height * 0.075, alignment: .topLeading)
                    .padding()
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
                 .background(.white)
                 .clipShape(.rect(cornerRadius: 16))
                 .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
@@ -46,22 +45,21 @@ struct TantanganView: View {
              } label: {
                 VStack {
                    VStack(alignment: .leading, spacing: 10) {
-                      Image(.percakapan)
-                         .resizable()
-                         .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.width * 0.05)
-                         .padding(12)
-                         .background(.gold1)
+                      Image(systemName: "bubble.left.and.text.bubble.right")
+                         .foregroundStyle(.orange1)
+                         .font(.pinyin())
+                         .bold()
+                         .padding(UIScreen.main.bounds.width * 0.025)
+                         .background(.orange2.opacity(0.35))
                          .clipShape(.circle)
                       
-                      
-                      Text("Percakapan")
+                      Text("Simulasi")
                          .font(.pinyin())
                          .foregroundStyle(.black)
                    }
-                   .frame(maxWidth: .infinity, alignment: .leading)
+                   .frame(width: UIScreen.main.bounds.width * 0.14, height: UIScreen.main.bounds.height * 0.075, alignment: .topLeading)
                    .padding()
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
                 .background(.white)
                 .clipShape(.rect(cornerRadius: 16))
                 .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)

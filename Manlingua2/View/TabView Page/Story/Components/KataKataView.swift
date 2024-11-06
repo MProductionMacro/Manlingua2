@@ -22,22 +22,21 @@ struct KataKataView: View {
             } label: {
                VStack {
                   VStack(alignment: .leading, spacing: 10) {
-                     Image(.flashcard)
-                        .resizable()
-                        .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.width * 0.05)
-                        .padding(12)
-                        .background(.orange2)
+                     Image(systemName: "book.pages")
+                        .foregroundStyle(.orange1)
+                        .font(.pinyin())
+                        .bold()
+                        .padding(UIScreen.main.bounds.width * 0.025)
+                        .background(.orange2.opacity(0.35))
                         .clipShape(.circle)
-                     
                      
                      Text("Flashcard")
                         .font(.pinyin())
                         .foregroundStyle(.black)
                   }
-                  .frame(maxWidth: .infinity, alignment: .leading)
+                  .frame(width: UIScreen.main.bounds.width * 0.14, height: UIScreen.main.bounds.height * 0.075, alignment: .topLeading)
                   .padding()
                }
-               .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
                .background(.white)
                .clipShape(.rect(cornerRadius: 16))
                .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
@@ -48,21 +47,21 @@ struct KataKataView: View {
             } label: {
                VStack {
                   VStack(alignment: .leading, spacing: 10) {
-                     Image(.love)
-                        .resizable()
-                        .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.width * 0.05)
-                        .padding(12)
-                        .background(.orange2)
+                     Image(systemName: "heart")
+                        .foregroundStyle(.orange1)
+                        .font(.pinyin())
+                        .bold()
+                        .padding(UIScreen.main.bounds.width * 0.025)
+                        .background(.orange2.opacity(0.35))
                         .clipShape(.circle)
                      
                      Text("Favorit")
                         .font(.pinyin())
                         .foregroundStyle(.black)
                   }
-                  .frame(maxWidth: .infinity, alignment: .leading)
+                  .frame(width: UIScreen.main.bounds.width * 0.14, height: UIScreen.main.bounds.height * 0.075, alignment: .topLeading)
                   .padding()
                }
-               .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
                .background(.white)
                .clipShape(.rect(cornerRadius: 16))
                .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
@@ -73,21 +72,21 @@ struct KataKataView: View {
             } label: {
                VStack {
                   VStack(alignment: .leading, spacing: 10) {
-                     Image(.catatan)
-                        .resizable()
-                        .frame(width: UIScreen.main.bounds.width * 0.05, height: UIScreen.main.bounds.width * 0.05)
-                        .padding(12)
-                        .background(.orange2)
+                     Image(systemName: "list.clipboard")
+                        .foregroundStyle(.orange1)
+                        .font(.pinyin())
+                        .bold()
+                        .padding(UIScreen.main.bounds.width * 0.025)
+                        .background(.orange2.opacity(0.35))
                         .clipShape(.circle)
                      
                      Text("Catatan")
                         .font(.pinyin())
                         .foregroundStyle(.black)
                   }
-                  .frame(maxWidth: .infinity, alignment: .leading)
+                  .frame(width: UIScreen.main.bounds.width * 0.14, height: UIScreen.main.bounds.height * 0.075, alignment: .topLeading)
                   .padding()
                }
-               .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
                .background(.white)
                .clipShape(.rect(cornerRadius: 16))
                .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
@@ -99,7 +98,7 @@ struct KataKataView: View {
          //         }
       }
       .frame(maxWidth: .infinity, alignment: .leading)
-      .padding(.bottom)
+//      .padding(.bottom)
    }
 }
 

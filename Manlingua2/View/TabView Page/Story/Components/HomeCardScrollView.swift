@@ -24,9 +24,9 @@ struct HomeCardScrollView: View {
                )
             }
          }
-         .padding(.horizontal, 24)
-         .padding(.bottom, 32)
-         .padding(.top, 36)
+         .padding(.horizontal, UIScreen.main.bounds.width * 0.05)
+         .padding(.bottom)
+         .padding(.top, UIScreen.main.bounds.height * 0.035)
       }
       .ignoresSafeArea()
       .onAppear {
