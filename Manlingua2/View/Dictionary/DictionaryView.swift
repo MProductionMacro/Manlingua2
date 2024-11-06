@@ -9,7 +9,7 @@ import SwiftUI
 struct DictionaryView: View {
    @EnvironmentObject var router: Router
    @StateObject var viewModel = DictionaryViewModel()
-   
+   @State var textToSpeech = TextToSpeech()
    var judul: String
    var displayMode: DictionaryDisplayMode
    
@@ -27,18 +27,22 @@ struct DictionaryView: View {
             Text("\(viewModel.vocabularies.count) Kata")
                .font(.subheadline)
                .foregroundColor(.black)
-               .padding(.bottom, 16)
-            
-            ScrollView {
-               LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                  ForEach(viewModel.vocabularies, id: \.self) { vocabulary in
-                     FlashcardDictionaryView(vocab: vocabulary)
-                  }
-               }
-               .padding(.horizontal, 16)
-               .padding(.top, 10)
-            }
-            .padding(.bottom, 15)
+             
+             ScrollView {
+                 LazyVGrid(
+                     columns: [GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 0)],
+                     spacing: 16 // Vertical spacing
+                 ) {
+                     ForEach(viewModel.vocabularies, id: \.self) { vocabulary in
+                         FlashcardDictionaryView(vocab: vocabulary, textToSpeech: $textToSpeech)
+                             .padding(0)
+                             //.background(.red)
+                     }
+                 }
+                 .padding(.horizontal, 16)
+                 .padding(.top, 16)
+             }
+
          }
          .navigationBarItems(leading: Button(action: {
             router.pop()
@@ -63,7 +67,4 @@ struct DictionaryView: View {
    }
 }
 
-enum DictionaryDisplayMode: Equatable, Hashable {
-   case favorite
-   case story(id: Int)
-}
+
