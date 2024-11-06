@@ -37,7 +37,7 @@ struct FlashcardDictionaryView: View {
              //.padding(.horizontal, 30)
             //.background(.red)
 
-            Image("\(vocab.meaning)")
+            Image("\(vocab.pinyin)")
                 .resizable()
                 .frame(width: 60, height: 60)
 
@@ -76,7 +76,7 @@ struct FlashcardDictionaryView: View {
 }
 
 #Preview {
-    FlashcardDictionaryView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis"), textToSpeech: .constant(TextToSpeech()))
+    FlashcardDictionaryView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis", hanziSentence: "WoWo", pinyinSentence: "Lala", meaningSentence: "Bisnis"), textToSpeech: .constant(TextToSpeech()))
         .environmentObject(Router())
    
 }

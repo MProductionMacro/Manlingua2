@@ -56,7 +56,7 @@ struct ProfilePageView: View {
             
                 Spacer()
             }
-            .frame(width: 401, height: 611)
+            .frame(width: 401, height: 621)
             .background(.white)
             .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
          

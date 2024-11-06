@@ -2,10 +2,10 @@
     {
         "hanzi": "付款",
         "pinyin": "fù kuǎn",
-        "meaning": "Membayar",
+        "meaning": "Pay",
         "hanziSentence": "你需要在发货前付款。",
         "pinyinSentence": "nǐ xū yào zài fā huò qián fù kuǎn.",
-        "meaningSentence": "Kamu perlu membayar sebelum pengiriman."
+        "meaningSentence": "You need to make the payment before shipment."
     },
     {
         "hanzi": "银行",
@@ -13,7 +13,7 @@
         "meaning": "Bank",
         "hanziSentence": "请把款项转到我们的银行账户。",
         "pinyinSentence": "qǐng bǎ kuǎn xiàng zhuǎn dào wǒ men de yín háng zhàng hù.",
-        "meaningSentence": "Tolong transfer dana ke rekening bank kami."
+        "meaningSentence": "Please transfer the funds to our bank account."
     },
     {
         "hanzi": "转账",
@@ -21,22 +21,22 @@
         "meaning": "Transfer",
         "hanziSentence": "我们已经通过银行转账付款。",
         "pinyinSentence": "wǒ men yǐ jīng tōng guò yín háng zhuǎn zhàng fù kuǎn.",
-        "meaningSentence": "Kami sudah melakukan pembayaran melalui transfer bank."
+        "meaningSentence": "We have made the payment via bank transfer."
     },
     {
         "hanzi": "信用卡",
         "pinyin": "xìn yòng kǎ",
-        "meaning": "Kartu kredit",
+        "meaning": "Credit card",
         "hanziSentence": "您可以用信用卡付款。",
         "pinyinSentence": "nín kě yǐ yòng xìn yòng kǎ fù kuǎn.",
-        "meaningSentence": "Anda bisa membayar menggunakan kartu kredit."
+        "meaningSentence": "You can pay with a credit card."
     },
     {
         "hanzi": "通知",
         "pinyin": "tōng zhī",
-        "meaning": "Pemberitahuan",
+        "meaning": "Notification",
         "hanziSentence": "我们会通知您货物的发货时间。",
         "pinyinSentence": "wǒ men huì tōng zhī nín huò wù de fā huò shí jiān.",
-        "meaningSentence": "Kami akan memberitahukan waktu pengiriman barang kepada Anda."
+        "meaningSentence": "We will notify you of the shipping time for the goods."
     }
 ]

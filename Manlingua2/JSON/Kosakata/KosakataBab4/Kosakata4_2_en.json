@@ -2,41 +2,41 @@
     {
         "hanzi": "货物",
         "pinyin": "huò wù",
-        "meaning": "Barang",
+        "meaning": "Goods",
         "hanziSentence": "这批货物已经到达目的地。",
         "pinyinSentence": "zhè pī huò wù yǐ jīng dào dá mù dè dì.",
-        "meaningSentence": "Barang ini sudah sampai di tujuan."
+        "meaningSentence": "This batch of goods has arrived at the destination."
     },
     {
         "hanzi": "质量",
         "pinyin": "zhì liàng",
-        "meaning": "Kualitas",
+        "meaning": "Quality",
         "hanziSentence": "我们对产品的质量非常满意。",
         "pinyinSentence": "wǒ men duì chǎn pǐn de zhì liàng fēi cháng mǎn yì.",
-        "meaningSentence": "Kami sangat puas dengan kualitas produk."
+        "meaningSentence": "We are very satisfied with the quality of the products."
     },
     {
         "hanzi": "服务",
         "pinyin": "fú wù",
-        "meaning": "Pelayanan",
+        "meaning": "Service",
         "hanziSentence": "客户服务非常周到。",
         "pinyinSentence": "kè hù fú wù fēi cháng zhōu dào.",
-        "meaningSentence": "Pelayanan pelanggan sangat memuaskan."
+        "meaningSentence": "The customer service is very attentive."
     },
     {
         "hanzi": "满意",
         "pinyin": "mǎn yì",
-        "meaning": "Puas",
+        "meaning": "Satisfy",
         "hanziSentence": "我们对交易的结果感到满意。",
         "pinyinSentence": "wǒ men duì jiāo yì de jié guǒ gǎn dào mǎn yì.",
-        "meaningSentence": "Kami merasa puas dengan hasil transaksi."
+        "meaningSentence": "We are satisfied with the result of the transaction."
     },
     {
         "hanzi": "联系",
         "pinyin": "lián xì",
-        "meaning": "Berhubungan",
+        "meaning": "Contact",
         "hanziSentence": "如果有问题，请随时联系我。",
         "pinyinSentence": "rú guǒ yǒu wèn tí, qǐng suí shí lián xì wǒ.",
-        "meaningSentence": "Jika ada masalah, silakan hubungi saya kapan saja."
+        "meaningSentence": "If there are any issues, please contact me anytime."
     }
 ]
