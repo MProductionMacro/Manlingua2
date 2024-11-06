@@ -8,55 +8,63 @@
 import SwiftUI
 
 struct GoalTrackerView : View {
-   @EnvironmentObject var router: Router
-   @StateObject var appStorageController = AppStorageController.shared
+    @EnvironmentObject var router: Router
+    @StateObject var appStorageController = AppStorageController.shared
+    var task: TaskType
+    var image: String
+    var doneTask: Int
    
-   var task: TaskType
-   var image: String
-   var height: CGFloat
-   var doneTask: Int
-   
-   var body : some View {
-      HStack{
-         Spacer()
+    var body : some View {
+        HStack{
+            Spacer()
          
-         Image("\(image)")
-            .resizable()
-            .frame(width: 40, height: height)
+            Image("\(image)")
+                .resizable()
+                .frame(width: 40, height: 40)
          
-         Spacer()
+            Spacer()
          
-         VStack(alignment: .leading) {
-            Text("Selesaikan 1 tantangan foto")
-               .font(Font.subJudul())
-            ProgressView(value: Double(doneTask), total: 1)
-               .progressViewStyle(CustomProgressViewStyle(
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Selesaikan 1 tantangan foto")
+                    .font(Font.normalText())
+             
+                HStack {
+                    Image(systemName: "clock")
+                        .foregroundStyle(.gray)
+                        .font(.normalText())
+                    Text("\(appStorageController.remainHour) Menit")
+                        .foregroundStyle(.gray)
+                        .font(.normalText())
+                }
+             
+                ProgressView(value: Double(doneTask), total: 1)
+                    .progressViewStyle(
+                        CustomProgressViewStyle(
                   height: UIScreen.main.bounds.height * 0.02,
                   filledColor: .green2,
                   unfilledColor: .customLighterGray
                ))
-         }
-         .frame(width: 245)
+            }
+            .frame(width: 233, height: 60)
          
-         Spacer()
+            Spacer()
          
-         Button(action: {
-//            appStorageController.incrementTaskProgress(task: task)
-            router.push(.photoChallenge)
-         }) {
-            Image(systemName: "chevron.right")
-               .font(Font.bpmf())
-               .foregroundStyle(.orange)
-         }
+            Button(action: {
+                router.push(.photoChallenge)
+            }) {
+                Image(systemName: "chevron.right")
+                    .font(Font.button())
+                    .foregroundStyle(.orange)
+            }
          
-         Spacer()
-      }
-      .frame(width: 355, height: 75)
-      .background(.white)
-   }
+            Spacer()
+        }
+        .frame(width: 355, height: 100)
+        .background(.white)
+    }
 }
 
 #Preview {
-   GoalTrackerView(task: .first, image: "Koin Cina", height: 40, doneTask: 0)
+   GoalTrackerView(task: .first, image: "Koin Cina", doneTask: 0)
       .environmentObject(Router())
 }
