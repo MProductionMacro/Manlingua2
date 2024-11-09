@@ -53,6 +53,7 @@ struct TabPageView: View {
          .foregroundColor: UIColor.lightGray,
          .font: UIFont.systemFont(ofSize: 12)
       ]
+      
       appearance.stackedLayoutAppearance.normal.titleTextAttributes = normalAttributes
       appearance.stackedLayoutAppearance.normal.iconColor = UIColor.lightGray
       
@@ -66,4 +67,6 @@ struct TabPageView: View {
       .environmentObject(StoryViewModel())
       .environmentObject(HomeViewModel())
       .environmentObject(LearnViewModel())
+      .environmentObject(Router())
+//      .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
 }

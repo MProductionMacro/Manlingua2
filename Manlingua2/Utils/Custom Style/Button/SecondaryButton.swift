@@ -14,11 +14,11 @@ struct SecondaryButton: ButtonStyle {
       configuration.label
          .foregroundStyle(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.orange3)
          .font(.button())
-         .padding()
+         .padding(12)
          .background(.white)
-         .clipShape(.rect(cornerRadius: 16))
+         .clipShape(.rect(cornerRadius: 8))
          .overlay(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: 8)
                .stroke(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.orange3, lineWidth: 2)
          )
    }

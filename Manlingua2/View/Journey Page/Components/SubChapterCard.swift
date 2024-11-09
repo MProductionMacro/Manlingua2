@@ -7,16 +7,15 @@
 import SwiftUI
 
 struct SubChapterCard: View {
-    @State var labelImage: ImageResource
-    @State var isLocked:Bool
-    var id: Int
-    var subChapter: SubChapter_Example
+   @State var labelImage: ImageResource
+   @State var isLocked:Bool
+   var id: Int
+   var subChapter: SubChapter_Example
    
-    @EnvironmentObject var router: Router
-    @EnvironmentObject var viewModel: StoryViewModel
-    @EnvironmentObject var homeVM: HomeViewModel
-    @StateObject var singleton = UserDefaultSingleton.shared
-
+   @EnvironmentObject var router: Router
+   @EnvironmentObject var viewModel: StoryViewModel
+   @EnvironmentObject var homeVM: HomeViewModel
+   @StateObject var singleton = CoreDataSingleton.shared
    
     var body: some View {
         HStack {

@@ -152,6 +152,10 @@ extension Font {
       return .system(size: 40, weight: .heavy)
    }
    
+   public static func judulSedang() -> Font {
+      return .system(size: 32, weight: .heavy)
+   }
+   
    public static func judulBiasa() -> Font {
       return .system(size: 20, weight: .semibold)
    }
@@ -170,7 +174,7 @@ extension Font {
    }
    
    public static func button() -> Font {
-      return .system(size: 20, weight: .semibold)
+      return .system(size: 16, weight: .semibold)
    }
    
    public static func bpmf() -> Font {

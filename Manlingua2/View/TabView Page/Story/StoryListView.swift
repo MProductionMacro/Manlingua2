@@ -15,16 +15,18 @@ struct StoryListView: View {
             Text("Cerita seru apa yang ingin kamu")
                .fontWeight(.semibold)
                .foregroundStyle(.white)
+               .font(.judulBiasa())
+            
             Text("Coba Jelajah?")
-               .font(.judulBesar())
+               .font(.judulSedang())
                .foregroundStyle(.white)
          }
          .frame(maxWidth: .infinity, alignment: .leading)
          .padding(.leading, 20)
-         .padding(.top)
-         .padding(.bottom, 27)
+//         .padding(.top)
+         .padding(.bottom)
          
-         VStack(spacing: 32) {
+         VStack {
             ScrollView(showsIndicators: false) {
                HomeCardScrollView()
                KataKataView()
@@ -38,7 +40,11 @@ struct StoryListView: View {
       }
       .padding(.top, 64)
       .ignoresSafeArea()
-      .background(Image(.homeBackground).resizable().scaledToFill())
+      .background(
+         Image(.homeBackground)
+//            .resizable()
+//            .scaledToFill()
+      )
    }
 }
 
