@@ -11,12 +11,16 @@ import Combine
 class StoryViewModel: ObservableObject {
    //TODO: Perbaikin VM nya (quizView, quizView2, toneView, convView, recall)
    @Published var chat_example: [Chat_Example] = []
+   @Published var chat_preview: [Chat_Example] = []
    @Published var currentSubChapter: SubChapter_Example? = nil
    @Published var currentIndex: Int = 0
    @Published var error: String = ""
    @Published var chapterId: Int = 0
    @ObservedObject var singleton = CoreDataSingleton.shared
    
+   init(){
+      loadChatPreview()
+   }
    
    func onTapDetectionChat(_ location: CGPoint, _ midPoint: CGFloat, _ currentIndex: inout Int){
       if location.x < midPoint {
@@ -43,6 +47,22 @@ class StoryViewModel: ObservableObject {
          let data = try Data(contentsOf: url)
          let decoder = JSONDecoder()
          self.chat_example = try decoder.decode([Chat_Example].self, from: data)
+      } catch {
+         print("Failed to decode JSON: \(error.localizedDescription)")
+      }
+   }
+   
+   func loadChatPreview(){
+      guard let url = Bundle.main.url(forResource: "Chat1_1", withExtension: "json") else {
+         print("File not found")
+         return
+      }
+      
+      do {
+         // Load and decode the JSON data
+         let data = try Data(contentsOf: url)
+         let decoder = JSONDecoder()
+         self.chat_preview = try decoder.decode([Chat_Example].self, from: data)
       } catch {
          print("Failed to decode JSON: \(error.localizedDescription)")
       }

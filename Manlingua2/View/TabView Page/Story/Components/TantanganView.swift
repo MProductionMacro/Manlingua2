@@ -21,6 +21,7 @@ struct TantanganView: View {
                 VStack {
                    VStack(alignment: .leading, spacing: 10) {
                       Image(systemName: "camera")
+                         .frame(width: UIScreen.main.bounds.width * 0.03, height: UIScreen.main.bounds.width * 0.03)
                          .foregroundStyle(.orange1)
                          .font(.pinyin())
                          .bold()
@@ -46,6 +47,7 @@ struct TantanganView: View {
                 VStack {
                    VStack(alignment: .leading, spacing: 10) {
                       Image(systemName: "bubble.left.and.text.bubble.right")
+                         .frame(width: UIScreen.main.bounds.width * 0.03, height: UIScreen.main.bounds.width * 0.03)
                          .foregroundStyle(.orange1)
                          .font(.pinyin())
                          .bold()

@@ -40,7 +40,7 @@ struct ChatScrollView: View {
             print("Chat Index: \(chats.count)")
          }
       }
-      .padding(.bottom, chats[currentIndex].type == .question ? 0 : 64)
+//      .padding(.bottom, chats[currentIndex].type == .question ? 0 : 64)
    }
 }
 

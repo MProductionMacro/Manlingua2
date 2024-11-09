@@ -14,14 +14,12 @@ struct QuestionModalityView: View {
    ]
    
    var choices: [String]
-   
-   var onAnswerSelected: (String) -> Void // Closure to trigger when the user selects an answer
+   var onAnswerSelected: (String) -> Void
    
    var body: some View {
-      VStack {
+      VStack(spacing: 16) {
          Text("Pilih jawaban yang benar")
-            .font(.judulBiasa())
-            .padding(.vertical, 24)
+            .font(.titleKe2())
          
          LazyVGrid(columns: columns) {
             ForEach(choices, id: \.self) { choice in
@@ -35,10 +33,7 @@ struct QuestionModalityView: View {
          }
       }
       .padding(.horizontal)
-      .padding(.bottom, 36)
-//      .padding(.top)
       .background(.white)
-      .clipShape(CustomRoundedRectangle(cornerRadius: 24, corners: [.topLeft, .topRight]))
    }
 }
 

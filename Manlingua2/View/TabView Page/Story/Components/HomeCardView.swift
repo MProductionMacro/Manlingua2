@@ -23,9 +23,11 @@ struct HomeCardView: View {
       //TODO: Framenya hard coded, takut ga responsive
       VStack(alignment: .center, spacing: 16) {
          Image(.story1Thumbnail)
-//            .resizable()
-//            .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.width * 0.5)
-//            .scaledToFit()
+         //            .resizable()
+         //            .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.width * 0.5)
+         //            .scaledToFit()
+            .saturation(isDisabled ? 0 : 1)
+            .colorMultiply(isDisabled ? .customLighterGray : .white)
          
          VStack(alignment: .leading, spacing: 4) {
             Text("Cerita \(story.id)")
@@ -62,6 +64,7 @@ struct HomeCardView: View {
                }
             } label: {
                Text("Mulai")
+                  .frame(maxWidth: .infinity)
             }
             .buttonStyle(PrimaryButton(isDisabled: isDisabled))
             .disabled(isDisabled)

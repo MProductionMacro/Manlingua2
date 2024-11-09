@@ -31,9 +31,8 @@ struct MicrophoneModalityView: View {
          }
       }
       .frame(maxWidth: .infinity)
-      .padding()
+      .padding(.horizontal)
       .background(.white)
-      .clipShape(CustomRoundedRectangle(cornerRadius: 24, corners: [.topLeft, .topRight]))
    }
 }
 

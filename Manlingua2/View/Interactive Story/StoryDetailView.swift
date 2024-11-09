@@ -26,77 +26,62 @@ struct StoryDetailView: View {
    
    var body: some View {
       GeometryReader { geometry in
-         ZStack {
-            VStack(spacing: 24) {
-               HStack(spacing: 4) {
-                  Button {
-//                     router.pop()
-                     showConfirmationAlert = true
-                  } label: {
-                     Image(systemName: "xmark")
-                        .font(.system(size: 32))
-                        .frame(width: 32, height: 32)
-                        .foregroundStyle(.orange3)
-                  }.reusableAlert(
-                     isPresented: $showConfirmationAlert,
-                     alertData: AlertData(
-                        type: .confirmation,
-                        primaryAction: {
-                           router.pop()
-                        },
-                        dismissAction: {
-                           showConfirmationAlert = false
-                        }
-                     )
+         VStack(spacing: 24) {
+            HStack(spacing: 4) {
+               Button {
+                  showConfirmationAlert = true
+               } label: {
+                  Image(systemName: "xmark")
+                     .font(.system(size: 32))
+                     .frame(width: 32, height: 32)
+                     .foregroundStyle(.orange3)
+               }.reusableAlert(
+                  isPresented: $showConfirmationAlert,
+                  alertData: AlertData(
+                     type: .confirmation,
+                     primaryAction: {
+                        router.pop()
+                     },
+                     dismissAction: {
+                        showConfirmationAlert = false
+                     }
                   )
-                  
-                  Spacer()
-                  
-                  ProgressView(value: Double(currentIndex + 1) / Double(viewModel.chat_example.count))
-                     .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
-               }
-               .padding(.horizontal)
+               )
                
-               ChatScrollView(currentIndex: $currentIndex, chats: viewModel.chat_example) {
-                  viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
-                  router.push(.donePage(currentPage: .story, currentPart: .first))
-                  
-                  //                  if isFromHome {
-                  //                     if currentIndex + 1 == viewModel.chat_example.count {
-                  //                        singleton.updateLatestSubChapter(for: subChapterId + 1)
-                  ////                           viewModel.updatingChapterProgress(isFromHome: isFromHome, chapterId: chapterId, subChapterId: subChapterId)
-                  //                     }
-                  //                  }else{
-                  //                     let dataChapterProgress = singleton.latestStory
-                  //                     let dataSubChapterProgress = singleton.latestSubChapter
-                  //
-                  //                     if currentIndex + 1 == viewModel.chat_example.count {
-                  //                        if chapterId == dataChapterProgress && subChapterId == dataSubChapterProgress {
-                  //                           singleton.updateLatestSubChapter(for: subChapterId + 1)
-                  //                        }
-                  //                     }
-                  //                  }
-               }
+               Spacer()
                
-               if viewModel.chat_example[currentIndex].type == .question {
-                  ChatModalityView(chat: viewModel.chat_example[currentIndex], modalAppeared: $modalAppeared, currentIndex: $currentIndex)
-               }
+               ProgressView(value: Double(currentIndex + 1) / Double(viewModel.chat_example.count))
+                  .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
             }
-            .edgesIgnoringSafeArea(.bottom)
-            .background(
-               Image(.chatBackground)
-                  .scaledToFill()
-            )
-            .onTapGesture { location in
-               if !modalAppeared {
-                  let screenWidth = geometry.size.width
-                  let midPoint = screenWidth / 2
-                  
-                  viewModel.onTapDetectionChat(location, midPoint, &currentIndex)
-               }
+            .padding(.horizontal)
+            
+            ChatScrollView(currentIndex: $currentIndex, chats: viewModel.chat_example) {
+               viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
+               router.push(.donePage(currentPage: .story, currentPart: .first))
             }
             
-            SidebarButton(chatIndex: $currentIndex, storyId: chapterId)
+            BottomStoryContainerView(currentIndex: $currentIndex, questionAppeared: $modalAppeared, storyId: chapterId, chatType: viewModel.chat_example[currentIndex].type, choices: viewModel.chat_example[currentIndex].choice, onAnswerSelected: { result in
+               
+            })
+//            
+//            if viewModel.chat_preview[currentIndex].type == .question {
+//               ChatModalityView(chat: viewModel.chat_preview[currentIndex], modalAppeared: $modalAppeared, currentIndex: $currentIndex)
+//            }
+         }
+         .edgesIgnoringSafeArea(.bottom)
+         .background(
+            Image(.chatBackground)
+               .scaledToFill()
+         )
+         .onTapGesture { location in
+            if !modalAppeared {
+               let screenWidth = geometry.size.width
+               let midPoint = screenWidth / 2
+               
+               print(currentIndex)
+               
+               viewModel.onTapDetectionChat(location, midPoint, &currentIndex)
+            }
          }
          .overlay {
             TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.7)
@@ -104,10 +89,10 @@ struct StoryDetailView: View {
       }
    }
 }
-
+//
 //#Preview {
 //   NavigationStack {
-//      StoryDetailView()
+//      StoryDetailView(chapterId: 1, subChapterId: 1, isFromHome: true)
 //         .environmentObject(StoryViewModel())
 //         .environmentObject(LearnViewModel())
 //         .environmentObject(HomeViewModel())

@@ -23,6 +23,7 @@ struct KataKataView: View {
                VStack {
                   VStack(alignment: .leading, spacing: 10) {
                      Image(systemName: "book.pages")
+                        .frame(width: UIScreen.main.bounds.width * 0.03, height: UIScreen.main.bounds.width * 0.03)
                         .foregroundStyle(.orange1)
                         .font(.pinyin())
                         .bold()
@@ -48,6 +49,7 @@ struct KataKataView: View {
                VStack {
                   VStack(alignment: .leading, spacing: 10) {
                      Image(systemName: "heart")
+                        .frame(width: UIScreen.main.bounds.width * 0.03, height: UIScreen.main.bounds.width * 0.03)
                         .foregroundStyle(.orange1)
                         .font(.pinyin())
                         .bold()
@@ -73,6 +75,7 @@ struct KataKataView: View {
                VStack {
                   VStack(alignment: .leading, spacing: 10) {
                      Image(systemName: "list.clipboard")
+                        .frame(width: UIScreen.main.bounds.width * 0.03, height: UIScreen.main.bounds.width * 0.03)
                         .foregroundStyle(.orange1)
                         .font(.pinyin())
                         .bold()
