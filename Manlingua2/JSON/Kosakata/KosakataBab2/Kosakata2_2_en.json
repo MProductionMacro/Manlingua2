@@ -2,58 +2,57 @@
     {
         "hanzi": "规格",
         "pinyin": "guī gé",
-        "meaning": "Spesifikasi",
+        "meaning": "Specifications",
         "hanziSentence": "我们需要了解产品的规格。",
         "pinyinSentence": "wǒ men xū yào liǎo jiě chǎn pǐn de guī gé.",
-        "meaningSentence": "Kami perlu mengetahui spesifikasi produk."
+        "meaningSentence": "We need to understand the product’s specifications."
     },
     {
         "hanzi": "尺寸",
         "pinyin": "chǐ cùn",
-        "meaning": "Ukuran",
+        "meaning": "Size",
         "hanziSentence": "你能告诉我这个箱子的尺寸吗？",
         "pinyinSentence": "nǐ néng gào su wǒ zhè ge xiāng zi de chǐ cùn ma?",
-        "meaningSentence": "Bisakah kamu memberitahu saya ukuran kotak ini?"
+        "meaningSentence": "Can you tell me the size of this box?"
     },
     {
         "hanzi": "重量",
         "pinyin": "zhòng liàng",
-        "meaning": "Berat",
+        "meaning": "Weight",
         "hanziSentence": "这个包裹的重量是多少？",
         "pinyinSentence": "zhè ge bāo guǒ de zhòng liàng shì duō shǎo?",
-        "meaningSentence": "Berapa berat paket ini?"
+        "meaningSentence": "What is the weight of this package?"
     },
     {
         "hanzi": "符合",
         "pinyin": "fú hé",
-        "meaning": "Sesuai",
+        "meaning": "In accordance",
         "hanziSentence": "这些产品符合我们的要求。",
         "pinyinSentence": "zhè xiē chǎn pǐn fú hé wǒ men de yāo qiú.",
-        "meaningSentence": "Produk ini sesuai dengan permintaan kami."
+        "meaningSentence": "This product is in accordance with our request."
     },
     {
         "hanzi": "轻型",
         "pinyin": "qīng xíng",
-        "meaning": "Ringan",
+        "meaning": "Light",
         "hanziSentence": "这款轻型电脑非常受欢迎。",
         "pinyinSentence": "zhè kuǎn qīng xíng diàn nǎo fēi cháng shòu huān yíng.",
-        "meaningSentence": "Laptop ringan ini sangat populer."
+        "meaningSentence": "This lightweight laptop is very popular."
     },
     {
         "hanzi": "确保",
         "pinyin": "què bǎo",
-        "meaning": "Memastikan",
+        "meaning": "Ensure",
         "hanziSentence": "我们会确保准时交货。",
         "pinyinSentence": "wǒ men huì què bǎo zhǔn shí jiāo huò.",
-        "meaningSentence": "Kami akan memastikan pengiriman tepat waktu."
+        "meaningSentence": "We will ensure on-time delivery."
     },
     {
         "hanzi": "放心",
         "pinyin": "fàng xīn",
-        "meaning": "Tenang",
+        "meaning": "Relax",
         "hanziSentence": "你可以放心，我们会处理好一切。",
         "pinyinSentence": "nǐ kěyǐ fàng xīn, wǒ men huì chǔ lǐ hǎo yī qiè.",
-        "meaningSentence": "Kamu bisa tenang, kami akan mengurus semuanya."
+        "meaningSentence": "You can relax, we will take care of everything."
     }
 ]
-

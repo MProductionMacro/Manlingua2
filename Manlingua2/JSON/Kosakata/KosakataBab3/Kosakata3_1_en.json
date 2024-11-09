@@ -2,49 +2,49 @@
     {
         "hanzi": "条件",
         "pinyin": "tiáo jiàn",
-        "meaning": "Syarat",
+        "meaning": "Term",
         "hanziSentence": "合同的所有条件都已经确定。",
         "pinyinSentence": "hé tóng de suǒ yǒu tiáo jiàn dōu yǐjīng què dìng.",
-        "meaningSentence": "Semua syarat kontrak telah ditentukan."
+        "meaningSentence": "All the contract terms have been confirmed."
     },
     {
         "hanzi": "清楚",
         "pinyin": "qīng chǔ",
-        "meaning": "Jelas",
+        "meaning": "Clearly",
         "hanziSentence": "请清楚地说明你的要求。",
         "pinyinSentence": "qǐng qīng chǔ de shuō míng nǐ de yāo qiú.",
-        "meaningSentence": "Tolong jelaskan permintaan anda dengan jelas."
+        "meaningSentence": "Please state your requirements clearly."
     },
     {
         "hanzi": "遵守",
         "pinyin": "zūn shǒu",
-        "meaning": "Mematuhi",
+        "meaning": "Comply",
         "hanziSentence": "我们必须遵守合同条款。",
         "pinyinSentence": "wǒ men bìxū zūn shǒu hé tóng tiáo kuǎn.",
-        "meaningSentence": "Kami harus mematuhi ketentuan kontrak."
+        "meaningSentence": "We must comply with the contract terms."
     },
     {
         "hanzi": "时间表",
         "pinyin": "shí jiān biǎo",
-        "meaning": "Jadwal",
+        "meaning": "Schedule",
         "hanziSentence": "这次会议的时间表很紧张。",
         "pinyinSentence": "zhè cì huì yì de shí jiān biǎo hěn jǐn zhāng.",
-        "meaningSentence": "Jadwal rapat ini sangat padat."
+        "meaningSentence": "The schedule for this meeting is very tight."
     },
     {
         "hanzi": "讨论",
         "pinyin": "tǎo lùn",
-        "meaning": "Membahas",
+        "meaning": "Discuss",
         "hanziSentence": "我们可以在会议中讨论这个问题。",
         "pinyinSentence": "wǒ men kě yǐ zài huì yì zhōng tǎo lùn zhè ge wèn tí.",
-        "meaningSentence": "Kita bisa membahas masalah ini dalam rapat."
+        "meaningSentence": "We can discuss this issue during the meeting."
     },
     {
         "hanzi": "接收",
         "pinyin": "jiē shòu",
-        "meaning": "Menerima",
+        "meaning": "Accept",
         "hanziSentence": "我们希望你可以接受这个挑战。",
         "pinyinSentence": "wǒ men xī wàng nǐ kě yǐ jiē shòu zhè ge tiào zhàn.",
-        "meaningSentence": "Kami berharap kamu bisa menerima tantangan ini."
+        "meaningSentence": "We hope you can accept this challenge."
     }
 ]
