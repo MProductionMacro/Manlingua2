@@ -1,0 +1,39 @@
+{
+    "id": 2,
+    "number": 2,
+    "title": "Negotiation",
+    "hanzi": "谈判",
+    "description": "My name is Abai. It’s time to negotiate! Can I understand my partner's needs, discuss product specifications, and reach a mutually beneficial price agreement? Let’s learn the art of negotiation together!",
+    "pinyin": "tán pàn",
+    "isDone": false,
+    "subChapter": [
+        {
+            "id": 1,
+            "title": "Ask About Needs",
+            "pinyin": "xún wèn xū qiú",
+            "hanzi": "询问需求",
+            "duration": 10,
+            "chat_json": "Chat2_1",
+            "isDone": false
+        },
+        {
+            "id": 2,
+            "title": "Product Specifications",
+            "pinyin": "chǎn pǐn guī gé",
+            "hanzi": "产品规格",
+            "duration": 10,
+            "chat_json": "Chat2_2",
+            "isDone": false
+        },
+        {
+            "id": 3,
+            "title": "Price Negotiation",
+            "pinyin": "yì jià",
+            "hanzi": "议价",
+            "duration": 10,
+            "chat_json": "Chat2_3",
+            "isDone": false
+        }
+    ]
+}
+
