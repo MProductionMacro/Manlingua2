@@ -16,6 +16,7 @@ struct Vocabulary: Identifiable, Codable, Hashable {
     let hanziSentence: String
     let pinyinSentence: String
     let meaningSentence: String
+    let language: String
     
     enum CodingKeys: String, CodingKey {
         case hanzi
@@ -24,6 +25,7 @@ struct Vocabulary: Identifiable, Codable, Hashable {
         case hanziSentence
         case pinyinSentence
         case meaningSentence
+        case language
     }
 }
 
@@ -36,6 +38,7 @@ class VocabularyModel{
     var hanziSentence: String
     var pinyinSentence: String
     var meaningSentence: String
+    var language: String
     
     init(vocab: Vocabulary){
         self.hanzi = vocab.hanzi
@@ -44,5 +47,6 @@ class VocabularyModel{
         self.hanziSentence = vocab.hanziSentence
         self.pinyinSentence = vocab.pinyinSentence
         self.meaningSentence = vocab.meaningSentence
+        self.language = vocab.language
     }
 }
