@@ -14,7 +14,7 @@ class JourneyViewModel: ObservableObject{
     
     func loadStoryData(storyId:Int) {
         // Ganti "StoryData" dengan nama file JSON Anda tanpa ekstensi
-        guard let url = Bundle.main.url(forResource: "Story\(storyId)", withExtension: "json") else {
+        guard let url = Bundle.main.url(forResource: "Story\(storyId)_\(UserDefaultSingleton.shared.language)", withExtension: "json") else {
             print("File StoryData.json tidak ditemukan.")
             return
         }
