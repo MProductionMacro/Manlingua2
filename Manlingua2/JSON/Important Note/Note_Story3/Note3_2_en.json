@@ -1,0 +1,7 @@
+{
+    "title": "Shipping",
+    "allowed": "Ask about all shipping options, discuss time and costs.",
+    "forbidden": "Do not assume all options automatically meet your needs.",
+    "caution": "Choose the appropriate shipping option for logistics needs.",
+    "language" : "en"
+}

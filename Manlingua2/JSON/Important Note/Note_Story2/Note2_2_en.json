@@ -1,0 +1,7 @@
+{
+    "title": "Product Specifications",
+    "allowed": "Ask for detailed specifications, check and confirm.",
+    "forbidden": "Do not underestimate the product quality or make negative comments.",
+    "caution": "Use clear language, avoid technical terms that may be misunderstood.",
+    "language" : "en"
+}
