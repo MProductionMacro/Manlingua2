@@ -5,7 +5,8 @@
         "meaning": "News",
         "hanziSentence": "我有一个好消息。",
         "pinyinSentence": "wǒ yǒu yī gè hǎo xiāo xi.",
-        "meaningSentence": "I have good news."
+        "meaningSentence": "I have good news.",
+        "language" : "en"
     },
     {
         "hanzi": "出口",
@@ -13,7 +14,8 @@
         "meaning": "Export",
         "hanziSentence": "中国是世界上最大的出口国家。",
         "pinyinSentence": "zhōng guó shì shì jiè shàng zuì dà de chū kǒu guó jiā.",
-        "meaningSentence": "China is the largest exporting country in the world."
+        "meaningSentence": "China is the largest exporting country in the world.",
+        "language" : "en"
     },
     {
         "hanzi": "贸易",
@@ -21,7 +23,8 @@
         "meaning": "Trade",
         "hanziSentence": "他对国际贸易很有兴趣。",
         "pinyinSentence": "tā duì guó jì mào yì hěn yǒu xìng qù.",
-        "meaningSentence": "He was particularly interested in international trade."
+        "meaningSentence": "He was particularly interested in international trade.",
+        "language" : "en"
     },
     {
         "hanzi": "认识",
@@ -29,7 +32,8 @@
         "meaning": "Know",
         "hanziSentence": "我很高兴认识你。",
         "pinyinSentence": "wǒ hěn gāo xìng rèn shí nǐ.",
-        "meaningSentence": "I'm glad to know you."
+        "meaningSentence": "I'm glad to know you.",
+        "language" : "en"
     },
     {
         "hanzi": "合作",
@@ -37,7 +41,8 @@
         "meaning": "Cooperation",
         "hanziSentence": "我们今天签订了合作协议。",
         "pinyinSentence": "wǒ men jīn tiān qiān dìng le hé zuò xié yì.",
-        "meaningSentence": "We signed a cooperation agreement today."
+        "meaningSentence": "We signed a cooperation agreement today.",
+        "language" : "en"
     },
     {
         "hanzi": "高兴",
@@ -45,7 +50,8 @@
         "meaning": "Happy",
         "hanziSentence": "他很高兴听到这个消息。",
         "pinyinSentence": "tā hěn gāo xìng tīng dào zhè ge xiāo xi.",
-        "meaningSentence": "She was very happy to hear this news."
+        "meaningSentence": "She was very happy to hear this news.",
+        "language" : "en"
     },
     {
         "hanzi": "生意",
@@ -53,6 +59,7 @@
         "meaning": "Business",
         "hanziSentence": "他有一家成功的生意。",
         "pinyinSentence": "tā yǒu yī jiā chénggōng de shēngyì.",
-        "meaningSentence": "He has a successful business."
+        "meaningSentence": "He has a successful business.",
+        "language" : "en"
     }
 ]

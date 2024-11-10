@@ -5,7 +5,8 @@
         "meaning": "Order",
         "hanziSentence": "我们已经确认了你的订单。",
         "pinyinSentence": "wǒ men yǐ jīng què rèn le nǐ de dìng dān.",
-        "meaningSentence": "We have confirmed your order."
+        "meaningSentence": "We have confirmed your order.",
+        "language" : "en"
     },
     {
         "hanzi": "通知",
@@ -13,6 +14,7 @@
         "meaning": "Inform",
         "hanziSentence": "我们会尽快通知你结果。",
         "pinyinSentence": "wǒ men huì jǐn kuài tōng zhī nǐ jié guǒ.",
-        "meaningSentence": "We will inform you of the result as soon as possible."
+        "meaningSentence": "We will inform you of the result as soon as possible.",
+        "language" : "en"
     }
 ]

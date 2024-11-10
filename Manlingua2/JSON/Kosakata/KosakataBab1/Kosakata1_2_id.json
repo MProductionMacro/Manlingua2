@@ -5,7 +5,8 @@
         "meaning": "Bepergian",
         "hanziSentence": "我明天会去北京旅行。",
         "pinyinSentence": "wǒ míng tiān huì qù běi jīng lǚ xíng.",
-        "meaningSentence": "Saya akan bepergian ke Beijing besok."
+        "meaningSentence": "Saya akan bepergian ke Beijing besok.",
+        "language" : "id"
     },
     {
         "hanzi": "会议",
@@ -13,7 +14,8 @@
         "meaning": "Konferensi",
         "hanziSentence": "他正在参加一个国际会议。",
         "pinyinSentence": "tā zhèng zài cān jiā yī gè guó jì huì yì.",
-        "meaningSentence": "Dia sedang menghadiri sebuah konferensi internasional."
+        "meaningSentence": "Dia sedang menghadiri sebuah konferensi internasional.",
+        "language" : "id"
     },
     {
         "hanzi": "机会",
@@ -21,7 +23,8 @@
         "meaning": "Peluang",
         "hanziSentence": "这是一个很好的机会。",
         "pinyinSentence": "zhè shì yī gè hěn hǎo de jī huì.",
-        "meaningSentence": "Ini adalah peluang yang sangat baik."
+        "meaningSentence": "Ini adalah peluang yang sangat baik.",
+        "language" : "id"
     },
     {
         "hanzi": "讨论",
@@ -29,7 +32,8 @@
         "meaning": "Diskusi",
         "hanziSentence": "我们可以一起讨论这个问题。",
         "pinyinSentence": "wǒ men kě yǐ yī qǐ tǎo lùn zhè ge wèn tí.",
-        "meaningSentence": "Kita bisa berdiskusi tentang masalah ini."
+        "meaningSentence": "Kita bisa berdiskusi tentang masalah ini.",
+        "language" : "id"
     },
     {
         "hanzi": "希望",
@@ -37,8 +41,7 @@
         "meaning": "Harapan",
         "hanziSentence": "我希望明天的会议成功。",
         "pinyinSentence": "wǒ xī wàng míng tiān de huì yì chéng gōng.",
-        "meaningSentence": "Saya berharap rapat besok berhasil."
+        "meaningSentence": "Saya berharap rapat besok berhasil.",
+        "language" : "id"
     }
 ]
-
-

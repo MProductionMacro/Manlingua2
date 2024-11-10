@@ -5,7 +5,8 @@
         "meaning": "Price",
         "hanziSentence": "这家店的价格很便宜。",
         "pinyinSentence": "zhè jiā diàn de jià gé hěn pián yí.",
-        "meaningSentence": "The prices in this store are very cheap."
+        "meaningSentence": "The prices in this store are very cheap.",
+        "language" : "en"
     },
     {
         "hanzi": "预算",
@@ -13,7 +14,8 @@
         "meaning": "Budget",
         "hanziSentence": "我们的预算有点紧张。",
         "pinyinSentence": "wǒ men de yù suàn yǒu diǎn jǐn zhāng.",
-        "meaningSentence": "Our budget is a bit tight."
+        "meaningSentence": "Our budget is a bit tight.",
+        "language" : "en"
     },
     {
         "hanzi": "紧张",
@@ -21,7 +23,8 @@
         "meaning": "Tight",
         "hanziSentence": "这个项目的时间表非常紧张。",
         "pinyinSentence": "zhè ge xiàng mù de shí jiān biǎo fēi cháng jǐn zhāng.",
-        "meaningSentence": "The schedule for this project is very tight."
+        "meaningSentence": "The schedule for this project is very tight.",
+        "language" : "en"
     },
     {
         "hanzi": "接受",
@@ -29,7 +32,8 @@
         "meaning": "Accept",
         "hanziSentence": "我们很高兴接受您的提议。",
         "pinyinSentence": "wǒ men hěn gāo xìng jiē shòu nín de tí yì.",
-        "meaningSentence": "We are happy to accept your proposal."
+        "meaningSentence": "We are happy to accept your proposal.",
+        "language" : "en"
     },
     {
         "hanzi": "帮助",
@@ -37,7 +41,8 @@
         "meaning": "Help",
         "hanziSentence": "我很感谢你们的帮助。",
         "pinyinSentence": "wǒ hěn gǎn xiè nǐ men de bāng zhù.",
-        "meaningSentence": "I really appreciate your help."
+        "meaningSentence": "I really appreciate your help.",
+        "language" : "en"
     },
     {
         "hanzi": "百分之",
@@ -45,6 +50,7 @@
         "meaning": "Percentage",
         "hanziSentence": "这款产品的退货率是百分之五。",
         "pinyinSentence": "zhè kuǎn chǎn pǐn de tuì huò lǜ shì bǎi fēn zhī wǔ.",
-        "meaningSentence": "The return rate for this product is 5%."
+        "meaningSentence": "The return rate for this product is 5%.",
+        "language" : "en"
     }
 ]

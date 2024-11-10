@@ -5,7 +5,8 @@
         "meaning": "Detail",
         "hanziSentence": "我们需要了解更多的细节。",
         "pinyinSentence": "wǒ men xū yào liǎo jiě gèng duō de xì jié.",
-        "meaningSentence": "Kami perlu mengetahui lebih banyak detail."
+        "meaningSentence": "Kami perlu mengetahui lebih banyak detail.",
+        "language" : "id"
     },
     {
         "hanzi": "方式",
@@ -13,7 +14,8 @@
         "meaning": "Metode",
         "hanziSentence": "我们可以改变工作的方式。",
         "pinyinSentence": "wǒ men kě yǐ gǎi biàn gōng zuò de fāng shì.",
-        "meaningSentence": "Kita bisa mengubah metode kerja."
+        "meaningSentence": "Kita bisa mengubah metode kerja.",
+        "language" : "id"
     },
     {
         "hanzi": "海运",
@@ -21,7 +23,8 @@
         "meaning": "Pengiriman laut",
         "hanziSentence": "这批货物通过海运发送。",
         "pinyinSentence": "zhè pī huò wù tōng guò hǎi yùn fā sòng.",
-        "meaningSentence": "Barang ini dikirimkan melalui pengiriman laut."
+        "meaningSentence": "Barang ini dikirimkan melalui pengiriman laut.",
+        "language" : "id"
     },
     {
         "hanzi": "空运",
@@ -29,7 +32,8 @@
         "meaning": "Pengiriman udara",
         "hanziSentence": "重要的文件通过空运送达。",
         "pinyinSentence": "zhòng yào de wén jiàn tōng guò kōng yùn sòng dá.",
-        "meaningSentence": "Dokumen penting dikirimkan melalui pengiriman udara."
+        "meaningSentence": "Dokumen penting dikirimkan melalui pengiriman udara.",
+        "language" : "id"
     },
     {
         "hanzi": "时间",
@@ -37,7 +41,8 @@
         "meaning": "Waktu",
         "hanziSentence": "我们需要更多的时间来完成这个项目。",
         "pinyinSentence": "wǒ men xū yào gèng duō de shí jiān lái wán chéng zhè ge xiàng mù.",
-        "meaningSentence": "Kami membutuhkan lebih banyak waktu untuk menyelesaikan proyek ini."
+        "meaningSentence": "Kami membutuhkan lebih banyak waktu untuk menyelesaikan proyek ini.",
+        "language" : "id"
     },
     {
         "hanzi": "要求",
@@ -45,7 +50,8 @@
         "meaning": "Permintaan",
         "hanziSentence": "你的要求已经被接受了。",
         "pinyinSentence": "nǐ de yāo qiú yǐ jīng bèi jiē shòu le.",
-        "meaningSentence": "Permintaanmu telah diterima."
+        "meaningSentence": "Permintaanmu telah diterima.",
+        "language" : "id"
     },
     {
         "hanzi": "安排",
@@ -53,7 +59,8 @@
         "meaning": "Mengatur",
         "hanziSentence": "我们已经安排好了会议时间。",
         "pinyinSentence": "wǒ men yǐ jīng ān pái hǎo le huì yì shí jiān.",
-        "meaningSentence": "Kami sudah mengatur jadwal rapat."
+        "meaningSentence": "Kami sudah mengatur jadwal rapat.",
+        "language" : "id"
     },
     {
         "hanzi": "便宜",
@@ -61,6 +68,7 @@
         "meaning": "Murah",
         "hanziSentence": "这家店的产品非常便宜。",
         "pinyinSentence": "zhè jiā diàn de chǎn pǐn fēi cháng pián yí.",
-        "meaningSentence": "Produk di toko ini sangat murah."
+        "meaningSentence": "Produk di toko ini sangat murah.",
+        "language" : "id"
     }
 ]

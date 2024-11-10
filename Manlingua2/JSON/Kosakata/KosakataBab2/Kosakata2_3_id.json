@@ -5,7 +5,8 @@
         "meaning": "Harga",
         "hanziSentence": "这家店的价格很便宜。",
         "pinyinSentence": "zhè jiā diàn de jià gé hěn pián yí.",
-        "meaningSentence": "Harga di toko ini sangat murah."
+        "meaningSentence": "Harga di toko ini sangat murah.",
+        "language" : "id"
     },
     {
         "hanzi": "预算",
@@ -13,7 +14,8 @@
         "meaning": "Anggaran",
         "hanziSentence": "我们的预算有点紧张。",
         "pinyinSentence": "wǒ men de yù suàn yǒu diǎn jǐn zhāng.",
-        "meaningSentence": "Anggaran kami agak ketat."
+        "meaningSentence": "Anggaran kami agak ketat.",
+        "language" : "id"
     },
     {
         "hanzi": "紧张",
@@ -21,7 +23,8 @@
         "meaning": "Ketat",
         "hanziSentence": "这个项目的时间表非常紧张。",
         "pinyinSentence": "zhè ge xiàng mù de shí jiān biǎo fēi cháng jǐn zhāng.",
-        "meaningSentence": "Jadwal proyek ini sangat ketat."
+        "meaningSentence": "Jadwal proyek ini sangat ketat.",
+        "language" : "id"
     },
     {
         "hanzi": "接受",
@@ -29,7 +32,8 @@
         "meaning": "Menerima",
         "hanziSentence": "我们很高兴接受您的提议。",
         "pinyinSentence": "wǒ men hěn gāo xìng jiē shòu nín de tí yì.",
-        "meaningSentence": "Kami dengan senang hati menerima usulan Anda."
+        "meaningSentence": "Kami dengan senang hati menerima usulan Anda.",
+        "language" : "id"
     },
     {
         "hanzi": "帮助",
@@ -37,7 +41,8 @@
         "meaning": "Membantu",
         "hanziSentence": "我很感谢你们的帮助。",
         "pinyinSentence": "wǒ hěn gǎn xiè nǐ men de bāng zhù.",
-        "meaningSentence": "Saya sangat berterima kasih atas bantuan kalian."
+        "meaningSentence": "Saya sangat berterima kasih atas bantuan kalian.",
+        "language" : "id"
     },
     {
         "hanzi": "百分之",
@@ -45,6 +50,7 @@
         "meaning": "Persentase",
         "hanziSentence": "这款产品的退货率是百分之五。",
         "pinyinSentence": "zhè kuǎn chǎn pǐn de tuì huò lǜ shì bǎi fēn zhī wǔ.",
-        "meaningSentence": "Tingkat pengembalian produk ini adalah 5 persen."
+        "meaningSentence": "Tingkat pengembalian produk ini adalah 5 persen.",
+        "language" : "id"
     }
 ]

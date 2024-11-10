@@ -5,7 +5,8 @@
         "meaning": "Drink tea",
         "hanziSentence": "下午我们一起喝茶吧。",
         "pinyinSentence": "xià wǔ wǒ men yī qǐ hē chá ba.",
-        "meaningSentence": "Let’s have tea together this afternoon."
+        "meaningSentence": "Let’s have tea together this afternoon.",
+        "language" : "en"
     },
     {
         "hanzi": "绿茶",
@@ -13,7 +14,8 @@
         "meaning": "Green tea",
         "hanziSentence": "我喜欢喝绿茶。",
         "pinyinSentence": "wǒ xǐ huān hē lǜ chá.",
-        "meaningSentence": "I like drinking green tea."
+        "meaningSentence": "I like drinking green tea.",
+        "language" : "en"
     },
     {
         "hanzi": "喜欢",
@@ -21,7 +23,8 @@
         "meaning": "Like",
         "hanziSentence": "她喜欢电子产品。",
         "pinyinSentence": "tā xǐ huān diàn zǐ chǎn pǐn.",
-        "meaningSentence": "She likes electronic products."
+        "meaningSentence": "She likes electronic products.",
+        "language" : "en"
     },
     {
         "hanzi": "收获",
@@ -29,7 +32,8 @@
         "meaning": "Benefit",
         "hanziSentence": "参加这个活动让我有很多收获。",
         "pinyinSentence": "cān jiā zhè ge huó dòng ràng wǒ yǒu hěn duō shōu huò.",
-        "meaningSentence": "Participating in this event gave me many benefits."
+        "meaningSentence": "Participating in this event gave me many benefits.",
+        "language" : "en"
     },
     {
         "hanzi": "重要",
@@ -37,7 +41,8 @@
         "meaning": "Important",
         "hanziSentence": "质量对我们来说非常重要。",
         "pinyinSentence": "zhì liàng duì wǒ men lái shuō fēi cháng zhòng yào.",
-        "meaningSentence": "Quality is very important to us."
+        "meaningSentence": "Quality is very important to us.",
+        "language" : "en"
     },
     {
         "hanzi": "招待",
@@ -45,6 +50,7 @@
         "meaning": "Entertain",
         "hanziSentence": "老板会亲自招待客人。",
         "pinyinSentence": "lǎo bǎn huì qīnzì zhāo dài kè rén.",
-        "meaningSentence": "The boss will personally entertain the guests."
+        "meaningSentence": "The boss will personally entertain the guests.",
+        "language" : "en"
     }
 ]

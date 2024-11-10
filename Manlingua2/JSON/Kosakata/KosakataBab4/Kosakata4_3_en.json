@@ -5,7 +5,8 @@
         "meaning": "Final",
         "hanziSentence": "我们终于达成了最终协议。",
         "pinyinSentence": "wǒ men zhōng yú dá chéng le zuì zhōng xié yì.",
-        "meaningSentence": "We finally reached the final agreement."
+        "meaningSentence": "We finally reached the final agreement.",
+        "language" : "en"
     },
     {
         "hanzi": "细节",
@@ -13,7 +14,8 @@
         "meaning": "Detail",
         "hanziSentence": "我们需要讨论更多的细节。",
         "pinyinSentence": "wǒ men xū yào tǎo lùn gèng duō de xì jié.",
-        "meaningSentence": "We need to discuss more details."
+        "meaningSentence": "We need to discuss more details.",
+        "language" : "en"
     },
     {
         "hanzi": "交易",
@@ -21,7 +23,8 @@
         "meaning": "Transaction",
         "hanziSentence": "这笔交易进行得非常顺利。",
         "pinyinSentence": "zhè bǐ jiāo yì jìn xíng dé fēi cháng shùn lì.",
-        "meaningSentence": "This transaction went very smoothly."
+        "meaningSentence": "This transaction went very smoothly.",
+        "language" : "en"
     },
     {
         "hanzi": "顺利",
@@ -29,7 +32,8 @@
         "meaning": "Smooth",
         "hanziSentence": "订单的处理非常顺利。",
         "pinyinSentence": "dìng dān de chǔ lǐ fēi cháng shùn lì.",
-        "meaningSentence": "The order processing went very smoothly."
+        "meaningSentence": "The order processing went very smoothly.",
+        "language" : "en"
     },
     {
         "hanzi": "信任",
@@ -37,7 +41,8 @@
         "meaning": "Trust",
         "hanziSentence": "我们希望建立长期的信任关系。",
         "pinyinSentence": "wǒ men xī wàng jiàn lì cháng qī de xìn rèn guān xì.",
-        "meaningSentence": "We hope to build a long-term trust relationship."
+        "meaningSentence": "We hope to build a long-term trust relationship.",
+        "language" : "en"
     },
     {
         "hanzi": "保持",
@@ -45,7 +50,8 @@
         "meaning": "Maintain",
         "hanziSentence": "我们将保持与您的联系。",
         "pinyinSentence": "wǒ men jiāng bǎo chí yǔ nín de lián xì.",
-        "meaningSentence": "We will maintain contact with you."
+        "meaningSentence": "We will maintain contact with you.",
+        "language" : "en"
     },
     {
         "hanzi": "联系",
@@ -53,7 +59,8 @@
         "meaning": "Contact",
         "hanziSentence": "任何问题，您都可以随时联系我。",
         "pinyinSentence": "rèn hé wèn tí, nín dōu kě yǐ suí shí lián xì wǒ.",
-        "meaningSentence": "For any issues, you can contact me anytime."
+        "meaningSentence": "For any issues, you can contact me anytime.",
+        "language" : "en"
     },
     {
         "hanzi": "结束",
@@ -61,6 +68,7 @@
         "meaning": "Complete",
         "hanziSentence": "我们已经成功结束了合作。",
         "pinyinSentence": "wǒ men yǐ jīng chéng gōng jié shù le hé zuò.",
-        "meaningSentence": "We have successfully completed the collaboration."
+        "meaningSentence": "We have successfully completed the collaboration.",
+        "language" : "en"
     }
 ]
