@@ -49,12 +49,13 @@ struct FlashcardPageView: View {
             
             //Spacer()
             
-            VStack{
-                ZStack{
+            HStack(alignment: .top){
+                ZStack(alignment: .top){
                     ForEach(0 ..< viewModel.showVocabularies.count, id: \.self) { index in
                         if index >= viewModel.currentIndex {
                               viewModel.createFlashcardView(for: index)
                                  .zIndex(Double(viewModel.showVocabularies.count - index))
+                                 .opacity(viewModel.currentIndex == index ? 1 : 0)
                         }
 
                     }
@@ -72,10 +73,7 @@ struct FlashcardPageView: View {
          .frame(maxHeight: .infinity)
           
           
-          BottomContainerView(viewModel: viewModel, audioController: $audioController).onTapGesture{
-              router.push(.donePage(currentPage: .story, currentPart: .first))
-          }
-
+          BottomContainerView(viewModel: viewModel, audioController: $audioController)
         /*
          .overlay{
             if singleton.hasNotOpenFlashcardPage(){
@@ -94,14 +92,11 @@ struct FlashcardPageView: View {
          Image(.chatBackground)
             .scaledToFill()
       )
-      .overlay{
-         if viewModel.showDonePage {
-            DonePageView(currentPage: .flashCard, currentPart: .first)
-               .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-               .background(.white)
-         }
-      }
       .ignoresSafeArea(.container, edges: .bottom)
+      .onAppear{
+          viewModel.currentIndex = 0
+          viewModel.reshuffleCards()
+      }
 
    }
 }
