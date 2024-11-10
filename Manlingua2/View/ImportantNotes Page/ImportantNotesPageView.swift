@@ -10,7 +10,8 @@ import SwiftUI
 struct ImportantNotesPageView : View {
     @EnvironmentObject var router: Router
     @StateObject var viewModel = ImportantNotesViewModel()
-
+    var displayMode : NoteDisplayMode
+    
     var body : some View{
         VStack{
             Text("Catatan Penting")
@@ -20,8 +21,12 @@ struct ImportantNotesPageView : View {
             
             ScrollView{
                 VStack (spacing: 32){
-                    ForEach(viewModel.getImportantNotes(), id:\.self){ note in
-                        NotesCardView(note: note)
+                    ForEach(viewModel.getNotes(displayMode), id: \.self){ note in
+                        NotesCardView(note: note, viewModel: viewModel)
+                    }
+                    if viewModel.notes.count == 0 {
+                        Text("No notes found.")
+                            .foregroundColor(.gray)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -48,12 +53,29 @@ struct ImportantNotesPageView : View {
                 }
             }
         }
+        .onAppear{
+            //viewModel.loadNoteData(storyId: 1, subChapterId: 1)
+            viewModel.loadNotes(from: displayMode)
+        }
+        .navigationBarBackButtonHidden(true)
+        /*
+        .navigationBarItems(leading: Button(action: {
+           router.pop()
+        }) {
+           HStack {
+              Image(systemName: "chevron.left")
+              Text("Kembali")
+           }
+           .foregroundColor(.orange)
+        })
+         */
     }
 }
 
 #Preview{
     NavigationView{
-        ImportantNotesPageView()
+        //ImportantNotesPageView(displayMode: .subChapter(storyId: 1, subChapterId: 1))
+        ImportantNotesPageView(displayMode : .subChapter(storyId: 1, subChapterId: 1))
     }
     .environmentObject(Router())
 }
