@@ -70,6 +70,12 @@ class Router: ObservableObject {
       case .cameraView:
          CameraView()
             .navigationBarBackButtonHidden(true)
+      case .importantNote(let displayMode):
+          ImportantNotesPageView(displayMode: displayMode)
+              .navigationBarBackButtonHidden(true)
+      case .languageSetting:
+          LanguageSettingView()
+              .navigationBarBackButtonHidden(true)
       }
    }
 }
@@ -87,6 +93,8 @@ enum Screen: Hashable {
    case flashcardPage
    case photoChallenge
    case cameraView
+   case languageSetting
+   case importantNote(displayMode: NoteDisplayMode)
 }
 
 /*
