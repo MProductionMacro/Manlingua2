@@ -1,13 +1,13 @@
 //
-//  LanguageSettingView.swift
+//  NotificationSettingView.swift
 //  Manlingua2
 //
-//  Created by Arrick Russell Adinoto on 02/11/24.
+//  Created by Arrick Russell Adinoto on 11/11/24.
 //
 
 import SwiftUI
 
-struct LanguageSettingView: View {
+struct NotificationSettingView: View {
     @EnvironmentObject var router: Router
     @State var selectedId: Int = 1
     @State var lang: Language = .indonesian
@@ -15,33 +15,25 @@ struct LanguageSettingView: View {
     var body : some View {
         VStack{
             VStack(alignment: .leading, spacing: 32){
-                VStack(alignment: .leading, spacing: 8){
+                VStack(alignment: .leading, spacing: 16){
                     Text("Pengaturan Bahasa")
                         .font(.heavy32())
                     
                     Text("Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih")
                         .font(.subJudul())
                         .opacity(0.65)
+                    
+                    Text("Aktifkan notifikasi melalui sistem pengaturan")
+                        .font(.subJudul())
+
                 }
                 .padding(.top, 27)
-
-                VStack(spacing: 16){
-                    LanguageSettingButton(image: .indonesianLogo, text: "Bahasa Indonesia", selectionId: 1, selectedId: $selectedId){
-                        selectedId = 1
-                        lang = .indonesian
-                    }
-                    
-                    LanguageSettingButton(image: .englishLogo, text: "English", selectionId: 2, selectedId: $selectedId){
-                        selectedId = 2
-                        lang = .english
-                    }
-                }
                 
                 Spacer()
                 
                 Button(action: {
                     UserDefaultSingleton.shared.setLanguage(language: lang)
-                    router.popToRoot()
+                    router.pop()
                 }) {
                    Text("Simpan")
                       .foregroundStyle(Color.white)
@@ -74,21 +66,12 @@ struct LanguageSettingView: View {
               }
            }
         }
-        .onAppear{
-            if UserDefaultSingleton.shared.language == "en"{
-                selectedId = 2
-            }
-            else{
-                selectedId = 1
-            }
-        }
     }
 }
 
 #Preview {
     NavigationView{
-        LanguageSettingView()
+        NotificationSettingView()
             .environmentObject(Router())
     }
 }
-
