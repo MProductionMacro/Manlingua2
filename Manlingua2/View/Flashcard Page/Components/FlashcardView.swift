@@ -77,7 +77,7 @@ struct FlashcardView: View {
 }
 
 #Preview {
-    FlashcardView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis", hanziSentence: "Wowo", pinyinSentence: "Lala", meaningSentence: "Bisnis"))
+    FlashcardView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis", hanziSentence: "Wowo", pinyinSentence: "Lala", meaningSentence: "Bisnis", language: "en"))
 }
 
 

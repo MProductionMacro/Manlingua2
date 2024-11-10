@@ -5,6 +5,7 @@
 //  Created by Arrick Russell Adinoto on 17/10/24.
 //
 
+
 import SwiftUI
 
 struct FlashcardDictionaryView: View {
@@ -12,6 +13,7 @@ struct FlashcardDictionaryView: View {
     @Binding var textToSpeech: TextToSpeech
     @State var isBookmarked = false
     @EnvironmentObject var router: Router
+    @ObservedObject var viewModel: DictionaryViewModel
 
     var body: some View{
         VStack(alignment: .center, spacing: 11){
@@ -20,7 +22,7 @@ struct FlashcardDictionaryView: View {
                     SwiftDataServices.shared.deleteData(vocab)
                 }
                 else{
-                    SwiftDataServices.shared.addData(vocab)
+                    viewModel.addVocabulary(vocab)
                 }
                 isBookmarked.toggle()
             }, label: {
@@ -76,7 +78,7 @@ struct FlashcardDictionaryView: View {
 }
 
 #Preview {
-    FlashcardDictionaryView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis", hanziSentence: "WoWo", pinyinSentence: "Lala", meaningSentence: "Bisnis"), textToSpeech: .constant(TextToSpeech()))
+    FlashcardDictionaryView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis", hanziSentence: "WoWo", pinyinSentence: "Lala", meaningSentence: "Bisnis", language: "en"), textToSpeech: .constant(TextToSpeech()), viewModel : DictionaryViewModel())
         .environmentObject(Router())
    
 }
