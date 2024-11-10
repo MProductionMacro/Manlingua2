@@ -1,0 +1,109 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "Nǐ men shōu dào huò wù le ma?",
+        "hanzi": "你们收到货物了吗？",
+        "meaning": "Have you received the goods?",
+        "type": "speaker1"
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "Shì de, wǒ men yǐ jīng shōu dào le huò wù.",
+        "hanzi": "是的，我们已经收到了货物。",
+        "meaning": "Yes, we have received the goods.",
+        "type": "speaker2"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "huò wù",
+        "hanzi": "货物",
+        "meaning": "Goods",
+        "choice": ["Money", "Goods", "Documents", "Credit card"],
+        "answer": "Goods",
+        "question": "What does 货物 (huò wù) mean?",
+        "type": "question"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "Huò wù de zhì liàng zěn me yàng?",
+        "hanzi": "货物的质量怎么样？",
+        "meaning": "How is the quality of the goods?",
+        "type": "speaker1"
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "zhì liàng",
+        "hanzi": "质量",
+        "meaning": "Quality",
+        "choice": ["Quality", "Quantity", "Size", "Price"],
+        "answer": "Quality",
+        "question": "Listen, what does 质量 (zhì liàng) mean?",
+        "type": "question"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "Huò wù de zhì liàng hěn hǎo, wǒ men fēi cháng mǎn yì.",
+        "hanzi": "货物的质量很好，我们非常满意。",
+        "meaning": "The quality of the goods is very good, we are very satisfied.",
+        "type": "speaker2"
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "Tài hǎo le, wǒ men huì jì xù wèi nín tí gōng yōu zhì de fú wù.",
+        "hanzi": "太好了，我们会继续为您提供优质的服务。",
+        "meaning": "That's great, we will continue to provide you with quality service.",
+        "type": "speaker1"
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "yōu zhì",
+        "hanzi": "优质",
+        "meaning": "Quality",
+        "answer": "优质",
+        "question": "Please repeat 优质 (yōu zhì).",
+        "type": "question"
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "Xiè xiè, wǒ men qí dài xià cì hé zuò.",
+        "hanzi": "谢谢，我们期待下次合作。",
+        "meaning": "Thank you, we look forward to our next collaboration.",
+        "type": "speaker2"
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "Xiè xiè nǐ men de liáng hǎo hé zuò.",
+        "hanzi": "谢谢你们的良好合作。",
+        "meaning": "Thank you for the good cooperation.",
+        "answer": "谢谢你们的良好合作",
+        "question": "Say in Mandarin, \"Thank you for the good cooperation.\"",
+        "type": "question"
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "Wǒ men yě hěn gāo xìng néng gòu hé zuò, xī wàng xià cì zài hé zuò.",
+        "hanzi": "我们也很高兴能够合作，希望下次再合作。",
+        "meaning": "We are also very happy to cooperate, we hope to work together again next time.",
+        "type": "speaker2"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "Shì de, wǒ men yí dìng huì bǎo chí lián xì.",
+        "hanzi": "是的，我们一定会保持联系。",
+        "meaning": "Yes, we will definitely keep in touch.",
+        "type": "speaker1"
+    }
+]
+

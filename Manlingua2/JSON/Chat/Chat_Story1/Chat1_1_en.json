@@ -1,0 +1,109 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "Nǐ hǎo, wǒ jiào Ābái. Nín shì Míng xiānshēng ma?",
+        "hanzi": "你好，我叫阿白。您是明先生吗？",
+        "meaning": "Hello, I’m Abai. Are you Mr. Ming?",
+        "type": "speaker1"
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "Shì de, wǒ shì Míng xiānshēng. Hěn gāoxìng rènshí nǐ.",
+        "hanzi": "是的，我是明先生。很高兴认识你。",
+        "meaning": "Yes, I’m Mr. Ming. Nice to meet you.",
+        "type": "speaker2"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "gāoxìng",
+        "hanzi": "高兴",
+        "meaning": "Happy",
+        "choice": ["Happy", "Sad", "Angry", "Tired"],
+        "answer": "Happy",
+        "question": "What does 高兴 (gāo xìng) mean?",
+        "type": "question"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "Rènshí nín wǒ yě hěn gāoxìng.",
+        "hanzi": "认识您我也很高兴。",
+        "meaning": "I’m also happy to meet you.",
+        "type": "speaker1"
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "rènshí",
+        "hanzi": "认识",
+        "meaning": "To know",
+        "choice": ["To know", "To sell", "To buy", "To order"],
+        "answer": "To know",
+        "question": "What does 认识 (rènshí) mean?",
+        "type": "question"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "Nín shì zuò shénme shēngyì de?",
+        "hanzi": "您是做什么生意的？",
+        "meaning": "What business are you in?",
+        "type": "speaker2"
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "Wǒmen cóngshì chūkǒu màoyì.",
+        "hanzi": "我们从事出口贸易。",
+        "meaning": "We are in the export trade.",
+        "type": "speaker1"
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "chūkǒu màoyì",
+        "hanzi": "出口贸易",
+        "meaning": "Export trade",
+        "answer": "出口贸易",
+        "question": "Repeat 出口贸易 (chū kǒu mào yì).",
+        "type": "question"
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "Tài hǎo le! Wǒ yě shì zuò chūkǒu shēngyì de.",
+        "hanzi": "太好了！我也是做出口生意的。",
+        "meaning": "Great! I’m also in the export business.",
+        "type": "speaker2"
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "hěn gāo xìng tīng dào zhè ge xiāo xī!",
+        "hanzi": "很高兴听到这个消息！",
+        "meaning": "Glad to hear that!",
+        "answer": "很高兴听到这个消息",
+        "question": "Respond in Mandarin: “Glad to hear that!”",
+        "type": "question"
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "Hǎo de, zánmen yǐhòu yídìng huì hézuò de hěn yúkuài.",
+        "hanzi": "好的，咱们以后一定会合作得很愉快。",
+        "meaning": "Okay, we will definitely have a pleasant collaboration in the future.",
+        "type": "speaker2"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "Shì de, qídài hézuò!",
+        "hanzi": "是的，期待合作！",
+        "meaning": "Yes, looking forward to working together!",
+        "type": "speaker1"
+    }
+]
+

@@ -1,0 +1,108 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "wǒ men lái tǎo lùn hé tóng ba.",
+        "hanzi": "我们来讨论合同吧。",
+        "meaning": "Let’s discuss the contract.",
+        "type": "speaker1"
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "hǎo de, wǒ men kě yǐ cóng tiáo jiàn kāi shǐ ma?",
+        "hanzi": "好的，我们可以从条件开始吗？",
+        "meaning": "Alright, can we start with the terms?",
+        "type": "speaker2"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "hétóng",
+        "hanzi": "合同",
+        "meaning": "Contract",
+        "choice": ["Agreement", "Terms", "Contract", "Offer"],
+        "answer": "Contract",
+        "question": "What does 合同 (hétóng) mean?",
+        "type": "question"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "dāng rán kě yǐ. wǒ men huì què bǎo suǒ yǒu tiáo jiàn dōu qīng chǔ.",
+        "hanzi": "当然可以。我们会确保所有条件都清楚。",
+        "meaning": "Of course. We will ensure all terms are clear.",
+        "type": "speaker1"
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "tiáojiàn",
+        "hanzi": "条件",
+        "meaning": "Terms",
+        "choice": ["Price", "Terms", "Goods", "Time"],
+        "answer": "Terms",
+        "question": "Listen, what does 条件 (tiáojiàn) mean?",
+        "type": "question"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "zhè cì hé tóng de jiāo huò shí jiān shì duō jiǔ?",
+        "hanzi": "这次合同的交货时间是多久？",
+        "meaning": "What is the delivery time for this contract?",
+        "type": "speaker2"
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "jiāo huò shí jiān shì liǎng zhōu. kě yǐ ma?",
+        "hanzi": "交货时间是两周。可以吗？",
+        "meaning": "The delivery time is two weeks. Is that okay?",
+        "type": "speaker1"
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "jiāo huò shí jiān",
+        "hanzi": "交货时间",
+        "meaning": "Delivery time",
+        "answer": "交货时间",
+        "question": "Repeat 交货时间 (jiāo huò shí jiān).",
+        "type": "question"
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "liǎng zhōu de jiāo huò shí jiān kě yǐ jiē shòu.",
+        "hanzi": "两周的交货时间可以接受。",
+        "meaning": "The two-week delivery time is acceptable.",
+        "type": "speaker2"
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "hǎo de, wǒ men huì zūn shǒu shí jiān biǎo.",
+        "hanzi": "好的，我们会遵守时间表。",
+        "meaning": "Alright, we will adhere to the schedule.",
+        "answer": "好的，我们会遵守时间表。",
+        "question": "Answer in Mandarin: 'Alright, we will adhere to the schedule.'",
+        "type": "question"
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "jià gé fāng miàn ne? kě yǐ zài tán tán ma?",
+        "hanzi": "价格方面呢？可以再谈谈吗？",
+        "meaning": "What about the price? Can we discuss it further?",
+        "type": "speaker2"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "méi wèn tí, wǒ men kě yǐ zài tǎo lùn jià gé.",
+        "hanzi": "没问题，我们可以再讨论价格。",
+        "meaning": "No problem, we can discuss the price again.",
+        "type": "speaker1"
+    }
+]

@@ -1,0 +1,109 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "wǒ men lái què rèn jiāo huò de shí jiān ba.",
+        "hanzi": "我们来确认交货的时间吧。",
+        "meaning": "Let’s confirm the delivery schedule.",
+        "type": "speaker1"
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "hǎo de, nín xī wàng shén me shí hòu fā huò?",
+        "hanzi": "好的，您希望什么时候发货？",
+        "meaning": "Okay, when would you like the shipment?",
+        "type": "speaker2"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "fā huò",
+        "hanzi": "发货",
+        "meaning": "Shipping goods",
+        "choice": ["Shipping goods", "Paying for goods", "Ordering goods", "Receiving goods"],
+        "answer": "Shipping goods",
+        "question": "What does 发货 (fāhuò) mean?",
+        "type": "question"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "wǒ men xī wàng zài xià zhōu yī fā huò, kě yǐ ma?",
+        "hanzi": "我们希望在下周一发货，可以吗？",
+        "meaning": "We would like the goods to be shipped next Monday, is that possible?",
+        "type": "speaker1"
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "quèrèn",
+        "hanzi": "确认",
+        "meaning": "Confirm",
+        "choice": ["Ship", "Confirm", "Refuse", "Wait"],
+        "answer": "Confirm",
+        "question": "Listen, what does 确认 (quèrèn) mean?",
+        "type": "question"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "xià zhōu yī fā huò kě yǐ, bù guò xū yào tí qián què rèn.",
+        "hanzi": "下周一发货可以，不过需要提前确认。",
+        "meaning": "Shipping next Monday is possible, but advance confirmation is needed.",
+        "type": "speaker2"
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "wǒ men huì zài zhōu wǔ zhī qián què rèn dìng dān.",
+        "hanzi": "我们会在周五之前确认订单。",
+        "meaning": "We will confirm the order before Friday.",
+        "type": "speaker1"
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "dìng dān",
+        "hanzi": "订单",
+        "meaning": "Order",
+        "question": "Repeat the word 订单 (dìng dān).",
+        "answer": "订单",
+        "type": "question"
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "tài hǎo le, zhōu wǔ què rèn zhī hòu, wǒ men jiù ān pái fā huò.",
+        "hanzi": "太好了，周五确认之后，我们就安排发货。",
+        "meaning": "Great, after Friday's confirmation, we’ll arrange the shipping.",
+        "type": "speaker2"
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "hǎo de, wǒ men huì děng nín de què rèn.",
+        "hanzi": "好的，我们会等您的确认。",
+        "meaning": "Alright, we will wait for your confirmation.",
+        "question": "Answer in Mandarin: 'Alright, we will wait for your confirmation.'",
+        "answer": "好的，我们会等您的确认",
+        "type": "question"
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "fā huò zhī hòu, wǒ men huì tōng zhī nín.",
+        "hanzi": "发货之后，我们会通知您。",
+        "meaning": "After shipping, we will notify you.",
+        "type": "speaker2"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "hěn hǎo, wǒ men qí dài hé zuò!",
+        "hanzi": "很好，我们期待合作！",
+        "meaning": "Great, we look forward to our collaboration!",
+        "type": "speaker1"
+    }
+]
+

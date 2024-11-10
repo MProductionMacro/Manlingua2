@@ -1,0 +1,109 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "wǒ men lái tǎo lùn yí xià zuì zhōng de xì jié ba.",
+        "hanzi": "我们来讨论一下最终的细节吧。",
+        "meaning": "Let’s discuss the final details.",
+        "type": "speaker1"
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "hǎo de, nín duì zhè cì jiāo yì hái mǎn yì ma?",
+        "hanzi": "好的，您对这次交易还满意吗？",
+        "meaning": "Okay, are you satisfied with this transaction?",
+        "type": "speaker2"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "jiāo yì",
+        "hanzi": "交易",
+        "meaning": "Transaction",
+        "choice": ["Payment", "Transaction", "Delivery", "Contract"],
+        "answer": "Transaction",
+        "question": "What does 交易 (jiāo yì) mean?",
+        "type": "question"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "shì de, wǒ duì zhè cì de hé zuò fēi cháng mǎn yì.",
+        "hanzi": "是的，我对这次的合作非常满意。",
+        "meaning": "Yes, I am very satisfied with this collaboration.",
+        "type": "speaker1"
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "zuì zhōng",
+        "hanzi": "最终",
+        "meaning": "Final",
+        "choice": ["Final", "Beginning", "Middle", "Plan"],
+        "answer": "Final",
+        "question": "Listen, what does 最终 (zuì zhōng) mean?",
+        "type": "question"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "nà tài hǎo le, nín xū yào wǒ men zuò xiē shén me lái jié shù zhè cì hé zuò ma?",
+        "hanzi": "那太好了，您需要我们做些什么来结束这次合作吗？",
+        "meaning": "That's great! Is there anything we need to do to conclude this collaboration?",
+        "type": "speaker2"
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "bù xū yào le, yī qiè dōu jìn xíng de hěn shùn lì.",
+        "hanzi": "不需要了，一切都进行得很顺利。",
+        "meaning": "No need, everything is going very smoothly.",
+        "type": "speaker1"
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "shùn lì",
+        "hanzi": "顺利",
+        "meaning": "Smooth",
+        "answer": "顺利",
+        "question": "Please repeat 顺利 (shùn lì).",
+        "type": "question"
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "fēi cháng gǎn xiè nín de xìn rèn, wǒ men qí dài xià yī cì hé zuò.",
+        "hanzi": "非常感谢您的信任，我们期待下一次合作。",
+        "meaning": "Thank you very much for your trust, we look forward to our next collaboration.",
+        "type": "speaker2"
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "wǒ men yě fēi cháng qí dài xià cì hé zuò.",
+        "hanzi": "我们也非常期待下次合作。",
+        "meaning": "We are also very much looking forward to the next collaboration.",
+        "answer": "我们也非常期待下次合作",
+        "question": "Say in Mandarin, \"We are also looking forward to the next collaboration.\"",
+        "type": "question"
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "qǐng suí shí lián xì wǒ, bǎo chí hé zuò de shùn lì.",
+        "hanzi": "请随时联系我，保持合作的顺利。",
+        "meaning": "Please feel free to contact me anytime to ensure the smoothness of our collaboration.",
+        "type": "speaker2"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "méi wèn tí, wǒ men yí dìng huì bǎo chí lián xì.",
+        "hanzi": "没问题，我们一定会保持联系。",
+        "meaning": "No problem, we will definitely keep in touch.",
+        "type": "speaker1"
+    }
+]
+

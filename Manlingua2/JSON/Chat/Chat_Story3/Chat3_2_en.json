@@ -1,0 +1,108 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "wǒ men lái tǎo lùn jiāo huò de xìjié ba",
+        "hanzi": "我们来讨论交货的细节吧",
+        "meaning": "Let’s discuss the delivery details.",
+        "type": "speaker1"
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "hǎo de, nǐ men tōng cháng shǐ yòng shén me fāng shì yùn sòng",
+        "hanzi": "好的，你们通常使用什么方式运送",
+        "meaning": "Okay, what delivery method do you usually use?",
+        "type": "speaker2"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "jiāo huò",
+        "hanzi": "交货",
+        "meaning": "Delivery",
+        "choice": ["Delivery", "Payment", "Production", "Sample"],
+        "answer": "Delivery",
+        "question": "What does 交货 (jiāo huò) mean?",
+        "type": "question"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "wǒ men tōng cháng shǐ yòng hǎi yùn hé kōng yùn",
+        "hanzi": "我们通常使用海运和空运",
+        "meaning": "We usually use sea and air shipping.",
+        "type": "speaker1"
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "hǎi yùn",
+        "hanzi": "海运",
+        "meaning": "Sea shipping",
+        "choice": ["Air shipping", "Sea shipping", "Land shipping", "Express delivery"],
+        "answer": "Sea shipping",
+        "question": "Listen, what does 海运 (hǎi yùn) mean?",
+        "type": "question"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "kōng yùn xū yào duō cháng shí jiān",
+        "hanzi": "空运需要多长时间",
+        "meaning": "How long does air shipping take?",
+        "type": "speaker2"
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "kōng yùn tōng cháng xū yào wǔ dào qī tiān",
+        "hanzi": "空运通常需要五到七天",
+        "meaning": "Air shipping usually takes five to seven days.",
+        "type": "speaker1"
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "kōng yùn",
+        "hanzi": "空运",
+        "meaning": "Air shipping",
+        "answer": "空运",
+        "question": "Repeat 空运 (kōng yùn).",
+        "type": "question"
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "wǒ men gèng xǐ huān yòng kōng yùn yīn wèi sù dù bǐ jiào kuài",
+        "hanzi": "我们更喜欢用空运，因为速度比较快",
+        "meaning": "We prefer air shipping because it’s faster.",
+        "type": "speaker2"
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "hǎi yùn bǐ jiào pián yí",
+        "hanzi": "海运比较便宜。",
+        "meaning": "Sea shipping is cheaper.",
+        "answer": "海运比较便宜",
+        "question": "Answer in Mandarin: 'Sea shipping is cheaper.'",
+        "type": "question"
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "wǒ men kě yǐ xiān yòng kōng yùn rán hòu zài yòng hǎi yùn",
+        "hanzi": "我们可以先用空运，然后再用海运",
+        "meaning": "We can use air shipping first, then switch to sea shipping.",
+        "type": "speaker2"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "méi wèn tí wǒ men huì àn zhào nín de yāo qiú ān pái",
+        "hanzi": "没问题，我们会按照您的要求安排",
+        "meaning": "No problem, we’ll arrange it according to your request.",
+        "type": "speaker1"
+    }
+]
