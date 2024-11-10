@@ -7,20 +7,15 @@
 
 import SwiftUI
 
-struct BottomStoryButtons: View {
-   @EnvironmentObject var router: Router
-   @EnvironmentObject var homeViewModel: HomeViewModel
-   @EnvironmentObject var storyViewModel: StoryViewModel
-   
-   @Binding var currentIndex: Int
-   var storyId: Int
-   
-   @State var textToSpeech = TextToSpeech()
+struct BottomContainerButtons: View {
+   var bookAction: () -> Void
+   var speakerAction: () -> Void
+   var turtleAction: () -> Void
    
    var body: some View {
       HStack{
          Button {
-            router.push(.dictionary(judul: homeViewModel.stories_example[storyId - 1].title, displayMode: .story(id: storyId)))
+            bookAction()
          } label: {
             Image(systemName: "book")
                .font(.titleKe2())
@@ -30,7 +25,7 @@ struct BottomStoryButtons: View {
          .buttonStyle(CustomOnTapButton())
          
          Button {
-            textToSpeech.speak(text: storyViewModel.chat_example[currentIndex].hanzi)
+            speakerAction()
          } label: {
             Image(systemName: "speaker.wave.2")
                .font(.titleKe2())
@@ -40,7 +35,7 @@ struct BottomStoryButtons: View {
          .buttonStyle(CustomOnTapButton())
          
          Button {
-            textToSpeech.speak(text: storyViewModel.chat_example[currentIndex].hanzi)
+            turtleAction()
          } label: {
             Image(systemName: "tortoise")
                .font(.titleKe2())
@@ -53,5 +48,5 @@ struct BottomStoryButtons: View {
 }
 
 #Preview {
-   BottomStoryButtons(currentIndex: .constant(1), storyId: 1)
+   BottomContainerButtons(bookAction: {}, speakerAction: {}, turtleAction: {})
 }

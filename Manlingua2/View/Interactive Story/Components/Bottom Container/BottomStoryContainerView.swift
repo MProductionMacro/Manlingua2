@@ -21,13 +21,17 @@ struct BottomStoryContainerView: View {
    @EnvironmentObject var storyViewModel: StoryViewModel
    
    @State var textToSpeech = TextToSpeech()
-   @State private var temporarilyPressedButton: String? = nil
-   
-   @State var tapping = false
    
    var body: some View {
       VStack(spacing: 0) {
-         BottomStoryButtons(currentIndex: $currentIndex, storyId: storyId)
+         BottomContainerButtons {
+            router.push(.dictionary(judul: homeViewModel.stories_example[storyId].title, displayMode: .story(id: storyId)))
+         } speakerAction: {
+            textToSpeech.speak(text: storyViewModel.chat_example[currentIndex].hanzi)
+         } turtleAction: {
+            textToSpeech.speakSlow(text: storyViewModel.chat_example[currentIndex].hanzi)
+         }
+
          
          if chatType == .question {
             Divider()
@@ -77,16 +81,6 @@ struct BottomStoryContainerView: View {
       .background(.white)
       .clipShape(CustomRoundedRectangle(cornerRadius: 24, corners: [.topLeft, .topRight]))
       .animation(.easeInOut(duration: 0.3), value: chatType == .question)
-   }
-   
-   private func handleButtonPress(_ button: String) {
-      // Set the button as temporarily pressed
-      temporarilyPressedButton = button
-      
-      // After 0.2 seconds, reset the pressed button state
-      DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-         temporarilyPressedButton = nil
-      }
    }
 }
 

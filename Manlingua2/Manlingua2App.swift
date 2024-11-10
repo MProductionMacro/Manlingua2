@@ -17,6 +17,7 @@ struct Manlingua2App: App {
    @StateObject var storyViewModel = StoryViewModel()
    @StateObject var learnViewModel = LearnViewModel()
    @StateObject var challengeViewModel = ChallengeViewModel()
+   @StateObject var flashcardViewModel = FlashcardViewModel()
    @StateObject var coreData = CoreDataSingleton.shared
    @StateObject var swiftData = SwiftDataServices.shared
    
@@ -39,7 +40,7 @@ struct Manlingua2App: App {
          .environmentObject(homeViewModel)
          .environmentObject(storyViewModel)
          .environmentObject(learnViewModel)
-         .environmentObject(FlashcardViewModel())
+         .environmentObject(flashcardViewModel)
          .environmentObject(challengeViewModel)
          
          .preferredColorScheme(.light)

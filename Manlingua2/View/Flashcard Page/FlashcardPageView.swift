@@ -9,14 +9,14 @@ import SwiftUI
 
 struct FlashcardPageView: View {
    @EnvironmentObject var router: Router
-    @StateObject var viewModel = FlashcardViewModel()
+   @EnvironmentObject var viewModel: FlashcardViewModel
    @StateObject var singleton = UserDefaultSingleton.shared
    @State var tutorialOverlay: Int = 1
    @State var audioController = AudioController.shared
    @State private var showConfirmationAlert = false
-
+   
    var body: some View {
-       ZStack (alignment: .bottom){
+      ZStack (alignment: .bottom){
          VStack {
             HStack(spacing: 4) {
                Button {
@@ -47,47 +47,44 @@ struct FlashcardPageView: View {
             }
             .padding(.horizontal)
             
-            //Spacer()
+            Spacer()
             
             VStack{
-                ZStack{
-                    ForEach(0 ..< viewModel.showVocabularies.count, id: \.self) { index in
-                        if index >= viewModel.currentIndex {
-                              viewModel.createFlashcardView(for: index)
-                                 .zIndex(Double(viewModel.showVocabularies.count - index))
-                        }
-
-                    }
-                }
-                .shadow(radius: 0, x: 0, y: 0)
+               ZStack{
+                  ForEach(0 ..< viewModel.showVocabularies.count, id: \.self) { index in
+                     if index >= viewModel.currentIndex {
+                        viewModel.createFlashcardView(for: index)
+                           .zIndex(Double(viewModel.showVocabularies.count - index))
+                     }
+                     
+                  }
+               }
+               .shadow(radius: 0, x: 0, y: 0)
             }
             .shadow(color: .black.opacity(0.2), radius: 12, x: 0, y: 0)
-            .padding(.top, 72)
-
             
             Spacer()
             
-             
+            BottomFlashcardContainerView()
          }
          .frame(maxHeight: .infinity)
-          
-          
-          BottomContainerView(viewModel: viewModel, audioController: $audioController).onTapGesture{
-              router.push(.donePage(currentPage: .story, currentPart: .first))
+         
+         //          BottomContainerView(viewModel: viewModel, audioController: $audioController).onTapGesture{
+         //              router.push(.donePage(currentPage: .story, currentPart: .first))
+         //          }
+         
+         /*
+          .overlay{
+          if singleton.hasNotOpenFlashcardPage(){
+          FlashcardTutorialOverlay(tutorialOverlay: $tutorialOverlay)
           }
-
-        /*
-         .overlay{
-            if singleton.hasNotOpenFlashcardPage(){
-               FlashcardTutorialOverlay(tutorialOverlay: $tutorialOverlay)
-            }
-         }
-        
-         FlashcardSidebarButton(viewModel: viewModel){
-            tutorialOverlay = tutorialOverlay + 1
-         }
-         .offset(y: 160)
-         */
+          }
+          
+          FlashcardSidebarButton(viewModel: viewModel){
+          tutorialOverlay = tutorialOverlay + 1
+          }
+          .offset(y: 160)
+          */
       }
       .frame(maxHeight: .infinity)
       .background(
@@ -102,13 +99,14 @@ struct FlashcardPageView: View {
          }
       }
       .ignoresSafeArea(.container, edges: .bottom)
-
+      
    }
 }
 
 #Preview {
    FlashcardPageView()
       .environmentObject(Router())
+      .environmentObject(FlashcardViewModel())
 }
 
 
