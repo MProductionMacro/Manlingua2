@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfilePageView: View {
     @StateObject var viewModel = ProfileViewModel()
-   
+    @EnvironmentObject var router: Router
     var body: some View {
         VStack(alignment: .center){
             HStack{
@@ -36,13 +36,13 @@ struct ProfilePageView: View {
             VStack(spacing: 32){
                 VStack(spacing: 24){
                     ProfileNavigationButton(title: "Languages", imageName: "globe"){
-                  
+                        router.push(.languageSetting)
                     }
                     .frame(width: 361, height: 35)
                
                
                     ProfileNavigationButton(title: "Notification", imageName: "bell"){
-                  
+                        router.push(.notificationSetting)
                     }
                     .frame(width: 361, height: 35)
                

@@ -76,6 +76,9 @@ class Router: ObservableObject {
       case .languageSetting:
           LanguageSettingView()
               .navigationBarBackButtonHidden(true)
+      case .notificationSetting:
+          NotificationSettingView()
+              .navigationBarBackButtonHidden(true)
       }
    }
 }
@@ -95,6 +98,7 @@ enum Screen: Hashable {
    case cameraView
    case languageSetting
    case importantNote(displayMode: NoteDisplayMode)
+   case notificationSetting
 }
 
 /*
