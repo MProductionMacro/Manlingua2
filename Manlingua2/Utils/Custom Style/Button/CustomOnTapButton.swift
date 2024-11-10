@@ -15,7 +15,7 @@ struct CustomOnTapButton : PrimitiveButtonStyle {
          .padding(.vertical, 24)
          .fontWeight(pressed ? .bold : .regular)
          .animation(.easeInOut, value: pressed)
-         .background(pressed ? .orange3.opacity(0.35) : .clear)
+         .background(pressed ? .orange3.opacity(0.35) : .white)
          .gesture(DragGesture(minimumDistance: 0).onChanged { _ in
             pressed = true
          }.onEnded { value in
@@ -31,14 +31,5 @@ struct CustomOnTapButton : PrimitiveButtonStyle {
                }
             }
          })
-//         .onTapGesture {
-//            pressed = true
-//            
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05){
-//               withAnimation {
-//                  pressed = false
-//               }
-//            }
-//         }
    }
 }
