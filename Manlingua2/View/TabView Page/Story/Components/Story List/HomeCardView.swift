@@ -23,9 +23,6 @@ struct HomeCardView: View {
       //TODO: Framenya hard coded, takut ga responsive
       VStack(alignment: .center, spacing: 16) {
          Image(.story1Thumbnail)
-         //            .resizable()
-         //            .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.width * 0.5)
-         //            .scaledToFit()
             .saturation(isDisabled ? 0 : 1)
             .colorMultiply(isDisabled ? .customLighterGray : .white)
          
@@ -51,7 +48,7 @@ struct HomeCardView: View {
          }
          .frame(maxWidth: .infinity, alignment: .leading)
          
-         ProgressView(value: 0, total: 1)
+         ProgressView(value: Float(singleton.storyProgress[story.id - 1] - 1), total: Float(story.subChapter.count))
             .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
          
          HStack {

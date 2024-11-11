@@ -13,54 +13,64 @@ struct Speaker2BubbleChatView: View {
    var meaning: String
    
    @State var isShowingMeaning = false
+   @State private var textWidth: CGFloat = 0
    
    var body: some View {
       HStack{
          Spacer()
          
          HStack(alignment: .top, spacing: 0) {
-            VStack(alignment: .leading, spacing: 2) {
-               Text(pinyin)
-                  .font(.pinyin())
-                  .fontWeight(.bold)
-                  .foregroundColor(.gray)
-               
-               // Chinese characters
-               Text(hanzi)
-                  .font(.hanzi())
-                  .foregroundColor(.black)
-                  .overlay {
-                     DottedUnderline()
-                        .frame(height: UIScreen.main.bounds.height * 0.015)
-                        .offset(y: UIScreen.main.bounds.height * 0.02)
-                  }
-                  .onTapGesture {
-                     isShowingMeaning.toggle()
-                  }
-                  .popover(isPresented: $isShowingMeaning, attachmentAnchor: .point(.bottom)) {
-                     ZStack {
-                        Color.customLightGray
-                           .scaleEffect(1.5)
-                        
-                        Text(meaning)
-                           .font(.hanzi())
-                           .foregroundColor(.black)
-                           .padding(.horizontal, 4)
-                           .multilineTextAlignment(.leading)
+            VStack(spacing: 8) {
+               VStack(alignment: .leading, spacing: 2) {
+                  Text(pinyin)
+                     .font(.pinyin())
+                     .fontWeight(.bold)
+                     .foregroundColor(.gray)
+                  
+                  // Chinese characters
+                  Text(hanzi)
+                     .font(.hanzi())
+                     .foregroundColor(.black)
+                     .background(GeometryReader { geometry in
+                        Color.clear.onAppear {
+                           textWidth = max(textWidth, geometry.size.width)
+                        }
+                     })
+                     .overlay {
+                        DottedUnderline()
+                           .frame(height: UIScreen.main.bounds.height * 0.015)
+                           .offset(y: UIScreen.main.bounds.height * 0.02)
                      }
-                     .presentationCompactAdaptation(.popover)
+                     .onTapGesture {
+//                        withAnimation {
+                           isShowingMeaning.toggle()
+//                        }
+                     }
+               }
+               .padding(8)
+               //               .frame(maxWidth: .infinity, alignment: .leading)
+               
+               if isShowingMeaning {
+                  VStack {
+                     CustomDivider(color: .white)
+                     
+                     Text(meaning)
+                        .font(.system(size: 14))
+                        .multilineTextAlignment(.trailing)
+                        .padding([.trailing, .bottom], 8)
                   }
+//                  .transition(.move(edge: .top).combined(with: .opacity))
+               }
             }
-            .padding(8)
             .background(
                ZStack(alignment: .topLeading) {
                   RoundedRectangle(cornerRadius: 8)
-                     .fill(.white)
+                     .fill(.green1)
                }
             )
             
             RightCustomTriangle(cornerRadius: 16)
-               .fill(.white)
+               .fill(.green1)
                .frame(width: UIScreen.main.bounds.width * 0.03, height: UIScreen.main.bounds.height * 0.02)
                .padding(.top, 8)
          }
