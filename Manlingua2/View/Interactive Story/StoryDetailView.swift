@@ -22,7 +22,7 @@ struct StoryDetailView: View {
    
    var chapterId: Int
    var subChapterId: Int
-   var isFromHome: Bool
+//   var isFromHome: Bool
    
    var body: some View {
       GeometryReader { geometry in

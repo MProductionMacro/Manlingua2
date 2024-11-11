@@ -57,7 +57,7 @@ struct HomeCardView: View {
                   let subChapterId = singleton.latestSubChapter
                   
                   storyVM.loadChat(storyId: story.id, subChapterId: subChapterId)
-                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId, isFromHome: true))
+                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
                }
             } label: {
                Text("Mulai")

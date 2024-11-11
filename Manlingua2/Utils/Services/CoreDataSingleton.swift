@@ -123,8 +123,10 @@ class CoreDataSingleton: ObservableObject {
    }
    
    func updateSpecificStoryProgress(story: Int, subChapterProgress: Int) {
-      storyProgress[story - 1] = subChapterProgress
-      saveProgressData()
+      if subChapterProgress >= storyProgress[story - 1] {
+         storyProgress[story - 1] = subChapterProgress
+         saveProgressData()
+      }
    }
    
    func hasNotOpenFlashcardPage() -> Bool {
