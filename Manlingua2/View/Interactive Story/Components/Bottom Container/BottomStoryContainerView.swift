@@ -10,11 +10,14 @@ import SwiftUI
 struct BottomStoryContainerView: View {
    @Binding var currentIndex: Int
    @Binding var questionAppeared: Bool
+   @Binding var selectedAnswer: String?
+   @Binding var isCorrect: Bool
+   @Binding var hasAnswered: Bool
    
    var storyId: Int
    var chatType: ChatType
    var choices: [String]?
-   var onAnswerSelected: (String) -> Void
+   var realAnswer: String?
    
    @EnvironmentObject var router: Router
    @EnvironmentObject var homeViewModel: HomeViewModel
@@ -31,7 +34,7 @@ struct BottomStoryContainerView: View {
          } turtleAction: {
             textToSpeech.speakSlow(text: storyViewModel.chat_example[currentIndex].hanzi)
          }
-
+         
          
          if chatType == .question {
             Divider()
@@ -40,30 +43,21 @@ struct BottomStoryContainerView: View {
                if questionAppeared {
                   if let choices = choices {
                      QuestionModalityView(choices: choices) { answer in
-                        withAnimation{
-                           questionAppeared = false
-                        }
+                        selectedAnswer = answer
                         
-                        currentIndex += 1
-                        //                  selectedAnswer = answer
-                        //                  withAnimation {
-                        //                     isCorrect = (answer == chat.answer)
-                        //                     hasAnswered = true
-                        //                  }
+                        withAnimation {
+                           isCorrect = (answer == realAnswer)
+                           hasAnswered = true
+                        }
                      }
                      .padding(.vertical, 24)
                      .transition(.move(edge: .bottom))
                   }else{
                      MicrophoneModalityView() { answer in
                         withAnimation{
-                           questionAppeared = false
+                           isCorrect = (answer == realAnswer)
+                           hasAnswered = true
                         }
-                        
-                        currentIndex += 1
-                        //                  withAnimation{
-                        //                     isCorrect = (answer == chat.answer)
-                        //                     hasAnswered = true
-                        //                  }
                      }
                      .padding(.vertical, 24)
                      .transition(.move(edge: .bottom))
@@ -84,11 +78,11 @@ struct BottomStoryContainerView: View {
    }
 }
 
-#Preview {
-   BottomStoryContainerView(currentIndex: .constant(1), questionAppeared: .constant(true), storyId: 1, chatType: .question, choices: [], onAnswerSelected: {result in})
-      .frame(maxHeight: .infinity)
-      .background(.black)
-      .environmentObject(Router())
-      .environmentObject(HomeViewModel())
-      .environmentObject(StoryViewModel())
-}
+//#Preview {
+//   BottomStoryContainerView(currentIndex: .constant(1), questionAppeared: .constant(true), storyId: 1, chatType: .question, choices: [], onAnswerSelected: {result in})
+//      .frame(maxHeight: .infinity)
+//      .background(.black)
+//      .environmentObject(Router())
+//      .environmentObject(HomeViewModel())
+//      .environmentObject(StoryViewModel())
+//}

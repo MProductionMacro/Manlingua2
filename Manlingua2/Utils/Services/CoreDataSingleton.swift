@@ -96,12 +96,14 @@ class CoreDataSingleton: ObservableObject {
    }
    
    func updateLatestSubChapter(for subChapterId: Int) {
-      latestSubChapter = subChapterId
-      saveProgressData()
-      
       if latestSubChapter > 3 {
          updateLatestStory(for: latestStory + 1)
+         latestSubChapter = 1
+      }else{
+         latestSubChapter = subChapterId
       }
+      
+      saveProgressData()
    }
    
    func updateLatestStory(for chapterId: Int) {

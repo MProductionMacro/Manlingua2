@@ -9,8 +9,9 @@ import SwiftUI
 
 struct HomeCardView: View {
    @State var homeCard: ImageResource
-   @State var isDisabled: Bool
    @State var isComplete: Bool
+   
+   @Binding var isDisabled: Bool
    
    @EnvironmentObject var router: Router
    @EnvironmentObject var homeVM: HomeViewModel
@@ -57,6 +58,7 @@ struct HomeCardView: View {
                   let subChapterId = singleton.latestSubChapter
                   
                   storyVM.loadChat(storyId: story.id, subChapterId: subChapterId)
+                  
                   router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
                }
             } label: {

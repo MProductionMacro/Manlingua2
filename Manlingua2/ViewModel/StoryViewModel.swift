@@ -76,7 +76,7 @@ class StoryViewModel: ObservableObject {
       }
       
       if currentStory == singleton.latestStory && currentSubChapter == singleton.latestSubChapter{
-         if currentSubChapter > 3 {
+         if currentSubChapter >= 3 {
             singleton.updateLatestSubChapter(for: 1)
             singleton.updateLatestStory(for: currentStory + 1)
          }else{
