@@ -33,8 +33,8 @@ struct DictionaryView: View {
                      columns: [GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 0)],
                      spacing: 16 // Vertical spacing
                  ) {
-                     ForEach(viewModel.vocabularies, id: \.self) { vocabulary in
-                         FlashcardDictionaryView(vocab: vocabulary, textToSpeech: $textToSpeech)
+                     ForEach(viewModel.getVocabulary(displayMode), id: \.self) { vocabulary in
+                         FlashcardDictionaryView(vocab: vocabulary, textToSpeech: $textToSpeech, viewModel: viewModel)
                              .padding(0)
                              //.background(.red)
                      }
@@ -66,5 +66,4 @@ struct DictionaryView: View {
       DictionaryView(judul: "Story Vocabulary", displayMode: .story(id: 1))
    }
 }
-
 

@@ -1,0 +1,157 @@
+[
+    {
+        "id": 1,
+        "number": 1,
+        "title": "Introduction",
+        "hanzi": "介绍",
+        "description": "My name is Abai. Can I introduce myself, make small talk, and build strong business relationships with Chinese partners? Let's learn together!",
+        "pinyin": "jiè shào",
+        "isDone": false,
+        "subChapter": [
+            {
+                "id": 1,
+                "title": "Small Talk",
+                "pinyin": "xián liáo",
+                "hanzi": "闲聊",
+                "duration": 10,
+                "chat_json": "Chat1_1",
+                "isDone": false
+            },
+            {
+                "id": 2,
+                "title": "Drinking Tea",
+                "pinyin": "hē chá",
+                "hanzi": "喝茶",
+                "duration": 10,
+                "chat_json": "Chat1_2",
+                "isDone": false
+            },
+            {
+                "id": 3,
+                "title": "Name Introduction",
+                "pinyin": "zì wǒ jiè shào",
+                "hanzi": "自我介绍",
+                "duration": 10,
+                "chat_json": "Chat1_3",
+                "isDone": false
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "number": 2,
+        "title": "Negotiation",
+        "hanzi": "谈判",
+        "description": "My name is Abai. It’s time to negotiate! Can I understand my partner's needs, discuss product specifications, and reach a mutually beneficial price agreement? Let’s learn the art of negotiation together!",
+        "pinyin": "tán pàn",
+        "isDone": false,
+        "subChapter": [
+            {
+                "id": 1,
+                "title": "Ask About Needs",
+                "pinyin": "xún wèn xū qiú",
+                "hanzi": "询问需求",
+                "duration": 10,
+                "chat_json": "Chat2_1",
+                "isDone": false
+            },
+            {
+                "id": 2,
+                "title": "Product Specifications",
+                "pinyin": "chǎn pǐn guī gé",
+                "hanzi": "产品规格",
+                "duration": 10,
+                "chat_json": "Chat2_2",
+                "isDone": false
+            },
+            {
+                "id": 3,
+                "title": "Price Negotiation",
+                "pinyin": "yì jià",
+                "hanzi": "议价",
+                "duration": 10,
+                "chat_json": "Chat2_3",
+                "isDone": false
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "number": 3,
+        "title": "Contract",
+        "hanzi": "合同",
+        "description": "My name is Abai. It’s time to discuss contracts, from delivery arrangements to precise scheduling. Can I ensure everything goes according to plan with my business partners in China? Let’s learn how to manage contracts effectively!",
+        "pinyin": "hé tóng",
+        "isDone": false,
+        "subChapter": [
+            {
+                "id": 1,
+                "title": "Contract Discussion",
+                "pinyin": "hé tóng tǎo lùn",
+                "hanzi": "合同讨论",
+                "duration": 10,
+                "chat_json": "Chat3_1",
+                "isDone": false
+            },
+            {
+                "id": 2,
+                "title": "Delivery",
+                "pinyin": "jiāo huò",
+                "hanzi": "交货",
+                "duration": 10,
+                "chat_json": "Chat3_2",
+                "isDone": false
+            },
+            {
+                "id": 3,
+                "title": "Delivery Schedule",
+                "pinyin": "jiāo huò shí jiān",
+                "hanzi": "交货时间",
+                "duration": 10,
+                "chat_json": "Chat3_3",
+                "isDone": false
+            }
+
+        ]
+    },
+    {
+        "id": 4,
+        "number": 4,
+        "title": "Pembayaran",
+        "hanzi": "支付",
+        "description": "My name is Abai. It's time to finalize the transaction from payment to receiving the goods. Can I complete everything smoothly and ensure a successful collaboration? Let's learn together how to do it!",
+        "pinyin": "zhī fù",
+        "isDone": false,
+        "subChapter": [
+            {
+                "id": 1,
+                "title": "Payment",
+                "pinyin": "zhī fù",
+                "hanzi": "支付",
+                "duration": 10,
+                "chat_json": "Chat4_1",
+                "isDone": false
+            },
+            {
+                "id": 2,
+                "title": "Receipt of Goods",
+                "pinyin": "shōu huò",
+                "hanzi": "收货",
+                "duration": 10,
+                "chat_json": "Chat4_2",
+                "isDone": false
+            },
+            {
+                "id": 3,
+                "title": "Final Resolution",
+                "pinyin": "zuì zhōng jiě jué",
+                "hanzi": "最终解决",
+                "duration": 10,
+                "chat_json": "Chat4_3",
+                "isDone": false
+            }
+        ]
+    }
+]
+ 
+

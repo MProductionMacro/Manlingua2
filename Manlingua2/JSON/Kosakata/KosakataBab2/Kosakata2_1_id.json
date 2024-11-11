@@ -5,7 +5,8 @@
         "meaning": "Produk",
         "hanziSentence": "我们的新产品非常受欢迎。",
         "pinyinSentence": "wǒ men de xīn chǎn pǐn fēi cháng shòu huān yíng.",
-        "meaningSentence": "Produk baru kami sangat populer."
+        "meaningSentence": "Produk baru kami sangat populer.",
+        "language" : "id"
     },
     {
         "hanzi": "电子",
@@ -13,7 +14,8 @@
         "meaning": "Elektronik",
         "hanziSentence": "我们公司销售各种电子产品。",
         "pinyinSentence": "wǒ men gōng sī xiāo shòu gè zhǒng diàn zǐ chǎn pǐn.",
-        "meaningSentence": "Perusahaan kami menjual berbagai produk elektronik."
+        "meaningSentence": "Perusahaan kami menjual berbagai produk elektronik.",
+        "language" : "id"
     },
     {
         "hanzi": "质量",
@@ -21,7 +23,8 @@
         "meaning": "Kualitas",
         "hanziSentence": "我们保证产品的质量。",
         "pinyinSentence": "wǒ men bǎo zhèng chǎn pǐn de zhì liàng.",
-        "meaningSentence": "Kami menjamin kualitas produk."
+        "meaningSentence": "Kami menjamin kualitas produk.",
+        "language" : "id"
     },
     {
         "hanzi": "不同",
@@ -29,7 +32,8 @@
         "meaning": "Berbeda",
         "hanziSentence": "这两个产品有很多不同。",
         "pinyinSentence": "zhè liǎng gè chǎn pǐn yǒu hěn duō bù tóng.",
-        "meaningSentence": "Dua produk ini memiliki banyak perbedaan."
+        "meaningSentence": "Dua produk ini memiliki banyak perbedaan.",
+        "language" : "id"
     },
     {
         "hanzi": "关心",
@@ -37,7 +41,8 @@
         "meaning": "Peduli",
         "hanziSentence": "她非常关心同事的工作情况。",
         "pinyinSentence": "tā fēi cháng guān xīn tóng shì de gōng zuò qíng kuàng.",
-        "meaningSentence": "Dia sangat peduli dengan kondisi kerja rekan-rekannya."
+        "meaningSentence": "Dia sangat peduli dengan kondisi kerja rekan-rekannya.",
+        "language" : "id"
     },
     {
         "hanzi": "寄",
@@ -45,6 +50,7 @@
         "meaning": "Mengirimkan",
         "hanziSentence": "我已经寄出了合同。",
         "pinyinSentence": "wǒ yǐ jīng jì chū le hé tóng.",
-        "meaningSentence": "Saya sudah mengirimkan kontraknya."
+        "meaningSentence": "Saya sudah mengirimkan kontraknya.",
+        "language" : "id"
     }
 ]

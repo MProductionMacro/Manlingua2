@@ -1,0 +1,109 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "Nǐ zuì jìn qù nǎ lǐ lǚ xíng le ma?",
+        "hanzi": "你最近去哪里旅行了吗？",
+        "meaning": "Have you traveled anywhere recently?",
+        "type": "speaker1"
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "Shì de, wǒ gāng cóng běi jīng huí lái. Nǐ ne?",
+        "hanzi": "是的，我刚从北京回来。你呢？",
+        "meaning": "Yes, I just returned from Beijing. How about you?",
+        "type": "speaker2"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "lǚxíng",
+        "hanzi": "旅行",
+        "meaning": "Travel",
+        "choice": ["Eat", "Travel", "Sleep", "Play"],
+        "answer": "Travel",
+        "question": "What does 旅行 (lǚxíng) mean?",
+        "type": "question"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "Wǒ zuì jìn qù le shàng hǎi cān jiā yí gè huì yì.",
+        "hanzi": "我最近去了上海参加一个会议。",
+        "meaning": "I recently went to Shanghai to attend a conference.",
+        "type": "speaker1"
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "Huìyì",
+        "hanzi": "会议",
+        "meaning": "Conference",
+        "choice": ["Conference", "Dinner", "Shopping", "Rest"],
+        "answer": "Conference",
+        "question": "Listen, what does 会议 (huìyì) mean?",
+        "type": "question"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "Wā, shàng hǎi hěn hǎo! Nǐ men tǎo lùn le shén me?",
+        "hanzi": "哇，上海很好！你们讨论了什么？",
+        "meaning": "Wow, Shanghai is great! What did you discuss?",
+        "type": "speaker2"
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "Wǒ men tǎo lùn le jīn nián de chū kǒu jī huì.",
+        "hanzi": "我们讨论了今年的出口机会。",
+        "meaning": "We discussed export opportunities for this year.",
+        "type": "speaker1"
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "Cì yīhuì",
+        "hanzi": "机会",
+        "meaning": "Opportunity",
+        "answer": "机会",
+        "question": "Repeat the word 机会 (jīhuì).",
+        "type": "question"
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "Nà tài hǎo le! Wǒ men yě zài xún zhǎo xīn de hé zuò jī huì.",
+        "hanzi": "那太好了！我们也在寻找新的合作机会。",
+        "meaning": "That’s fantastic! We are also looking for new collaboration opportunities.",
+        "type": "speaker2"
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "Xī wàng wǒ men kě yǐ hé zuò!",
+        "hanzi": "希望我们可以合作！",
+        "meaning": "Hope we can work together!",
+        "answer": "希望我们可以合作",
+        "question": "Answer in Mandarin: 'Hope we can work together!'",
+        "type": "question"
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "Hǎo de, qí dài hé zuò de jīhuì!",
+        "hanzi": "好的，期待合作的机会！",
+        "meaning": "Great, looking forward to collaboration opportunities!",
+        "type": "speaker2"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "Yí dìng huì yǒu hěn hǎo de jī huì.",
+        "hanzi": "一定会有很好的机会。",
+        "meaning": "There will definitely be good opportunities.",
+        "type": "speaker1"
+    }
+]
+

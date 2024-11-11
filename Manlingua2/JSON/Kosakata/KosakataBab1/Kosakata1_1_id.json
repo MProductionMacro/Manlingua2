@@ -5,7 +5,8 @@
         "meaning": "Berita",
         "hanziSentence": "我有一个好消息。",
         "pinyinSentence": "wǒ yǒu yī gè hǎo xiāo xi.",
-        "meaningSentence": "Saya punya kabar baik."
+        "meaningSentence": "Saya punya kabar baik.",
+        "language" : "id"
     },
     {
         "hanzi": "出口",
@@ -13,7 +14,8 @@
         "meaning": "Ekspor",
         "hanziSentence": "中国是世界上最大的出口国家。",
         "pinyinSentence": "zhōng guó shì shì jiè shàng zuì dà de chū kǒu guó jiā.",
-        "meaningSentence": "Tiongkok adalah negara pengekspor terbesar di dunia."
+        "meaningSentence": "Tiongkok adalah negara pengekspor terbesar di dunia.",
+        "language" : "id"
     },
     {
         "hanzi": "贸易",
@@ -21,7 +23,8 @@
         "meaning": "Perdagangan",
         "hanziSentence": "他对国际贸易很有兴趣。",
         "pinyinSentence": "tā duì guó jì mào yì hěn yǒu xìng qù.",
-        "meaningSentence": "Dia sangat tertarik pada perdagangan internasional."
+        "meaningSentence": "Dia sangat tertarik pada perdagangan internasional.",
+        "language" : "id"
     },
     {
         "hanzi": "认识",
@@ -29,7 +32,8 @@
         "meaning": "Mengenal",
         "hanziSentence": "我很高兴认识你。",
         "pinyinSentence": "wǒ hěn gāo xìng rèn shí nǐ.",
-        "meaningSentence": "Saya senang mengenal Anda."
+        "meaningSentence": "Saya senang mengenal Anda.",
+        "language" : "id"
     },
     {
         "hanzi": "合作",
@@ -37,7 +41,8 @@
         "meaning": "Kerja sama",
         "hanziSentence": "我们今天签订了合作协议。",
         "pinyinSentence": "wǒ men jīn tiān qiān dìng le hé zuò xié yì.",
-        "meaningSentence": "Kami menandatangani perjanjian kerja sama hari ini."
+        "meaningSentence": "Kami menandatangani perjanjian kerja sama hari ini.",
+        "language" : "id"
     },
     {
         "hanzi": "高兴",
@@ -45,7 +50,8 @@
         "meaning": "Senang",
         "hanziSentence": "他很高兴听到这个消息。",
         "pinyinSentence": "tā hěn gāo xìng tīng dào zhè ge xiāo xi.",
-        "meaningSentence": "Dia sangat senang mendengar kabar ini."
+        "meaningSentence": "Dia sangat senang mendengar kabar ini.",
+        "language" : "id"
     },
     {
         "hanzi": "生意",
@@ -53,6 +59,7 @@
         "meaning": "Bisnis",
         "hanziSentence": "他有一家成功的生意。",
         "pinyinSentence": "tā yǒu yī jiā chénggōng de shēngyì.",
-        "meaningSentence": "Dia memiliki bisnis yang sukses."
+        "meaningSentence": "Dia memiliki bisnis yang sukses.",
+        "language" : "id"
     }
 ]

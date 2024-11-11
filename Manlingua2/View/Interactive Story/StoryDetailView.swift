@@ -57,7 +57,7 @@ struct StoryDetailView: View {
             
             ChatScrollView(currentIndex: $currentIndex, chats: viewModel.chat_example) {
                viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
-               router.push(.donePage(currentPage: .story, currentPart: .first))
+                router.push(.donePage(displayMode: .story(storyId: chapterId, subChapterId: subChapterId)))
             }
             
             BottomStoryContainerView(currentIndex: $currentIndex, questionAppeared: $modalAppeared, storyId: chapterId, chatType: viewModel.chat_example[currentIndex].type, choices: viewModel.chat_example[currentIndex].choice, onAnswerSelected: { result in

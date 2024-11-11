@@ -10,6 +10,7 @@ import SwiftUI
 struct LanguageSettingView: View {
     @EnvironmentObject var router: Router
     @State var selectedId: Int = 1
+    @State var lang: Language = .indonesian
 
     var body : some View {
         VStack{
@@ -27,17 +28,20 @@ struct LanguageSettingView: View {
                 VStack(spacing: 16){
                     LanguageSettingButton(image: .indonesianLogo, text: "Bahasa Indonesia", selectionId: 1, selectedId: $selectedId){
                         selectedId = 1
+                        lang = .indonesian
                     }
                     
                     LanguageSettingButton(image: .englishLogo, text: "English", selectionId: 2, selectedId: $selectedId){
                         selectedId = 2
+                        lang = .english
                     }
                 }
                 
                 Spacer()
                 
                 Button(action: {
-                    router.pop()
+                    UserDefaultSingleton.shared.setLanguage(language: lang)
+                    router.popToRoot()
                 }) {
                    Text("Simpan")
                       .foregroundStyle(Color.white)
@@ -70,6 +74,14 @@ struct LanguageSettingView: View {
               }
            }
         }
+        .onAppear{
+            if UserDefaultSingleton.shared.language == "en"{
+                selectedId = 2
+            }
+            else{
+                selectedId = 1
+            }
+        }
     }
 }
 
@@ -79,3 +91,4 @@ struct LanguageSettingView: View {
             .environmentObject(Router())
     }
 }
+

@@ -8,6 +8,7 @@
 import SwiftUI
 
 //Ini nanti gak dipake, nanti dipakenya yang DonePageView2
+/*
 struct DonePageView: View {
     var currentPage : DonePageString
     var currentPart : PartOfTheStory
@@ -105,14 +106,12 @@ struct DonePageView: View {
     }
 }
 
+*/
 
-
-struct DonePageView2: View {
-
-    var displayMode: DonePageDisplayMode
-   
+struct DonePageView: View {
     @EnvironmentObject var viewModel: FlashcardViewModel
     @EnvironmentObject var router: Router
+    var displayMode: DonePageDisplayMode
    
     var body: some View {
         ZStack{
@@ -125,11 +124,9 @@ struct DonePageView2: View {
                 Text("Kamu telah menyelesaikan")
                     .font(Font.judulBiasa())
                     .foregroundColor(.darkGrey)
-                
-         
-                
-                if case .story(let id, let judul) = displayMode {
-                    Text("Bagian \(id) - \(judul)")
+            
+                if case .story(let storyId, let subChapterId) = displayMode {
+                    Text("Bagian \(subChapterId) - \(DonePageTitle.title(storyId: storyId, subChapterId: subChapterId))")
                         .font(Font.judulBiasa())
                         .foregroundColor(.darkGrey)
                         .padding(.bottom, 60)
@@ -141,12 +138,10 @@ struct DonePageView2: View {
                         .padding(.bottom, 60)
                 }
 
-                
                 Image(DonePageModel.imageName)
                     .frame(width: 335, height: 225)
                     .padding(.bottom, 50)
-                
-                
+                                
                 HStack{
                     Button (action: {
                         print("Button (Ulangi) Pressed")
@@ -176,12 +171,19 @@ struct DonePageView2: View {
                         viewModel.showDonePage = false
                         viewModel.currentIndex = 0
                         viewModel.reshuffleCards()
+                        
+                        if displayMode == .flashcard{
+                            router.push(.dictionary(judul: "Kata - kata favorit", displayMode: .favorite))
+                        }
+                        else if case let .story(storyId, subChapterId) = displayMode {
+                            router.push(.importantNote(displayMode: .subChapter(storyId: storyId, subChapterId: subChapterId)))
+                            //router.push(.importantNote(displayMode: .story(storyId: storyId, subChapterId: subChapterId, judul: "YourTitle")))
+                        }
                     }){
                         HStack {
-                           Image(systemName: "bookmark")
-                           Text("Favorit")
+                            Image(systemName: displayMode == .flashcard ? "bookmark" : "list.clipboard")
+                            Text(displayMode == .flashcard ? "Favorit" : "Catatan")
                               .font(.system(size: 20))
-                           
                         }
                         .foregroundStyle(Color.orange3)
                         .padding()
@@ -216,10 +218,7 @@ struct DonePageView2: View {
 }
 
 
-#Preview {
-    DonePageView2(displayMode: .story(id: 1, judul: "Perkenalan Nama"))
-}
 
-#Preview{
-    DonePageView(currentPage: .story, currentPart: .first)
+#Preview {
+    DonePageView(displayMode: .story(storyId: 1, subChapterId: 1))
 }

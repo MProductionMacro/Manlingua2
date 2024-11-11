@@ -5,7 +5,8 @@
         "meaning": "Detail",
         "hanziSentence": "我们需要了解更多的细节。",
         "pinyinSentence": "wǒ men xū yào liǎo jiě gèng duō de xì jié.",
-        "meaningSentence": "We need to know more details."
+        "meaningSentence": "We need to know more details.",
+        "language" : "en"
     },
     {
         "hanzi": "方式",
@@ -13,7 +14,8 @@
         "meaning": "Method",
         "hanziSentence": "我们可以改变工作的方式。",
         "pinyinSentence": "wǒ men kě yǐ gǎi biàn gōng zuò de fāng shì.",
-        "meaningSentence": "We can change the working method."
+        "meaningSentence": "We can change the working method.",
+        "language" : "en"
     },
     {
         "hanzi": "海运",
@@ -21,7 +23,8 @@
         "meaning": "Sea Freight",
         "hanziSentence": "这批货物通过海运发送。",
         "pinyinSentence": "zhè pī huò wù tōng guò hǎi yùn fā sòng.",
-        "meaningSentence": "This batch of goods is sent by sea freight."
+        "meaningSentence": "This batch of goods is sent by sea freight.",
+        "language" : "en"
     },
     {
         "hanzi": "空运",
@@ -29,7 +32,8 @@
         "meaning": "Air Freight",
         "hanziSentence": "重要的文件通过空运送达。",
         "pinyinSentence": "zhòng yào de wén jiàn tōng guò kōng yùn sòng dá.",
-        "meaningSentence": "Important documents are delivered by air freight."
+        "meaningSentence": "Important documents are delivered by air freight.",
+        "language" : "en"
     },
     {
         "hanzi": "时间",
@@ -37,7 +41,8 @@
         "meaning": "Time",
         "hanziSentence": "我们需要更多的时间来完成这个项目。",
         "pinyinSentence": "wǒ men xū yào gèng duō de shí jiān lái wán chéng zhè ge xiàng mù.",
-        "meaningSentence": "We need more time to complete this project."
+        "meaningSentence": "We need more time to complete this project.",
+        "language" : "en"
     },
     {
         "hanzi": "要求",
@@ -45,7 +50,8 @@
         "meaning": "Request",
         "hanziSentence": "你的要求已经被接受了。",
         "pinyinSentence": "nǐ de yāo qiú yǐ jīng bèi jiē shòu le.",
-        "meaningSentence": "Your request has been accepted."
+        "meaningSentence": "Your request has been accepted.",
+        "language" : "en"
     },
     {
         "hanzi": "安排",
@@ -53,7 +59,8 @@
         "meaning": "Arrange",
         "hanziSentence": "我们已经安排好了会议时间。",
         "pinyinSentence": "wǒ men yǐ jīng ān pái hǎo le huì yì shí jiān.",
-        "meaningSentence": "We have already arranged the meeting time."
+        "meaningSentence": "We have already arranged the meeting time.",
+        "language" : "en"
     },
     {
         "hanzi": "便宜",
@@ -61,6 +68,7 @@
         "meaning": "Cheap",
         "hanziSentence": "这家店的产品非常便宜。",
         "pinyinSentence": "zhè jiā diàn de chǎn pǐn fēi cháng pián yí.",
-        "meaningSentence": "The products in this store are very cheap."
+        "meaningSentence": "The products in this store are very cheap.",
+        "language" : "en"
     }
 ]

@@ -5,7 +5,8 @@
         "meaning": "Barang",
         "hanziSentence": "这批货物已经到达目的地。",
         "pinyinSentence": "zhè pī huò wù yǐ jīng dào dá mù dè dì.",
-        "meaningSentence": "Barang ini sudah sampai di tujuan."
+        "meaningSentence": "Barang ini sudah sampai di tujuan.",
+        "language" : "id"
     },
     {
         "hanzi": "质量",
@@ -13,7 +14,8 @@
         "meaning": "Kualitas",
         "hanziSentence": "我们对产品的质量非常满意。",
         "pinyinSentence": "wǒ men duì chǎn pǐn de zhì liàng fēi cháng mǎn yì.",
-        "meaningSentence": "Kami sangat puas dengan kualitas produk."
+        "meaningSentence": "Kami sangat puas dengan kualitas produk.",
+        "language" : "id"
     },
     {
         "hanzi": "服务",
@@ -21,7 +23,8 @@
         "meaning": "Pelayanan",
         "hanziSentence": "客户服务非常周到。",
         "pinyinSentence": "kè hù fú wù fēi cháng zhōu dào.",
-        "meaningSentence": "Pelayanan pelanggan sangat memuaskan."
+        "meaningSentence": "Pelayanan pelanggan sangat memuaskan.",
+        "language" : "id"
     },
     {
         "hanzi": "满意",
@@ -29,7 +32,8 @@
         "meaning": "Puas",
         "hanziSentence": "我们对交易的结果感到满意。",
         "pinyinSentence": "wǒ men duì jiāo yì de jié guǒ gǎn dào mǎn yì.",
-        "meaningSentence": "Kami merasa puas dengan hasil transaksi."
+        "meaningSentence": "Kami merasa puas dengan hasil transaksi.",
+        "language" : "id"
     },
     {
         "hanzi": "联系",
@@ -37,6 +41,7 @@
         "meaning": "Berhubungan",
         "hanziSentence": "如果有问题，请随时联系我。",
         "pinyinSentence": "rú guǒ yǒu wèn tí, qǐng suí shí lián xì wǒ.",
-        "meaningSentence": "Jika ada masalah, silakan hubungi saya kapan saja."
+        "meaningSentence": "Jika ada masalah, silakan hubungi saya kapan saja.",
+        "language" : "id"
     }
 ]

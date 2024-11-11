@@ -61,15 +61,24 @@ class Router: ObservableObject {
       case .flashcardPage:
          FlashcardPageView()
             .navigationBarBackButtonHidden(true)
-      case .donePage(let currentPage, let currentPart):
-         DonePageView(currentPage: currentPage, currentPart: currentPart)
-            .navigationBarBackButtonHidden(true)
+      case .donePage(let displayMode):
+          DonePageView(displayMode: displayMode)
+              .navigationBarBackButtonHidden(true)
       case .photoChallenge:
          PhotoChallengeView()
             .navigationBarBackButtonHidden(true)
       case .cameraView:
          CameraView()
             .navigationBarBackButtonHidden(true)
+      case .importantNote(let displayMode):
+          ImportantNotesPageView(displayMode: displayMode)
+              .navigationBarBackButtonHidden(true)
+      case .languageSetting:
+          LanguageSettingView()
+              .navigationBarBackButtonHidden(true)
+      case .notificationSetting:
+          NotificationSettingView()
+              .navigationBarBackButtonHidden(true)
       }
    }
 }
@@ -83,10 +92,13 @@ enum Screen: Hashable {
    case journeyPage(storyId: Int)
    case storyPage(chapterId: Int, subChapterId: Int, isFromHome: Bool)
    case dictionary(judul:String, displayMode: DictionaryDisplayMode)
-   case donePage(currentPage: DonePageString, currentPart: PartOfTheStory)
+   case donePage(displayMode : DonePageDisplayMode)
    case flashcardPage
    case photoChallenge
    case cameraView
+   case languageSetting
+   case importantNote(displayMode: NoteDisplayMode)
+   case notificationSetting
 }
 
 /*

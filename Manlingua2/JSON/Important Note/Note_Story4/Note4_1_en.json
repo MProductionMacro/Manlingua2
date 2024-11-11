@@ -1,0 +1,7 @@
+{
+    "title": "Payment",
+    "allowed": "Discuss convenient payment methods, ask about return policies.",
+    "forbidden": "Do not delay agreed-upon payments.",
+    "caution": "Use official payment channels for security.",
+    "language" : "en"
+}

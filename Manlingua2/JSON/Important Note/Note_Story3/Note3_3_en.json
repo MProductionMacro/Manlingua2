@@ -1,0 +1,7 @@
+{
+    "title": "Delivery Schedule",
+    "allowed": "Ask for specific schedules, discuss possible delays.",
+    "forbidden": "Do not demand unrealistic schedules.",
+    "caution": "Ensure the schedule fits international shipping needs.",
+    "language" : "en"
+}

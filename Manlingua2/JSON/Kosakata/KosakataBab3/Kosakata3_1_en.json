@@ -5,7 +5,8 @@
         "meaning": "Term",
         "hanziSentence": "合同的所有条件都已经确定。",
         "pinyinSentence": "hé tóng de suǒ yǒu tiáo jiàn dōu yǐjīng què dìng.",
-        "meaningSentence": "All the contract terms have been confirmed."
+        "meaningSentence": "All the contract terms have been confirmed.",
+        "language" : "en"
     },
     {
         "hanzi": "清楚",
@@ -13,7 +14,8 @@
         "meaning": "Clearly",
         "hanziSentence": "请清楚地说明你的要求。",
         "pinyinSentence": "qǐng qīng chǔ de shuō míng nǐ de yāo qiú.",
-        "meaningSentence": "Please state your requirements clearly."
+        "meaningSentence": "Please state your requirements clearly.",
+        "language" : "en"
     },
     {
         "hanzi": "遵守",
@@ -21,7 +23,8 @@
         "meaning": "Comply",
         "hanziSentence": "我们必须遵守合同条款。",
         "pinyinSentence": "wǒ men bìxū zūn shǒu hé tóng tiáo kuǎn.",
-        "meaningSentence": "We must comply with the contract terms."
+        "meaningSentence": "We must comply with the contract terms.",
+        "language" : "en"
     },
     {
         "hanzi": "时间表",
@@ -29,7 +32,8 @@
         "meaning": "Schedule",
         "hanziSentence": "这次会议的时间表很紧张。",
         "pinyinSentence": "zhè cì huì yì de shí jiān biǎo hěn jǐn zhāng.",
-        "meaningSentence": "The schedule for this meeting is very tight."
+        "meaningSentence": "The schedule for this meeting is very tight.",
+        "language" : "en"
     },
     {
         "hanzi": "讨论",
@@ -37,7 +41,8 @@
         "meaning": "Discuss",
         "hanziSentence": "我们可以在会议中讨论这个问题。",
         "pinyinSentence": "wǒ men kě yǐ zài huì yì zhōng tǎo lùn zhè ge wèn tí.",
-        "meaningSentence": "We can discuss this issue during the meeting."
+        "meaningSentence": "We can discuss this issue during the meeting.",
+        "language" : "en"
     },
     {
         "hanzi": "接收",
@@ -45,6 +50,7 @@
         "meaning": "Accept",
         "hanziSentence": "我们希望你可以接受这个挑战。",
         "pinyinSentence": "wǒ men xī wàng nǐ kě yǐ jiē shòu zhè ge tiào zhàn.",
-        "meaningSentence": "We hope you can accept this challenge."
+        "meaningSentence": "We hope you can accept this challenge.",
+        "language" : "en"
     }
 ]

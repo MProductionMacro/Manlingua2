@@ -10,14 +10,27 @@ import SwiftUI
 struct NotesCardView : View{
     
     var note: ImportantNote
+    @State var isBookmarked = false
+    @ObservedObject var viewModel: ImportantNotesViewModel
     
     var body : some View {
         VStack{
-            Image(systemName: "bookmark")
-                .font(.titleKe2())
-                .foregroundStyle(.orange3)
-                .frame(width: 295, alignment: .trailing)
-                .padding(.bottom, 8)
+            Button(action:{
+                if isBookmarked{
+                    SwiftDataServices.shared.deleteNote(note)
+                }
+                else{
+                    viewModel.addNotes(note)
+                }
+                isBookmarked.toggle()
+            }, label: {
+                Image(systemName: isBookmarked ? "bookmark.fill" : "bookmark")
+                    .font(.titleKe2())
+                    .foregroundStyle(.orange3)
+                    .frame(width: 295, alignment: .trailing)
+                    .padding(.bottom, 8)
+            })
+            //.frame(width: 138, alignment: .trailing)
             
             Text(note.title)
                 .font(Font.bold24())
@@ -73,10 +86,13 @@ struct NotesCardView : View{
         .background(.white)
         .cornerRadius(17)
         .shadow(color: .black.opacity(0.2), radius: 12, x: 0, y: 0)
+        .onAppear{
+            isBookmarked = SwiftDataServices.shared.isNoteExist(note)
+        }
     }
 }
 
 
 #Preview{
-    NotesCardView(note : ImportantNote(title: "Perkenalan Nama", allowed: "Gunakan sapaan formal “您好” (Nín hǎo), perkenalkan diri dan posisi, ungkapkan minat kerjasama.", forbidden: "Jangan langsung pakai panggilan informal & masuk ke bisnis.", caution: "Perhatikan bahasa tubuh, jaga sikap tetap ramah."))
+    NotesCardView(note : ImportantNote(title: "Perkenalan Nama", allowed: "Gunakan sapaan formal “您好” (Nín hǎo), perkenalkan diri dan posisi, ungkapkan minat kerjasama.", forbidden: "Jangan langsung pakai panggilan informal & masuk ke bisnis.", caution: "Perhatikan bahasa tubuh, jaga sikap tetap ramah.", language: "en"), viewModel: ImportantNotesViewModel())
 }
