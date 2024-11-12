@@ -37,7 +37,7 @@ class StoryViewModel: ObservableObject {
    }
    
    func loadChat(storyId: Int, subChapterId: Int){
-      let languageCode = NSLocale.current.languageCode ?? "id"
+      let languageCode = UserDefaultSingleton.shared.language
       
       guard let url = Bundle.main.url(forResource: "Chat\(storyId)_\(subChapterId)_\(languageCode)", withExtension: "json") else {
          print("File not found")
