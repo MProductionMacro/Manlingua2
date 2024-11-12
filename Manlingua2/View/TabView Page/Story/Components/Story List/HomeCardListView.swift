@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeCardScrollView: View {
+struct HomeCardListView: View {
    @EnvironmentObject var viewModel: HomeViewModel
    
    @StateObject var singleton = CoreDataSingleton.shared
@@ -36,6 +36,6 @@ struct HomeCardScrollView: View {
 }
 
 #Preview {
-   HomeCardScrollView()
+   HomeCardListView()
       .environmentObject(HomeViewModel())
 }

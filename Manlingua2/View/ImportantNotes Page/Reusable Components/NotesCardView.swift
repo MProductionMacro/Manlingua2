@@ -15,6 +15,7 @@ struct NotesCardView : View{
         VStack{
             Image(systemName: "bookmark")
                 .font(.titleKe2())
+                .fontWeight(.regular)
                 .foregroundStyle(.orange3)
                 .frame(width: 295, alignment: .trailing)
                 .padding(.bottom, 8)

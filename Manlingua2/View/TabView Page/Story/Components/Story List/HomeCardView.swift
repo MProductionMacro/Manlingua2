@@ -30,7 +30,7 @@ struct HomeCardView: View {
          VStack(alignment: .leading, spacing: 4) {
             Text("Cerita \(story.id)")
                .font(.pinyin())
-               .bold()
+               .fontWeight(.bold)
                .foregroundStyle(.black)
             
             Text(story.title)
@@ -56,10 +56,8 @@ struct HomeCardView: View {
             Button {
                if !isDisabled {
                   let subChapterId = singleton.latestSubChapter
-                  
-                  storyVM.loadChat(storyId: story.id, subChapterId: subChapterId)
-                  
-                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
+//                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
+                  router.push(.loadingPage(chapterId: story.id, subChapterId: subChapterId))
                }
             } label: {
                Text("Mulai")

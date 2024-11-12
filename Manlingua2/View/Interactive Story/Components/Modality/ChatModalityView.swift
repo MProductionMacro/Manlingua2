@@ -19,58 +19,58 @@ struct ChatModalityView: View {
    
    var body: some View {
       ZStack{
-         if hasAnswered {
-            if isCorrect {
-               Correct(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, continueFunc: {
-                  DispatchQueue.main.async {
-                     modalAppeared = false
-                     currentIndex += 1
-                     hasAnswered = false
-                  }
-               }, tryAgainFunc: {
-                  DispatchQueue.main.async {
-                     modalAppeared = false
-                     currentIndex -= 1
-                     hasAnswered = false
-                  }
-               })
-               .transition(.move(edge: .bottom))
-            }else{
-               Wrong(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, continueFunc: {
-                  DispatchQueue.main.async {
-                     modalAppeared = false
-                     currentIndex += 1
-                     hasAnswered = false
-                  }
-               }, tryAgainFunc: {
-                  DispatchQueue.main.async {
-                     modalAppeared = false
-                     currentIndex -= 1
-                     hasAnswered = false
-                  }
-               })
-               .transition(.move(edge: .bottom))
-            }
-         }else {
-            if let choices = chat.choice {
-               QuestionModalityView(choices: choices) { answer in
-                  selectedAnswer = answer
-                  withAnimation {
-                     isCorrect = (answer == chat.answer)
-                     hasAnswered = true
-                  }
-               }
-               .transition(.move(edge: .bottom))
-            }else{
-               MicrophoneModalityView() { answer in
-                  withAnimation{
-                     isCorrect = (answer == chat.answer)
-                     hasAnswered = true
-                  }
-               }
-               .transition(.move(edge: .bottom))
-            }
-         }
+//         if hasAnswered {
+//            if isCorrect {
+//               CorrectOrWrong(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, continueFunc: {
+//                  DispatchQueue.main.async {
+//                     modalAppeared = false
+//                     currentIndex += 1
+//                     hasAnswered = false
+//                  }
+//               }, tryAgainFunc: {
+//                  DispatchQueue.main.async {
+//                     modalAppeared = false
+//                     currentIndex -= 1
+//                     hasAnswered = false
+//                  }
+//               })
+//               .transition(.move(edge: .bottom))
+//            }else{
+//               Wrong(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, continueFunc: {
+//                  DispatchQueue.main.async {
+//                     modalAppeared = false
+//                     currentIndex += 1
+//                     hasAnswered = false
+//                  }
+//               }, tryAgainFunc: {
+//                  DispatchQueue.main.async {
+//                     modalAppeared = false
+//                     currentIndex -= 1
+//                     hasAnswered = false
+//                  }
+//               })
+//               .transition(.move(edge: .bottom))
+//            }
+//         }else {
+//            if let choices = chat.choice {
+//               QuestionModalityView(choices: choices) { answer in
+//                  selectedAnswer = answer
+//                  withAnimation {
+//                     isCorrect = (answer == chat.answer)
+//                     hasAnswered = true
+//                  }
+//               }
+//               .transition(.move(edge: .bottom))
+//            }else{
+//               MicrophoneModalityView() { answer in
+//                  withAnimation{
+//                     isCorrect = (answer == chat.answer)
+//                     hasAnswered = true
+//                  }
+//               }
+//               .transition(.move(edge: .bottom))
+//            }
+//         }
       }
       .animation(.easeInOut, value: hasAnswered)
       .onAppear {

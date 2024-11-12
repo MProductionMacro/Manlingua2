@@ -44,8 +44,8 @@ struct DonePageModel{
    static let title = "Selamat!"
    static let description = "Kamu telah menyelesaikan"
    static let returnToStoryTxt = "Balik ke cerita"
-   static let bookSymbol = "books.vertical"
-   static let returnSymbol = "return"
+   static let houseSymbol = "house"
+   static let returnSymbol = "arrow.uturn.forward"
    
    static let imageName = "congratulationImage"
    

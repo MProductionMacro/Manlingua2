@@ -18,15 +18,20 @@ struct JourneyPageContentView: View {
    @StateObject var singleton = CoreDataSingleton.shared
    
    var body: some View {
-      ScrollView(.vertical, showsIndicators: false) {
+      ZStack{
+         Color.white.ignoresSafeArea()
+            .clipShape(CustomRoundedRectangle(cornerRadius: 16, corners: [.topLeft, .topRight]))
+            .frame(maxHeight: .infinity)
+         
+         //         ScrollView(.vertical, showsIndicators: false) {
          VStack(spacing: 12) {
             HStack{
                Text("Pengantar")
                   .font(Font.judulBiasa())
+               
                Spacer()
             }
             .padding(.horizontal, 15.5)
-            
             
             Text(story.description)
                .font(.normalText())
@@ -44,34 +49,24 @@ struct JourneyPageContentView: View {
             }
             .padding(.horizontal, 16)
             
-            ScrollView(.vertical, showsIndicators: false) {
-               VStack(spacing: 24) {
-                  ForEach(story.subChapter, id: \.self){ subChapter in
-                     SubChapterCard(labelImage: .schoolChapter ,isLocked: viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter), id: story.id, subChapter: subChapter)
-                        .onTapGesture{
-                           if !viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter) {
-                              
-                              storyViewModel.loadChat(storyId: storyId, subChapterId: subChapter.id)
-                              
-                              router.push(.storyPage(chapterId: storyId, subChapterId: subChapter.id))
-                           }
-                           
+            VStack(spacing: 24) {
+               ForEach(story.subChapter, id: \.self){ subChapter in
+                  SubChapterCard(labelImage: .schoolChapter ,isLocked: viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter), id: story.id, subChapter: subChapter)
+                     .onTapGesture{
+                        if !viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter) {
+                           router.push(.loadingPage(chapterId: storyId, subChapterId: subChapter.id))
                         }
-                        .padding(.horizontal)
-                  }
+                        
+                     }
+                     .padding(.horizontal)
                }
-               .padding(.top, 5)
-               //                        }
-               
             }
+            .padding(.top, 5)
             .padding(.bottom, 25)
-            //                  }
+            //            }
          }
-         //               .padding(.top, 20)
+         .padding(.top)
       }
-      .padding(.top, 20)
-      .background(.white)
-      .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
    }
 }
 

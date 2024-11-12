@@ -43,32 +43,62 @@ class Router: ObservableObject {
             .navigationBarBackButtonHidden(true)
       case .pinyinInisial:
          PinyinInitView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       case .pinyinFinal:
          PinyinFinalView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       case .pinyinNada:
          PinyinNadaView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       case .journeyPage(let storyId):
          JourneyPageView(storyId: storyId)
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       case .storyPage(let chapterId, let subChapterId):
-          StoryDetailView(chapterId: chapterId, subChapterId: subChapterId)
+         StoryDetailView(chapterId: chapterId, subChapterId: subChapterId)
+            .navigationBarBackButtonHidden(true)
+      case .loadingPage(let chapterId, let subChapterId):
+         LoadingView(chapterId: chapterId, subChapterId: subChapterId)
             .navigationBarBackButtonHidden(true)
       case .dictionary(let judul, let displayMode):
          DictionaryView(judul: judul, displayMode: displayMode)
+            .onBackSwipe(perform: {
+               self.pop()
+            })
       case .flashcardPage:
          FlashcardPageView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       case .donePage(let currentPage, let currentPart):
          DonePageView(currentPage: currentPage, currentPart: currentPart)
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       case .photoChallenge:
          PhotoChallengeView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       case .cameraView:
          CameraView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       }
    }
@@ -82,6 +112,7 @@ enum Screen: Hashable {
    case pinyinNada
    case journeyPage(storyId: Int)
    case storyPage(chapterId: Int, subChapterId: Int)
+   case loadingPage(chapterId: Int, subChapterId: Int)
    case dictionary(judul:String, displayMode: DictionaryDisplayMode)
    case donePage(currentPage: DonePageString, currentPart: PartOfTheStory)
    case flashcardPage

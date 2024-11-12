@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct LoadingView: View {
+   var chapterId: Int
+   var subChapterId: Int
+   
    @State private var isLoading = true
    @State private var progressValue: CGFloat = 0.0
+   
+   @EnvironmentObject var router: Router
+   @EnvironmentObject var storyVM: StoryViewModel
    
    var body: some View {
       ZStack {
@@ -25,8 +31,8 @@ struct LoadingView: View {
                .frame(width: 60, height: 60)
                .padding(.bottom, 70)
             VStack(spacing: 20) {
-//               ProgressBar(progress: progressValue)
-//                  .frame(width: 300, height: 8)
+               //               ProgressBar(progress: progressValue)
+               //                  .frame(width: 300, height: 8)
                ProgressView(value: progressValue, total: 1)
                   .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
             }
@@ -43,9 +49,19 @@ struct LoadingView: View {
       withAnimation(.easeInOut(duration: 2.5)) {
          progressValue = 1.0
       }
+      
+      DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+         if progressValue >= 1.0 {
+            storyVM.loadChat(storyId: chapterId, subChapterId: subChapterId)
+            
+            router.push(.storyPage(chapterId: chapterId, subChapterId: subChapterId))
+         }
+      }
    }
 }
 
 #Preview{
-   LoadingView()
+   LoadingView(chapterId: 1, subChapterId: 1)
+      .environmentObject(Router())
+      .environmentObject(StoryViewModel())
 }
