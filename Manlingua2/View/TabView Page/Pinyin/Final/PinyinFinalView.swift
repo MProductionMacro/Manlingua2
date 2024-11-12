@@ -51,13 +51,12 @@ struct PinyinFinalView: View {
                   router.pop()
                }){
                   Image(systemName: "chevron.left")
-                     .foregroundColor(.orange3)
-                     .font(.title3)
-                     .bold()
+                     .foregroundColor(.orangeDarkMode)
+                     .font(.semibold16())
                   
                   Text("Kembali")
-                     .foregroundColor(.orange3)
-                     .bold()
+                     .foregroundColor(.orangeDarkMode)
+                     .font(.semibold20())
                }
             }
          }

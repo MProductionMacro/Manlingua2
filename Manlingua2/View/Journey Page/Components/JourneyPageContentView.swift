@@ -63,6 +63,9 @@ struct JourneyPageContentView: View {
             }
             .padding(.top, 5)
             .padding(.bottom, 25)
+             
+             
+             Spacer()
             //            }
          }
          .padding(.top, 20)

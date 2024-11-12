@@ -43,22 +43,22 @@ struct PinyinNadaView: View {
       }
       .background(.blankBackground)
       .toolbar {
-         ToolbarItem(placement: .topBarLeading) {
-            HStack(alignment: .top){
-               Button(action:{
-                  router.pop()
-               }){
-                  Image(systemName: "chevron.left")
-                     .foregroundColor(.orange3)
-                     .font(.title3)
-                     .bold()
-                  
-                  Text("Kembali")
-                     .foregroundColor(.orange3)
-                     .bold()
-               }
-            }
-         }
+          ToolbarItem(placement: .topBarLeading) {
+             HStack(alignment: .top){
+                Button(action:{
+                   router.pop()
+                }){
+                   Image(systemName: "chevron.left")
+                      .foregroundColor(.orangeDarkMode)
+                      .font(.semibold16())
+                      .bold()
+                   
+                   Text("Kembali")
+                      .foregroundColor(.orangeDarkMode)
+                      .font(.semibold20())
+                }
+             }
+          }
       }
    }
 }

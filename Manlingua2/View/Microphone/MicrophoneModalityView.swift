@@ -15,13 +15,6 @@ struct MicrophoneModalityView: View {
    
    var body: some View {
       VStack(spacing: 32){
-         Text(responseText)
-            .frame(maxWidth: .infinity)
-            .frame(height: UIScreen.main.bounds.height * 0.08)
-            .foregroundStyle(.black)
-            .background(.gold2)
-            .clipShape(.rect(cornerRadius: 16))
-         
          AudioBTN(message: $responseText, showMicrophone: $showMicrophone) { result in
             responseText = result
             
