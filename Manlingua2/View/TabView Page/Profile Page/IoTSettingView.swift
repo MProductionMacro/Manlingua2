@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IoTSettingView: View {
+    @EnvironmentObject var router: Router
     var body: some View {
         VStack{
             /*
@@ -63,6 +64,9 @@ struct IoTSettingView: View {
                     
                     ForEach(1...3, id: \.self) { i in
                         IoTCardView()
+                            .onTapGesture{
+                                router.push(.detailIoTSetting)
+                            }
                     }
                 }
                 
@@ -77,14 +81,16 @@ struct IoTSettingView: View {
             ToolbarItem(placement: .topBarLeading) {
                 HStack(alignment: .top){
                     Button(action:{
+                        router.pop()
                     }){
                         Image(systemName: "chevron.left")
                             .foregroundColor(.orangeDarkMode)
-                            .font(.title3)
+                            .font(.semibold20())
                             .bold()
                     
                         Text("Kembali")
                             .foregroundColor(.orangeDarkMode)
+                            .font(.semibold16())
                             .bold()
                     }
                 }
@@ -112,5 +118,6 @@ struct IoTSettingView: View {
 #Preview {
     NavigationView{
         IoTSettingView()
+            .environmentObject(Router())
     }
 }

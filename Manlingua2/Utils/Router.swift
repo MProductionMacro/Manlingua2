@@ -109,6 +109,12 @@ class Router: ObservableObject {
       case .notificationSetting:
           NotificationSettingView()
               .navigationBarBackButtonHidden(true)
+      case .ioTSetting:
+          IoTSettingView()
+              .navigationBarBackButtonHidden(true)
+      case .detailIoTSetting:
+          DetailIoTSettingView()
+              .navigationBarBackButtonHidden(true)
       }
    }
 }
@@ -130,9 +136,8 @@ enum Screen: Hashable {
    case languageSetting
    case importantNote(displayMode: NoteDisplayMode)
    case notificationSetting
-   /*
    case ioTSetting
-   */
+   case detailIoTSetting
 }
 
 /*
