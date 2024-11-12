@@ -144,7 +144,7 @@ class SwiftDataServices: ObservableObject {
     func deleteNote(_ data: ImportantNote) {
         // Menghapus data dari konteks
         for i in 0..<notes.count {
-            if notes[i].title == data.title {
+            if notes[i].title == data.title || notes_en[i].title == data.title{
                 context.delete(notes[i])
                 context.delete(notes_en[i])
             }

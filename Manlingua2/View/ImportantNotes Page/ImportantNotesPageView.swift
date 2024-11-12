@@ -21,7 +21,7 @@ struct ImportantNotesPageView : View {
          
          ScrollView{
             VStack (spacing: 32){
-               ForEach(viewModel.getNotes(displayMode), id: \.self){ note in
+               ForEach(viewModel.getNotes(), id: \.self){ note in
                   NotesCardView(note: note)
                }
                if viewModel.notes.count == 0 {

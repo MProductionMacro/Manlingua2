@@ -12,10 +12,12 @@ class ImportantNotesViewModel : ObservableObject {
    @Published public var notes_en: [ImportantNote] = []
    
    init(){
-      loadFavoriteNotes()
+      //loadFavoriteNotes()
    }
    
    func loadNotes(from displayMode: NoteDisplayMode) {
+       self.notes = []
+       self.notes_en = []
       switch displayMode {
       case .favorite:
          loadFavoriteNotes()
@@ -24,8 +26,8 @@ class ImportantNotesViewModel : ObservableObject {
       }
    }
    
-   public func getNotes(_ displayMode: NoteDisplayMode) -> [ImportantNote]{
-      if displayMode == .favorite || UserDefaultSingleton.shared.language == "id"{
+   public func getNotes() -> [ImportantNote]{
+      if UserDefaultSingleton.shared.language == "id"{
          return notes
       }
       else{
@@ -34,16 +36,13 @@ class ImportantNotesViewModel : ObservableObject {
    }
    
    private func loadFavoriteNotes() {
-      if UserDefaultSingleton.shared.language == "en"{
-         for note in SwiftDataServices.shared.notes_en{
-            notes.append(ImportantNote(title: note.title, allowed: note.allowed, forbidden: note.forbidden, caution: note.caution, language: note.language))
-         }
-      }
-      else{
-         for note in SwiftDataServices.shared.notes{
-            notes.append(ImportantNote(title: note.title, allowed: note.allowed, forbidden: note.forbidden, caution: note.caution, language: note.language))
-         }
-      }
+       for note in SwiftDataServices.shared.notes_en{
+          notes_en.append(ImportantNote(title: note.title, allowed: note.allowed, forbidden: note.forbidden, caution: note.caution, language: note.language))
+       }
+       
+       for note in SwiftDataServices.shared.notes{
+          notes.append(ImportantNote(title: note.title, allowed: note.allowed, forbidden: note.forbidden, caution: note.caution, language: note.language))
+       }
    }
    
    private func loadNoteEn(storyId: Int, subChapterId: Int){
@@ -101,7 +100,7 @@ class ImportantNotesViewModel : ObservableObject {
    
    public func addNotes(_ note: ImportantNote){
       for i in 0..<notes.count{
-         if notes[i].title == note.title{
+          if notes[i].title == note.title || notes_en[i].title == note.title{
             SwiftDataServices.shared.addNote(notes[i])
             SwiftDataServices.shared.addNote(notes_en[i])
             break
