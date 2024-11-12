@@ -72,7 +72,7 @@ struct BottomStoryContainerView: View {
          }
       }
       .frame(maxWidth: .infinity)
-      .background(.customLightGray)
+      .background(.cardBackground)
       .clipShape(CustomRoundedRectangle(cornerRadius: 24, corners: [.topLeft, .topRight]))
       .animation(.easeInOut(duration: 0.3), value: chatType == .question)
    }
