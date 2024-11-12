@@ -28,11 +28,9 @@ struct PinyinFinalView: View {
             VStack{
                Text("Tekan karakter untuk tahu cara")
                   .font(.system(size: 20))
-                  .foregroundStyle(.black)
                   .multilineTextAlignment(.center)
                Text("pengucapannya")
                   .font(.system(size: 20))
-                  .foregroundStyle(.black)
                   .multilineTextAlignment(.center)
             }
             
@@ -43,9 +41,9 @@ struct PinyinFinalView: View {
             }
              
          }
-         .background(.white)
          .ignoresSafeArea()
       }
+      .background(.blankBackground)
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {
             HStack(alignment: .top){

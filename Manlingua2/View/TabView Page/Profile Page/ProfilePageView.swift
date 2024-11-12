@@ -25,7 +25,7 @@ struct ProfilePageView: View {
                     Text("\(viewModel.getLevel())")
                         .font(Font.subJudul())
                         .padding(.top, 1)
-                        .foregroundColor(.darkGrey2)
+                        .foregroundColor(.userRank)
                 }
                 Spacer()
             }
@@ -55,9 +55,24 @@ struct ProfilePageView: View {
                 .padding(.top, 24)
             
                 Spacer()
+                
+                HStack{
+                    Image(systemName: "door.left.hand.open")
+                        .resizable()
+                        .foregroundStyle(.orange)
+                        .frame(width: 25, height: 25)
+                        .padding(.trailing, 10)
+                    
+                    Text("Log Out")
+                        .font(Font.judulBiasa())
+                        .foregroundColor(.profileNavigationText)
+                    Spacer()
+                }
+                .frame(width: 361, height: 35)
+                .padding(.bottom, 24)
             }
             .frame(width: 401, height: 621)
-            .background(.white)
+            .background(.blankBackground)
             .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
          
             Spacer()

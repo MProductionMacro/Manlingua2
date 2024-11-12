@@ -1,0 +1,58 @@
+//
+//  DetailIoTSettingView.swift
+//  Manlingua2
+//
+//  Created by Arrick Russell Adinoto on 12/11/24.
+//
+
+import SwiftUI
+
+struct DetailIoTSettingView : View {
+    var body: some View {
+        VStack{
+            VStack(alignment: .leading, spacing: 16){
+                Text("Pengaturan IoT")
+                    .font(.heavy32())
+                
+                DetailIoTRowView(label: "Nama Model", value: "Smart Speaker Bluetooth 1", isEditable: true)
+
+                
+                DetailIoTRowView(label: "Nama Model", value: "Smart Speaker Bluetooth 1")
+                
+                DetailIoTRowView(label: "Nomor Seri", value: "202411080001")
+                
+                DetailIoTRowView(label: "Nama Wifi", value: "Muo Home")
+
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 8)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.blankBackground)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                HStack(alignment: .top){
+                    Button(action:{
+                    }){
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.orangeDarkMode)
+                            .font(.title3)
+                            .bold()
+                    
+                        Text("Kembali")
+                            .foregroundColor(.orangeDarkMode)
+                            .bold()
+                    }
+                }
+            }
+        }
+    }
+}
+
+#Preview{
+    NavigationView{
+        DetailIoTSettingView()
+            .environment(\.colorScheme, .dark)
+    }
+}

@@ -34,7 +34,7 @@ struct PhotoChallengeView: View {
       .frame(maxWidth: .infinity, alignment: .leading)
       .edgesIgnoringSafeArea(.bottom)
       .background(
-         Image(.homeBackground)
+         Image(.profilePage)
             .resizable()
             .scaledToFill()
             .ignoresSafeArea()

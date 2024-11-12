@@ -30,10 +30,10 @@ struct GoalTrackerView : View {
              
                 HStack {
                     Image(systemName: "clock")
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.padlock)
                         .font(.normalText())
                     Text("\(appStorageController.remainHour) Menit")
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.padlock)
                         .font(.normalText())
                 }
              
@@ -41,8 +41,8 @@ struct GoalTrackerView : View {
                     .progressViewStyle(
                         CustomProgressViewStyle(
                   height: UIScreen.main.bounds.height * 0.02,
-                  filledColor: .green2,
-                  unfilledColor: .customLighterGray
+                  filledColor: .greenNormalActive,
+                  unfilledColor: .progressBar
                ))
             }
             .frame(width: 233, height: 60)
@@ -54,13 +54,13 @@ struct GoalTrackerView : View {
             }) {
                 Image(systemName: "chevron.right")
                     .font(Font.button())
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(.orangeDarkMode)
             }
          
             Spacer()
         }
         .frame(width: 355, height: 100)
-        .background(.white)
+        .background(.blankBackground)
     }
 }
 

@@ -27,7 +27,7 @@ struct CorrectOrWrong: View {
                      .foregroundStyle(.white)
                      .font(.judulBiasa())
                      .padding(12)
-                     .background(.orange3)
+                     .background(.orangeDarkMode)
                      .cornerRadius(16)
                }
                

@@ -35,7 +35,7 @@ struct StoryListView: View {
 //               }
                .padding(.bottom, 64)
             }
-            .background(.white)
+            .background(.blankBackground)
 //            .ignoresSafeArea()
             .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft]))
          }
@@ -43,7 +43,7 @@ struct StoryListView: View {
       }
       .ignoresSafeArea()
       .background(
-         Image(.homeBackground)
+         Image(.profilePage)
 //            .resizable()
 //            .scaledToFill()
       )
@@ -53,4 +53,5 @@ struct StoryListView: View {
 #Preview {
    StoryListView()
       .environmentObject(HomeViewModel())
+      .environment(\.colorScheme, .dark)
 }

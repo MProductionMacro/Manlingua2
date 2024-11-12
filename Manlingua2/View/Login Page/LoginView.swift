@@ -20,7 +20,6 @@ struct LoginView: View {
          Text("Selamat datang")
             .font(.judulBesar())
             .fontWeight(.bold)
-            .foregroundColor(.black)
             .multilineTextAlignment(.center)
             .padding(.bottom, UIScreen.main.bounds.height * 0.02)
          
@@ -61,7 +60,6 @@ struct LoginView: View {
          
          Text("By logging in, you agree to the")
             .font(.footnote)
-            .foregroundColor(.black)
          
          HStack(spacing: 4) {
             Text("Privacy Policy")
@@ -107,4 +105,5 @@ struct LoginView: View {
 
 #Preview {
    LoginView()
+        .environment(\.colorScheme, .dark)
 }

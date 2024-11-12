@@ -23,7 +23,7 @@ struct CameraGrantedView: View {
                
                Text("pinyin")
                   .font(.pinyin())
-                  .foregroundStyle(.gray)
+                  .foregroundStyle(.pinyinPhotoChallenge)
                
                Text("hanzi")
                   .font(.hanzi())
@@ -65,6 +65,7 @@ struct CameraGrantedView: View {
                
             } label: {
                Text("Lewati")
+                    .foregroundStyle(.orangeDarkMode)
                   .frame(maxWidth: .infinity)
             }
             .buttonStyle(SecondaryButton(isDisabled: false))
@@ -79,7 +80,7 @@ struct CameraGrantedView: View {
       .padding(.horizontal)
       .padding(.top, 32)
       .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-      .background(.white)
+      .background(.blankBackground)
       .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
       .ignoresSafeArea()
    }

@@ -46,13 +46,13 @@ struct JourneyPageView: View {
                         Image(systemName: "books.vertical")
                            .font(.hanzi())
                            .fontWeight(.regular)
-                           .foregroundStyle(.orange3)
+                           .foregroundStyle(.orangeDarkMode)
                         Text("List Kata-Kata")
                            .font(Font.semibold16())
-                           .foregroundStyle(.orange3)
+                           .foregroundStyle(.orangeDarkMode)
                      }
                      .frame(width: 160, height: 35)
-                     .background(Color.gold2)
+                     .background(.wordListButtonBackground)
                      .cornerRadius(8)
                   }
                }
@@ -68,7 +68,7 @@ struct JourneyPageView: View {
          }
       }
       .background(
-         Image(.homeBackground)
+         Image(.profilePage)
             .ignoresSafeArea()
             .scaledToFill()
       )

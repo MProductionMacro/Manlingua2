@@ -15,9 +15,10 @@ struct PrimaryButton: ButtonStyle {
 //         .frame(maxWidth: .infinity)
          .padding(.horizontal)
          .padding(.vertical, 12)
-         .foregroundStyle(isDisabled ? Color(red: 0.7, green: 0.7, blue: 0.7) : Color.white)
+         .foregroundStyle(Color.white)
          .font(.button())
-         .background(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.orange3)
+         .background(isDisabled ? Color.homeCardLock : Color.orangeDarkMode)
          .clipShape(.rect(cornerRadius: 8))
    }
 }
+

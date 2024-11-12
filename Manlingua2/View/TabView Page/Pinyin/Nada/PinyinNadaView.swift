@@ -29,11 +29,9 @@ struct PinyinNadaView: View {
             VStack{
                Text("Tekan karakter untuk tahu cara")
                   .font(.system(size: 20))
-                  .foregroundStyle(.black)
                   .multilineTextAlignment(.center)
                Text("pengucapannya")
                   .font(.system(size: 20))
-                  .foregroundStyle(.black)
                   .multilineTextAlignment(.center)
             }
             //.padding(.top, 32)
@@ -41,9 +39,9 @@ struct PinyinNadaView: View {
 
             RowOfPinyinView(listPinyin: viewModel.pinyinNada, audioController: $audioController)
          }
-         .background(.white)
          .ignoresSafeArea()
       }
+      .background(.blankBackground)
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {
             HStack(alignment: .top){

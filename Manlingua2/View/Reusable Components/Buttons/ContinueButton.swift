@@ -19,7 +19,7 @@ struct ContinueButton: View {
             .font(.button())
             .padding(20)
             .frame(maxWidth: .infinity)
-            .background(.orange3)
+            .background(.orangeDarkMode)
             .clipShape(.rect(cornerRadius: 16))
       }
    }

@@ -46,7 +46,7 @@ struct Manlingua2App: App {
          .environmentObject(challengeViewModel)
          .environmentObject(journeyViewModel)
          .environmentObject(importantNotesViewModel)
-         .preferredColorScheme(.light)
+         //.preferredColorScheme(.light)
       }
       
    }

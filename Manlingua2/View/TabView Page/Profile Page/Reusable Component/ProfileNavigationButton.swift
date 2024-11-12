@@ -21,19 +21,20 @@ struct ProfileNavigationButton: View {
             HStack{
                 Image(systemName: "\(imageName)")
                     .resizable()
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(.orangeDarkMode)
                     .frame(width: 25, height: 25)
                     .padding(.trailing, 10)
                 Text("\(title)")
                     .font(Font.judulBiasa())
-                    .foregroundColor(.lightDarkGrey)
+                    .foregroundColor(.profileNavigationText)
                 Spacer()
                 Image(systemName: "chevron.right")
                     .resizable()
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(.orangeDarkMode)
                     .frame(width: 14, height: 25)
             }
         })
 
     }
 }
+

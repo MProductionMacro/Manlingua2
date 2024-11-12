@@ -14,28 +14,25 @@ struct LanguageSettingView: View {
 
     var body : some View {
         VStack{
-            VStack(alignment: .leading, spacing: 32){
-                VStack(alignment: .leading, spacing: 8){
-                    Text("Pengaturan Bahasa")
-                        .font(.heavy32())
-                    
-                    Text("Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih")
-                        .font(.subJudul())
-                        .opacity(0.65)
+            VStack(alignment: .leading, spacing: 16){
+                Text("Pengaturan Bahasa")
+                    .font(.heavy32())
+                    .padding(.bottom, -8)
+                
+                Text("Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih")
+                    .font(.subJudul())
+                    .opacity(0.65)
+                
+                LanguageSettingButton(image: .indonesianLogo, text: "Bahasa Indonesia", selectionId: 1, selectedId: $selectedId){
+                    selectedId = 1
+                    lang = .indonesian
                 }
-                .padding(.top, 27)
-
-                VStack(spacing: 16){
-                    LanguageSettingButton(image: .indonesianLogo, text: "Bahasa Indonesia", selectionId: 1, selectedId: $selectedId){
-                        selectedId = 1
-                        lang = .indonesian
-                    }
-                    
-                    LanguageSettingButton(image: .englishLogo, text: "English", selectionId: 2, selectedId: $selectedId){
-                        selectedId = 2
-                        lang = .english
-                    }
+                
+                LanguageSettingButton(image: .englishLogo, text: "English", selectionId: 2, selectedId: $selectedId){
+                    selectedId = 2
+                    lang = .english
                 }
+                
                 
                 Spacer()
                 
@@ -48,14 +45,15 @@ struct LanguageSettingView: View {
                       .font(.button())
                       .padding(20)
                       .frame(maxWidth: .infinity)
-                      .background(.orange3)
+                      .background(.orangeDarkMode)
                       .clipShape(.rect(cornerRadius: 8))
                 }
             }
             .padding(.horizontal, 16)
+            .padding(.top, 8)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.white)
+        .background(.blankBackground)
         .toolbar {
            ToolbarItem(placement: .topBarLeading) {
               HStack(alignment: .top){
@@ -63,12 +61,12 @@ struct LanguageSettingView: View {
                     router.pop()
                  }){
                     Image(systemName: "chevron.left")
-                       .foregroundColor(.orange3)
+                       .foregroundColor(.orangeDarkMode)
                        .font(.title3)
                        .bold()
                     
                     Text("Kembali")
-                       .foregroundColor(.orange3)
+                       .foregroundColor(.orangeDarkMode)
                        .bold()
                  }
               }
@@ -91,4 +89,6 @@ struct LanguageSettingView: View {
             .environmentObject(Router())
     }
 }
+
+
 

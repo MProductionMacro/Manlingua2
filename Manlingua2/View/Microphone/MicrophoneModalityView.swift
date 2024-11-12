@@ -32,12 +32,13 @@ struct MicrophoneModalityView: View {
       }
       .frame(maxWidth: .infinity)
       .padding(.horizontal)
-      .background(.white)
+      .background(.cardBackground)
    }
 }
 
 #Preview {
    MicrophoneModalityView(onPressedMic: {result in})
       .frame(maxHeight: .infinity)
-      .background(.black)
+      //.background(.black)
+      .environment(\.colorScheme, .dark)
 }

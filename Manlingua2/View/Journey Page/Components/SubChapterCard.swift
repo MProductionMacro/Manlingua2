@@ -42,36 +42,37 @@ struct SubChapterCard: View {
                      .multilineTextAlignment(.leading)
                      .font(.pinyin())
                      .frame(maxWidth: .infinity, alignment: .leading)
-                     .foregroundStyle(.lightDarkGrey)
+                     .foregroundStyle(.emptyListText)
                   Text(subChapter.hanzi)
                      .multilineTextAlignment(.leading)
                      .font(.hanzi())
                      .frame(maxWidth: .infinity, alignment: .leading)
-                     .foregroundStyle(.lightDarkGrey)
+                     .foregroundStyle(.emptyListText)
                }
                
                HStack(spacing: 2){
                   Image(systemName: "clock")
-                     .foregroundStyle(.lightDarkGrey)
+                     .foregroundStyle(.emptyListText)
                      .font(.normalText())
                   
                   Text("sekitar 10 menit")
-                     .foregroundStyle(.lightDarkGrey)
+                     .foregroundStyle(.emptyListText)
                      .font(.pinyin())
                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
          }
          .frame(maxWidth: .infinity, alignment: .leading)
-         .foregroundStyle(Color(.black))
          
          Image(systemName: isLocked ? "lock" : "chevron.right")
-            .foregroundStyle(isLocked ? .gray : .orange3)
+              .foregroundStyle(isLocked ? .padlock : .orangeDarkMode)
+              .fontWeight(.bold)
          
          Spacer()
       }
 //      .frame(width: 340)
       .padding()
+      .background(.cardBackground)
       .overlay(
          RoundedRectangle(cornerRadius: 20)
             .stroke(.customLightGray, lineWidth: 1)

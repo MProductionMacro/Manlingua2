@@ -18,6 +18,6 @@ struct MicrophoneView: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 150)
-        .background(.white)
+        .background(.cardBackground)
     }
 }
