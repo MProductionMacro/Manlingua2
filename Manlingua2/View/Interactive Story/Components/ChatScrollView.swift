@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ChatScrollView: View {
    @Binding var currentIndex: Int
+   @Binding var hasAnswered: Bool
+   @Binding var modalAppeared: Bool
+   
    var chats: [Chat_Example]
    var actionOnDone: () -> Void
    
@@ -28,19 +31,39 @@ struct ChatScrollView: View {
                      actionOnDone()
                   } label: {
                      Text("Continue")
+                        .frame(maxWidth: .infinity)
+                  }
+                  .id("button")
+                  .padding(.horizontal)
+                  .buttonStyle(PrimaryButton(isDisabled: false))
+                  .onAppear{
+                     proxy.scrollTo("button", anchor: .bottom)
                   }
                }
             }
          }
-         .onChange(of: currentIndex) { oldValue, newValue in
-            proxy.scrollTo(newValue, anchor: .bottom)
-            print("Current index: \(currentIndex)")
-            print("New index: \(newValue)")
-            print("Old index: \(oldValue)")
-            print("Chat Index: \(chats.count)")
+         .onChange(of: hasAnswered) { _, _ in
+            // Scroll to bottom when hasAnswered changes
+            withAnimation{
+               proxy.scrollTo(currentIndex, anchor: .bottom)
+            }
+         }
+         .onChange(of: modalAppeared, { oldValue, newValue in
+            withAnimation{
+               DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                  proxy.scrollTo(currentIndex, anchor: .bottom)
+               }
+            }
+         })
+         .onChange(of: currentIndex) { _, _ in
+            withAnimation{
+               DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                  proxy.scrollTo(currentIndex, anchor: .bottom)
+               }
+            }
          }
       }
-//      .padding(.bottom, chats[currentIndex].type == .question ? 0 : 64)
+      //      .padding(.bottom, chats[currentIndex].type == .question ? 0 : 64)
    }
 }
 

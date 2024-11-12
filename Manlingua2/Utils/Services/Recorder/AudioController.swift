@@ -21,7 +21,7 @@ enum AudioControllerState {
 }
 
 //controllernya
-class AudioController: NSObject {
+class AudioController: NSObject, ObservableObject {
    
    private var audioRecorder : AVAudioRecorder! //buat ngerecord
    private var audioFileName : URL? //file name
@@ -33,9 +33,14 @@ class AudioController: NSObject {
    
    override init() {
       super.init()
-      setupAudioSession()
-      setUpRecorder()
    }
+   
+   func initializeAudioSessionAndRecorder() {
+         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.setupAudioSession()
+            self?.setUpRecorder()
+         }
+      }
    
    private func setupAudioSession() {
       let session = AVAudioSession.sharedInstance()
@@ -77,9 +82,12 @@ class AudioController: NSObject {
       }
    }
    
-   @discardableResult
    func startRecording() -> Bool {
-//      setUpRecorder()
+      // Setup if audioRecorder is nil
+      if audioRecorder == nil {
+         setupAudioSession()
+         setUpRecorder()
+      }
       
       guard let audioRecorder = audioRecorder else {
          print("Audio Recorder is not set up.")

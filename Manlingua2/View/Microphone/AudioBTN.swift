@@ -49,6 +49,7 @@ struct AudioBTN: View {
                DragGesture(minimumDistance: 0)
                   .onChanged { _ in
                      if !isRecording {
+//                        audioController.initializeAudioSessionAndRecorder()
                         self.isRecording = true
                         audioController.startRecording()
                      }

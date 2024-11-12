@@ -35,7 +35,6 @@ struct BottomStoryContainerView: View {
             textToSpeech.speakSlow(text: storyViewModel.chat_example[currentIndex].hanzi)
          }
          
-         
          if chatType == .question {
             Divider()
             
