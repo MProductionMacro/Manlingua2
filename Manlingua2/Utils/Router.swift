@@ -130,6 +130,9 @@ enum Screen: Hashable {
    case languageSetting
    case importantNote(displayMode: NoteDisplayMode)
    case notificationSetting
+   /*
+   case ioTSetting
+   */
 }
 
 /*

@@ -14,7 +14,9 @@ struct FlashcardPageView: View {
    @State var tutorialOverlay: Int = 1
    @State var audioController = AudioController.shared
    @State private var showConfirmationAlert = false
-   
+   @State var hasAnswered: Bool = false
+   @State var isCorrect: Bool = false
+
    var body: some View {
       ZStack (alignment: .bottom){
          VStack {
@@ -32,10 +34,10 @@ struct FlashcardPageView: View {
                   alertData: AlertData(
                      type: .confirmation,
                      primaryAction: {
-                        router.pop()
+                         showConfirmationAlert = false
                      },
                      dismissAction: {
-                        showConfirmationAlert = false
+                         router.pop()
                      }
                   )
                )
@@ -67,7 +69,29 @@ struct FlashcardPageView: View {
             
             Spacer()
             
-            BottomFlashcardContainerView()
+            if hasAnswered {
+                CorrectOrWrong(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, pinyin: viewModel.showVocabularies[viewModel.currentIndex].pinyin, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
+                   withAnimation{
+                      DispatchQueue.main.async {
+                         viewModel.performSwipeRight()
+                         hasAnswered = false
+                          if viewModel.currentIndex == viewModel.showVocabularies.count - 1 {
+                              router.push(.donePage(displayMode: .flashcard))
+                          }
+                      }
+                   }
+                } tryAgainFunc: {
+                   withAnimation{
+                      DispatchQueue.main.async {
+                         hasAnswered = false
+                      }
+                   }
+                }
+                .transition(.move(edge: .bottom))
+            }
+            else{
+                BottomFlashcardContainerView(isCorrect: $isCorrect, hasAnswered: $hasAnswered)
+            }
          }
          .frame(maxHeight: .infinity)
          

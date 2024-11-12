@@ -44,10 +44,10 @@ struct StoryDetailView: View {
                   alertData: AlertData(
                      type: .confirmation,
                      primaryAction: {
-                        router.popToRoot()
+                         showConfirmationAlert = false
                      },
                      dismissAction: {
-                        showConfirmationAlert = false
+                         router.popToRoot()
                      }
                   )
                )
