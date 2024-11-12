@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ImportantNotesPageView : View {
    @EnvironmentObject var router: Router
-   @StateObject var viewModel = ImportantNotesViewModel()
+   @EnvironmentObject var viewModel: ImportantNotesViewModel
    var displayMode : NoteDisplayMode
    
    var body : some View{
@@ -22,7 +22,7 @@ struct ImportantNotesPageView : View {
          ScrollView{
             VStack (spacing: 32){
                ForEach(viewModel.getNotes(displayMode), id: \.self){ note in
-                  NotesCardView(note: note, viewModel: viewModel)
+                  NotesCardView(note: note)
                }
                if viewModel.notes.count == 0 {
                   Text("No notes found.")
@@ -78,4 +78,5 @@ struct ImportantNotesPageView : View {
       ImportantNotesPageView(displayMode : .subChapter(storyId: 1, subChapterId: 1))
    }
    .environmentObject(Router())
+   .environmentObject(ImportantNotesViewModel())
 }
