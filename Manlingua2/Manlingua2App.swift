@@ -22,6 +22,7 @@ struct Manlingua2App: App {
    @StateObject var importantNotesViewModel = ImportantNotesViewModel()
    @StateObject var coreData = CoreDataSingleton.shared
    @StateObject var swiftData = SwiftDataServices.shared
+   @StateObject var audioController = AudioController.shared
    
    init() {
       FirebaseApp.configure()
@@ -46,6 +47,11 @@ struct Manlingua2App: App {
          .environmentObject(challengeViewModel)
          .environmentObject(journeyViewModel)
          .environmentObject(importantNotesViewModel)
+         .onAppear(perform: {
+            DispatchQueue.main.async{
+               audioController.initializeAudioSessionAndRecorder()
+            }
+         })
          .preferredColorScheme(.light)
       }
       

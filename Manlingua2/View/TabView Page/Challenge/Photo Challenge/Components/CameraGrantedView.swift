@@ -13,67 +13,79 @@ struct CameraGrantedView: View {
    @StateObject var cameraController = CameraController.shared
    
    @State var image: UIImage = UIImage(resource: .placeholderChallenge)
+   @State var isShowingMeaning = false
    
    var body: some View {
       ScrollView {
-         VStack(spacing: 24){
-            VStack(alignment: .leading) {
-               Text("Cari dan fotokan")
-                  .font(.judulBiasa())
-               
-               Text("pinyin")
-                  .font(.pinyin())
-                  .foregroundStyle(.gray)
-               
-               Text("hanzi")
-                  .font(.hanzi())
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.bottom, 32)
-            
-            VStack {
-               if let capturedImage = cameraController.capturedImage {
-                  Image(uiImage: capturedImage)
-                     .resizable()
-                     .scaledToFit()
-                     .padding()
-               } else {
-                  Image(.placeholderChallenge)
+         if let randomObjects = viewModel.objects_example.randomElement(){
+            VStack(spacing: 24){
+               VStack(alignment: .leading, spacing: 8) {
+                  Text("Cari dan fotokan")
+                     .font(.judulBiasa())
+                  
+                  VStack(alignment: .leading) {
+                     Text(randomObjects.pinyin)
+                        .font(.pinyin())
+                        .foregroundStyle(.gray)
+                     Text(randomObjects.hanzi)
+                        .font(.hanzi())
+                        .overlay {
+                           DottedUnderline()
+                              .frame(height: UIScreen.main.bounds.height * 0.015)
+                              .offset(y: UIScreen.main.bounds.height * 0.02)
+                        }
+                        .onTapGesture {
+                           isShowingMeaning.toggle()
+                        }
+                        .popover(isPresented: $isShowingMeaning, attachmentAnchor: .point(.bottom)) {
+                           ZStack {
+                              Color.customLightGray
+                                 .scaleEffect(1.5)
+                              
+                              Text(randomObjects.meaning)
+                                 .font(.hanzi())
+                                 .foregroundColor(.black)
+                                 .padding(.horizontal, 4)
+                                 .multilineTextAlignment(.leading)
+                           }
+                           .presentationCompactAdaptation(.popover)
+                        }
+                     
+                  }
                }
+               .frame(maxWidth: .infinity, alignment: .leading)
                
-               //            Image(uiImage: image)
+               VStack {
+                  Button {
+                     router.push(.cameraView)
+                  } label: {
+                     Image(systemName: "camera.fill")
+                        .font(.system(size: 32))
+                        .padding(8)
+                  }
+                  .buttonStyle(CircleButton())
+               }
+               .frame(maxWidth: .infinity)
+               .padding(.vertical, UIScreen.main.bounds.height * 0.2)
+               .background(.customLighterGray)
+               .clipShape(.rect(cornerRadius: 35))
+               .overlay(
+                  RoundedRectangle(cornerRadius: 36)
+                     .stroke(Color.gray, lineWidth: 2)
+               )
                
                Button {
-                  router.push(.cameraView)
+                  viewModel.objects_example.shuffle()
                } label: {
-                  Image(systemName: "camera.fill")
-                     .font(.system(size: 32))
-                     .padding(8)
+                  Text("Lewati")
+                     .frame(maxWidth: .infinity)
                }
-               .buttonStyle(CircleButton())
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.bottom)
-            .background(.customLighterGray)
-            .clipShape(.rect(cornerRadius: 35))
-            .overlay(
-               RoundedRectangle(cornerRadius: 36)
-                  .stroke(Color.gray, lineWidth: 2)
-            )
-            
-            Button {
+               .buttonStyle(SecondaryButton(isDisabled: false))
                
-            } label: {
-               Text("Lewati")
-                  .frame(maxWidth: .infinity)
+//               ForEach(viewModel.predictions, id: \.self) { prediction in
+//                  Text("\(prediction.class) : \(prediction.confidence)")
+//               }
             }
-            .buttonStyle(SecondaryButton(isDisabled: false))
-            
-            ForEach(viewModel.predictions, id: \.self) { prediction in
-               Text("\(prediction.class) : \(prediction.confidence)")
-            }
-            
-//            Spacer()
          }
       }
       .padding(.horizontal)
@@ -82,6 +94,16 @@ struct CameraGrantedView: View {
       .background(.white)
       .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
       .ignoresSafeArea()
+      .overlay(content: {
+         
+         CorrectOrWrong(hanzi: "", pinyin: "", meaning: "", isCorrect: true) {
+            
+         } tryAgainFunc: {
+            
+         }
+         .frame(maxHeight: .infinity, alignment: .bottom)
+         .ignoresSafeArea()
+      })
    }
 }
 

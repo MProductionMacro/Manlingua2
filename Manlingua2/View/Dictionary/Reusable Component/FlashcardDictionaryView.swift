@@ -52,7 +52,9 @@ struct FlashcardDictionaryView: View {
                   .font(Font.normalText())
                
                Button(action:{
-                  textToSpeech.speak(text: vocab.hanzi)
+                  DispatchQueue.main.async{
+                     textToSpeech.speak(text: vocab.hanzi)
+                  }
                }, label:{
                   Image(systemName: "speaker.wave.2")
                      .font(Font.pinyin())
