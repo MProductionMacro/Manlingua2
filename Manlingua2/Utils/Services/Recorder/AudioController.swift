@@ -34,6 +34,7 @@ class AudioController: NSObject {
    override init() {
       super.init()
       setupAudioSession()
+      setUpRecorder()
    }
    
    private func setupAudioSession() {
@@ -78,7 +79,7 @@ class AudioController: NSObject {
    
    @discardableResult
    func startRecording() -> Bool {
-      setUpRecorder()
+//      setUpRecorder()
       
       guard let audioRecorder = audioRecorder else {
          print("Audio Recorder is not set up.")

@@ -18,11 +18,15 @@ struct StoryDetailView: View {
    @State var tutorialOverlay: Int = 1
    @State var modalAppeared: Bool = false
    
+   @State var hasAnswered: Bool = false
+   @State var isCorrect: Bool = false
+   @State var selectedAnswer: String? = nil
+   
    @StateObject var singleton = CoreDataSingleton.shared
    
    var chapterId: Int
    var subChapterId: Int
-   var isFromHome: Bool
+   //   var isFromHome: Bool
    
    var body: some View {
       GeometryReader { geometry in
@@ -40,7 +44,7 @@ struct StoryDetailView: View {
                   alertData: AlertData(
                      type: .confirmation,
                      primaryAction: {
-                        router.pop()
+                        router.popToRoot()
                      },
                      dismissAction: {
                         showConfirmationAlert = false
@@ -60,13 +64,29 @@ struct StoryDetailView: View {
                 router.push(.donePage(displayMode: .story(storyId: chapterId, subChapterId: subChapterId)))
             }
             
-            BottomStoryContainerView(currentIndex: $currentIndex, questionAppeared: $modalAppeared, storyId: chapterId, chatType: viewModel.chat_example[currentIndex].type, choices: viewModel.chat_example[currentIndex].choice, onAnswerSelected: { result in
-               
-            })
-//            
-//            if viewModel.chat_preview[currentIndex].type == .question {
-//               ChatModalityView(chat: viewModel.chat_preview[currentIndex], modalAppeared: $modalAppeared, currentIndex: $currentIndex)
-//            }
+            if hasAnswered{
+               CorrectOrWrong(hanzi: viewModel.chat_example[currentIndex].hanzi, pinyin: viewModel.chat_example[currentIndex].pinyin, meaning: viewModel.chat_example[currentIndex].meaning, isCorrect: isCorrect) {
+                  withAnimation{
+                     DispatchQueue.main.async {
+                        modalAppeared = false
+                        currentIndex += 1
+                        hasAnswered = false
+                     }
+                  }
+               } tryAgainFunc: {
+                  withAnimation{
+                     DispatchQueue.main.async {
+                        modalAppeared = false
+                        currentIndex -= 1
+                        hasAnswered = false
+                     }
+                  }
+               }
+               .transition(.move(edge: .bottom))
+            }else{
+               BottomStoryContainerView(currentIndex: $currentIndex, questionAppeared: $modalAppeared, selectedAnswer: $selectedAnswer, isCorrect: $isCorrect, hasAnswered: $hasAnswered, storyId: chapterId, chatType: viewModel.chat_example[currentIndex].type, choices: viewModel.chat_example[currentIndex].choice, realAnswer: viewModel.chat_example[currentIndex].answer)
+                  .transition(.move(edge: .bottom))
+            }
          }
          .edgesIgnoringSafeArea(.bottom)
          .background(

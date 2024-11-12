@@ -18,6 +18,7 @@ struct Speaker1BubbleChatView: View {
       HStack {
          Image(.orangeSpeaker1)  // Your custom image
             .resizable()
+            .scaledToFit()
             .frame(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.height * 0.08)
          
          HStack(alignment: .top, spacing: 0) {

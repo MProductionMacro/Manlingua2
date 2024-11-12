@@ -9,14 +9,14 @@ import SwiftUI
 
 struct FlashcardPageView: View {
    @EnvironmentObject var router: Router
-    @StateObject var viewModel = FlashcardViewModel()
+   @EnvironmentObject var viewModel: FlashcardViewModel
    @StateObject var singleton = UserDefaultSingleton.shared
    @State var tutorialOverlay: Int = 1
    @State var audioController = AudioController.shared
    @State private var showConfirmationAlert = false
-
+   
    var body: some View {
-       ZStack (alignment: .bottom){
+      ZStack (alignment: .bottom){
          VStack {
             HStack(spacing: 4) {
                Button {
@@ -47,7 +47,7 @@ struct FlashcardPageView: View {
             }
             .padding(.horizontal)
             
-            //Spacer()
+            Spacer()
             
             HStack(alignment: .top){
                 ZStack(alignment: .top){
@@ -63,29 +63,29 @@ struct FlashcardPageView: View {
                 .shadow(radius: 0, x: 0, y: 0)
             }
             .shadow(color: .black.opacity(0.2), radius: 12, x: 0, y: 0)
-            .padding(.top, 72)
-
             
             Spacer()
             
-             
+            BottomFlashcardContainerView()
          }
          .frame(maxHeight: .infinity)
+         
+         //          BottomContainerView(viewModel: viewModel, audioController: $audioController).onTapGesture{
+         //              router.push(.donePage(currentPage: .story, currentPart: .first))
+         //          }
+         
+         /*
+          .overlay{
+          if singleton.hasNotOpenFlashcardPage(){
+          FlashcardTutorialOverlay(tutorialOverlay: $tutorialOverlay)
+          }
+          }
           
-          
-          BottomContainerView(viewModel: viewModel, audioController: $audioController)
-        /*
-         .overlay{
-            if singleton.hasNotOpenFlashcardPage(){
-               FlashcardTutorialOverlay(tutorialOverlay: $tutorialOverlay)
-            }
-         }
-        
-         FlashcardSidebarButton(viewModel: viewModel){
-            tutorialOverlay = tutorialOverlay + 1
-         }
-         .offset(y: 160)
-         */
+          FlashcardSidebarButton(viewModel: viewModel){
+          tutorialOverlay = tutorialOverlay + 1
+          }
+          .offset(y: 160)
+          */
       }
       .frame(maxHeight: .infinity)
       .background(
@@ -97,13 +97,13 @@ struct FlashcardPageView: View {
           viewModel.currentIndex = 0
           viewModel.reshuffleCards()
       }
-
    }
 }
 
 #Preview {
    FlashcardPageView()
       .environmentObject(Router())
+      .environmentObject(FlashcardViewModel())
 }
 
 

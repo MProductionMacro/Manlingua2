@@ -17,7 +17,10 @@ struct Manlingua2App: App {
    @StateObject var storyViewModel = StoryViewModel()
    @StateObject var learnViewModel = LearnViewModel()
    @StateObject var challengeViewModel = ChallengeViewModel()
+   @StateObject var flashcardViewModel = FlashcardViewModel()
+   @StateObject var journeyViewModel = JourneyViewModel()
    @StateObject var coreData = CoreDataSingleton.shared
+   @StateObject var swiftData = SwiftDataServices.shared
    
    init() {
       FirebaseApp.configure()
@@ -38,12 +41,9 @@ struct Manlingua2App: App {
          .environmentObject(homeViewModel)
          .environmentObject(storyViewModel)
          .environmentObject(learnViewModel)
-         .environmentObject(FlashcardViewModel())
+         .environmentObject(flashcardViewModel)
          .environmentObject(challengeViewModel)
-         .onAppear {
-            //StoryProgressManager.unlockFirstChapterIfNeeded()
-         }
-         //         SidebarButton()
+         .environmentObject(journeyViewModel)
          .preferredColorScheme(.light)
       }
       

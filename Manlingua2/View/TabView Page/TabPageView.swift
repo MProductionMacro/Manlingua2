@@ -10,7 +10,7 @@ struct TabPageView: View {
       TabView(selection: $selectedTab) {
          StoryListView()
             .tabItem {
-               TabItemView(selectedTab: $selectedTab, text:"Beranda", image: "house", tag: 0)
+               TabItemView(selectedTab: $selectedTab, text:"Belajar", image: "house", tag: 0)
             }
             .tag(0)
          

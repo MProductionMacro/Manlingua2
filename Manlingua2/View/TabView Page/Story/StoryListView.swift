@@ -10,35 +10,37 @@ import SwiftUI
 struct StoryListView: View {
    var body: some View {
       //      TODO: Beberapa size masih hard coded
-      VStack(spacing: 0) {
-         VStack(alignment: .leading) {
-            Text("Cerita seru apa yang ingin kamu")
-               .fontWeight(.semibold)
-               .foregroundStyle(.white)
-               .font(.judulBiasa())
-            
-            Text("Coba Jelajah?")
-               .font(.judulSedang())
-               .foregroundStyle(.white)
-         }
-         .frame(maxWidth: .infinity, alignment: .leading)
-         .padding(.leading, 20)
-//         .padding(.top)
-         .padding(.bottom)
-         
-         VStack {
-            ScrollView(showsIndicators: false) {
-               HomeCardScrollView()
-               KataKataView()
-               TantanganView()
+      ScrollView{
+         VStack(spacing: 0) {
+            VStack(alignment: .leading) {
+               Text("Cerita seru apa yang ingin kamu")
+                  .fontWeight(.semibold)
+                  .foregroundStyle(.white)
+                  .font(.judulBiasa())
+               
+               Text("Coba Jelajah?")
+                  .font(.judulSedang())
+                  .foregroundStyle(.white)
             }
-            .padding(.bottom, 64)
-            .ignoresSafeArea()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 20)
+   //         .padding(.top)
+            .padding(.bottom)
+            
+            VStack {
+//               ScrollView(showsIndicators: false) {
+                  HomeCardListView()
+                  KataKataView()
+                  TantanganView()
+//               }
+               .padding(.bottom, 64)
+            }
+            .background(.white)
+//            .ignoresSafeArea()
+            .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft]))
          }
-         .background(.white)
-         .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft]))
+         .padding(.top, 64)
       }
-      .padding(.top, 64)
       .ignoresSafeArea()
       .background(
          Image(.homeBackground)

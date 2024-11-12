@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct Correct: View {
+struct CorrectOrWrong: View {
    var hanzi: String
    var pinyin: String
    var meaning: String
+   var isCorrect: Bool
    
    var continueFunc: () -> Void
    var tryAgainFunc: () -> Void
@@ -30,18 +31,18 @@ struct Correct: View {
                      .cornerRadius(16)
                }
                
-               Image(systemName: "checkmark.circle.fill")
-                  .foregroundColor(Color.green2)
+               Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
+                  .foregroundColor(isCorrect ? .green2 : .redNormal)
                   .font(.title)
                
                VStack(alignment: .leading) {
-                  Text("wán quán zhèng què!")
-                     .foregroundStyle(Color.green2)
+                  Text(isCorrect ? "wán quán zhèng què!" : "hái cuò ,       zài   shì   yī    cì")
+                     .foregroundStyle(isCorrect ? .green2 : .redNormal)
                      .font(.pinyin())
                      .fontWeight(.bold)
                   
-                  Text("完全正确")
-                     .foregroundStyle(.green2)
+                  Text(isCorrect ? "完全正确" : "还错，再试一次")
+                     .foregroundStyle(isCorrect ? .green2 : .redNormal)
                      .font(.judulBiasa())
                }
             }
@@ -66,13 +67,13 @@ struct Correct: View {
       .edgesIgnoringSafeArea(.bottom)
       .frame(maxWidth: .infinity)
       .padding(.horizontal)
-      .padding(.top, 24)
-      .padding(.bottom, 36)
-      .background(.greenLight)
+      .padding(.vertical, 36)
+//      .padding(.bottom, 36)
+      .background(isCorrect ? .greenLight : .redLight)
       .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
    }
 }
 
 #Preview {
-   Correct(hanzi: "猫", pinyin: "Māo", meaning: "How many people", continueFunc: {}, tryAgainFunc: {})
+   CorrectOrWrong(hanzi: "猫", pinyin: "Māo", meaning: "How many people", isCorrect: true, continueFunc: {}, tryAgainFunc: {})
 }

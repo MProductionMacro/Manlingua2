@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeCardScrollView: View {
+struct HomeCardListView: View {
    @EnvironmentObject var viewModel: HomeViewModel
    
    @StateObject var singleton = CoreDataSingleton.shared
@@ -18,8 +18,8 @@ struct HomeCardScrollView: View {
             ForEach(viewModel.stories_example, id: \.id) { stories in
                HomeCardView(
                   homeCard: .story1Thumbnail,
-                  isDisabled: stories.id <= singleton.latestStory ? false : true,
                   isComplete: false,
+                  isDisabled: .constant(stories.id <= singleton.latestStory ? false : true),
                   story: stories
                )
             }
@@ -36,6 +36,6 @@ struct HomeCardScrollView: View {
 }
 
 #Preview {
-   HomeCardScrollView()
+   HomeCardListView()
       .environmentObject(HomeViewModel())
 }

@@ -65,20 +65,22 @@ struct FlashcardDictionaryView: View {
                  
                 Spacer()
             }
-        }
-        .onAppear{
-            isBookmarked = SwiftDataServices.shared.isVocabExist(vocab: vocab)
-        }
-        .frame(width: 170, height: 208)
-        .zIndex(2)
-        .background(.white)
-        .cornerRadius(16.98)
-        .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 0)
-    }
+            
+            Spacer()
+         }
+      }
+      .onAppear{
+         isBookmarked = SwiftDataServices.shared.isVocabExist(vocab: vocab)
+      }
+      .frame(width: 170, height: 208)
+      .zIndex(2)
+      .background(.white)
+      .cornerRadius(16.98)
+      .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 0)
+   }
 }
 
 #Preview {
     FlashcardDictionaryView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis", hanziSentence: "WoWo", pinyinSentence: "Lala", meaningSentence: "Bisnis", language: "en"), textToSpeech: .constant(TextToSpeech()), viewModel : DictionaryViewModel())
         .environmentObject(Router())
-   
 }

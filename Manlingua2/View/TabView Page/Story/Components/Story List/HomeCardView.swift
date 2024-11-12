@@ -9,8 +9,9 @@ import SwiftUI
 
 struct HomeCardView: View {
    @State var homeCard: ImageResource
-   @State var isDisabled: Bool
    @State var isComplete: Bool
+   
+   @Binding var isDisabled: Bool
    
    @EnvironmentObject var router: Router
    @EnvironmentObject var homeVM: HomeViewModel
@@ -23,16 +24,13 @@ struct HomeCardView: View {
       //TODO: Framenya hard coded, takut ga responsive
       VStack(alignment: .center, spacing: 16) {
          Image(.story1Thumbnail)
-         //            .resizable()
-         //            .frame(width: UIScreen.main.bounds.width * 0.5, height: UIScreen.main.bounds.width * 0.5)
-         //            .scaledToFit()
             .saturation(isDisabled ? 0 : 1)
             .colorMultiply(isDisabled ? .customLighterGray : .white)
          
          VStack(alignment: .leading, spacing: 4) {
             Text("Cerita \(story.id)")
                .font(.pinyin())
-               .bold()
+               .fontWeight(.bold)
                .foregroundStyle(.black)
             
             Text(story.title)
@@ -51,16 +49,15 @@ struct HomeCardView: View {
          }
          .frame(maxWidth: .infinity, alignment: .leading)
          
-         ProgressView(value: 0, total: 1)
+         ProgressView(value: Float(singleton.storyProgress[story.id - 1] - 1), total: Float(story.subChapter.count))
             .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
          
          HStack {
             Button {
                if !isDisabled {
                   let subChapterId = singleton.latestSubChapter
-                  
-                  storyVM.loadChat(storyId: story.id, subChapterId: subChapterId)
-                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId, isFromHome: true))
+//                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
+                  router.push(.loadingPage(chapterId: story.id, subChapterId: subChapterId))
                }
             } label: {
                Text("Mulai")

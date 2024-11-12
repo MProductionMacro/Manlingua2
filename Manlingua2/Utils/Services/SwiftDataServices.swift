@@ -185,5 +185,4 @@ class SwiftDataServices: ObservableObject {
         }
         
     }
-    
 }
