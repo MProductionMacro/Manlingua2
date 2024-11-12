@@ -1,0 +1,109 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "wǒ men lái tǎo lùn fù kuǎn fāng shì ba",
+        "hanzi": "我们来讨论付款方式吧。",
+        "meaning": "Let’s discuss the payment methods.",
+        "type": "speaker1"
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "hǎo de, nǐ men tōng cháng zěn me fù kuǎn?",
+        "hanzi": "好的，你们通常怎么付款？",
+        "meaning": "Okay, how do you usually make payments?",
+        "type": "speaker2"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "fù kuǎn",
+        "hanzi": "付款",
+        "meaning": "Payment",
+        "choice": ["Shipping goods", "Paying", "Waiting", "Selling"],
+        "answer": "Paying",
+        "question": "What does 付款 (fù kuǎn) mean?",
+        "type": "question"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "wǒ men kě yǐ tōng guò yín háng zhuǎn zhàng fù kuǎn.",
+        "hanzi": "我们可以通过银行转账付款。",
+        "meaning": "We can pay via bank transfer.",
+        "type": "speaker1"
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "yín háng",
+        "hanzi": "银行",
+        "meaning": "Bank",
+        "choice": ["Bank", "Market", "Goods", "Store"],
+        "answer": "Bank",
+        "question": "Listen, what does 银行 (yín háng) mean?",
+        "type": "question"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "yín háng zhuǎn zhàng hěn hǎo, bù guò wǒ men yě jiē shòu xìn yòng kǎ.",
+        "hanzi": "银行转账很好，不过我们也接受信用卡。",
+        "meaning": "Bank transfer is good, but we also accept credit cards.",
+        "type": "speaker2"
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "tài hǎo le, wǒ kě yǐ yòng xìn yòng kǎ fù kuǎn.",
+        "hanzi": "太好了，我可以用信用卡付款。",
+        "meaning": "Great, I can pay with a credit card.",
+        "type": "speaker1"
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "hanzi": "信用卡",
+        "pinyin": "xìn yòng kǎ",
+        "meaning": "Credit card",
+        "answer": "信用卡",
+        "question": "Repeat 信用卡 (xìn yòng kǎ).",
+        "type": "question"
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "hǎo de, fù kuǎn zhī hòu wǒ men huì fāhuò.",
+        "hanzi": "好的，付款之后我们会发货。",
+        "meaning": "Okay, after payment we will ship the goods.",
+        "type": "speaker2"
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "fù kuǎn hòu, huò wù jiāng mǎ shàng fā chū.",
+        "hanzi": "付款后，货物将马上发出。",
+        "meaning": "After payment, the goods will be shipped immediately.",
+        "question": "Answer in Mandarin 'After payment, the goods will be shipped immediately.'",
+        "answer": "付款后，货物将马上发出",
+        "type": "speaker1"
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "nín huì shōu dào fùkuǎn què rèn hé fā huò tōng zhī.",
+        "hanzi": "您会收到付款确认和发货通知。",
+        "meaning": "You will receive payment confirmation and shipping notification.",
+        "type": "speaker2"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "xiè xiè! wǒ men qí dài xià yī cì hé zuò.",
+        "hanzi": "谢谢！我们期待下一次合作。",
+        "meaning": "Thank you! We look forward to the next collaboration.",
+        "type": "speaker1"
+    }
+]
+

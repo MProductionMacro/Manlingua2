@@ -17,7 +17,7 @@ class HomeViewModel: ObservableObject {
    
    func loadStories() {
       // Locate the JSON file in the bundle
-      guard let url = Bundle.main.url(forResource: "Story_Example", withExtension: "json") else {
+      guard let url = Bundle.main.url(forResource: "Story_Example_\(UserDefaultSingleton.shared.language)", withExtension: "json") else {
          print("File not found")
          return
       }

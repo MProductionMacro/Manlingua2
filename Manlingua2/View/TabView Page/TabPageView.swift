@@ -34,6 +34,7 @@ struct TabPageView: View {
       }
       .onAppear{
          setTabViewAppearance()
+         homeViewModel.loadStories()
       }
    }
    

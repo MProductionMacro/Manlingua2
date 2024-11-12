@@ -4,7 +4,6 @@
 //
 //  Created by Arrick Russell Adinoto on 24/10/24.
 //
-
 import Foundation
 
 class UserDefaultSingleton : ObservableObject{
@@ -15,13 +14,30 @@ class UserDefaultSingleton : ObservableObject{
    @Published var storyProgress: [Int] = [1,1,1,1]
    @Published var hasOpenFlashcard: Bool = false
    @Published var hasOpenStoryDetail: Bool = false
-   
+    @Published var language: String = "en"
    
    private init(){
       setLatestChapter()
       setLatestSubChapter()
       setAllSpecificStoryProgress()
+      getLanguage()
    }
+    
+    
+    func getLanguage(){
+        language = UserDefaults.standard.string(forKey: "language") ?? "en"
+    }
+    
+    func setLanguage(language : Language){
+        if language == .english{
+            self.language = "en"
+            UserDefaults.standard.set("en", forKey: "language")
+        }
+        else{
+            self.language = "id"
+            UserDefaults.standard.set("id", forKey: "language")
+        }
+    }
    
    func setLatestChapter() {
       latestStory = UserDefaults.standard.integer(forKey: "LatestChapter")

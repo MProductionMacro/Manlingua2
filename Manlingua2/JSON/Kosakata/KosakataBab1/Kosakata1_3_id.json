@@ -5,7 +5,8 @@
         "meaning": "Minum teh",
         "hanziSentence": "下午我们一起喝茶吧。",
         "pinyinSentence": "xià wǔ wǒ men yī qǐ hē chá ba.",
-        "meaningSentence": "Mari kita minum teh bersama sore ini."
+        "meaningSentence": "Mari kita minum teh bersama sore ini.",
+        "language" : "id"
     },
     {
         "hanzi": "绿茶",
@@ -13,7 +14,8 @@
         "meaning": "Teh hijau",
         "hanziSentence": "我喜欢喝绿茶。",
         "pinyinSentence": "wǒ xǐ huān hē lǜ chá.",
-        "meaningSentence": "Saya suka minum teh hijau."
+        "meaningSentence": "Saya suka minum teh hijau.",
+        "language" : "id"
     },
     {
         "hanzi": "喜欢",
@@ -21,7 +23,8 @@
         "meaning": "Menyukai",
         "hanziSentence": "她喜欢电子产品。",
         "pinyinSentence": "tā xǐ huān diàn zǐ chǎn pǐn.",
-        "meaningSentence": "Dia suka produk elektronik."
+        "meaningSentence": "Dia suka produk elektronik.",
+        "language" : "id"
     },
     {
         "hanzi": "收获",
@@ -29,7 +32,8 @@
         "meaning": "Manfaat",
         "hanziSentence": "参加这个活动让我有很多收获。",
         "pinyinSentence": "cān jiā zhè ge huó dòng ràng wǒ yǒu hěn duō shōu huò.",
-        "meaningSentence": "Mengikuti acara ini memberi saya banyak manfaat."
+        "meaningSentence": "Mengikuti acara ini memberi saya banyak manfaat.",
+        "language" : "id"
     },
     {
         "hanzi": "重要",
@@ -37,7 +41,8 @@
         "meaning": "Penting",
         "hanziSentence": "质量对我们来说非常重要。",
         "pinyinSentence": "zhì liàng duì wǒ men lái shuō fēi cháng zhòng yào.",
-        "meaningSentence": "Kualitas sangat penting bagi kami."
+        "meaningSentence": "Kualitas sangat penting bagi kami.",
+        "language" : "id"
     },
     {
         "hanzi": "招待",
@@ -45,6 +50,7 @@
         "meaning": "Menjamu",
         "hanziSentence": "老板会亲自招待客人。",
         "pinyinSentence": "lǎo bǎn huì qīnzì zhāo dài kè rén.",
-        "meaningSentence": "Bos akan menjamu tamu secara pribadi."
+        "meaningSentence": "Bos akan menjamu tamu secara pribadi.",
+        "language" : "id"
     }
 ]

@@ -5,7 +5,8 @@
         "meaning": "Spesifikasi",
         "hanziSentence": "我们需要了解产品的规格。",
         "pinyinSentence": "wǒ men xū yào liǎo jiě chǎn pǐn de guī gé.",
-        "meaningSentence": "Kami perlu mengetahui spesifikasi produk."
+        "meaningSentence": "Kami perlu mengetahui spesifikasi produk.",
+        "language" : "id"
     },
     {
         "hanzi": "尺寸",
@@ -13,7 +14,8 @@
         "meaning": "Ukuran",
         "hanziSentence": "你能告诉我这个箱子的尺寸吗？",
         "pinyinSentence": "nǐ néng gào su wǒ zhè ge xiāng zi de chǐ cùn ma?",
-        "meaningSentence": "Bisakah kamu memberitahu saya ukuran kotak ini?"
+        "meaningSentence": "Bisakah kamu memberitahu saya ukuran kotak ini?",
+        "language" : "id"
     },
     {
         "hanzi": "重量",
@@ -21,7 +23,8 @@
         "meaning": "Berat",
         "hanziSentence": "这个包裹的重量是多少？",
         "pinyinSentence": "zhè ge bāo guǒ de zhòng liàng shì duō shǎo?",
-        "meaningSentence": "Berapa berat paket ini?"
+        "meaningSentence": "Berapa berat paket ini?",
+        "language" : "id"
     },
     {
         "hanzi": "符合",
@@ -29,7 +32,8 @@
         "meaning": "Sesuai",
         "hanziSentence": "这些产品符合我们的要求。",
         "pinyinSentence": "zhè xiē chǎn pǐn fú hé wǒ men de yāo qiú.",
-        "meaningSentence": "Produk ini sesuai dengan permintaan kami."
+        "meaningSentence": "Produk ini sesuai dengan permintaan kami.",
+        "language" : "id"
     },
     {
         "hanzi": "轻型",
@@ -37,7 +41,8 @@
         "meaning": "Ringan",
         "hanziSentence": "这款轻型电脑非常受欢迎。",
         "pinyinSentence": "zhè kuǎn qīng xíng diàn nǎo fēi cháng shòu huān yíng.",
-        "meaningSentence": "Laptop ringan ini sangat populer."
+        "meaningSentence": "Laptop ringan ini sangat populer.",
+        "language" : "id"
     },
     {
         "hanzi": "确保",
@@ -45,7 +50,8 @@
         "meaning": "Memastikan",
         "hanziSentence": "我们会确保准时交货。",
         "pinyinSentence": "wǒ men huì què bǎo zhǔn shí jiāo huò.",
-        "meaningSentence": "Kami akan memastikan pengiriman tepat waktu."
+        "meaningSentence": "Kami akan memastikan pengiriman tepat waktu.",
+        "language" : "id"
     },
     {
         "hanzi": "放心",
@@ -53,7 +59,7 @@
         "meaning": "Tenang",
         "hanziSentence": "你可以放心，我们会处理好一切。",
         "pinyinSentence": "nǐ kěyǐ fàng xīn, wǒ men huì chǔ lǐ hǎo yī qiè.",
-        "meaningSentence": "Kamu bisa tenang, kami akan mengurus semuanya."
+        "meaningSentence": "Kamu bisa tenang, kami akan mengurus semuanya.",
+        "language" : "id"
     }
 ]
-

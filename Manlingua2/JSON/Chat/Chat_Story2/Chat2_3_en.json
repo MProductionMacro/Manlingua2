@@ -1,0 +1,109 @@
+[
+    {
+        "id": 1,
+        "speaker": "Abai",
+        "pinyin": "nín duì chǎn pǐn de jià gé yǒu shén me qī wàng?",
+        "hanzi": "您对产品的价格有什么期望？",
+        "meaning": "What are your expectations for the price of this product?",
+        "type": "speaker1"
+    },
+    {
+        "id": 2,
+        "speaker": "Asui",
+        "pinyin": "wǒ men xī wàng jià gé néng gèng hé lǐ yì xiē.",
+        "hanzi": "我们希望价格能更合理一些。",
+        "meaning": "We hope the price can be more reasonable.",
+        "type": "speaker2"
+    },
+    {
+        "id": 3,
+        "speaker": "Asui",
+        "pinyin": "jiàgé",
+        "hanzi": "价格",
+        "meaning": "Price",
+        "choice": ["Quality", "Price", "Quantity", "Product"],
+        "answer": "Price",
+        "question": "What does 价格 (jiàgé) mean?",
+        "type": "question"
+    },
+    {
+        "id": 4,
+        "speaker": "Abai",
+        "pinyin": "wǒ men de jià gé yǐ jīng hěn yōu huì le, nín néng jiē shòu ma?",
+        "hanzi": "我们的价格已经很优惠了，您能接受吗？",
+        "meaning": "Our price is already very competitive, can you accept it?",
+        "type": "speaker1"
+    },
+    {
+        "id": 5,
+        "speaker": "Asui",
+        "pinyin": "Cái děng hē, yǒu shén me yì si?",
+        "hanzi": "优惠",
+        "meaning": "Discount",
+        "choice": ["Discount", "Better", "Quantity", "Suitable"],
+        "answer": "Discount",
+        "question": "Listen, what does 优惠 (yōuhuì) mean?",
+        "type": "question"
+    },
+    {
+        "id": 6,
+        "speaker": "Asui",
+        "pinyin": "wǒ men de yù suàn yǒu xiē jǐn zhāng, néng zài jiàng dī yì xiē ma?",
+        "hanzi": "我们的预算有些紧张，能再降低一些吗？",
+        "meaning": "Our budget is a bit tight, could you lower it a bit more?",
+        "type": "speaker2"
+    },
+    {
+        "id": 7,
+        "speaker": "Abai",
+        "pinyin": "wǒ men kě yǐ tí gōng yì diǎn zhé kòu, bú guò bù néng tài duō.",
+        "hanzi": "我们可以提供一点折扣，不过不能太多。",
+        "meaning": "We can offer a small discount, but not too much.",
+        "type": "speaker1"
+    },
+    {
+        "id": 8,
+        "speaker": "Asui",
+        "pinyin": "Cái děng hē, chāng yīcì zhékòu (zhékòu).",
+        "hanzi": "折扣",
+        "meaning": "Discount",
+        "answer": "折扣",
+        "question": "Repeat 折扣 (zhékòu).",
+        "type": "question"
+    },
+    {
+        "id": 9,
+        "speaker": "Asui",
+        "pinyin": "hǎo de, rú guǒ yǒu zhé kòu, wǒ xiǎng wǒ men kě yǐ jiē shòu.",
+        "hanzi": "好的，如果有折扣，我想我们可以接受。",
+        "meaning": "Alright, if there’s a discount, I think we can accept it.",
+        "type": "speaker2"
+    },
+    {
+        "id": 10,
+        "speaker": "Abai",
+        "pinyin": "wǒ men kě yǐ tí gōng bǎi fēn zhī wǔ de zhékòu.",
+        "hanzi": "我们可以提供百分之五的折扣。",
+        "meaning": "We can offer a 5% discount.",
+        "answer": "我们可以提供百分之五的折扣。",
+        "question": "Answer in Mandarin 'We can offer a 5% discount.'",
+        "type": "question"
+    },
+    {
+        "id": 11,
+        "speaker": "Asui",
+        "pinyin": "fēi cháng gǎn xiè, zhè duì wǒ men de yù suàn bāng zhù hěn dà.",
+        "hanzi": "非常感谢，这对我们的预算帮助很大。",
+        "meaning": "Thank you very much, this really helps our budget.",
+        "type": "speaker2"
+    },
+    {
+        "id": 12,
+        "speaker": "Abai",
+        "pinyin": "bù kè qì, wǒ xiāng xìn wǒ men huì hé zuò de hěn hǎo.",
+        "hanzi": "不客气，我相信我们会合作得很好。",
+        "meaning": "You’re welcome, I believe we’ll work together very well.",
+        "type": "speaker1"
+    }
+]
+

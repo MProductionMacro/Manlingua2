@@ -13,6 +13,7 @@ struct FlashcardView: View {
     var width: CGFloat = 300
     var height: CGFloat = 200
     @State var isBookmarked = false
+    @ObservedObject var viewModel: FlashcardViewModel
     var body: some View{
         VStack(alignment: .center, spacing: 16){
             Button(action:{
@@ -20,7 +21,7 @@ struct FlashcardView: View {
                     SwiftDataServices.shared.deleteData(vocab)
                 }
                 else{
-                    SwiftDataServices.shared.addData(vocab)
+                    viewModel.addVocabulary(vocab)
                 }
                 isBookmarked.toggle()
             }, label: {
@@ -45,28 +46,34 @@ struct FlashcardView: View {
                     .font(Font.bold24())
                 
                 Text("\(vocab.pinyin)")
-                    .font(Font.judulBiasa())
+                    .font(Font.normal20())
             }
 
-            
             VStack(alignment: .leading){
                 Text("Contoh kalimat")
                     .font(Font.boldText())
                 Text("\(vocab.pinyinSentence)")
                     .font(Font.normalText())
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text("\(vocab.hanziSentence)")
                     .font(Font.normalText())
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text("\(vocab.meaningSentence)")
                     .font(Font.normalText())
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .frame(width: 210, alignment: .leading)
-            
-            Spacer()
+            .padding(.bottom, 24)
+    
         }
         .onAppear{
             isBookmarked = SwiftDataServices.shared.isVocabExist(vocab: vocab)
         }
-        .frame(width: 300, height: 426)
+        .frame(width: 300)
+        //.frame(minHeight: 427)
         //310
         //.frame(width: 354.55, height: 440)
         //.frame(width: 390, height: 458)
@@ -77,9 +84,8 @@ struct FlashcardView: View {
 }
 
 #Preview {
-    FlashcardView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis", hanziSentence: "Wowo", pinyinSentence: "Lala", meaningSentence: "Bisnis"))
+    FlashcardView(vocab: Vocabulary(hanzi: "Wowo", pinyin: "Lala", meaning: "Bisnis", hanziSentence: "Wowo", pinyinSentence: "Lala", meaningSentence: "Bisnis", language: "en"), viewModel: FlashcardViewModel())
 }
-
 
 
 

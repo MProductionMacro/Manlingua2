@@ -5,7 +5,8 @@
         "meaning": "Goods",
         "hanziSentence": "这批货物已经到达目的地。",
         "pinyinSentence": "zhè pī huò wù yǐ jīng dào dá mù dè dì.",
-        "meaningSentence": "This batch of goods has arrived at the destination."
+        "meaningSentence": "This batch of goods has arrived at the destination.",
+        "language" : "en"
     },
     {
         "hanzi": "质量",
@@ -13,7 +14,8 @@
         "meaning": "Quality",
         "hanziSentence": "我们对产品的质量非常满意。",
         "pinyinSentence": "wǒ men duì chǎn pǐn de zhì liàng fēi cháng mǎn yì.",
-        "meaningSentence": "We are very satisfied with the quality of the products."
+        "meaningSentence": "We are very satisfied with the quality of the products.",
+        "language" : "en"
     },
     {
         "hanzi": "服务",
@@ -21,7 +23,8 @@
         "meaning": "Service",
         "hanziSentence": "客户服务非常周到。",
         "pinyinSentence": "kè hù fú wù fēi cháng zhōu dào.",
-        "meaningSentence": "The customer service is very attentive."
+        "meaningSentence": "The customer service is very attentive.",
+        "language" : "en"
     },
     {
         "hanzi": "满意",
@@ -29,7 +32,8 @@
         "meaning": "Satisfy",
         "hanziSentence": "我们对交易的结果感到满意。",
         "pinyinSentence": "wǒ men duì jiāo yì de jié guǒ gǎn dào mǎn yì.",
-        "meaningSentence": "We are satisfied with the result of the transaction."
+        "meaningSentence": "We are satisfied with the result of the transaction.",
+        "language" : "en"
     },
     {
         "hanzi": "联系",
@@ -37,6 +41,7 @@
         "meaning": "Contact",
         "hanziSentence": "如果有问题，请随时联系我。",
         "pinyinSentence": "rú guǒ yǒu wèn tí, qǐng suí shí lián xì wǒ.",
-        "meaningSentence": "If there are any issues, please contact me anytime."
+        "meaningSentence": "If there are any issues, please contact me anytime.",
+        "language" : "en"
     }
 ]

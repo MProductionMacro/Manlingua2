@@ -5,7 +5,8 @@
         "meaning": "Specifications",
         "hanziSentence": "我们需要了解产品的规格。",
         "pinyinSentence": "wǒ men xū yào liǎo jiě chǎn pǐn de guī gé.",
-        "meaningSentence": "We need to understand the product’s specifications."
+        "meaningSentence": "We need to understand the product’s specifications.",
+        "language" : "en"
     },
     {
         "hanzi": "尺寸",
@@ -13,7 +14,8 @@
         "meaning": "Size",
         "hanziSentence": "你能告诉我这个箱子的尺寸吗？",
         "pinyinSentence": "nǐ néng gào su wǒ zhè ge xiāng zi de chǐ cùn ma?",
-        "meaningSentence": "Can you tell me the size of this box?"
+        "meaningSentence": "Can you tell me the size of this box?",
+        "language" : "en"
     },
     {
         "hanzi": "重量",
@@ -21,7 +23,8 @@
         "meaning": "Weight",
         "hanziSentence": "这个包裹的重量是多少？",
         "pinyinSentence": "zhè ge bāo guǒ de zhòng liàng shì duō shǎo?",
-        "meaningSentence": "What is the weight of this package?"
+        "meaningSentence": "What is the weight of this package?",
+        "language" : "en"
     },
     {
         "hanzi": "符合",
@@ -29,7 +32,8 @@
         "meaning": "In accordance",
         "hanziSentence": "这些产品符合我们的要求。",
         "pinyinSentence": "zhè xiē chǎn pǐn fú hé wǒ men de yāo qiú.",
-        "meaningSentence": "This product is in accordance with our request."
+        "meaningSentence": "This product is in accordance with our request.",
+        "language" : "en"
     },
     {
         "hanzi": "轻型",
@@ -37,7 +41,8 @@
         "meaning": "Light",
         "hanziSentence": "这款轻型电脑非常受欢迎。",
         "pinyinSentence": "zhè kuǎn qīng xíng diàn nǎo fēi cháng shòu huān yíng.",
-        "meaningSentence": "This lightweight laptop is very popular."
+        "meaningSentence": "This lightweight laptop is very popular.",
+        "language" : "en"
     },
     {
         "hanzi": "确保",
@@ -45,7 +50,8 @@
         "meaning": "Ensure",
         "hanziSentence": "我们会确保准时交货。",
         "pinyinSentence": "wǒ men huì què bǎo zhǔn shí jiāo huò.",
-        "meaningSentence": "We will ensure on-time delivery."
+        "meaningSentence": "We will ensure on-time delivery.",
+        "language" : "en"
     },
     {
         "hanzi": "放心",
@@ -53,6 +59,7 @@
         "meaning": "Relax",
         "hanziSentence": "你可以放心，我们会处理好一切。",
         "pinyinSentence": "nǐ kěyǐ fàng xīn, wǒ men huì chǔ lǐ hǎo yī qiè.",
-        "meaningSentence": "You can relax, we will take care of everything."
+        "meaningSentence": "You can relax, we will take care of everything.",
+        "language" : "en"
     }
 ]

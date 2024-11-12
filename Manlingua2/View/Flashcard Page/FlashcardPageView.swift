@@ -49,17 +49,18 @@ struct FlashcardPageView: View {
             
             Spacer()
             
-            VStack{
-               ZStack{
-                  ForEach(0 ..< viewModel.showVocabularies.count, id: \.self) { index in
-                     if index >= viewModel.currentIndex {
-                        viewModel.createFlashcardView(for: index)
-                           .zIndex(Double(viewModel.showVocabularies.count - index))
-                     }
-                     
-                  }
-               }
-               .shadow(radius: 0, x: 0, y: 0)
+            HStack(alignment: .top){
+                ZStack(alignment: .top){
+                    ForEach(0 ..< viewModel.showVocabularies.count, id: \.self) { index in
+                        if index >= viewModel.currentIndex {
+                              viewModel.createFlashcardView(for: index)
+                                 .zIndex(Double(viewModel.showVocabularies.count - index))
+                                 .opacity(viewModel.currentIndex == index ? 1 : 0)
+                        }
+
+                    }
+                }
+                .shadow(radius: 0, x: 0, y: 0)
             }
             .shadow(color: .black.opacity(0.2), radius: 12, x: 0, y: 0)
             
@@ -91,15 +92,11 @@ struct FlashcardPageView: View {
          Image(.chatBackground)
             .scaledToFill()
       )
-      .overlay{
-         if viewModel.showDonePage {
-            DonePageView(currentPage: .flashCard, currentPart: .first)
-               .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-               .background(.white)
-         }
-      }
       .ignoresSafeArea(.container, edges: .bottom)
-      
+      .onAppear{
+          viewModel.currentIndex = 0
+          viewModel.reshuffleCards()
+      }
    }
 }
 

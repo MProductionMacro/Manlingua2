@@ -1,0 +1,7 @@
+{
+    "title": "Goods Receipt",
+    "allowed": "Check the goods according to specifications, discuss the acceptance procedure.",
+    "forbidden": "Do not complain without a clear reason.",
+    "caution": "Ensure product quality before officially accepting.",
+    "language" : "en"
+}

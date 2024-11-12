@@ -82,12 +82,12 @@ class Router: ObservableObject {
                self.pop()
             })
             .navigationBarBackButtonHidden(true)
-      case .donePage(let currentPage, let currentPart):
-         DonePageView(currentPage: currentPage, currentPart: currentPart)
-            .onBackSwipe(perform: {
-               self.pop()
-            })
-            .navigationBarBackButtonHidden(true)
+      case .donePage(let displayMode):
+          DonePageView(displayMode: displayMode)
+              .onBackSwipe(perform: {
+                     self.pop()
+                  })
+              .navigationBarBackButtonHidden(true)
       case .photoChallenge:
          PhotoChallengeView()
             .onBackSwipe(perform: {
@@ -100,6 +100,15 @@ class Router: ObservableObject {
                self.pop()
             })
             .navigationBarBackButtonHidden(true)
+      case .importantNote(let displayMode):
+          ImportantNotesPageView(displayMode: displayMode)
+              .navigationBarBackButtonHidden(true)
+      case .languageSetting:
+          LanguageSettingView()
+              .navigationBarBackButtonHidden(true)
+      case .notificationSetting:
+          NotificationSettingView()
+              .navigationBarBackButtonHidden(true)
       }
    }
 }
@@ -114,10 +123,13 @@ enum Screen: Hashable {
    case storyPage(chapterId: Int, subChapterId: Int)
    case loadingPage(chapterId: Int, subChapterId: Int)
    case dictionary(judul:String, displayMode: DictionaryDisplayMode)
-   case donePage(currentPage: DonePageString, currentPart: PartOfTheStory)
+   case donePage(displayMode : DonePageDisplayMode)
    case flashcardPage
    case photoChallenge
    case cameraView
+   case languageSetting
+   case importantNote(displayMode: NoteDisplayMode)
+   case notificationSetting
 }
 
 /*

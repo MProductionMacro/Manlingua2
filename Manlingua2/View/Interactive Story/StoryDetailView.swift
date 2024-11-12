@@ -61,7 +61,7 @@ struct StoryDetailView: View {
             
             ChatScrollView(currentIndex: $currentIndex, chats: viewModel.chat_example) {
                viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
-               router.push(.donePage(currentPage: .story, currentPart: .first))
+                router.push(.donePage(displayMode: .story(storyId: chapterId, subChapterId: subChapterId)))
             }
             
             if hasAnswered{

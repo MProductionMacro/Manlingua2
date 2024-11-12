@@ -5,7 +5,8 @@
         "meaning": "Travelling",
         "hanziSentence": "我明天会去北京旅行。",
         "pinyinSentence": "wǒ míng tiān huì qù běi jīng lǚ xíng.",
-        "meaningSentence": "I will be traveling to Beijing tomorrow."
+        "meaningSentence": "I will be traveling to Beijing tomorrow.",
+        "language" : "en"
     },
     {
         "hanzi": "会议",
@@ -13,7 +14,8 @@
         "meaning": "Conference",
         "hanziSentence": "他正在参加一个国际会议。",
         "pinyinSentence": "tā zhèng zài cān jiā yī gè guó jì huì yì.",
-        "meaningSentence": "He is attending an international conference."
+        "meaningSentence": "He is attending an international conference.",
+        "language" : "en"
     },
     {
         "hanzi": "机会",
@@ -21,7 +23,8 @@
         "meaning": "Opportunity",
         "hanziSentence": "这是一个很好的机会。",
         "pinyinSentence": "zhè shì yī gè hěn hǎo de jī huì.",
-        "meaningSentence": "This is an excellent opportunity."
+        "meaningSentence": "This is an excellent opportunity.",
+        "language" : "en"
     },
     {
         "hanzi": "讨论",
@@ -29,7 +32,8 @@
         "meaning": "Discussion",
         "hanziSentence": "我们可以一起讨论这个问题。",
         "pinyinSentence": "wǒ men kě yǐ yī qǐ tǎo lùn zhè ge wèn tí.",
-        "meaningSentence": "We can discuss this issue together."
+        "meaningSentence": "We can discuss this issue together.",
+        "language" : "en"
     },
     {
         "hanzi": "希望",
@@ -37,6 +41,7 @@
         "meaning": "Hopes",
         "hanziSentence": "我希望明天的会议成功。",
         "pinyinSentence": "wǒ xī wàng míng tiān de huì yì chéng gōng.",
-        "meaningSentence": "I hope tomorrow’s meeting is successful."
+        "meaningSentence": "I hope tomorrow’s meeting is successful.",
+        "language" : "en"
     }
 ]

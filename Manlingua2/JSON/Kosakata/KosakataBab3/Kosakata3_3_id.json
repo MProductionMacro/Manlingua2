@@ -5,7 +5,8 @@
         "meaning": "Pesanan",
         "hanziSentence": "我们已经确认了你的订单。",
         "pinyinSentence": "wǒ men yǐ jīng què rèn le nǐ de dìng dān.",
-        "meaningSentence": "Kami sudah mengkonfirmasi pesanan anda."
+        "meaningSentence": "Kami sudah mengkonfirmasi pesanan anda.",
+        "language" : "id"
     },
     {
         "hanzi": "通知",
@@ -13,6 +14,7 @@
         "meaning": "Memberitahukan",
         "hanziSentence": "我们会尽快通知你结果。",
         "pinyinSentence": "wǒ men huì jǐn kuài tōng zhī nǐ jié guǒ.",
-        "meaningSentence": "Kami akan segera memberitahumu hasilnya."
+        "meaningSentence": "Kami akan segera memberitahumu hasilnya.",
+        "language" : "id"
     }
 ]
