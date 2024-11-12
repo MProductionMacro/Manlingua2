@@ -17,7 +17,6 @@ struct HomeCardListView: View {
          HStack(spacing: 24) {
             ForEach(viewModel.stories_example, id: \.id) { stories in
                HomeCardView(
-                  homeCard: .story1Thumbnail,
                   isComplete: false,
                   isDisabled: .constant(stories.id <= singleton.latestStory ? false : true),
                   story: stories

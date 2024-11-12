@@ -37,7 +37,7 @@ struct FlashcardPageView: View {
                          showConfirmationAlert = false
                      },
                      dismissAction: {
-                         router.pop()
+                         router.popToRoot()
                      }
                   )
                )

@@ -25,6 +25,15 @@ struct DetailIoTSettingView : View {
                 DetailIoTRowView(label: "Nama Wifi", value: "Muo Home")
 
                 Spacer()
+                
+                Button {
+
+                } label: {
+                   Text("Hapus Perangkat")
+                        .foregroundStyle(.fontColors)
+                      .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(SecondaryButton(isDisabled: false))
             }
             .padding(.horizontal, 16)
             .padding(.top, 8)

@@ -71,6 +71,7 @@ struct IoTSettingView: View {
                 }
                 
                 Spacer()
+                
             }
             .padding(.horizontal, 16)
             .padding(.top, 8)

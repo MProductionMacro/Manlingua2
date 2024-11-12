@@ -33,7 +33,7 @@ struct HomeNavigationButton: PrimitiveButtonStyle {
       }
       .background(pressed ? Color.orangeDarkMode.opacity(0.35) : Color.cardBackground)
       .clipShape(RoundedRectangle(cornerRadius: 16))
-      .shadow(color: .cardShadow, radius: 5, x: 0, y: 0)
+      .shadow(color: .cardShadow.opacity(0.18), radius: 8, x: 0, y: 0)
       .scaleEffect(pressed ? 1.1 : 1.0) // Immediate scale change on press
       .animation(pressed ? .none : .easeOut, value: pressed) // Animate on release only
       .gesture(DragGesture(minimumDistance: 0).onChanged { _ in

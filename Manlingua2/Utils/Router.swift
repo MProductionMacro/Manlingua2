@@ -68,8 +68,8 @@ class Router: ObservableObject {
       case .storyPage(let chapterId, let subChapterId):
          StoryDetailView(chapterId: chapterId, subChapterId: subChapterId)
             .navigationBarBackButtonHidden(true)
-      case .loadingPage(let chapterId, let subChapterId):
-         LoadingView(chapterId: chapterId, subChapterId: subChapterId)
+      case .loadingPage(let screen):
+          LoadingView(screen: screen)
             .navigationBarBackButtonHidden(true)
       case .dictionary(let judul, let displayMode):
          DictionaryView(judul: judul, displayMode: displayMode)
@@ -119,7 +119,7 @@ class Router: ObservableObject {
    }
 }
 
-enum Screen: Hashable {
+indirect enum Screen: Hashable {
    case splashScreen
    case mainScreen
    case pinyinInisial
@@ -127,7 +127,7 @@ enum Screen: Hashable {
    case pinyinNada
    case journeyPage(storyId: Int)
    case storyPage(chapterId: Int, subChapterId: Int)
-   case loadingPage(chapterId: Int, subChapterId: Int)
+   case loadingPage(screen: Screen)
    case dictionary(judul:String, displayMode: DictionaryDisplayMode)
    case donePage(displayMode : DonePageDisplayMode)
    case flashcardPage

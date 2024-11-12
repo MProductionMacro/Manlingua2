@@ -21,12 +21,12 @@ struct SubChapterCard: View {
       HStack {
          HStack(spacing: 12) {
             if isLocked {
-               Image("LockChapter")
+                Image(.newLock)
                   .resizable()
                   .frame(width: 86, height: 86)
             }
             else{
-               Image("HaidilaoChapter")
+                Image(.newHaidilao)
                   .resizable()
                   .frame(width: 86, height: 86)
             }

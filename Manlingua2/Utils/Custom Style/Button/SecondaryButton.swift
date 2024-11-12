@@ -14,7 +14,7 @@ struct SecondaryButton: ButtonStyle {
          .foregroundStyle(isDisabled ? Color.homeCardLock : Color.orangeDarkMode)
          .font(.button())
          .padding(12)
-         .background(.cardBackground)
+         .background(.blankBackground)
          .clipShape(.rect(cornerRadius: 8))
          .overlay(
             RoundedRectangle(cornerRadius: 8)

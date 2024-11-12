@@ -59,7 +59,9 @@ struct JourneyPageContentView: View {
                           SubChapterCard(labelImage: .schoolChapter ,isLocked: viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter), id: story.id, subChapter: subChapter)
                               .onTapGesture{
                                   if !viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter) {
-                                      router.push(.loadingPage(chapterId: storyId, subChapterId: subChapter.id))
+                                      router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapter.id)))
+
+                                      //router.push(.loadingPage(chapterId: storyId, subChapterId: subChapter.id))
                                   }
                                   
                               }

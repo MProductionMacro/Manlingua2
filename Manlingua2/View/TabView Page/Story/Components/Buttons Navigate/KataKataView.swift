@@ -17,21 +17,21 @@ struct KataKataView: View {
          
          HStack(spacing: 24) {
             Button {
-               router.push(.flashcardPage)
+                router.push(.loadingPage(screen: .flashcardPage))
             } label: {
                EmptyView()
             }
             .buttonStyle(HomeNavigationButton(image: "book.pages", text: "Flashcard"))
             
             Button {
-               router.push(.dictionary(judul: "Kata Favorit", displayMode: .favorite))
+                router.push(.loadingPage(screen : .dictionary(judul: "Kata Favorit", displayMode: .favorite)))
             } label: {
                EmptyView()
             }
             .buttonStyle(HomeNavigationButton(image: "heart", text: "Favorit"))
             
             Button {
-               router.push(.importantNote(displayMode: .favorite))
+                router.push(.loadingPage(screen: .importantNote(displayMode: .favorite)))
             } label: {
                EmptyView()
             }
