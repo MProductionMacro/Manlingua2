@@ -69,4 +69,5 @@ struct ProfilePageView: View {
 
 #Preview {
    ProfilePageView()
+      .environmentObject(Router())
 }
