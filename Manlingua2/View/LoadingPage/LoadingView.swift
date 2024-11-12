@@ -19,7 +19,6 @@ struct LoadingView: View {
    
    var body: some View {
       ZStack {
-         
          Image(.chatBackground)
             .resizable()
             .aspectRatio(contentMode: .fill)
@@ -33,8 +32,8 @@ struct LoadingView: View {
             VStack(spacing: 20) {
                //               ProgressBar(progress: progressValue)
                //                  .frame(width: 300, height: 8)
-               ProgressView(value: progressValue, total: 1)
-                  .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
+                //                  .frame(width: 300, height: 8)
+                ProgressView(value: progressValue, total: 1).progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar))
             }
             Spacer()
          }

@@ -38,7 +38,7 @@ struct StoryDetailView: View {
                   Image(systemName: "xmark")
                      .font(.system(size: 32))
                      .frame(width: 32, height: 32)
-                     .foregroundStyle(.orange3)
+                     .foregroundStyle(.orangeDarkMode)
                }.reusableAlert(
                   isPresented: $showConfirmationAlert,
                   alertData: AlertData(
@@ -55,7 +55,7 @@ struct StoryDetailView: View {
                Spacer()
                
                ProgressView(value: Double(currentIndex + 1) / Double(viewModel.chat_example.count))
-                  .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
+                  .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar))
             }
             .padding(.horizontal)
             

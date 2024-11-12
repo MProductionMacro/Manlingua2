@@ -15,7 +15,7 @@ struct TryAgainButton: View {
          action()
       }) {
          Text("Coba Lagi")
-            .foregroundStyle(.orange3)
+            .foregroundStyle(.orangeDarkMode)
             .font(.button())
             .padding(20)
             .frame(maxWidth: .infinity)
@@ -23,7 +23,7 @@ struct TryAgainButton: View {
             .clipShape(.rect(cornerRadius: 16))
             .overlay {
                RoundedRectangle(cornerRadius: 16)
-                  .stroke(.orange3, lineWidth: 2)
+                  .stroke(.orangeDarkMode, lineWidth: 2)
             }
       }
    }

@@ -19,7 +19,7 @@ struct JourneyPageContentView: View {
    
    var body: some View {
       ZStack{
-         Color.white.ignoresSafeArea()
+         Color.blankBackground.ignoresSafeArea()
             .clipShape(CustomRoundedRectangle(cornerRadius: 16, corners: [.topLeft, .topRight]))
             .frame(maxHeight: .infinity)
          
@@ -65,7 +65,7 @@ struct JourneyPageContentView: View {
             .padding(.bottom, 25)
             //            }
          }
-         .padding(.top)
+         .padding(.top, 20)
       }
    }
 }

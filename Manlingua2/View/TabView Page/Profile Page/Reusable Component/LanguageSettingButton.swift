@@ -23,22 +23,26 @@ struct LanguageSettingButton : View {
                 Image(image)
                     .padding(.leading, 8)
                 Text(text)
-                    .foregroundStyle(selectedId == selectionId ? .orange3 : .black)
+                    .foregroundStyle(selectedId == selectionId ? .orangeDarkMode : .fontColors)
                     .font(.normal16())
                 Spacer()
             }
                .frame(maxWidth: .infinity)
                .frame(height: 50)
-               .background(.white)
+               .background(.blankBackground)
                .clipShape(.rect(cornerRadius: 8))
                .cornerRadius(8)
                .overlay {
                    if selectedId == selectionId {
                        RoundedRectangle(cornerRadius: 8)
-                           .stroke(.orange3, lineWidth: 1)
+                           .stroke(.orangeDarkMode, lineWidth: 1)
+                   }
+                   else{
+                       RoundedRectangle(cornerRadius: 8)
+                           .stroke(.white, lineWidth: 1)
                    }
                }
-               .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 0)
+               .shadow(color: .cardShadow.opacity(0.15), radius: 5, x: 0, y: 0)
 
         }
     }

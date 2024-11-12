@@ -25,7 +25,7 @@ struct FlashcardPageView: View {
                   Image(systemName: "rectangle.portrait.and.arrow.right")
                      .resizable()
                      .frame(width: UIScreen.main.bounds.width * 0.07, height: UIScreen.main.bounds.width * 0.07)
-                     .foregroundStyle(.orange3)
+                     .foregroundStyle(.orangeDarkMode)
                }
                .reusableAlert(
                   isPresented: $showConfirmationAlert,
@@ -42,8 +42,9 @@ struct FlashcardPageView: View {
                
                Spacer()
                
+                
                ProgressView(value: viewModel.getProgress())
-                  .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
+                     .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar ))
             }
             .padding(.horizontal)
             
@@ -62,7 +63,7 @@ struct FlashcardPageView: View {
                 }
                 .shadow(radius: 0, x: 0, y: 0)
             }
-            .shadow(color: .black.opacity(0.2), radius: 12, x: 0, y: 0)
+            .shadow(color: .cardShadow.opacity(0.2), radius: 12, x: 0, y: 0)
             
             Spacer()
             

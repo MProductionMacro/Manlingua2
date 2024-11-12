@@ -31,7 +31,7 @@ struct BottomFlashcardContainerView: View {
          .padding(.vertical, 24)
       }
       .frame(maxWidth: .infinity)
-      .background(.white)
+      .background(.cardBackground)
       .clipShape(CustomRoundedRectangle(cornerRadius: 24, corners: [.topLeft, .topRight]))
    }
 }
@@ -42,4 +42,5 @@ struct BottomFlashcardContainerView: View {
       .background(.black)
       .environmentObject(Router())
       .environmentObject(FlashcardViewModel())
+      .environment(\.colorScheme, .dark)
 }

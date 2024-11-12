@@ -21,9 +21,9 @@ struct CompletionTrackerView: View{
                total: Double(appStorageController.totalTasks)
             )
             .progressViewStyle(CustomProgressViewStyle(
-               height: UIScreen.main.bounds.height * 0.02,
-               filledColor: .green2,
-               unfilledColor: .customLighterGray
+                height: UIScreen.main.bounds.height * 0.02,
+                filledColor: .greenNormalActive,
+                unfilledColor: .progressBar
             ))
          }
          .frame(width: 321)

@@ -62,6 +62,6 @@ struct AnswerToolbarView : View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 80)
-        .background(.white)
+        .background(.cardBackground)
     }
 }

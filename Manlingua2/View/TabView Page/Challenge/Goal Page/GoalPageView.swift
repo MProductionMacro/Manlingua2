@@ -21,8 +21,8 @@ struct GoalPageView: View {
                   Text("Perunggu")
                      .font(Font.subJudul())
                      .frame(width: 92, height: 35)
-                     .foregroundColor(.orange)
-                     .background(.customBeige)
+                     .foregroundColor(.orangeDarkMode)
+                     .background(.wordListButtonBackground)
                      .cornerRadius(8)
                   
                   HStack(spacing: 4){
@@ -33,6 +33,7 @@ struct GoalPageView: View {
                         .frame(width: 15, height: 17)
                      Text("12")
                         .font(Font.subJudul())
+                        .foregroundStyle(.black)
                   }
                   .frame(width: 55, height: 33)
                   .background(.white)
@@ -45,22 +46,22 @@ struct GoalPageView: View {
             
             CompletionTrackerView()
                .frame(width: 353, height: 92)
-               .background(.white)
+               .background(.cardBackground)
                .cornerRadius(16)
             
             VStack(spacing: 16) {
                HStack {
                   Text("Selesaikan tugas dibawah!")
-                     .foregroundStyle(.gray)
+                     .foregroundStyle(.padlock)
                      .font(.subJudul())
                   
                   Spacer()
                   
                   HStack {
                      Image(systemName: "clock")
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.padlock)
                      Text("sisa \(appStorageController.remainHour) Jam")
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.padlock)
                         .font(.normalText())
                   }
                }
@@ -82,7 +83,7 @@ struct GoalPageView: View {
                Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(.white)
+            .background(.blankBackground)
             .cornerRadius(32, corners: [.topLeft, .topRight])
          }
          .ignoresSafeArea(edges: .bottom)

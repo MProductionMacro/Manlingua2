@@ -39,26 +39,26 @@ struct TabPageView: View {
    }
    
    func setTabViewAppearance(){
-      UITabBar.appearance().backgroundColor = UIColor.white
-      
-      let appearance = UITabBarAppearance()
-      
-      let selectedAttributes: [NSAttributedString.Key: Any] = [
-         .foregroundColor: UIColor.darkGray,
-         .font: UIFont.systemFont(ofSize: 12, weight: .bold)
-      ]
-      appearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedAttributes
-      appearance.stackedLayoutAppearance.selected.iconColor = UIColor.orange3
-      
-      let normalAttributes: [NSAttributedString.Key: Any] = [
-         .foregroundColor: UIColor.lightGray,
-         .font: UIFont.systemFont(ofSize: 12)
-      ]
-      
-      appearance.stackedLayoutAppearance.normal.titleTextAttributes = normalAttributes
-      appearance.stackedLayoutAppearance.normal.iconColor = UIColor.lightGray
-      
-      UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().backgroundColor = UIColor.blankBackground
+       
+       let appearance = UITabBarAppearance()
+       
+       let selectedAttributes: [NSAttributedString.Key: Any] = [
+          .foregroundColor: UIColor.white,
+          .font: UIFont.systemFont(ofSize: 12, weight: .bold)
+       ]
+       appearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedAttributes
+       appearance.stackedLayoutAppearance.selected.iconColor = UIColor.orange3
+       
+       let normalAttributes: [NSAttributedString.Key: Any] = [
+          .foregroundColor: UIColor.lightGray,
+          .font: UIFont.systemFont(ofSize: 12)
+       ]
+       
+       appearance.stackedLayoutAppearance.normal.titleTextAttributes = normalAttributes
+       appearance.stackedLayoutAppearance.normal.iconColor = UIColor.lightGray
+        
+       UITabBar.appearance().standardAppearance = appearance
    }
 }
 

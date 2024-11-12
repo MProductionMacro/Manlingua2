@@ -81,17 +81,13 @@ struct CameraGrantedView: View {
                      .frame(maxWidth: .infinity)
                }
                .buttonStyle(SecondaryButton(isDisabled: false))
-               
-//               ForEach(viewModel.predictions, id: \.self) { prediction in
-//                  Text("\(prediction.class) : \(prediction.confidence)")
-//               }
             }
          }
       }
       .padding(.horizontal)
       .padding(.top, 32)
       .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-      .background(.white)
+      .background(.blankBackground)
       .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
       .ignoresSafeArea()
       .overlay(content: {

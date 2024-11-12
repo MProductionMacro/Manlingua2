@@ -31,27 +31,25 @@ struct HomeCardView: View {
             Text("Cerita \(story.id)")
                .font(.pinyin())
                .fontWeight(.bold)
-               .foregroundStyle(.black)
             
             Text(story.title)
                .font(.subJudul())
-               .foregroundStyle(.black)
             
             VStack(alignment: .leading, spacing: 0){
                Text(story.pinyin)
                   .font(.pinyin())
-                  .foregroundStyle(.darkGrey)
+                  .foregroundStyle(.emptyListText)
                
                Text(story.hanzi)
                   .font(.subJudul())
-                  .foregroundStyle(.darkGrey)
+                  .foregroundStyle(.emptyListText)
             }
          }
          .frame(maxWidth: .infinity, alignment: .leading)
-         
-         ProgressView(value: Float(singleton.storyProgress[story.id - 1] - 1), total: Float(story.subChapter.count))
-            .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
-         
+                  
+        ProgressView(value: 0, total: 1)
+               .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar ))
+          
          HStack {
             Button {
                if !isDisabled {
@@ -77,7 +75,7 @@ struct HomeCardView: View {
          }
       }
       .padding()
-      .background(.white)
+      .background(.cardBackground)
       .clipShape(.rect(cornerRadius: 24))
       .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
       .frame(maxHeight: .infinity, alignment: .top)

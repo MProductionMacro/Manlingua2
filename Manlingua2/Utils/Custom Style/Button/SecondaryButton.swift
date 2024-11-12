@@ -4,7 +4,6 @@
 //
 //  Created by Paulus Michael on 25/10/24.
 //
-
 import SwiftUI
 
 struct SecondaryButton: ButtonStyle {
@@ -12,14 +11,15 @@ struct SecondaryButton: ButtonStyle {
    
    func makeBody(configuration: Configuration) -> some View {
       configuration.label
-         .foregroundStyle(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.orange3)
+         .foregroundStyle(isDisabled ? Color.homeCardLock : Color.orangeDarkMode)
          .font(.button())
          .padding(12)
-         .background(.white)
+         .background(.cardBackground)
          .clipShape(.rect(cornerRadius: 8))
          .overlay(
             RoundedRectangle(cornerRadius: 8)
-               .stroke(isDisabled ? Color(red: 0.9, green: 0.9, blue: 0.9) : Color.orange3, lineWidth: 2)
+                .stroke(isDisabled ? Color.homeCardLock : Color.orangeDarkMode, lineWidth: 2)
          )
    }
 }
+

@@ -25,8 +25,8 @@ struct Speaker2BubbleChatView: View {
                   Text(pinyin)
                      .font(.pinyin())
                      .fontWeight(.bold)
-                     .foregroundColor(.gray)
-                  
+                     .foregroundColor(.pinyinPhotoChallenge)
+
                   // Chinese characters
                   Text(hanzi)
                      .font(.hanzi())

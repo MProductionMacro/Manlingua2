@@ -52,7 +52,6 @@ struct Manlingua2App: App {
                audioController.initializeAudioSessionAndRecorder()
             }
          })
-         .preferredColorScheme(.light)
       }
       
    }

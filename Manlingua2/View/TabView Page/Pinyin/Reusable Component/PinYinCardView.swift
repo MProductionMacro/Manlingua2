@@ -34,7 +34,7 @@ struct PinYinCardView: View {
       }
       .padding(.horizontal, 40)
       .padding(.vertical, 12)
-      .background(.white)
+      .background(.blankBackground)
       .clipShape(RoundedRectangle(cornerRadius: 24))
    }
 }
