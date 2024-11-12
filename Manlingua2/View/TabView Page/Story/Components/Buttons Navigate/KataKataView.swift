@@ -31,7 +31,7 @@ struct KataKataView: View {
             .buttonStyle(HomeNavigationButton(image: "heart", text: "Favorit"))
             
             Button {
-               
+               router.push(.importantNote(displayMode: .favorite))
             } label: {
                EmptyView()
             }

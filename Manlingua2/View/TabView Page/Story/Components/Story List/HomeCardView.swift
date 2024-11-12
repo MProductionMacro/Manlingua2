@@ -57,7 +57,7 @@ struct HomeCardView: View {
                if !isDisabled {
                   let subChapterId = singleton.latestSubChapter
 //                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
-                  router.push(.loadingPage(chapterId: story.id, subChapterId: subChapterId))
+                  router.push(.loadingPage(chapterId: story.id, subChapterId: subChapterId == 0 ? 1 : subChapterId))
                }
             } label: {
                Text("Mulai")
