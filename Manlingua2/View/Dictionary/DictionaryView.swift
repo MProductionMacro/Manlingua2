@@ -67,7 +67,12 @@ struct DictionaryView: View {
              }
          }
          .navigationBarItems(leading: Button(action: {
-            router.popToRoot()
+             if displayMode == .favorite {
+                 router.popToRoot()
+             }
+             else{
+                 router.pop()
+             }
          }) {
             HStack {
                Image(systemName: "chevron.left")
