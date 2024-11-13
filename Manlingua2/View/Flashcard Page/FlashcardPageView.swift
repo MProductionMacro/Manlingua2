@@ -16,8 +16,6 @@ struct FlashcardPageView: View {
    @State var hasAnswered = false
    @State var isCorrect = false
    @State private var showConfirmationAlert = false
-   @State var hasAnswered: Bool = false
-   @State var isCorrect: Bool = false
 
    var body: some View {
       ZStack (alignment: .bottom){

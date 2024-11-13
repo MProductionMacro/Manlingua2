@@ -57,14 +57,14 @@ struct JourneyPageContentView: View {
                   VStack(spacing: 24) {
                       ForEach(story.subChapter, id: \.self){ subChapter in
                           SubChapterCard(labelImage: .schoolChapter ,isLocked: viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter), id: story.id, subChapter: subChapter)
-                              .onTapGesture{
-                                  if !viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter) {
-                                      router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapter.id)))
-
-                                      //router.push(.loadingPage(chapterId: storyId, subChapterId: subChapter.id))
-                                  }
-                                  
-                              }
+//                              .onTapGesture{
+//                                  if !viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter) {
+//                                      router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapter.id)))
+//
+//                                      //router.push(.loadingPage(chapterId: storyId, subChapterId: subChapter.id))
+//                                  }
+//                                  
+//                              }
                               .padding(.horizontal)
                       }
                   }
