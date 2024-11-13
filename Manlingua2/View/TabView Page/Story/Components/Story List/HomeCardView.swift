@@ -23,16 +23,16 @@ struct HomeCardView: View {
    var body: some View {
       //TODO: Framenya hard coded, takut ga responsive
       VStack(alignment: .center, spacing: 16) {
-          if isDisabled {
-              Image(.homeLock)
-                  .resizable()
-                  .frame(width: 148, height: 148)
-          }
-          else{
-              Image(.homeHaidilao)
-                  .resizable()
-                  .frame(width: 148, height: 148)
-          }
+         if isDisabled {
+            Image(.homeLock)
+               .resizable()
+               .frame(width: 148, height: 148)
+         }
+         else{
+            Image(.homeHaidilao)
+               .resizable()
+               .frame(width: 148, height: 148)
+         }
          
          VStack(alignment: .leading, spacing: 4) {
             Text("Cerita \(story.id)")
@@ -61,8 +61,9 @@ struct HomeCardView: View {
             Button {
                if !isDisabled {
                   let subChapterId = singleton.latestSubChapter
-//                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
-                   router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapterId)))
+                  //                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
+                  storyVM.loadChat(storyId: story.id, subChapterId: subChapterId)
+                  router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapterId)))
                }
             } label: {
                Text("Mulai")
