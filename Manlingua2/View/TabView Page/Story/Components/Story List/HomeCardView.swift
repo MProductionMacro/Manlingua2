@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeCardView: View {
-   @State var homeCard: ImageResource
+   //@State var homeCard: ImageResource
    @State var isComplete: Bool
    
    @Binding var isDisabled: Bool
@@ -23,9 +23,16 @@ struct HomeCardView: View {
    var body: some View {
       //TODO: Framenya hard coded, takut ga responsive
       VStack(alignment: .center, spacing: 16) {
-         Image(.story1Thumbnail)
-            .saturation(isDisabled ? 0 : 1)
-            .colorMultiply(isDisabled ? .customLighterGray : .white)
+          if isDisabled {
+              Image(.homeLock)
+                  .resizable()
+                  .frame(width: 148, height: 148)
+          }
+          else{
+              Image(.homeHaidilao)
+                  .resizable()
+                  .frame(width: 148, height: 148)
+          }
          
          VStack(alignment: .leading, spacing: 4) {
             Text("Cerita \(story.id)")
@@ -54,8 +61,8 @@ struct HomeCardView: View {
             Button {
                if !isDisabled {
                   let subChapterId = singleton.latestSubChapter
-                  //                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
-                  router.push(.loadingPage(chapterId: story.id, subChapterId: subChapterId == 0 ? 1 : subChapterId))
+//                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
+                   router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapterId)))
                }
             } label: {
                Text("Mulai")

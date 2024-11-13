@@ -65,7 +65,12 @@ struct ImportantNotesPageView : View {
             ToolbarItem(placement: .topBarLeading) {
                 HStack(alignment: .top){
                     Button(action:{
-                        router.popToRoot()
+                        if displayMode == .favorite{
+                            router.popToRoot()
+                        }
+                        else{
+                            router.pop()
+                        }
                     }){
                         Image(systemName: "chevron.left")
                             .foregroundColor(.orangeDarkMode)

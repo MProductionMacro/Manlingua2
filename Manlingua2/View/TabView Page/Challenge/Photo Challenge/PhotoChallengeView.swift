@@ -44,16 +44,15 @@ struct PhotoChallengeView: View {
          ToolbarItem(placement: .topBarLeading) {
             HStack(alignment: .top) {
                Button(action: {
-                  router.pop()
+                  router.popToRoot()
                }) {
                   Image(systemName: "chevron.left")
                      .foregroundColor(.white)
-                     .font(.title3)
-                     .bold()
+                     .font(.semibold16())
                   
                   Text("Kembali")
                      .foregroundColor(.white)
-                     .bold()
+                     .font(.semibold20())
                }
             }
          }

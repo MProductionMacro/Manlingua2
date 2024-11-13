@@ -47,7 +47,7 @@ struct ProfilePageView: View {
                     .frame(width: 361, height: 35)
                
                     ProfileNavigationButton(title: "IoT", imageName: "externaldrive.connected.to.line.below"){
-                  
+                        router.push(.ioTSetting)
                     }
                     .frame(width: 361, height: 35)
                 }
