@@ -38,16 +38,16 @@ struct StoryDetailView: View {
                   Image(systemName: "xmark")
                      .font(.system(size: 32))
                      .frame(width: 32, height: 32)
-                     .foregroundStyle(.orange3)
+                     .foregroundStyle(.orangeDarkMode)
                }.reusableAlert(
                   isPresented: $showConfirmationAlert,
                   alertData: AlertData(
                      type: .confirmation,
                      primaryAction: {
-                        router.popToRoot()
+                         showConfirmationAlert = false
                      },
                      dismissAction: {
-                        showConfirmationAlert = false
+                         router.popToRoot()
                      }
                   )
                )
@@ -55,13 +55,13 @@ struct StoryDetailView: View {
                Spacer()
                
                ProgressView(value: Double(currentIndex + 1) / Double(viewModel.chat_example.count))
-                  .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
+                  .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar))
             }
             .padding(.horizontal)
             
-            ChatScrollView(currentIndex: $currentIndex, chats: viewModel.chat_example) {
+            ChatScrollView(currentIndex: $currentIndex, hasAnswered: $hasAnswered, modalAppeared: $modalAppeared, chats: viewModel.chat_example) {
                viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
-                router.push(.donePage(displayMode: .story(storyId: chapterId, subChapterId: subChapterId)))
+               router.push(.donePage(displayMode: .story(storyId: chapterId, subChapterId: subChapterId)))
             }
             
             if hasAnswered{

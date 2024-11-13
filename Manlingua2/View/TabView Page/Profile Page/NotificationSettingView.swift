@@ -14,20 +14,20 @@ struct NotificationSettingView: View {
 
     var body : some View {
         VStack{
-            VStack(alignment: .leading, spacing: 32){
-                VStack(alignment: .leading, spacing: 16){
-                    Text("Pengaturan Bahasa")
-                        .font(.heavy32())
-                    
-                    Text("Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih")
-                        .font(.subJudul())
-                        .opacity(0.65)
-                    
-                    Text("Aktifkan notifikasi melalui sistem pengaturan")
-                        .font(.subJudul())
-
-                }
-                .padding(.top, 27)
+            
+            VStack(alignment: .leading, spacing: 16){
+                Text("Pengaturan Bahasa")
+                    .font(.heavy32())
+                    .padding(.bottom, -8)
+                
+                Text("Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih")
+                    .font(.subJudul())
+                    .opacity(0.65)
+                
+                Text("Aktifkan notifikasi melalui sistem pengaturan")
+                    .font(.subJudul())
+                
+                
                 
                 Spacer()
                 
@@ -40,14 +40,16 @@ struct NotificationSettingView: View {
                       .font(.button())
                       .padding(20)
                       .frame(maxWidth: .infinity)
-                      .background(.orange3)
+                      .background(.orangeDarkMode)
                       .clipShape(.rect(cornerRadius: 8))
                 }
             }
             .padding(.horizontal, 16)
+            .padding(.top, 8)
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.white)
+        .background(.blankBackground)
         .toolbar {
            ToolbarItem(placement: .topBarLeading) {
               HStack(alignment: .top){
@@ -55,12 +57,12 @@ struct NotificationSettingView: View {
                     router.pop()
                  }){
                     Image(systemName: "chevron.left")
-                       .foregroundColor(.orange3)
+                       .foregroundColor(.orangeDarkMode)
                        .font(.title3)
                        .bold()
                     
                     Text("Kembali")
-                       .foregroundColor(.orange3)
+                       .foregroundColor(.orangeDarkMode)
                        .bold()
                  }
               }

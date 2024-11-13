@@ -77,7 +77,7 @@ struct FlashcardView: View {
         //310
         //.frame(width: 354.55, height: 440)
         //.frame(width: 390, height: 458)
-        .background(.white)
+        .background(.cardBackground)
         .cornerRadius(17)
         
     }

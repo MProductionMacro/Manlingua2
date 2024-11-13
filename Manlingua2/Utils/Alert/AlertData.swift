@@ -13,18 +13,22 @@ struct AlertData {
     let dismissAction: (() -> Void)?
     
     var title: String {
-        type.title
+        //type.title
+        "Apakah Anda yakin ingin untuk keluar?"
     }
 
     var message: String {
-        type.message
+        //type.message
+        ""
     }
 
     var primaryButtonTitle: String {
-        type.primaryButtonTitle
+        //type.primaryButtonTitle
+        "Batal"
     }
 
     var dismissButtonTitle: String {
-        type.dismissButtonTitle
+        //type.dismissButtonTitle
+        "Keluar"
     }
 }

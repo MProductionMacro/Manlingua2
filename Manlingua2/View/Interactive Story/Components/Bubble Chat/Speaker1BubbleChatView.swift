@@ -23,19 +23,20 @@ struct Speaker1BubbleChatView: View {
          
          HStack(alignment: .top, spacing: 0) {
             LeftCustomTriangle(cornerRadius: 16)
-               .fill(.white)
+               .fill(.cardBackground)
                .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.03)
                .padding(.top, 8)
+             
             
             VStack(alignment: .leading, spacing: 2) {
                Text(pinyin)
                   .font(.pinyin())
                   .fontWeight(.bold)
-                  .foregroundColor(.gray)
+                  .foregroundColor(.pinyinPhotoChallenge)
                
                Text(hanzi)
                   .font(.hanzi())
-                  .foregroundColor(.black)
+                  .foregroundColor(.fontColors)
                   .overlay {
                      DottedUnderline()
                         .frame(height: UIScreen.main.bounds.height * 0.015)
@@ -46,12 +47,11 @@ struct Speaker1BubbleChatView: View {
                   }
                   .popover(isPresented: $isShowingMeaning, attachmentAnchor: .point(.bottom)) {
                      ZStack {
-                        Color.customLightGray
-                           .scaleEffect(1.5)
+                        Color.cardBackground.scaleEffect(1.5)
                         
                         Text(meaning)
                            .font(.hanzi())
-                           .foregroundColor(.black)
+                           .foregroundColor(.fontColors)
                            .padding(.horizontal, 4)
                            .multilineTextAlignment(.leading)
                      }
@@ -61,7 +61,7 @@ struct Speaker1BubbleChatView: View {
             .padding(8)
             .background(
                RoundedRectangle(cornerRadius: 8)
-                  .fill(.white)
+                  .fill(.cardBackground)
             )
          }
          Spacer()
@@ -81,7 +81,7 @@ struct DottedUnderline: View {
          HStack(spacing: spacing) {
             ForEach(0..<circleCount, id: \.self) { _ in
                Circle()
-                  .fill(Color.orange)
+                  .fill(Color.orangeDarkMode)
                   .frame(width: circleDiameter, height: circleDiameter)
             }
          }

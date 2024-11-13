@@ -12,7 +12,7 @@ struct CircleButton: ButtonStyle {
       configuration.label
          .padding(10)
          .foregroundColor(.white)
-         .background(.orange1)
+         .background(.orangeDarkMode)
          .clipShape(Circle())
    }
 }

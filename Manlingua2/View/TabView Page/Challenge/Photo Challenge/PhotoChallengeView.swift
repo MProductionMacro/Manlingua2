@@ -11,6 +11,7 @@ struct PhotoChallengeView: View {
    @EnvironmentObject var router: Router
 //   @StateObject var viewModel = ChallengeViewModel()
    @StateObject var camera = CameraController.shared
+   @State var isCorrect = false
    
    var body: some View {
       VStack(alignment: .leading){
@@ -19,22 +20,22 @@ struct PhotoChallengeView: View {
             .foregroundStyle(.white)
             .padding()
          
-//         if camera.hasCameraPermission {
-//            CameraGrantedView()
-//         }else{
-//            CameraNotGrantedView(primaryButtonPressed: {
-//               camera.requestPermission()
-//            }, secondaryButtonPressed: {
-//               
-//            })
-//         }
+         if camera.hasCameraPermission {
+            CameraGrantedView()
+         }else{
+            CameraNotGrantedView(primaryButtonPressed: {
+               camera.requestPermission()
+            }, secondaryButtonPressed: {
+               router.pop()
+            })
+         }
          
-         CameraGrantedView()
+//         CameraGrantedView()
       }
       .frame(maxWidth: .infinity, alignment: .leading)
       .edgesIgnoringSafeArea(.bottom)
       .background(
-         Image(.homeBackground)
+         Image(.profilePage)
             .resizable()
             .scaledToFill()
             .ignoresSafeArea()
@@ -43,16 +44,15 @@ struct PhotoChallengeView: View {
          ToolbarItem(placement: .topBarLeading) {
             HStack(alignment: .top) {
                Button(action: {
-                  router.pop()
+                  router.popToRoot()
                }) {
                   Image(systemName: "chevron.left")
                      .foregroundColor(.white)
-                     .font(.title3)
-                     .bold()
+                     .font(.semibold16())
                   
                   Text("Kembali")
                      .foregroundColor(.white)
-                     .bold()
+                     .font(.semibold20())
                }
             }
          }

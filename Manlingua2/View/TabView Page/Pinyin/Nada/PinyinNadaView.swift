@@ -29,11 +29,9 @@ struct PinyinNadaView: View {
             VStack{
                Text("Tekan karakter untuk tahu cara")
                   .font(.system(size: 20))
-                  .foregroundStyle(.black)
                   .multilineTextAlignment(.center)
                Text("pengucapannya")
                   .font(.system(size: 20))
-                  .foregroundStyle(.black)
                   .multilineTextAlignment(.center)
             }
             //.padding(.top, 32)
@@ -41,26 +39,26 @@ struct PinyinNadaView: View {
 
             RowOfPinyinView(listPinyin: viewModel.pinyinNada, audioController: $audioController)
          }
-         .background(.white)
          .ignoresSafeArea()
       }
+      .background(.blankBackground)
       .toolbar {
-         ToolbarItem(placement: .topBarLeading) {
-            HStack(alignment: .top){
-               Button(action:{
-                  router.pop()
-               }){
-                  Image(systemName: "chevron.left")
-                     .foregroundColor(.orange3)
-                     .font(.title3)
-                     .bold()
-                  
-                  Text("Kembali")
-                     .foregroundColor(.orange3)
-                     .bold()
-               }
-            }
-         }
+          ToolbarItem(placement: .topBarLeading) {
+             HStack(alignment: .top){
+                Button(action:{
+                   router.pop()
+                }){
+                   Image(systemName: "chevron.left")
+                      .foregroundColor(.orangeDarkMode)
+                      .font(.semibold16())
+                      .bold()
+                   
+                   Text("Kembali")
+                      .foregroundColor(.orangeDarkMode)
+                      .font(.semibold20())
+                }
+             }
+          }
       }
    }
 }

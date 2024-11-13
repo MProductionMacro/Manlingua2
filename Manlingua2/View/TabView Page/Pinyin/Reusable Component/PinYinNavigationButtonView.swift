@@ -31,8 +31,7 @@ struct PinYinNavigationButton: View {
                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .foregroundStyle(Color(.black))
-            
+            .foregroundStyle(.fontColors)
             Image(systemName: "chevron.right")
                .foregroundStyle(.orange3)
                .fontWeight(.bold)
@@ -47,5 +46,4 @@ struct PinYinNavigationButton: View {
       })
    }
 }
-
 

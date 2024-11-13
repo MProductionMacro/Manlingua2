@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AnswerToolbarView : View {
     @EnvironmentObject var router:Router
-    @ObservedObject var viewModel: FlashcardViewModel
+   @EnvironmentObject var viewModel: FlashcardViewModel
     @State var tts = TextToSpeech()
     var body : some View {
         VStack{
@@ -62,6 +62,6 @@ struct AnswerToolbarView : View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 80)
-        .background(.white)
+        .background(.cardBackground)
     }
 }

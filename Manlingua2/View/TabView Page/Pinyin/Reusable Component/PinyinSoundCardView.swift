@@ -4,7 +4,6 @@
 //
 //  Created by Arrick Russell Adinoto on 11/10/24.
 //
-
 import SwiftUI
 import AVFoundation
 
@@ -18,7 +17,6 @@ struct PinyinSoundCardView: View {
       VStack(spacing: 4) {
          Text(text)
             .font(.system(size: 24))
-            .foregroundStyle(.black)
          
          Button {
             audioController.playSoundFromData(speak: speak)
@@ -32,7 +30,8 @@ struct PinyinSoundCardView: View {
       .padding(.vertical, 8)
 //      .padding(.horizontal)
       .frame(maxWidth: .infinity)
-      .background(Color.white)
+      .background(.cardBackground)
+      .cornerRadius(12)
       .overlay(
          RoundedRectangle(cornerRadius: 12)
             .stroke(Color.customLightGray, lineWidth: 1)

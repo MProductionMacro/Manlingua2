@@ -9,7 +9,7 @@ import SwiftUI
 struct MicrophoneView: View {
     var body : some View {
         HStack(alignment: .center){
-            Image(systemName: "microphone.fill")
+            Image(systemName: "mic.fill")
                 .font(.judulBesar())
                 .foregroundColor(.white)
                 .frame(width: 84, height: 84)
@@ -18,6 +18,6 @@ struct MicrophoneView: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 150)
-        .background(.white)
+        .background(.cardBackground)
     }
 }

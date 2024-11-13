@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeCardView: View {
-   @State var homeCard: ImageResource
+   //@State var homeCard: ImageResource
    @State var isComplete: Bool
    
    @Binding var isDisabled: Bool
@@ -23,41 +23,47 @@ struct HomeCardView: View {
    var body: some View {
       //TODO: Framenya hard coded, takut ga responsive
       VStack(alignment: .center, spacing: 16) {
-         Image(.story1Thumbnail)
-            .saturation(isDisabled ? 0 : 1)
-            .colorMultiply(isDisabled ? .customLighterGray : .white)
+         if isDisabled {
+            Image(.homeLock)
+               .resizable()
+               .frame(width: 148, height: 148)
+         }
+         else{
+            Image(.homeHaidilao)
+               .resizable()
+               .frame(width: 148, height: 148)
+         }
          
          VStack(alignment: .leading, spacing: 4) {
             Text("Cerita \(story.id)")
                .font(.pinyin())
                .fontWeight(.bold)
-               .foregroundStyle(.black)
             
             Text(story.title)
                .font(.subJudul())
-               .foregroundStyle(.black)
             
             VStack(alignment: .leading, spacing: 0){
                Text(story.pinyin)
                   .font(.pinyin())
-                  .foregroundStyle(.darkGrey)
+                  .foregroundStyle(.emptyListText)
                
                Text(story.hanzi)
                   .font(.subJudul())
-                  .foregroundStyle(.darkGrey)
+                  .foregroundStyle(.emptyListText)
             }
          }
          .frame(maxWidth: .infinity, alignment: .leading)
          
-         ProgressView(value: Float(singleton.storyProgress[story.id - 1] - 1), total: Float(story.subChapter.count))
-            .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .green2, unfilledColor: .customLightGray))
+         ProgressView(value: Float(singleton.storyProgress[story.id - 1] - 1), total: 3)
+            .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar ))
          
          HStack {
             Button {
                if !isDisabled {
                   let subChapterId = singleton.latestSubChapter
-//                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
-                  router.push(.loadingPage(chapterId: story.id, subChapterId: subChapterId == 0 ? 1 : subChapterId))
+                  //                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
+                  storyVM.loadChat(storyId: story.id, subChapterId: subChapterId)
+                  router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapterId)))
                }
             } label: {
                Text("Mulai")
@@ -77,7 +83,7 @@ struct HomeCardView: View {
          }
       }
       .padding()
-      .background(.white)
+      .background(.cardBackground)
       .clipShape(.rect(cornerRadius: 24))
       .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
       .frame(maxHeight: .infinity, alignment: .top)

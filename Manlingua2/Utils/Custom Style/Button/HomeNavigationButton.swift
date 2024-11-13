@@ -19,7 +19,7 @@ struct HomeNavigationButton: PrimitiveButtonStyle {
             .font(.judulBiasa())
             .fontWeight(.regular)
             .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.width * 0.07, alignment: .center)
-            .foregroundStyle(.orange3)
+            .foregroundStyle(.orangeDarkMode)
             .padding()
          
          Text(text)
@@ -29,11 +29,11 @@ struct HomeNavigationButton: PrimitiveButtonStyle {
             .padding(.vertical, 8)
             .padding(.horizontal)
             .foregroundStyle(.white)
-            .background(.orange3)
+            .background(.orangeDarkMode)
       }
-      .background(pressed ? Color.orange3.opacity(0.35) : Color.white)
+      .background(pressed ? Color.orangeDarkMode.opacity(0.35) : Color.cardBackground)
       .clipShape(RoundedRectangle(cornerRadius: 16))
-      .shadow(color: Color(red: 0.42, green: 0.21, blue: 0).opacity(0.2), radius: 9, x: 0, y: 0)
+      .shadow(color: .cardShadow.opacity(0.18), radius: 8, x: 0, y: 0)
       .scaleEffect(pressed ? 1.1 : 1.0) // Immediate scale change on press
       .animation(pressed ? .none : .easeOut, value: pressed) // Animate on release only
       .gesture(DragGesture(minimumDistance: 0).onChanged { _ in

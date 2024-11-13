@@ -28,11 +28,9 @@ struct PinyinFinalView: View {
             VStack{
                Text("Tekan karakter untuk tahu cara")
                   .font(.system(size: 20))
-                  .foregroundStyle(.black)
                   .multilineTextAlignment(.center)
                Text("pengucapannya")
                   .font(.system(size: 20))
-                  .foregroundStyle(.black)
                   .multilineTextAlignment(.center)
             }
             
@@ -43,9 +41,9 @@ struct PinyinFinalView: View {
             }
              
          }
-         .background(.white)
          .ignoresSafeArea()
       }
+      .background(.blankBackground)
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {
             HStack(alignment: .top){
@@ -53,13 +51,12 @@ struct PinyinFinalView: View {
                   router.pop()
                }){
                   Image(systemName: "chevron.left")
-                     .foregroundColor(.orange3)
-                     .font(.title3)
-                     .bold()
+                     .foregroundColor(.orangeDarkMode)
+                     .font(.semibold16())
                   
                   Text("Kembali")
-                     .foregroundColor(.orange3)
-                     .bold()
+                     .foregroundColor(.orangeDarkMode)
+                     .font(.semibold20())
                }
             }
          }

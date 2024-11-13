@@ -7,18 +7,29 @@
 import SwiftUI
 
 struct UserAnswerView : View {
-    
-    @ObservedObject var viewModel: FlashcardViewModel
-    @EnvironmentObject var router:Router
-    
-    var body : some View {
-        VStack(spacing: 1){
-            AnswerToolbarView(viewModel: viewModel)
-            MicrophoneView()
+   @EnvironmentObject var router:Router
+   @EnvironmentObject var viewModel: FlashcardViewModel
+   
+   var body : some View {
+      VStack(spacing: 1){
+         BottomContainerButtons {
             
-        }
-        .background(.customLightGray)
-        .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
-
-    }
+         } speakerAction: {
+            
+         } turtleAction: {
+            
+         }
+         
+         Divider()
+         
+         MicrophoneModalityView { result in
+            viewModel.apiResult = result
+            viewModel.showMicrophone = false
+         }
+         .padding(.vertical, 24)
+      }
+      .background(.cardBackground)
+      .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
+      
+   }
 }

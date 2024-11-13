@@ -27,13 +27,14 @@ struct QuestionModalityView: View {
                   onAnswerSelected(choice)
                } label: {
                   Text(choice)
+                       .foregroundStyle(.fontColors)
                }
                .buttonStyle(AnswerButton())
             }
          }
       }
       .padding(.horizontal)
-      .background(.white)
+      .background(.cardBackground)
    }
 }
 
@@ -41,4 +42,5 @@ struct QuestionModalityView: View {
    QuestionModalityView(choices: ["Hello", "Hi", "Hey", "Here"], onAnswerSelected: {_ in })
       .frame(maxHeight: .infinity)
       .background(.black)
+      .environment(\.colorScheme, .dark)
 }

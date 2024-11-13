@@ -19,7 +19,7 @@ struct BottomContainerButtons: View {
          } label: {
             Image(systemName: "book")
                .font(.titleKe2())
-               .foregroundStyle(.orange3)
+               .foregroundStyle(.orangeDarkMode)
                .frame(maxWidth: .infinity)
          }
          .buttonStyle(CustomOnTapButton())
@@ -29,7 +29,7 @@ struct BottomContainerButtons: View {
          } label: {
             Image(systemName: "speaker.wave.2")
                .font(.titleKe2())
-               .foregroundStyle(.orange3)
+               .foregroundStyle(.orangeDarkMode)
                .frame(maxWidth: .infinity)
          }
          .buttonStyle(CustomOnTapButton())
@@ -39,14 +39,15 @@ struct BottomContainerButtons: View {
          } label: {
             Image(systemName: "tortoise")
                .font(.titleKe2())
-               .foregroundStyle(.orange3)
+               .foregroundStyle(.orangeDarkMode)
                .frame(maxWidth: .infinity)
          }
          .buttonStyle(CustomOnTapButton())
       }
+      .background(.cardBackground)
    }
 }
 
 #Preview {
-   BottomContainerButtons(bookAction: {}, speakerAction: {}, turtleAction: {})
+    BottomContainerButtons(bookAction: {}, speakerAction: {}, turtleAction: {}).environment(\.colorScheme, .dark)
 }
