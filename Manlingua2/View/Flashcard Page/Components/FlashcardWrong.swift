@@ -11,7 +11,7 @@ struct FlashcardWrong: View {
    var hanzi: String
    var meaning: String
     @Binding var showMicrophone: Bool
-    @Binding var audioController: AudioController
+   @StateObject var audioController = AudioController.shared
     var action: () -> Void
 
    var body: some View {

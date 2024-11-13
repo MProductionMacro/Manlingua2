@@ -40,7 +40,7 @@ struct ImportantNotesPageView : View {
 
                }
                Spacer()
-               Spacer()
+//               Spacer()
             }
             else{
                 ScrollView{
@@ -60,6 +60,7 @@ struct ImportantNotesPageView : View {
                 .frame(maxWidth: .infinity)
             }
         }
+        .frame(maxWidth: .infinity)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 HStack(alignment: .top){

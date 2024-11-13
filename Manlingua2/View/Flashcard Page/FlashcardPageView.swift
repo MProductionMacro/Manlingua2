@@ -13,6 +13,8 @@ struct FlashcardPageView: View {
    @StateObject var singleton = UserDefaultSingleton.shared
    @State var tutorialOverlay: Int = 1
    @State var audioController = AudioController.shared
+   @State var hasAnswered = false
+   @State var isCorrect = false
    @State private var showConfirmationAlert = false
    @State var hasAnswered: Bool = false
    @State var isCorrect: Bool = false
@@ -60,7 +62,6 @@ struct FlashcardPageView: View {
                                  .zIndex(Double(viewModel.showVocabularies.count - index))
                                  .opacity(viewModel.currentIndex == index ? 1 : 0)
                         }
-
                     }
                 }
                 .shadow(radius: 0, x: 0, y: 0)

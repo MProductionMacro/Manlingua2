@@ -8,6 +8,7 @@ import SwiftUI
 
 struct GoalPageView: View {
    @StateObject var appStorageController = AppStorageController.shared
+   @EnvironmentObject var router: Router
    
    var body: some View {
       ZStack {
@@ -70,6 +71,10 @@ struct GoalPageView: View {
                
                VStack(spacing: 2) {
                   GoalTrackerView(task: .first, image: "Emas Cina", doneTask: appStorageController.firstTask)
+                     .onTapGesture {
+                        router.push(.photoChallenge)
+                     }
+                  
                   GoalTrackerView(task: .second, image: "Koin Cina", doneTask: appStorageController.secondTask)
                   GoalTrackerView(task: .third, image: "Emas Batang", doneTask: appStorageController.thirdTask)
                }
@@ -96,4 +101,5 @@ struct GoalPageView: View {
 
 #Preview {
    GoalPageView()
+      .environmentObject(Router())
 }
