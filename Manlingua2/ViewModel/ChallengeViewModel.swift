@@ -29,7 +29,7 @@ class ChallengeViewModel: ObservableObject {
    @AppStorage("remainingTime") var remainingTime: TimeInterval = 12 * 3600
    
    private let userDefaults = UserDefaults.standard
-   private let baseURL = "http://192.168.1.5:8000"
+   private let baseURL = "http://10.60.62.153:8000"
    
    static let shared = ChallengeViewModel()
    
