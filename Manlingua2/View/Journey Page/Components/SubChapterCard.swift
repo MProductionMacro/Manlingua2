@@ -14,6 +14,7 @@ struct SubChapterCard: View {
    
    @EnvironmentObject var router: Router
    @EnvironmentObject var viewModel: StoryViewModel
+   @EnvironmentObject var journeyVM: JourneyViewModel
    @EnvironmentObject var homeVM: HomeViewModel
    @StateObject var singleton = CoreDataSingleton.shared
    
@@ -67,6 +68,15 @@ struct SubChapterCard: View {
          Image(systemName: isLocked ? "lock" : "chevron.right")
               .foregroundStyle(isLocked ? .padlock : .orangeDarkMode)
               .fontWeight(.bold)
+              .onTapGesture {
+                 if !journeyVM.isSubChapterLocked(storyId: id, subChapter: subChapter) {
+                    viewModel.loadChat(storyId: id, subChapterId: subChapter.id)
+                    
+                    router.push(.loadingPage(screen : .storyPage(chapterId: id, subChapterId: subChapter.id)))
+
+                     //router.push(.loadingPage(chapterId: storyId, subChapterId: subChapter.id))
+                 }
+              }
          
          Spacer()
       }
