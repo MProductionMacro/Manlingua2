@@ -16,7 +16,7 @@ struct NotificationSettingView: View {
         VStack{
             
             VStack(alignment: .leading, spacing: 16){
-                Text("Pengaturan Bahasa")
+                Text("Pengaturan Notifikasi")
                     .font(.heavy32())
                     .padding(.bottom, -8)
                 
