@@ -8,7 +8,7 @@
 import SwiftUI
 
 // Define a model for each object (matching the FastAPI Object model)
-struct Object: Codable {
+struct Object: Codable, Hashable {
     let hanzi: String
     let pinyin: String
     let meaning: String

@@ -14,10 +14,12 @@ struct CameraGrantedView: View {
    
    @State var image: UIImage = UIImage(resource: .placeholderChallenge)
    @State var isShowingMeaning = false
+   @State var isPredicted = false
+   @State var isCorrect = false
    
    var body: some View {
-      ScrollView {
-         if let randomObjects = viewModel.objects_example.randomElement(){
+      if let randomObjects = viewModel.objects_example.randomElement(){
+         ScrollView {
             VStack(spacing: 24){
                VStack(alignment: .leading, spacing: 8) {
                   Text("Cari dan fotokan")
@@ -66,12 +68,13 @@ struct CameraGrantedView: View {
                   .buttonStyle(CircleButton())
                }
                .frame(maxWidth: .infinity)
-               .padding(.vertical, UIScreen.main.bounds.height * 0.2)
-               .background(.customLighterGray)
-               .clipShape(.rect(cornerRadius: 35))
+               .padding(.top, UIScreen.main.bounds.height * 0.3)
+               .padding(.bottom, UIScreen.main.bounds.height * 0.02)
+               .background(.gray)
+               .clipShape(.rect(cornerRadius: 16))
                .overlay(
-                  RoundedRectangle(cornerRadius: 36)
-                     .stroke(Color.gray, lineWidth: 2)
+                  RoundedRectangle(cornerRadius: 16)
+                     .stroke(Color.gray.opacity(0.3), lineWidth: 2)
                )
                
                Button {
@@ -83,23 +86,36 @@ struct CameraGrantedView: View {
                .buttonStyle(SecondaryButton(isDisabled: false))
             }
          }
-      }
-      .padding(.horizontal)
-      .padding(.top, 32)
-      .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-      .background(.blankBackground)
-      .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
-      .ignoresSafeArea()
-      .overlay(content: {
-         
-         CorrectOrWrong(hanzi: "", pinyin: "", meaning: "", isCorrect: true) {
-            
-         } tryAgainFunc: {
-            
-         }
-         .frame(maxHeight: .infinity, alignment: .bottom)
+         .padding(.horizontal)
+         .padding(.top, 32)
+         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+         .background(.blankBackground)
+         .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
          .ignoresSafeArea()
-      })
+         .overlay(content: {
+            if isPredicted{
+               CorrectOrWrong(hanzi: "", pinyin: "", meaning: "", isCorrect: isCorrect) {
+                  isPredicted = false
+                  viewModel.isPredicted = false
+               } tryAgainFunc: {
+                  isPredicted = false
+                  viewModel.isPredicted = false
+               }
+               .frame(maxHeight: .infinity, alignment: .bottom)
+               .ignoresSafeArea()
+            }
+         })
+         .onChange(of: viewModel.isPredicted) { oldValue, newValue in
+            if viewModel.isPredicted {
+               DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                  isPredicted = true
+                  isCorrect = viewModel.predictions.contains { prediction in
+                     prediction.class == randomObjects.meaning
+                  }
+               }
+            }
+         }
+      }
    }
 }
 

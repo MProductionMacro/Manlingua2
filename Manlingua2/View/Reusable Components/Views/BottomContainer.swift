@@ -9,8 +9,9 @@ import SwiftUI
 
 struct BottomContainerView : View {
    @EnvironmentObject var router: Router
-   @ObservedObject var viewModel: FlashcardViewModel
-   @Binding var audioController: AudioController
+   @EnvironmentObject var viewModel: FlashcardViewModel
+   
+   @StateObject var audioController = AudioController.shared
    
    var body : some View {
       if viewModel.showMicrophone{
@@ -20,17 +21,10 @@ struct BottomContainerView : View {
           viewModel.apiResult = result
           }
           */
-         UserAnswerView(viewModel: viewModel)
-            .onTapGesture{
-               withAnimation {
-                  viewModel.showMicrophone = false
-               }
-            }
+         UserAnswerView()
             .animation(.easeInOut, value: viewModel.showMicrophone)
-         
-         
       }else if viewModel.checkResult() {
-         FlashcardCorrect(showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
+         FlashcardCorrect(showMicrophone: $viewModel.showMicrophone){
             viewModel.performSwipeRight()
          }
          .transition(.move(edge: .bottom))
@@ -38,7 +32,7 @@ struct BottomContainerView : View {
          
       }
       else{
-         FlashcardWrong(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, showMicrophone: $viewModel.showMicrophone, audioController: $audioController){
+         FlashcardWrong(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, showMicrophone: $viewModel.showMicrophone){
             viewModel.performSwipeRight()
          }
          .transition(.move(edge: .bottom))
@@ -51,8 +45,6 @@ struct BottomContainerView : View {
 
 
 #Preview {
-   BottomContainerView(
-      viewModel: FlashcardViewModel(),
-      audioController: .constant(AudioController())
-   )
+   BottomContainerView()
+      .environmentObject(FlashcardViewModel())
 }

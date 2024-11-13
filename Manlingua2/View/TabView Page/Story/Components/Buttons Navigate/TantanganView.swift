@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TantanganView: View {
     @EnvironmentObject var router: Router
+  
     var body: some View {
        VStack(alignment: .leading, spacing: 0) {
           Text("Tantangan")
@@ -24,7 +25,7 @@ struct TantanganView: View {
              .buttonStyle(HomeNavigationButton(image: "camera", text: "Foto"))
              
              Button {
-                
+                router.push(.aiSimulation)
              } label: {
                 EmptyView()
              }
@@ -40,5 +41,5 @@ struct TantanganView: View {
 
 #Preview {
     TantanganView()
-        .environmentObject(Router())
+       .environmentObject(Router())
 }

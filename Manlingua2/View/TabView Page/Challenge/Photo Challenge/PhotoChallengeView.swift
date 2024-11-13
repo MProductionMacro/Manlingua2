@@ -11,6 +11,7 @@ struct PhotoChallengeView: View {
    @EnvironmentObject var router: Router
 //   @StateObject var viewModel = ChallengeViewModel()
    @StateObject var camera = CameraController.shared
+   @State var isCorrect = false
    
    var body: some View {
       VStack(alignment: .leading){
@@ -19,17 +20,17 @@ struct PhotoChallengeView: View {
             .foregroundStyle(.white)
             .padding()
          
-//         if camera.hasCameraPermission {
-//            CameraGrantedView()
-//         }else{
-//            CameraNotGrantedView(primaryButtonPressed: {
-//               camera.requestPermission()
-//            }, secondaryButtonPressed: {
-//               
-//            })
-//         }
+         if camera.hasCameraPermission {
+            CameraGrantedView()
+         }else{
+            CameraNotGrantedView(primaryButtonPressed: {
+               camera.requestPermission()
+            }, secondaryButtonPressed: {
+               router.pop()
+            })
+         }
          
-         CameraGrantedView()
+//         CameraGrantedView()
       }
       .frame(maxWidth: .infinity, alignment: .leading)
       .edgesIgnoringSafeArea(.bottom)
