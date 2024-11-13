@@ -46,15 +46,15 @@ struct HomeCardView: View {
             }
          }
          .frame(maxWidth: .infinity, alignment: .leading)
-                  
-        ProgressView(value: 0, total: 1)
-               .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar ))
-          
+         
+         ProgressView(value: Float(singleton.storyProgress[story.id - 1] - 1), total: 3)
+            .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar ))
+         
          HStack {
             Button {
                if !isDisabled {
                   let subChapterId = singleton.latestSubChapter
-//                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
+                  //                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
                   router.push(.loadingPage(chapterId: story.id, subChapterId: subChapterId == 0 ? 1 : subChapterId))
                }
             } label: {

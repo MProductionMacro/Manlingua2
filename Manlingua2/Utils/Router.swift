@@ -83,11 +83,11 @@ class Router: ObservableObject {
             })
             .navigationBarBackButtonHidden(true)
       case .donePage(let displayMode):
-          DonePageView(displayMode: displayMode)
-              .onBackSwipe(perform: {
-                     self.pop()
-                  })
-              .navigationBarBackButtonHidden(true)
+         DonePageView(displayMode: displayMode)
+            .onBackSwipe(perform: {
+               self.pop()
+            })
+            .navigationBarBackButtonHidden(true)
       case .photoChallenge:
          PhotoChallengeView()
             .onBackSwipe(perform: {
@@ -101,14 +101,17 @@ class Router: ObservableObject {
             })
             .navigationBarBackButtonHidden(true)
       case .importantNote(let displayMode):
-          ImportantNotesPageView(displayMode: displayMode)
-              .navigationBarBackButtonHidden(true)
+         ImportantNotesPageView(displayMode: displayMode)
+            .navigationBarBackButtonHidden(true)
       case .languageSetting:
-          LanguageSettingView()
-              .navigationBarBackButtonHidden(true)
+         LanguageSettingView()
+            .navigationBarBackButtonHidden(true)
       case .notificationSetting:
-          NotificationSettingView()
-              .navigationBarBackButtonHidden(true)
+         NotificationSettingView()
+            .navigationBarBackButtonHidden(true)
+      case .aiSimulation:
+         AIAssistantView()
+            .navigationBarBackButtonHidden(true)
       }
    }
 }
@@ -130,6 +133,7 @@ enum Screen: Hashable {
    case languageSetting
    case importantNote(displayMode: NoteDisplayMode)
    case notificationSetting
+   case aiSimulation
 }
 
 /*

@@ -12,6 +12,7 @@ import SystemConfiguration
 //TODO: Fix Timer + Progress Bar di GoalPageView
 
 class ChallengeViewModel: ObservableObject {
+   @Published var isPredicted = false
    @Published var objects: [String] = []
    @Published var errorMessage: String?
    @Published var predictions: [Prediction] = []
@@ -28,7 +29,7 @@ class ChallengeViewModel: ObservableObject {
    @AppStorage("remainingTime") var remainingTime: TimeInterval = 12 * 3600
    
    private let userDefaults = UserDefaults.standard
-   private let baseURL = "http://127.0.0.1:8000"
+   private let baseURL = "http://192.168.1.5:8000"
    
    static let shared = ChallengeViewModel()
    
@@ -115,6 +116,7 @@ class ChallengeViewModel: ObservableObject {
          do {
             let decodedResponse = try JSONDecoder().decode(PredictionResponse.self, from: data)
             DispatchQueue.main.async {
+               self.isPredicted = true
                self.predictions = decodedResponse.predictions
             }
          } catch {
@@ -188,59 +190,66 @@ class ChallengeViewModel: ObservableObject {
    }
    
    //MARK: Photo Challenge
-   //   func fetchObjects() {
-   //      guard let url = URL(string: "\(baseURL)/get_objects") else { return }
-   //
-   //      URLSession.shared.dataTask(with: url) { data, response, error in
-   //         if let error = error {
-   //            DispatchQueue.main.async {
-   //               self.errorMessage = "Failed to fetch objects: \(error.localizedDescription)"
-   //            }
-   //            return
-   //         }
-   //
-   //         if let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) {
-   //            guard let data = data else { return }
-   //
-   //            do {
-   //               if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-   //                  let objectNames = json["objects"] as? [String] {
-   //                  DispatchQueue.main.async {
-   //                     self.objects = objectNames
-   //                  }
-   //               }
-   //            } catch {
-   //               DispatchQueue.main.async {
-   //                  self.errorMessage = "Failed to parse object data"
-   //               }
-   //            }
-   //         } else {
-   //            DispatchQueue.main.async {
-   //               self.errorMessage = "Failed with status code: \((response as? HTTPURLResponse)?.statusCode ?? -1)"
-   //            }
-   //         }
-   //      }.resume()
-   //   }
    func fetchObjects() {
-      // Replace with your FastAPI endpoint URL
       guard let url = URL(string: "\(baseURL)/get_objects") else { return }
       
-      URLSession.shared.dataTaskPublisher(for: url)
-         .map { $0.data }
-         .decode(type: ObjectResponse.self, decoder: JSONDecoder())
-         .map { response in
-            // Extract the objects dictionary and convert it to an array
-            Array(response.objects.values)
+      URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+         if let error = error {
+            DispatchQueue.main.async {
+               self?.errorMessage = "Failed to fetch objects: \(error.localizedDescription)"
+               print(self?.errorMessage ?? "Unknown error")
+            }
+            return
          }
-         .replaceError(with: [])  // In case of error, return an empty array
-         .receive(on: DispatchQueue.main)
-         .sink { [weak self] objects in
-            self?.objects_example = objects
+         
+         if let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) {
+            guard let data = data else { return }
+            
+            do {
+               let decodedResponse = try JSONDecoder().decode(ObjectResponse.self, from: data)
+               let objectsArray = Array(decodedResponse.objects.values)
+               
+               DispatchQueue.main.async {
+                  self?.objects_example = objectsArray
+               }
+            } catch {
+               DispatchQueue.main.async {
+                  self?.errorMessage = "Failed to parse object data: \(error.localizedDescription)"
+                  print(self?.errorMessage ?? "Unknown parsing error")
+               }
+            }
+         } else {
+            DispatchQueue.main.async {
+               self?.errorMessage = "Failed with status code: \((response as? HTTPURLResponse)?.statusCode ?? -1)"
+               print(self?.errorMessage ?? "Unknown status code error")
+            }
          }
-         .store(in: &cancellables)
-      
-      randomizeObject()
+      }.resume()
    }
+   
+   
+   //   func fetchObjects() {
+   //      // Replace with your FastAPI endpoint URL
+   //      guard let url = URL(string: "\(baseURL)/get_objects") else { return }
+   //
+   //      URLSession.shared.dataTaskPublisher(for: url)
+   //         .map { $0.data }
+   //         .decode(type: ObjectResponse.self, decoder: JSONDecoder())
+   //         .map { response in
+   //            // Extract the objects dictionary and convert it to an array
+   //            Array(response.objects.values)
+   //         }
+   //         .replaceError(with: [])  // In case of error, return an empty array
+   //         .receive(on: DispatchQueue.main)
+   //         .sink { [weak self] objects in
+   //            print("Objects Fetched: \(objects.count)")
+   //            self?.objects_example = objects
+   //         }
+   //         .store(in: &cancellables)
+   //
+   //      print(objects_example.count)
+   //      randomizeObject()
+   //   }
    
    func randomizeObject(){
       randomized_object = objects_example.randomElement()

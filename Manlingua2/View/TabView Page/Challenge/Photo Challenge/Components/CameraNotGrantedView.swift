@@ -40,6 +40,7 @@ struct CameraNotGrantedView: View {
                   primaryButtonPressed()
                } label: {
                   Text("Berikan Izin Akses Kamera")
+                     .frame(maxWidth: .infinity)
                }
                .buttonStyle(PrimaryButton(isDisabled: false))
                

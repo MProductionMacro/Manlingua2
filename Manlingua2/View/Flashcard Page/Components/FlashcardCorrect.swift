@@ -10,7 +10,9 @@ import SwiftUI
 struct FlashcardCorrect: View {
    //@ObservedObject var viewModel: StoryViewModel
     @Binding var showMicrophone: Bool
-    @Binding var audioController: AudioController
+//    @Binding var audioController: AudioController
+   
+   @StateObject var audioController = AudioController.shared
     var action: () -> Void
 
    var body: some View {
