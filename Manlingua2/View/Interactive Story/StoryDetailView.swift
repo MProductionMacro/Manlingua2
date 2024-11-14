@@ -36,8 +36,8 @@ struct StoryDetailView: View {
                   showConfirmationAlert = true
                } label: {
                   Image(systemName: "xmark")
-                     .font(.system(size: 32))
-                     .frame(width: 32, height: 32)
+                     .font(.judulBiasa())
+//                     .frame(width: 32, height: 32)
                      .foregroundStyle(.orangeDarkMode)
                }.reusableAlert(
                   isPresented: $showConfirmationAlert,
@@ -57,7 +57,7 @@ struct StoryDetailView: View {
                ProgressView(value: Double(currentIndex + 1) / Double(viewModel.chat_example.count))
                   .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar))
             }
-            .padding(.horizontal)
+            .padding(.horizontal, UIScreen.main.bounds.width * 0.05)
             
             ChatScrollView(currentIndex: $currentIndex, hasAnswered: $hasAnswered, modalAppeared: $modalAppeared, chats: viewModel.chat_example) {
                viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)

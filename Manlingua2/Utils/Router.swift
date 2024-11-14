@@ -69,7 +69,7 @@ class Router: ObservableObject {
          StoryDetailView(chapterId: chapterId, subChapterId: subChapterId)
             .navigationBarBackButtonHidden(true)
       case .loadingPage(let screen):
-          LoadingView(screen: screen)
+         LoadingView(screen: screen)
             .navigationBarBackButtonHidden(true)
       case .dictionary(let judul, let displayMode):
          DictionaryView(judul: judul, displayMode: displayMode)
@@ -102,21 +102,39 @@ class Router: ObservableObject {
             .navigationBarBackButtonHidden(true)
       case .importantNote(let displayMode):
          ImportantNotesPageView(displayMode: displayMode)
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       case .languageSetting:
          LanguageSettingView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       case .notificationSetting:
-          NotificationSettingView()
-              .navigationBarBackButtonHidden(true)
+         NotificationSettingView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
+            .navigationBarBackButtonHidden(true)
       case .ioTSetting:
-          IoTSettingView()
-              .navigationBarBackButtonHidden(true)
+         IoTSettingView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
+            .navigationBarBackButtonHidden(true)
       case .detailIoTSetting:
-          DetailIoTSettingView()
-              .navigationBarBackButtonHidden(true)
+         DetailIoTSettingView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
+            .navigationBarBackButtonHidden(true)
       case .aiSimulation:
          AIAssistantView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       }
    }

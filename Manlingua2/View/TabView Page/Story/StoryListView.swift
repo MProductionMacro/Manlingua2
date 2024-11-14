@@ -24,7 +24,7 @@ struct StoryListView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 20)
-   //         .padding(.top)
+//            .padding(.top)
             .padding(.bottom)
             
             VStack {
@@ -33,10 +33,14 @@ struct StoryListView: View {
                   KataKataView()
                   TantanganView()
 //               }
-               .padding(.bottom, 64)
             }
-            .background(.blankBackground)
-//            .ignoresSafeArea()
+            .padding(.bottom, UIScreen.main.bounds.height * 0.1)
+            .background(
+               Color.blankBackground
+                  .frame(maxHeight: .infinity)
+//                  .ignoresSafeArea()
+            )
+            .ignoresSafeArea()
             .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft]))
          }
          .padding(.top, 64)
@@ -44,8 +48,9 @@ struct StoryListView: View {
       .ignoresSafeArea()
       .background(
          Image(.profilePage)
-//            .resizable()
-//            .scaledToFill()
+            .resizable()
+            .scaledToFill()
+            .ignoresSafeArea()
       )
    }
 }
