@@ -8,6 +8,7 @@
 import Foundation
 import AVFoundation
 import Observation
+import Speech
 
 @Observable
 class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate{
@@ -94,7 +95,7 @@ class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDele
                     self.prevAudioPower = power
                     return
                 }
-                if let prevAudioPower = self.prevAudioPower, prevAudioPower < 0.25 && power < 0.175 {
+                if let prevAudioPower = self.prevAudioPower, prevAudioPower < 1 && power < 0.7 {
                     self.finishCaptureAudio()
                     return
                 }
@@ -107,31 +108,49 @@ class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDele
         }
     }
     
-    func finishCaptureAudio() {
-        resetValues()
-        do {
-            let data = try Data(contentsOf: captureURL)
-            print("TASK FINISHED")
-            processingSpeechTask = processSpeechTask(audioData: data)
-        } catch {
-            state = .error(error)
-            resetValues()
-        }
-    }
+    func transcribeAudioInMandarin(completion: @escaping (String?) -> Void) {
+         let mandarinLocale = Locale(identifier: "zh-CN")
+         let recognizer = SFSpeechRecognizer(locale: mandarinLocale)
+         let request = SFSpeechURLRecognitionRequest(url: captureURL)
+         
+         recognizer?.recognitionTask(with: request) { result, error in
+             if let error = error {
+                 print("Transcription error: \(error.localizedDescription)")
+                 completion(nil)
+             } else if let result = result {
+                 // Transcribed text in Mandarin
+                 let transcription = result.bestTranscription.formattedString
+                 completion(transcription)
+             }
+         }
+     }
+
+     func finishCaptureAudio() {
+         resetValues()
+         do {
+             let data = try Data(contentsOf: captureURL)
+             print("TASK FINISHED")
+             transcribeAudioInMandarin { transcription in
+                 if let transcription = transcription {
+                     print("Transcription Result: \(transcription)")
+                 } else {
+                     print("No transcription available")
+                 }
+             }
+         } catch {
+             state = .error(error)
+             resetValues()
+         }
+     }
+
+
     
     func processSpeechTask(audioData: Data) -> Task<Void, Never> {
         Task { @MainActor [unowned self] in
             do {
                 self.state = .processingSpeech
-//                let prompt = try await client.generateAudioTransciptions(audioData: audioData)
-//                try Task.checkCancellation()
-//                let responseText = try await client.promptChatGPT(prompt: prompt)
-//                try Task.checkCancellation()
-//                let data = try await client.generateSpeechFrom(input: responseText, voice:
-//                        .init(rawValue: selectedVoice.rawValue) ?? .alloy)
-//
-//                try Task.checkCancellation()
-//                try self.playAudio(data: data)
+                
+                
             } catch {
                 if Task.isCancelled { return }
                 state = .error(error)

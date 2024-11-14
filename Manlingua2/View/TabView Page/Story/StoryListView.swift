@@ -44,6 +44,8 @@ struct StoryListView: View {
       .ignoresSafeArea()
       .background(
          Image(.profilePage)
+            .resizable()
+            .scaledToFill()
 //            .resizable()
 //            .scaledToFill()
       )
