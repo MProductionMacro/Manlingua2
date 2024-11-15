@@ -9,6 +9,9 @@ import SwiftUI
 struct GoalPageView: View {
    @StateObject var appStorageController = AppStorageController.shared
    @EnvironmentObject var router: Router
+   @State private var remainHour: Int = 24 // Initial hours remaining
+   @State private var lastResetDate: Date = Date() // Track last reset date
+   private let calendar = Calendar.current
    
    var body: some View {
       ZStack {
@@ -61,7 +64,7 @@ struct GoalPageView: View {
                   HStack {
                      Image(systemName: "clock")
                         .foregroundStyle(.padlock)
-                     Text("sisa \(appStorageController.remainHour) Jam")
+                     Text("sisa \(remainHour) jam")
                         .foregroundStyle(.padlock)
                         .font(.normalText())
                   }
@@ -93,7 +96,38 @@ struct GoalPageView: View {
          }
          .ignoresSafeArea(edges: .bottom)
       }
-      .background(Image("ProfilePage"))
+      .background(
+         Image("ProfilePage")
+            .resizable()
+            .scaledToFill()
+            .ignoresSafeArea()
+      )
+      .onAppear {
+         // Update the remaining hours immediately on app launch
+         updateRemainHour()
+         // Start the timer to update every minute while the app is open
+         setupHourlyTimer()
+      }
+      .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+         // Update the remaining hours when the app comes back from background
+         updateRemainHour()
+      }
+   }
+   
+   private func setupHourlyTimer() {
+      Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
+         updateRemainHour()
+      }
+   }
+   
+   // Calculate the remaining hours until midnight and update the UI
+   private func updateRemainHour() {
+      let now = Date()
+      let midnight = calendar.nextDate(after: now, matching: DateComponents(hour: 0, minute: 0, second: 0), matchingPolicy: .nextTime)!
+      let hoursUntilMidnight = calendar.dateComponents([.hour], from: now, to: midnight).hour ?? 0
+      
+      // Update remainHour to reflect time left until midnight
+      remainHour = hoursUntilMidnight > 0 ? hoursUntilMidnight : 24
    }
 }
 

@@ -57,9 +57,3 @@ extension CustomTabView {
    }
 }
 
-struct TabBarItem: Hashable {
-   let tag: Int
-   let iconName: String
-   let title: String
-}
-

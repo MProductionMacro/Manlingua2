@@ -32,32 +32,6 @@ struct CustomTabBarContainerView<Content: View>: View {
    }
 }
 
-struct TabBarItemViewModifier: ViewModifier {
-   let tab: TabBarItem
-   @Binding var selection: Int
-   
-   func body(content: Content) -> some View {
-      content
-         .opacity(selection == tab.tag ? 1.0 : 0.0)
-         .preference(key: TabBarItemsPreferenceKey.self, value: [tab])
-   }
-}
-
-extension View {
-   func tabBarItem(tab: TabBarItem, selection: Binding<Int>) -> some View {
-      self
-         .modifier(TabBarItemViewModifier(tab: tab, selection: selection))
-   }
-}
-
-struct TabBarItemsPreferenceKey: PreferenceKey {
-   static var defaultValue: [TabBarItem] = []
-   
-   static func reduce(value: inout [TabBarItem], nextValue: () -> [TabBarItem]) {
-      value += nextValue()
-   }
-}
-
 //#Preview {
 //    CustomTabBarContainerView()
 //}

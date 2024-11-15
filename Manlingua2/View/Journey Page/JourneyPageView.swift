@@ -188,4 +188,5 @@ struct JourneyPageView: View {
          .environmentObject(StoryViewModel())
          .environmentObject(JourneyViewModel())
    }
+   .preferredColorScheme(.dark)
 }

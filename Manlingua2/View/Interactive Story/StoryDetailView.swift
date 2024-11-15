@@ -30,7 +30,7 @@ struct StoryDetailView: View {
    
    var body: some View {
       GeometryReader { geometry in
-         VStack(spacing: 24) {
+         VStack(spacing: 16) {
             HStack(spacing: 4) {
                Button {
                   showConfirmationAlert = true
@@ -58,6 +58,7 @@ struct StoryDetailView: View {
                   .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar))
             }
             .padding(.horizontal, UIScreen.main.bounds.width * 0.05)
+            .padding(.top)
             
             ChatScrollView(currentIndex: $currentIndex, hasAnswered: $hasAnswered, modalAppeared: $modalAppeared, chats: viewModel.chat_example) {
                viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)

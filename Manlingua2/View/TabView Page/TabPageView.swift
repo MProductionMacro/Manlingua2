@@ -30,5 +30,6 @@ struct TabPageView: View {
       .environmentObject(HomeViewModel())
       .environmentObject(LearnViewModel())
       .environmentObject(Router())
+//      .preferredColorScheme(.dark)
    //      .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
 }

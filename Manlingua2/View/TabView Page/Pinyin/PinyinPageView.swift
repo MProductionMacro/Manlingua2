@@ -36,7 +36,12 @@ struct PinyinPageView: View {
          }
          Spacer()
       }
-      .background(Image(.pinyinBackground))
+      .background(
+         Image(.pinyinBackground)
+            .resizable()
+            .scaledToFill()
+            .ignoresSafeArea()
+      )
       // Nanti Ganti Background
    }
 }

@@ -30,7 +30,7 @@ class CoreDataSingleton: ObservableObject {
    
    // MARK: - CoreData Setup and Fetch
    private func fetchProgressData() {
-      let fetchRequest: NSFetchRequest<Progress> = Progress.fetchRequest()
+      let fetchRequest: NSFetchRequest<StoryProgress> = StoryProgress.fetchRequest()
       
       do {
          let results = try context.fetch(fetchRequest)
@@ -61,11 +61,11 @@ class CoreDataSingleton: ObservableObject {
    }
    
    private func saveProgressData() {
-      let fetchRequest: NSFetchRequest<Progress> = Progress.fetchRequest()
+      let fetchRequest: NSFetchRequest<StoryProgress> = StoryProgress.fetchRequest()
       
       do {
          let results = try context.fetch(fetchRequest)
-         let progressData = results.first ?? Progress(context: context)
+         let progressData = results.first ?? StoryProgress(context: context)
          
          // Set values to CoreData attributes
          progressData.latestStory = Int16(latestStory)
