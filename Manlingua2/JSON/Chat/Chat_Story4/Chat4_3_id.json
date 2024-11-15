@@ -85,7 +85,7 @@
         "pinyin": "wǒ men yě fēi cháng qí dài xià cì hé zuò.",
         "hanzi": "我们也非常期待下次合作。",
         "meaning": "Kami juga sangat menantikan kerja sama berikutnya.",
-        "answer": "我们也非常期待下次合作。",
+        "answer": "我们也非常期待下次合作",
         "question": "Jawablah dalam bahasa Mandarin 'Kami juga sangat menantikan kerja sama berikutnya.'",
         "type": "question"
     },
@@ -106,3 +106,4 @@
         "type": "speaker1"
     }
 ]
+

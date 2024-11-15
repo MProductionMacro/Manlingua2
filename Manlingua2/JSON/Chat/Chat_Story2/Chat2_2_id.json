@@ -85,7 +85,7 @@
         "pinyin": "Wǒmen huì quèbǎo yīqiè fúhé guīgé.",
         "hanzi": "我们会确保一切符合规格。",
         "meaning": "Kami akan memastikan semuanya sesuai dengan spesifikasi.",
-        "answer": "我们会确保一切符合规格。",
+        "answer": "我们会确保一切符合规格",
         "question": "Jawablah dalam bahasa Mandarin 'Kami akan memastikan semuanya sesuai dengan spesifikasi.'",
         "type": "question"
     },
@@ -106,3 +106,4 @@
         "type": "speaker1"
     }
 ]
+

@@ -9,13 +9,15 @@ import SwiftUI
 
 struct FlashcardPageView: View {
    @EnvironmentObject var router: Router
-   @EnvironmentObject var viewModel: FlashcardViewModel
+   //@EnvironmentObject var viewModel: FlashcardViewModel
+   @StateObject var viewModel = FlashcardViewModel()
    @StateObject var singleton = UserDefaultSingleton.shared
    @State var tutorialOverlay: Int = 1
    @State var audioController = AudioController.shared
    @State var hasAnswered = false
    @State var isCorrect = false
    @State private var showConfirmationAlert = false
+   //@State var localIndex = 0
 
    var body: some View {
       ZStack (alignment: .bottom){
@@ -59,17 +61,29 @@ struct FlashcardPageView: View {
                               viewModel.createFlashcardView(for: index)
                                  .zIndex(Double(viewModel.showVocabularies.count - index))
                                  .opacity(viewModel.currentIndex == index ? 1 : 0)
+                                /*
+                                 .onAppear{
+                                     localIndex = index
+                                 }
+                                 */
                         }
                     }
                 }
                 .shadow(radius: 0, x: 0, y: 0)
             }
             .shadow(color: .cardShadow.opacity(0.2), radius: 12, x: 0, y: 0)
+            .onAppear{
+                print("All Vocabularies 1 : ")
+                for vocab in viewModel.showVocabularies{
+                    print(vocab.pinyin)
+                }
+            }
             
             Spacer()
             
             if hasAnswered {
-                CorrectOrWrong(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, pinyin: viewModel.showVocabularies[viewModel.currentIndex].pinyin, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
+                /*
+                CorrectOrWrong(hanzi: viewModel.showVocabularies[localIndex].hanzi, pinyin: viewModel.showVocabularies[localIndex].pinyin, meaning: viewModel.showVocabularies[localIndex].meaning, isCorrect: isCorrect) {
                    withAnimation{
                       DispatchQueue.main.async {
                          viewModel.performSwipeRight()
@@ -79,6 +93,29 @@ struct FlashcardPageView: View {
                           }
                       }
                    }
+                 
+                } tryAgainFunc: {
+                   withAnimation{
+                      DispatchQueue.main.async {
+                         hasAnswered = false
+                      }
+                   }
+                }
+                .transition(.move(edge: .bottom))
+                 */
+            
+                CorrectOrWrong(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, pinyin: viewModel.showVocabularies[viewModel.currentIndex].pinyin, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
+                   withAnimation{
+                      DispatchQueue.main.async {
+                         viewModel.performSwipeRight()
+                         hasAnswered = false
+                          if viewModel.currentIndex == viewModel.showVocabularies.count - 1 {
+                              viewModel.reshuffleCards()
+                              router.push(.donePage(displayMode: .flashcard))
+                          }
+                      }
+                   }
+                 
                 } tryAgainFunc: {
                    withAnimation{
                       DispatchQueue.main.async {
@@ -90,9 +127,18 @@ struct FlashcardPageView: View {
             }
             else{
                 BottomFlashcardContainerView(isCorrect: $isCorrect, hasAnswered: $hasAnswered)
+                    .environmentObject(viewModel)
             }
+            
          }
          .frame(maxHeight: .infinity)
+         .onAppear{
+             print(" ")
+             print("All Vocabularies 2 : ")
+             for vocab in viewModel.showVocabularies{
+                 print(vocab.pinyin)
+             }
+         }
          
          //          BottomContainerView(viewModel: viewModel, audioController: $audioController).onTapGesture{
          //              router.push(.donePage(currentPage: .story, currentPart: .first))
@@ -118,8 +164,9 @@ struct FlashcardPageView: View {
       )
       .ignoresSafeArea(.container, edges: .bottom)
       .onAppear{
+          //viewModel.reshuffleCards()
           viewModel.currentIndex = 0
-          viewModel.reshuffleCards()
+          //viewModel.reshuffleCards()
       }
    }
 }
