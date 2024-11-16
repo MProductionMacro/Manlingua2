@@ -24,7 +24,7 @@ struct FlashcardPageView: View {
                Button {
                   showConfirmationAlert = true
                } label: {
-                  Image(systemName: "rectangle.portrait.and.arrow.right")
+                  Image(systemName: "xmark")
                      .resizable()
                      .frame(width: UIScreen.main.bounds.width * 0.07, height: UIScreen.main.bounds.width * 0.07)
                      .foregroundStyle(.orangeDarkMode)

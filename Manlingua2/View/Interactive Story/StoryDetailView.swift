@@ -57,7 +57,8 @@ struct StoryDetailView: View {
                ProgressView(value: Double(currentIndex + 1) / Double(viewModel.chat_example.count))
                   .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar))
             }
-            .padding(.horizontal, UIScreen.main.bounds.width * 0.05)
+            .padding(.leading, UIScreen.main.bounds.width * 0.05)
+            .padding(.trailing, UIScreen.main.bounds.width * 0.1)
             .padding(.top)
             
             ChatScrollView(currentIndex: $currentIndex, hasAnswered: $hasAnswered, modalAppeared: $modalAppeared, chats: viewModel.chat_example) {

@@ -17,70 +17,80 @@ struct QuestionBubbleChatView: View {
    @State private var showMeaningModal: Bool = false
    
    var body: some View {
-      HStack {
-         Spacer()
-         
-         HStack(alignment: .top, spacing: 0) {
-            VStack(alignment: .leading, spacing: 2) {
-               Text(question)
-                  .font(.subJudul())
-                  .padding(.bottom, 8)
+      VStack {
+         HStack(alignment: .top, spacing: 4) {
+            Spacer()
+            
+            HStack(alignment: .top, spacing: 0) {
+               Image(systemName: "exclamationmark.circle.fill")
+                  .foregroundStyle(.orange1)
+                  .offset(x: UIScreen.main.bounds.width * 0.025, y: -UIScreen.main.bounds.width * 0.02)
+                  .zIndex(1)
                
-               Text(pinyin)
-                  .font(.pinyin())
-                  .fontWeight(.bold)
-                  .foregroundColor(.gray)
-               
-               // Chinese characters
-               Text(hanzi)
-                  .font(.hanzi())
-                  .foregroundColor(.black)
-                  .overlay {
-                     DottedUnderline()
-                        .frame(height: UIScreen.main.bounds.height * 0.015)
-                        .offset(y: UIScreen.main.bounds.height * 0.02)
+               VStack(spacing: 0) {
+                  VStack(alignment: .leading, spacing: 2) {
+                     Text(question)
+                        .font(.subJudul())
+                        .padding(.bottom, 8)
+                     
+                     Text(pinyin)
+                        .font(.pinyin())
+                        .fontWeight(.bold)
+                        .foregroundColor(.gray)
+                     
+                     // Chinese characters
+                     Text(hanzi)
+                        .font(.hanzi())
+                        .foregroundColor(.black)
+                        .onTapGesture {
+                           showMeaningModal.toggle()
+                        }
                   }
-                  .onTapGesture {
-                     showMeaningModal.toggle()
-                  }
-                  .popover(isPresented: $showMeaningModal, attachmentAnchor: .point(.bottom)) {
-                     ZStack {
-                        Color.customLightGray
-                           .scaleEffect(1.5)
+                  .padding(8)
+                  .frame(maxWidth: .infinity, alignment: .leading)
+                  .fixedSize(horizontal: false, vertical: true)
+                  
+                  if showMeaningModal {
+                     VStack(alignment: .leading) {
+                        CustomDivider(color: .white)
                         
                         Text(meaning)
-                           .font(.hanzi())
-                           .foregroundColor(.black)
-                           .padding(.horizontal)
+                           .font(.system(size: 14))
                            .multilineTextAlignment(.leading)
+                           .padding([.horizontal, .bottom], 8)
                      }
-                     .presentationCompactAdaptation(.popover)
+                     .frame(maxWidth: .infinity, alignment: .leading)
                   }
-            }
-            .padding(8)
-            .background(
-               ZStack(alignment: .topLeading) {
-                  RoundedRectangle(cornerRadius: 8)
-                     .fill(.customYellow)
                }
-            )
+               .background(
+                  ZStack(alignment: .topLeading) {
+                     RoundedRectangle(cornerRadius: 8)
+                        .fill(.green1)
+                  }
+               )
+               
+               RightCustomTriangle(cornerRadius: 16)
+                  .fill(.green1)
+                  .frame(width: UIScreen.main.bounds.width * 0.035, height: UIScreen.main.bounds.height * 0.025)
+                  .offset(x: -UIScreen.main.bounds.width * 0.004)
+                  .padding(.top, UIScreen.main.bounds.height * 0.005)
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
             
-            RightCustomTriangle(cornerRadius: 16)
-               .fill(.customYellow)
-               .frame(width: UIScreen.main.bounds.width * 0.03, height: UIScreen.main.bounds.height * 0.02)
-               .padding(.top, 8)
+            Image(.orangeSpeaker2)
+               .resizable()
+               .scaledToFit()
+               .frame(width: UIScreen.main.bounds.width * 0.12, height: UIScreen.main.bounds.height * 0.06)
          }
-         
-         Image(.orangeSpeaker2)
-            .resizable()
-            .frame(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.height  * 0.08)
+         .onAppear {
+            showQuestionModal = true
+         }
       }
-      .onAppear {
-         showQuestionModal = true
-      }
+      .frame(maxHeight: UIScreen.main.bounds.height * 0.25)
    }
 }
 
 #Preview {
    QuestionBubbleChatView(hanzi: "Halo", pinyin: "Halo", question: "Halo", meaning: "Halo")
+      .background(.black)
 }
