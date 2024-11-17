@@ -42,7 +42,6 @@ struct Speaker1BubbleChatView: View {
                   .offset(x: UIScreen.main.bounds.width * 0.004)
                   .padding(.top, UIScreen.main.bounds.height * 0.005)
                
-               
                VStack(spacing: 0) {
                   VStack(alignment: .leading, spacing: 2) {
                      Text(pinyin)
@@ -51,6 +50,7 @@ struct Speaker1BubbleChatView: View {
                         .foregroundColor(.pinyinPhotoChallenge)
                      
                      Text(hanzi)
+                        .underline(pattern: .dot, color: .orange3)
                         .font(.hanzi())
                         .foregroundColor(.fontColors)
                         .onTapGesture {
@@ -62,7 +62,7 @@ struct Speaker1BubbleChatView: View {
                   
                   if isShowingMeaning {
                      VStack(alignment: .leading) {
-                        CustomDivider(color: .black)
+                        CustomDivider(color: .primary)
                         
                         Text(meaning)
                            .font(.system(size: 14))
@@ -111,4 +111,5 @@ struct DottedUnderline: View {
 #Preview {
    Speaker1BubbleChatView(hanzi: "Halo", pinyin: "Halo", meaning: "Halo")
       .background(.black)
+      .preferredColorScheme(.dark)
 }

@@ -31,7 +31,7 @@ struct Speaker2BubbleChatView: View {
                      // Chinese characters
                      Text(hanzi)
                         .font(.hanzi())
-                        .foregroundColor(.black)
+//                        .foregroundColor(.black)
                         .background(GeometryReader { geometry in
                            Color.clear.onAppear {
                               textWidth = max(textWidth, geometry.size.width)
@@ -88,4 +88,5 @@ struct Speaker2BubbleChatView: View {
 #Preview {
    Speaker2BubbleChatView(hanzi: "Halo", pinyin: "Halo", meaning: "Halo")
       .background(.white)
+      .preferredColorScheme(.dark)
 }

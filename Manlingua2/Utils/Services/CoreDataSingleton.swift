@@ -11,17 +11,26 @@ import SwiftUI
 class CoreDataSingleton: ObservableObject {
    static let shared = CoreDataSingleton()
    
+   //MARK: Story Progress
    @Published var latestStory: Int = 0
    @Published var latestSubChapter: Int = 0
    @Published var storyProgress: [Int] = [1, 1, 1, 1]
    @Published var hasOpenFlashcard: Bool = false
    @Published var hasOpenStoryDetail: Bool = false
    
+   //MARK: Goal Page Progress
+   @Published var task1 = 0
+   @Published var task2 = 0
+   @Published var task3 = 0
+   @Published var totalTasks = 0
+   @Published var totalStars = 0
+   
    private var context: NSManagedObjectContext
    
    private init() {
       context = PersistenceController.shared.container.viewContext
-      fetchProgressData()
+      fetchStoryProgressData()
+      fetchGoalPageProgressData()
       
       setLatestChapter()
       setLatestSubChapter()
@@ -29,7 +38,7 @@ class CoreDataSingleton: ObservableObject {
    }
    
    // MARK: - CoreData Setup and Fetch
-   private func fetchProgressData() {
+   private func fetchStoryProgressData() {
       let fetchRequest: NSFetchRequest<StoryProgress> = StoryProgress.fetchRequest()
       
       do {
@@ -42,25 +51,74 @@ class CoreDataSingleton: ObservableObject {
             hasOpenFlashcard = progressData.hasOpenFlashcard
             hasOpenStoryDetail = progressData.hasOpenStoryDetail
          } else {
-            initializeDefaultData()
+            initializeStoryDefaultData()
          }
       } catch {
          print("Error fetching data: \(error)")
-         initializeDefaultData()
+         initializeStoryDefaultData()
       }
    }
    
-   private func initializeDefaultData() {
+   private func fetchGoalPageProgressData() {
+      let fetchRequest: NSFetchRequest<GoalPageProgress> = GoalPageProgress.fetchRequest()
+      
+      do {
+         let results = try context.fetch(fetchRequest)
+         if let progressData = results.first {
+            task1 = Int(progressData.task1)
+            task2 = Int(progressData.task2)
+            task3 = Int(progressData.task3)
+            totalTasks = Int(progressData.totalTasks)
+            totalStars = Int(progressData.totalStars)
+         }else{
+            initializeGoalPageProgressData()
+         }
+      } catch {
+         print("Error fetching data: \(error)")
+         initializeGoalPageProgressData()
+      }
+   }
+   
+   private func initializeGoalPageProgressData() {
+      task1 = 0
+      task2 = 0
+      task3 = 0
+      totalTasks = 0
+      totalStars = 0
+      
+      saveGoalPageProgressData()
+   }
+   
+   private func initializeStoryDefaultData() {
       latestStory = 1
       latestSubChapter = 1
       storyProgress = [1, 1, 1, 1]
       hasOpenFlashcard = false
       hasOpenStoryDetail = false
       
-      saveProgressData()
+      saveStoryProgressData()
    }
    
-   private func saveProgressData() {
+   private func saveGoalPageProgressData() {
+      let fetchRequest: NSFetchRequest<GoalPageProgress> = GoalPageProgress.fetchRequest()
+      
+      do {
+         let results = try context.fetch(fetchRequest)
+         let progressData = results.first ?? GoalPageProgress(context: context)
+         
+         progressData.task1 = Int16(task1)
+         progressData.task2 = Int16(task2)
+         progressData.task3 = Int16(task3)
+         progressData.totalTasks = Int16(totalTasks)
+         progressData.totalStars = Int16(totalStars)
+         
+         try context.save()
+      } catch {
+         print("Error saving data: \(error)")
+      }
+   }
+   
+   private func saveStoryProgressData() {
       let fetchRequest: NSFetchRequest<StoryProgress> = StoryProgress.fetchRequest()
       
       do {
@@ -87,12 +145,12 @@ class CoreDataSingleton: ObservableObject {
    
    func setLatestChapter() {
       latestStory = latestStory == 0 ? 1 : latestStory
-      saveProgressData()
+      saveStoryProgressData()
    }
    
    func setLatestSubChapter() {
       latestSubChapter = latestSubChapter == 0 ? 1 : latestSubChapter
-      saveProgressData()
+      saveStoryProgressData()
    }
    
    func updateLatestSubChapter(for subChapterId: Int) {
@@ -103,12 +161,12 @@ class CoreDataSingleton: ObservableObject {
          latestSubChapter = subChapterId
       }
       
-      saveProgressData()
+      saveStoryProgressData()
    }
    
    func updateLatestStory(for chapterId: Int) {
       latestStory = chapterId
-      saveProgressData()
+      saveStoryProgressData()
    }
    
    func setAllSpecificStoryProgress() {
@@ -117,7 +175,7 @@ class CoreDataSingleton: ObservableObject {
             storyProgress[index] = 1
          }
       }
-      saveProgressData()
+      saveStoryProgressData()
    }
    
    func getSpecificStoryProgress(storyId: Int) -> Int {
@@ -127,14 +185,14 @@ class CoreDataSingleton: ObservableObject {
    func updateSpecificStoryProgress(story: Int, subChapterProgress: Int) {
       if subChapterProgress >= storyProgress[story - 1] {
          storyProgress[story - 1] = subChapterProgress
-         saveProgressData()
+         saveStoryProgressData()
       }
    }
    
    func hasNotOpenFlashcardPage() -> Bool {
       if !hasOpenFlashcard {
          hasOpenFlashcard = true
-         saveProgressData()
+         saveStoryProgressData()
          return true
       }
       return false
@@ -143,7 +201,7 @@ class CoreDataSingleton: ObservableObject {
    func hasOpenStoryDetailPage() -> Bool {
       if !hasOpenStoryDetail {
          hasOpenStoryDetail = true
-         saveProgressData()
+         saveStoryProgressData()
          return true
       }
       return false

@@ -68,21 +68,9 @@ struct StoryDetailView: View {
             
             if hasAnswered{
                CorrectOrWrong(hanzi: viewModel.chat_example[currentIndex].hanzi, pinyin: viewModel.chat_example[currentIndex].pinyin, meaning: viewModel.chat_example[currentIndex].meaning, isCorrect: isCorrect) {
-                  withAnimation{
-                     DispatchQueue.main.async {
-                        modalAppeared = false
-                        currentIndex += 1
-                        hasAnswered = false
-                     }
-                  }
+                  viewModel.correctAction(modalAppeared: &modalAppeared, index: &currentIndex, hasAnswered: &hasAnswered)
                } tryAgainFunc: {
-                  withAnimation{
-                     DispatchQueue.main.async {
-                        modalAppeared = false
-                        currentIndex -= 1
-                        hasAnswered = false
-                     }
-                  }
+                  viewModel.wrongAction(modalAppeared: &modalAppeared, index: &currentIndex, hasAnswered: &hasAnswered)
                }
                .transition(.move(edge: .bottom))
             }else{

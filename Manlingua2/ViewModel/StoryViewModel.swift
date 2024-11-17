@@ -22,6 +22,26 @@ class StoryViewModel: ObservableObject {
       loadChatPreview()
    }
    
+   func correctAction(modalAppeared: inout Bool, index: inout Int, hasAnswered: inout Bool){
+      withAnimation{
+         //         DispatchQueue.main.async {
+         modalAppeared = false
+         index += 1
+         hasAnswered = false
+         //         }
+      }
+   }
+   
+   func wrongAction(modalAppeared: inout Bool, index: inout Int, hasAnswered: inout Bool){
+      withAnimation{
+         //         DispatchQueue.main.async {
+         modalAppeared = false
+         index -= 1
+         hasAnswered = false
+         //         }
+      }
+   }
+   
    func onTapDetectionChat(_ location: CGPoint, _ midPoint: CGFloat, _ currentIndex: inout Int){
       if location.x < midPoint {
          // Tapped left screen, move to previous item

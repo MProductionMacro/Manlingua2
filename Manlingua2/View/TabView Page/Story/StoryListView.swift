@@ -10,7 +10,7 @@ import SwiftUI
 struct StoryListView: View {
    var body: some View {
       //      TODO: Beberapa size masih hard coded
-      ScrollView{
+      ScrollView(showsIndicators: false){
          VStack(spacing: 0) {
             VStack(alignment: .leading) {
                Text("Cerita seru apa yang ingin kamu")

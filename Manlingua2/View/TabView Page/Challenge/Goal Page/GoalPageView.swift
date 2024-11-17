@@ -63,13 +63,12 @@ struct GoalPageView: View {
                   HStack(spacing: 4) {
                      Image(systemName: "clock")
                         .foregroundStyle(.padlock)
-                     Text("\(viewModel.remainHour2) jam \(viewModel.remainMinutes) menit")
+                     Text("\(viewModel.remainHour2) jam")
                         .foregroundStyle(.padlock)
                         .font(.normalText())
                   }
                }
-               .frame(width: 353)
-               .padding(.top, 20)
+               .padding([.top, .horizontal], 20)
                
                VStack(spacing: 2) {
                   GoalTrackerView(task: .first, image: "Emas Cina", doneTask: appStorageController.firstTask)

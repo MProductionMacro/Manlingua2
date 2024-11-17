@@ -7,9 +7,6 @@
 
 import SwiftUI
 import Combine
-import SystemConfiguration
-
-//TODO: Fix Timer + Progress Bar di GoalPageView
 
 class ChallengeViewModel: ObservableObject {
    @Published var isPredicted = false
@@ -18,10 +15,12 @@ class ChallengeViewModel: ObservableObject {
    @Published var predictions: [Prediction] = []
    
    @Published var objects_example: [Object] = []
-   @Published var randomized_object: Object? = nil
    
    @Published var remainHour2: Int = 24 // Initial hours remaining
    @Published var remainMinutes: Int = 60
+   
+   @ObservedObject var singleton = CoreDataSingleton.shared
+   
    private let calendar = Calendar.current
    
    private let userDefaults = UserDefaults.standard
@@ -159,33 +158,5 @@ class ChallengeViewModel: ObservableObject {
             }
          }
       }.resume()
-   }
-   
-   
-   //   func fetchObjects() {
-   //      // Replace with your FastAPI endpoint URL
-   //      guard let url = URL(string: "\(baseURL)/get_objects") else { return }
-   //
-   //      URLSession.shared.dataTaskPublisher(for: url)
-   //         .map { $0.data }
-   //         .decode(type: ObjectResponse.self, decoder: JSONDecoder())
-   //         .map { response in
-   //            // Extract the objects dictionary and convert it to an array
-   //            Array(response.objects.values)
-   //         }
-   //         .replaceError(with: [])  // In case of error, return an empty array
-   //         .receive(on: DispatchQueue.main)
-   //         .sink { [weak self] objects in
-   //            print("Objects Fetched: \(objects.count)")
-   //            self?.objects_example = objects
-   //         }
-   //         .store(in: &cancellables)
-   //
-   //      print(objects_example.count)
-   //      randomizeObject()
-   //   }
-   
-   func randomizeObject(){
-      randomized_object = objects_example.randomElement()
    }
 }
