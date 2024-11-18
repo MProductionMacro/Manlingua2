@@ -49,25 +49,31 @@ struct FlashcardView: View {
                     .font(Font.normal20())
             }
 
-            VStack(alignment: .leading){
-                Text("Contoh kalimat")
-                    .font(Font.boldText())
-                Text("\(vocab.pinyinSentence)")
-                    .font(Font.normalText())
-                    .multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text("\(vocab.hanziSentence)")
-                    .font(Font.normalText())
-                    .multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text("\(vocab.meaningSentence)")
-                    .font(Font.normalText())
-                    .multilineTextAlignment(.leading)
-                    .fixedSize(horizontal: false, vertical: true)
+            if UIScreen.main.bounds.height > 700 {
+                VStack(alignment: .leading){
+                    Text("Contoh kalimat")
+                        .font(Font.boldText())
+                    Text("\(vocab.pinyinSentence)")
+                        .font(Font.normalText())
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text("\(vocab.hanziSentence)")
+                        .font(Font.normalText())
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text("\(vocab.meaningSentence)")
+                        .font(Font.normalText())
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .frame(width: 210, alignment: .leading)
+                .padding(.bottom, 24)
             }
-            .frame(width: 210, alignment: .leading)
-            .padding(.bottom, 24)
-    
+            else{
+                Text("")
+                    .padding(.bottom, 5)
+
+            }
         }
         .onAppear{
             isBookmarked = SwiftDataServices.shared.isVocabExist(vocab: vocab)

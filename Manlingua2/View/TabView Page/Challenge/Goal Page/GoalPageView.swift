@@ -45,10 +45,12 @@ struct GoalPageView: View {
             }
             .padding(.horizontal)
             
-            CompletionTrackerView()
-               .frame(width: 353, height: 92)
-               .background(.cardBackground)
-               .cornerRadius(16)
+             if UIScreen.main.bounds.height>700{
+                 CompletionTrackerView()
+                    .frame(width: 353, height: 92)
+                    .background(.cardBackground)
+                    .cornerRadius(16)
+             }
             
             VStack(spacing: 16) {
                HStack {
@@ -93,7 +95,12 @@ struct GoalPageView: View {
          }
          .ignoresSafeArea(edges: .bottom)
       }
-      .background(Image("ProfilePage"))
+      .background(
+        Image("ProfilePage")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .ignoresSafeArea()
+      )
    }
 }
 

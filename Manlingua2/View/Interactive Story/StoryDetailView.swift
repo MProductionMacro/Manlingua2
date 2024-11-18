@@ -31,14 +31,18 @@ struct StoryDetailView: View {
    var body: some View {
       GeometryReader { geometry in
          VStack(spacing: 24) {
-            HStack(spacing: 4) {
+             HStack(alignment: .center, spacing: 4) {
                Button {
                   showConfirmationAlert = true
                } label: {
                   Image(systemName: "xmark")
+                       .font(.judulBiasa())
+                       .foregroundStyle(.orangeDarkMode)
+                   /*
                      .font(.system(size: 32))
                      .frame(width: 32, height: 32)
                      .foregroundStyle(.orangeDarkMode)
+                    */
                }.reusableAlert(
                   isPresented: $showConfirmationAlert,
                   alertData: AlertData(
@@ -58,6 +62,8 @@ struct StoryDetailView: View {
                   .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar))
             }
             .padding(.horizontal)
+            .padding(.top, 8)
+
             
             ChatScrollView(currentIndex: $currentIndex, hasAnswered: $hasAnswered, modalAppeared: $modalAppeared, chats: viewModel.chat_example) {
                viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
@@ -91,7 +97,9 @@ struct StoryDetailView: View {
          .edgesIgnoringSafeArea(.bottom)
          .background(
             Image(.chatBackground)
-               .scaledToFill()
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
          )
          .onTapGesture { location in
             if !modalAppeared {

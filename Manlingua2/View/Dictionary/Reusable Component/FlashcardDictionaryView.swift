@@ -65,7 +65,7 @@ struct FlashcardDictionaryView: View {
         .onAppear{
             isBookmarked = SwiftDataServices.shared.isVocabExist(vocab: vocab)
         }
-        .frame(width: 170, height: 208)
+        .frame(width: 160, height: 208)
         .zIndex(2)
         .background(.cardBackground)
         .cornerRadius(16.98)

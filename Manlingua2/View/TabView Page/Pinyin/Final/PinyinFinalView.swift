@@ -17,7 +17,7 @@ struct PinyinFinalView: View {
          VStack(spacing: 16){
             Text("Final")
                .font(.system(size: 25, weight: .bold))
-               .padding(.top, 32)
+               //.padding(.top, 32 * 0.1)//(UIScreen.main.bounds.height / 852)
             
             Image("Final")
                .resizable()
@@ -40,9 +40,15 @@ struct PinyinFinalView: View {
                }
             }
              
+            Spacer()
          }
          .ignoresSafeArea()
+         .frame(maxWidth: .infinity, maxHeight: .infinity)
+         .padding(.top, UIScreen.main.bounds.height < 700 ? -40 : 32)
+          
+         Spacer()
       }
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
       .background(.blankBackground)
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {
@@ -60,6 +66,7 @@ struct PinyinFinalView: View {
                }
             }
          }
+          
       }
    }
 }

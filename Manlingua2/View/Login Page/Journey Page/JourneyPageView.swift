@@ -41,6 +41,7 @@ struct JourneyPageView: View {
                   
                   Button {
                      router.push(.dictionary(judul: story.title, displayMode: .story(id: story.id)))
+                      print("Masuk Vertical")
                   } label: {
                      HStack(spacing: 8){
                         Image(systemName: "books.vertical")
@@ -58,7 +59,7 @@ struct JourneyPageView: View {
                }
                .padding(.horizontal, 15.5)
                .padding(.vertical)
-               
+
                // List of Chapters
                JourneyPageContentView(story: story, storyId: storyId)
             }
@@ -68,9 +69,10 @@ struct JourneyPageView: View {
          }
       //}
       .background(
-         Image(.profilePage)
-            .ignoresSafeArea()
-            .scaledToFill()
+        Image(.profilePage)
+           .resizable()
+           .aspectRatio(contentMode: .fill)
+           .ignoresSafeArea()
       )
       .edgesIgnoringSafeArea(.bottom)
       .toolbar {

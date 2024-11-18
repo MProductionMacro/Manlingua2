@@ -61,6 +61,7 @@ struct ImportantNotesPageView : View {
                 .frame(maxWidth: .infinity)
             }
         }
+        .padding(.top, UIScreen.main.bounds.height < 700 ? -50 : 8)
         .frame(maxWidth: .infinity)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {

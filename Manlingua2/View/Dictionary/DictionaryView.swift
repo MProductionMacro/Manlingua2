@@ -66,6 +66,7 @@ struct DictionaryView: View {
                  }
              }
          }
+         .padding(.top, UIScreen.main.bounds.height < 700 ? -60 : 8)
          .navigationBarItems(leading: Button(action: {
              if displayMode == .favorite {
                  router.popToRoot()

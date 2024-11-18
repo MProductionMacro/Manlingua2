@@ -73,8 +73,9 @@ struct IoTSettingView: View {
                 Spacer()
                 
             }
-            .padding(.horizontal, 16)
-            .padding(.top, 8)
+            .padding(.horizontal, 16)            
+            .padding(.top, UIScreen.main.bounds.height < 700 ? -40 : 8)
+            .padding(.bottom, UIScreen.main.bounds.height < 700 ? 8 : 0)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.blankBackground)

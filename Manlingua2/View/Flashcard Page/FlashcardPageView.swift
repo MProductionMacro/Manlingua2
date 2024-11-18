@@ -160,7 +160,9 @@ struct FlashcardPageView: View {
       .frame(maxHeight: .infinity)
       .background(
          Image(.chatBackground)
-            .scaledToFill()
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .ignoresSafeArea()
       )
       .ignoresSafeArea(.container, edges: .bottom)
       .onAppear{

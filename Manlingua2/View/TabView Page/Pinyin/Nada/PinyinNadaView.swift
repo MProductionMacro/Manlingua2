@@ -17,7 +17,6 @@ struct PinyinNadaView: View {
          VStack(spacing: 16){
             Text("Nada")
                .font(.system(size: 25, weight: .bold))
-               .padding(.top, 32)
             
             Image("Nada")
                .resizable()
@@ -40,7 +39,12 @@ struct PinyinNadaView: View {
             RowOfPinyinView(listPinyin: viewModel.pinyinNada, audioController: $audioController)
          }
          .ignoresSafeArea()
+         .frame(maxWidth: .infinity, maxHeight: .infinity)
+         .padding(.top, UIScreen.main.bounds.height < 700 ? -40 : 32)
+         
+         Spacer()
       }
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
       .background(.blankBackground)
       .toolbar {
           ToolbarItem(placement: .topBarLeading) {

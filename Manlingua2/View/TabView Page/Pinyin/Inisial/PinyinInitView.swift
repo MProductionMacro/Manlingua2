@@ -20,7 +20,6 @@ struct PinyinInitView: View {
             
             Text("Inisial")
                .font(.system(size: 25, weight: .bold))
-               .padding(.top, 32)
             
             Image("Inisial")
                .resizable()
@@ -46,7 +45,12 @@ struct PinyinInitView: View {
             
          }
          .ignoresSafeArea()
+         .frame(maxWidth: .infinity, maxHeight: .infinity)
+         .padding(.top, UIScreen.main.bounds.height < 700 ? -40 : 32)
+
+         Spacer()
       }
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
       .background(.blankBackground)
       .toolbar {
           ToolbarItem(placement: .topBarLeading) {
