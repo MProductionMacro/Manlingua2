@@ -7,7 +7,8 @@
 import SwiftUI
 
 struct GoalPageView: View {
-   @StateObject var appStorageController = AppStorageController.shared
+   @StateObject var singleton = SwiftDataServices.shared
+   
    @EnvironmentObject var router: Router
    @EnvironmentObject var viewModel: ChallengeViewModel
    @State private var lastResetDate: Date = Date() // Track last reset date
@@ -43,7 +44,7 @@ struct GoalPageView: View {
                   .cornerRadius(12)
                }
                
-               RatingStarView(numberOfStars: 3)
+               RatingStarView(numberOfStars: singleton.totalStars)
             }
             .padding(.horizontal)
             
@@ -63,7 +64,7 @@ struct GoalPageView: View {
                   HStack(spacing: 4) {
                      Image(systemName: "clock")
                         .foregroundStyle(.padlock)
-                     Text("\(viewModel.remainHour2) jam")
+                     Text("\(viewModel.remainHour) jam")
                         .foregroundStyle(.padlock)
                         .font(.normalText())
                   }
@@ -71,13 +72,21 @@ struct GoalPageView: View {
                .padding([.top, .horizontal], 20)
                
                VStack(spacing: 2) {
-                  GoalTrackerView(task: .first, image: "Emas Cina", doneTask: appStorageController.firstTask)
+                  GoalTrackerView(task: .first, image: "Emas Cina", doneTask: singleton.tasks[0])
                      .onTapGesture {
-                        router.push(.photoChallenge)
+                        viewModel.taskDone(index: 0)
+//                        router.push(.photoChallenge)
                      }
                   
-                  GoalTrackerView(task: .second, image: "Koin Cina", doneTask: appStorageController.secondTask)
-                  GoalTrackerView(task: .third, image: "Emas Batang", doneTask: appStorageController.thirdTask)
+                  GoalTrackerView(task: .second, image: "Koin Cina", doneTask: singleton.tasks[1])
+                     .onTapGesture {
+                        viewModel.taskDone(index: 1)
+                     }
+                  
+                  GoalTrackerView(task: .third, image: "Emas Batang", doneTask: singleton.tasks[2])
+                     .onTapGesture {
+                        viewModel.taskDone(index: 2)
+                     }
                }
                .background(Color.customLightGray)
                .cornerRadius(25)

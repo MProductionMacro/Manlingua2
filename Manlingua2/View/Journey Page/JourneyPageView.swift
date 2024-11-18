@@ -12,7 +12,7 @@ struct JourneyPageView: View {
    @EnvironmentObject var storyViewModel: StoryViewModel
    @EnvironmentObject var viewModel: JourneyViewModel
    
-   @StateObject var singleton = CoreDataSingleton.shared
+   @StateObject var singleton = SwiftDataServices.shared
    
    var storyId:Int
    

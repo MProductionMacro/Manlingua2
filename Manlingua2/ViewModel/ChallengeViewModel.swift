@@ -16,10 +16,10 @@ class ChallengeViewModel: ObservableObject {
    
    @Published var objects_example: [Object] = []
    
-   @Published var remainHour2: Int = 24 // Initial hours remaining
+   @Published var remainHour: Int = 24 // Initial hours remaining
    @Published var remainMinutes: Int = 60
    
-   @ObservedObject var singleton = CoreDataSingleton.shared
+   @ObservedObject var singleton = SwiftDataServices.shared
    
    private let calendar = Calendar.current
    
@@ -32,9 +32,20 @@ class ChallengeViewModel: ObservableObject {
       fetchObjects()
    }
    
+   func taskDone(index: Int){
+      singleton.tasks[index] += 1
+      singleton.totalTasks = Double(singleton.tasks.reduce(0, +)) / Double(singleton.tasks.count)
+      
+      singleton.saveGoalProgressData()
+   }
+   
    func setupHourlyTimer() {
       Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
          self.updateRemainHour()
+      }
+      
+      if self.remainHour == 0 && self.remainMinutes == 0 {
+         singleton.initializeGoalDefaultData()
       }
    }
    
@@ -46,27 +57,11 @@ class ChallengeViewModel: ObservableObject {
       let minutesUntilMidnight = calendar.dateComponents([.minute], from: now, to: midnight).minute ?? 0
       
       // Update remainHour to reflect time left until midnight
-      remainHour2 = hoursUntilMidnight
+      remainHour = hoursUntilMidnight
       remainMinutes = minutesUntilMidnight
    }
    
-   var startTime: Date {
-      get {
-         // Retrieve stored date, or return the default value if not set
-         if let date = userDefaults.object(forKey: "startTime") as? Date {
-            return date
-         } else {
-            return Date() // Set a default date if it doesn't exist
-         }
-      }
-      set {
-         userDefaults.set(newValue, forKey: "startTime")
-      }
-   }
-   
    private var cancellables = Set<AnyCancellable>()
-   
-   var totalTasks: Int { 3 }
    
    //MARK: Photo Challenge
    func predictImage(_ image: UIImage) {

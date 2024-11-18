@@ -24,14 +24,14 @@ struct KataKataView: View {
             .buttonStyle(HomeNavigationButton(image: "book.pages", text: "Flashcard"))
             
             Button {
-                router.push(.loadingPage(screen : .dictionary(judul: "Kata Favorit", displayMode: .favorite)))
+               router.push(.dictionary(judul: "Kata Favorit", displayMode: .favorite))
             } label: {
                EmptyView()
             }
             .buttonStyle(HomeNavigationButton(image: "heart", text: "Favorit"))
             
             Button {
-                router.push(.loadingPage(screen: .importantNote(displayMode: .favorite)))
+               router.push(.importantNote(displayMode: .favorite))
             } label: {
                EmptyView()
             }

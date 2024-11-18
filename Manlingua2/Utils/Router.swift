@@ -78,9 +78,6 @@ class Router: ObservableObject {
             })
       case .flashcardPage:
          FlashcardPageView()
-            .onBackSwipe(perform: {
-               self.pop()
-            })
             .navigationBarBackButtonHidden(true)
       case .donePage(let displayMode):
          DonePageView(displayMode: displayMode)

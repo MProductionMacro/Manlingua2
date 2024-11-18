@@ -8,60 +8,59 @@
 import SwiftUI
 
 struct GoalTrackerView : View {
-    @EnvironmentObject var router: Router
-    @StateObject var appStorageController = AppStorageController.shared
-    var task: TaskType
-    var image: String
-    var doneTask: Int
+   @EnvironmentObject var router: Router
+   var task: TaskType
+   var image: String
+   var doneTask: Int
    
-    var body : some View {
-        HStack{
-            Spacer()
+   var body : some View {
+      HStack{
+         Spacer()
          
-            Image("\(image)")
-                .resizable()
-                .frame(width: 40, height: 40)
+         Image("\(image)")
+            .resizable()
+            .frame(width: 40, height: 40)
          
-            Spacer()
+         Spacer()
          
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Selesaikan 1 tantangan foto")
-                    .font(Font.normalText())
-             
-                HStack {
-                    Image(systemName: "clock")
-                        .foregroundStyle(.padlock)
-                        .font(.normalText())
-                    Text("\(appStorageController.remainHour) Menit")
-                        .foregroundStyle(.padlock)
-                        .font(.normalText())
-                }
-             
-                ProgressView(value: Double(doneTask), total: 1)
-                    .progressViewStyle(
-                        CustomProgressViewStyle(
-                  height: UIScreen.main.bounds.height * 0.02,
-                  filledColor: .greenNormalActive,
-                  unfilledColor: .progressBar
-               ))
+         VStack(alignment: .leading, spacing: 8) {
+            Text("Selesaikan 1 tantangan foto")
+               .font(Font.normalText())
+            
+            HStack {
+               Image(systemName: "clock")
+                  .foregroundStyle(.padlock)
+                  .font(.normalText())
+               Text("12 menit")
+                  .foregroundStyle(.padlock)
+                  .font(.normalText())
             }
-            .frame(width: 233, height: 60)
+            
+            ProgressView(value: Double(doneTask), total: 1)
+               .progressViewStyle(
+                  CustomProgressViewStyle(
+                     height: UIScreen.main.bounds.height * 0.01,
+                     filledColor: .greenNormalActive,
+                     unfilledColor: .progressBar
+                  ))
+         }
+         .frame(width: 233, height: 60)
          
-            Spacer()
+         Spacer()
          
-            Button(action: {
-                router.push(.photoChallenge)
-            }) {
-                Image(systemName: "chevron.right")
-                    .font(Font.button())
-                    .foregroundStyle(.orangeDarkMode)
-            }
+         Button(action: {
+            router.push(.photoChallenge)
+         }) {
+            Image(systemName: "chevron.right")
+               .font(Font.button())
+               .foregroundStyle(.orangeDarkMode)
+         }
          
-            Spacer()
-        }
-        .frame(width: 355, height: 100)
-        .background(.blankBackground)
-    }
+         Spacer()
+      }
+      .frame(width: 355, height: 100)
+      .background(.blankBackground)
+   }
 }
 
 #Preview {

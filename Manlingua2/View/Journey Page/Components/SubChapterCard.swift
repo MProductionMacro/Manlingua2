@@ -16,7 +16,7 @@ struct SubChapterCard: View {
    @EnvironmentObject var viewModel: StoryViewModel
    @EnvironmentObject var journeyVM: JourneyViewModel
    @EnvironmentObject var homeVM: HomeViewModel
-   @StateObject var singleton = CoreDataSingleton.shared
+   @StateObject var singleton = SwiftDataServices.shared
    
    var body: some View {
       HStack {

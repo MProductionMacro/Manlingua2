@@ -22,7 +22,7 @@ struct StoryDetailView: View {
    @State var isCorrect: Bool = false
    @State var selectedAnswer: String? = nil
    
-   @StateObject var singleton = CoreDataSingleton.shared
+   @StateObject var singleton = SwiftDataServices.shared
    
    var chapterId: Int
    var subChapterId: Int

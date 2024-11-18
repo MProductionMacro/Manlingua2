@@ -16,7 +16,7 @@ class StoryViewModel: ObservableObject {
    @Published var currentIndex: Int = 0
    @Published var error: String = ""
    @Published var chapterId: Int = 0
-   @ObservedObject var singleton = CoreDataSingleton.shared
+   @ObservedObject var singleton = SwiftDataServices.shared
    
    init(){
       loadChatPreview()

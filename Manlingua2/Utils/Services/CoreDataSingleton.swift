@@ -22,7 +22,7 @@ class CoreDataSingleton: ObservableObject {
    @Published var task1 = 0
    @Published var task2 = 0
    @Published var task3 = 0
-   @Published var totalTasks = 0
+   @Published var totalTasks = 0.0
    @Published var totalStars = 0
    
    private var context: NSManagedObjectContext
@@ -68,7 +68,7 @@ class CoreDataSingleton: ObservableObject {
             task1 = Int(progressData.task1)
             task2 = Int(progressData.task2)
             task3 = Int(progressData.task3)
-            totalTasks = Int(progressData.totalTasks)
+            totalTasks = Double(progressData.totalTasks)
             totalStars = Int(progressData.totalStars)
          }else{
             initializeGoalPageProgressData()
@@ -109,7 +109,7 @@ class CoreDataSingleton: ObservableObject {
          progressData.task1 = Int16(task1)
          progressData.task2 = Int16(task2)
          progressData.task3 = Int16(task3)
-         progressData.totalTasks = Int16(totalTasks)
+         progressData.totalTasks = Double(totalTasks)
          progressData.totalStars = Int16(totalStars)
          
          try context.save()
@@ -142,6 +142,14 @@ class CoreDataSingleton: ObservableObject {
    }
    
    // MARK: - Functions
+   
+   func setTaskCompleted(tasks: [Int]){
+      task1 = tasks[0]
+      task2 = tasks[1]
+      task3 = tasks[2]
+      
+      saveGoalPageProgressData()
+   }
    
    func setLatestChapter() {
       latestStory = latestStory == 0 ? 1 : latestStory
