@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DismissAndIndexView: View {
    @EnvironmentObject var router: Router
+   @EnvironmentObject var storyVM: StoryViewModel
+   @EnvironmentObject var flashcardVM: FlashcardViewModel
    
    @Binding var showConfirmationAlert: Bool
    @Binding var currentIndex: Int
@@ -32,6 +34,8 @@ struct DismissAndIndexView: View {
                   showConfirmationAlert = false
                },
                dismissAction: {
+                  storyVM.currentIndex = 0
+                  flashcardVM.currentIndex = 0
                   router.popToRoot()
                }
             )

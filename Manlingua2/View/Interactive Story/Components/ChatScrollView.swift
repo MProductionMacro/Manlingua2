@@ -22,51 +22,51 @@ struct ChatScrollView: View {
                ForEach(0...currentIndex, id: \.self) { index in
                   let chat = chats[index]
                   
-                  BubbleChatView(chat: .constant(chat), type: chat.type)
+                  BubbleChatView(chat: .constant(chat), type: chat.type, questionIndex: currentIndex, isActive: index == currentIndex)
                      .id(index)
-               }
-               
-               if currentIndex + 1 >= chats.count {
-                  Button {
-                     actionOnDone()
-                  } label: {
-                     Text("Continue".localized)
-                        .frame(maxWidth: .infinity)
-                  }
-                  .id("button")
-                  .padding(.horizontal)
-                  .buttonStyle(PrimaryButton(isDisabled: false))
-                  .onAppear{
-                     proxy.scrollTo("button", anchor: .bottom)
+                  
+                  if currentIndex + 1 >= chats.count {
+                     Button {
+                        actionOnDone()
+                     } label: {
+                        Text("Continue")
+                           .frame(maxWidth: .infinity)
+                     }
+                     .id("button")
+                     .padding(.horizontal)
+                     .buttonStyle(PrimaryButton(isDisabled: false))
+                     .onAppear{
+                        proxy.scrollTo("button", anchor: .bottom)
+                     }
                   }
                }
             }
-         }
-         .onChange(of: hasAnswered) { _, _ in
-            // Scroll to bottom when hasAnswered changes
-            withAnimation{
-               proxy.scrollTo(currentIndex, anchor: .bottom)
-            }
-         }
-         .onChange(of: modalAppeared, { oldValue, newValue in
-            withAnimation{
-               DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+            .onChange(of: hasAnswered) { _, _ in
+               // Scroll to bottom when hasAnswered changes
+               withAnimation{
                   proxy.scrollTo(currentIndex, anchor: .bottom)
                }
             }
-         })
-         .onChange(of: currentIndex) { _, _ in
-            withAnimation{
-               DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                  proxy.scrollTo(currentIndex, anchor: .bottom)
+            .onChange(of: modalAppeared, { oldValue, newValue in
+               withAnimation{
+                  DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                     proxy.scrollTo(currentIndex, anchor: .bottom)
+                  }
+               }
+            })
+            .onChange(of: currentIndex) { _, _ in
+               withAnimation{
+                  DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                     proxy.scrollTo(currentIndex, anchor: .bottom)
+                  }
                }
             }
          }
+         //      .padding(.bottom, chats[currentIndex].type == .question ? 0 : 64)
       }
-      //      .padding(.bottom, chats[currentIndex].type == .question ? 0 : 64)
    }
+   
+   //#Preview {
+   //   ChatScrollView(currentIndex: <#Binding<Int>#>, chat: <#[Chat_Example]#>, actionOnDone: <#() -> Void#>)
+   //}
 }
-
-//#Preview {
-//   ChatScrollView(currentIndex: <#Binding<Int>#>, chat: <#[Chat_Example]#>, actionOnDone: <#() -> Void#>)
-//}

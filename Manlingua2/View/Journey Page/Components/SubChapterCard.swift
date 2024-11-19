@@ -6,6 +6,85 @@
 //
 import SwiftUI
 
+
+struct SubChapterButton : PrimitiveButtonStyle {
+    @State var isLocked:Bool
+    var id: Int
+    var subChapter: SubChapter_Example
+    
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+           HStack(spacing: 12) {
+              if isLocked {
+                  Image(.newLock)
+                    .resizable()
+                    .frame(width: 86, height: 86)
+              }
+              else{
+                  Image(.newHaidilao)
+                    .resizable()
+                    .frame(width: 86, height: 86)
+              }
+              
+              VStack(alignment: .leading, spacing: 4) {
+                 Text("Bagian \(subChapter.id)")
+                    .font(.pinyin())
+                    .fontWeight(.bold)
+                 Text(subChapter.title)
+                    .font(.subJudul())
+                 VStack(spacing: 0){
+                    Text(subChapter.pinyin)
+                       .multilineTextAlignment(.leading)
+                       .font(.pinyin())
+                       .frame(maxWidth: .infinity, alignment: .leading)
+                       .foregroundStyle(.emptyListText)
+                    Text(subChapter.hanzi)
+                       .multilineTextAlignment(.leading)
+                       .font(.hanzi())
+                       .frame(maxWidth: .infinity, alignment: .leading)
+                       .foregroundStyle(.emptyListText)
+                 }
+                 
+                 HStack(spacing: 2){
+                    Image(systemName: "clock")
+                       .foregroundStyle(.emptyListText)
+                       .font(.normalText())
+                    
+                    Text("sekitar 15 menit")
+                       .foregroundStyle(.emptyListText)
+                       .font(.pinyin())
+                 }
+              }
+              .frame(maxWidth: .infinity, alignment: .leading)
+           }
+           .frame(maxWidth: .infinity, alignment: .leading)
+           
+           Image(systemName: isLocked ? "lock" : "chevron.right")
+                .foregroundStyle(isLocked ? .padlock : .orangeDarkMode)
+                .fontWeight(.bold)
+           
+           Spacer()
+        }
+        .padding()
+        .background(.cardBackground)
+        .cornerRadius(20)
+        .overlay(
+           RoundedRectangle(cornerRadius: 20)
+              .stroke(.customLightGray, lineWidth: 1)
+        )
+        .gesture(DragGesture(minimumDistance: 0).onChanged { _ in
+        }.onEnded { value in
+           DispatchQueue.main.asyncAfter(deadline: .now() + 0.001){
+              withAnimation {
+                 configuration.trigger()
+              }
+           }
+        })
+    }
+}
+
+
+
 struct SubChapterCard: View {
    @State var labelImage: ImageResource
    @State var isLocked:Bool
