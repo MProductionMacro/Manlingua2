@@ -24,7 +24,7 @@ struct DictionaryView: View {
                .bold()
                .padding(.top, 16)
             
-            Text("\(viewModel.vocabularies.count) Kata")
+             Text("\(viewModel.vocabularies.count) " + "Kata".localized)
                .font(.subheadline)
 
              if viewModel.getVocabulary(displayMode).isEmpty {
@@ -35,12 +35,12 @@ struct DictionaryView: View {
                         .frame(width: 158, height: 161)
                         .padding(.bottom, 36)
                          
-                    Text("Ayo simpan kata yang ingin")
+                    Text("Ayo simpan kata yang ingin".localized)
                         .font(.judulBiasa())
                         .foregroundColor(.emptyListText)
                         .opacity(colorScheme == .light ? 1 : 0.7)
 
-                    Text("kamu pelajari kembali")
+                    Text("kamu pelajari kembali".localized)
                         .font(.judulBiasa())
                         .foregroundColor(.emptyListText)
                         .opacity(colorScheme == .light ? 1 : 0.7)
@@ -77,7 +77,7 @@ struct DictionaryView: View {
          }) {
             HStack {
                Image(systemName: "chevron.left")
-               Text("Kembali")
+               Text("Kembali".localized)
             }
             .foregroundColor(.orangeDarkMode)
          })

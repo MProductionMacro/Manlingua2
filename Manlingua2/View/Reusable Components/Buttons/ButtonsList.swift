@@ -13,7 +13,7 @@ struct PreviousButton: View {
    var action: () -> Void
    var body: some View {
       Button(action: action, label: {
-         Label("Previous", image: "previousIcon")
+          Label("Previous".localized, image: "previousIcon")
             .modifier(ButtonTextModifier())
          
       })
@@ -25,7 +25,7 @@ struct NextButton: View {
    var action: () -> Void
    var body: some View {
       Button(action: action, label: {
-         Label("Next", image: "nextIcon")
+          Label("Next".localized, image: "nextIcon")
             .modifier(ButtonTextModifier())
          
       })

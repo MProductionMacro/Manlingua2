@@ -49,12 +49,12 @@ struct ProfilePageView: View {
                 
                 VStack(spacing: 32){
                     VStack(spacing: 24){
-                        ProfileNavigationButton(title: "Languages", imageName: "globe"){
+                        ProfileNavigationButton(title: "Languages".localized, imageName: "globe"){
                             router.push(.languageSetting)
                         }
                         .frame(width: 361 * (UIScreen.main.bounds.width/393), height: 35)
                         
-                        ProfileNavigationButton(title: "Notification", imageName: "bell"){
+                        ProfileNavigationButton(title: "Notification".localized, imageName: "bell"){
                             router.push(.notificationSetting)
                         }
                         .frame(width: 361 * (UIScreen.main.bounds.width/393), height: 35)
@@ -76,7 +76,7 @@ struct ProfilePageView: View {
                             .frame(width: 25, height: 25)
                             .padding(.trailing, 10)
                         
-                        Text("Log Out")
+                        Text("Log Out".localized)
                             .font(Font.judulBiasa())
                             .foregroundColor(.profileNavigationText)
                         Spacer()

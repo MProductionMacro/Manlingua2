@@ -17,24 +17,24 @@ struct AuthenticationView: View {
    
    var body: some View {
       VStack(spacing: 20) {
-         Text(isSignIn ? "Sign In" : "Sign Up")
+          Text(isSignIn ? "Sign In".localized : "Sign Up".localized)
             .font(.largeTitle)
             .bold()
          
-         TextField("Email", text: $email)
+          TextField("Email".localized, text: $email)
             .keyboardType(.emailAddress)
             .autocapitalization(.none)
             .padding()
             .background(Color(.systemGray6))
             .cornerRadius(8)
          
-         SecureField("Password", text: $password)
+          SecureField("Password".localized, text: $password)
             .padding()
             .background(Color(.systemGray6))
             .cornerRadius(8)
          
          Button(action: handleEmailAuthentication) {
-            Text(isSignIn ? "Sign In" : "Sign Up")
+             Text(isSignIn ? "Sign In".localized : "Sign Up".localized)
                .frame(maxWidth: .infinity)
                .padding()
                .background(Color.blue)
@@ -52,24 +52,24 @@ struct AuthenticationView: View {
          Button(action: {
             isSignIn.toggle()
          }) {
-            Text(isSignIn ? "Don't have an account? Sign Up" : "Already have an account? Sign In")
+            Text(isSignIn ? "Don't have an account? Sign Up".localized : "Already have an account? Sign In".localized)
          }
       }
       .padding()
-      .navigationTitle(isSignIn ? "Sign In" : "Sign Up")
+      .navigationTitle(isSignIn ? "Sign In".localized : "Sign Up".localized)
    }
    
    func handleEmailAuthentication() {
       if email.isEmpty || password.isEmpty {
-         errorMessage = "Please enter an email and password."
+          errorMessage = "Please enter an email and password.".localized
          return
       }
       if !isValidEmail(email) {
-         errorMessage = "Invalid email format."
+          errorMessage = "Invalid email format.".localized
          return
       }
       if password.count < 6 {
-         errorMessage = "Password must be at least 6 characters."
+          errorMessage = "Password must be at least 6 characters.".localized
          return
       }
       
@@ -78,7 +78,7 @@ struct AuthenticationView: View {
             if let error = error {
                errorMessage = error.localizedDescription
             } else {
-               errorMessage = "Signed in successfully!"
+                errorMessage = "Signed in successfully!".localized
             }
          }
       } else {
@@ -86,7 +86,7 @@ struct AuthenticationView: View {
             if let error = error {
                errorMessage = error.localizedDescription
             } else {
-               errorMessage = "Account created successfully!"
+                errorMessage = "Account created successfully!".localized
             }
          }
       }

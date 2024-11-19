@@ -50,16 +50,16 @@ struct IoTSettingView: View {
             */
             
             VStack(alignment: .leading, spacing: 16){
-                Text("Pengaturan IoT")
+                Text("Pengaturan IoT".localized)
                     .font(.heavy32())
                     .padding(.bottom, -8)
                 
-                Text("Hubungkan perangkat IoT ke aplikasi untuk mulai menggunakan flashcard!")
+                Text("Hubungkan perangkat IoT ke aplikasi untuk mulai menggunakan flashcard!".localized)
                     .font(.subJudul())
                     .opacity(0.65)
                 
                 VStack(alignment: .leading, spacing: 16){
-                    Text("Daftar perangkat:")
+                    Text("Daftar perangkat:".localized)
                         .font(Font.normal16())
                     
                     ForEach(1...3, id: \.self) { i in
@@ -90,7 +90,7 @@ struct IoTSettingView: View {
                             .font(.semibold20())
                             .bold()
                     
-                        Text("Kembali")
+                        Text("Kembali".localized)
                             .foregroundColor(.orangeDarkMode)
                             .font(.semibold16())
                             .bold()

@@ -27,14 +27,14 @@ struct GoalTrackerView : View {
          Spacer()
          
          VStack(alignment: .leading, spacing: 8) {
-            Text(challenge)
+             Text(challenge.localized)
                .font(Font.normalText())
             
             HStack {
                Image(systemName: "clock")
                   .foregroundStyle(.padlock)
                   .font(.normalText())
-               Text("12 menit")
+                Text("12 menit".localized)
                   .foregroundStyle(.padlock)
                   .font(.normalText())
             }

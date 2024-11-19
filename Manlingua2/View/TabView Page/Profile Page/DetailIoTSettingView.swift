@@ -12,24 +12,24 @@ struct DetailIoTSettingView : View {
     var body: some View {
         VStack{
             VStack(alignment: .leading, spacing: 16){
-                Text("Pengaturan IoT")
+                Text("Pengaturan IoT".localized)
                     .font(.heavy32())
                 
-                DetailIoTRowView(label: "Nama Model", value: "Smart Speaker Bluetooth 1", isEditable: true)
+                DetailIoTRowView(label: "Nama Perangkat".localized, value: "Smart Speaker Rumah", isEditable: true)
 
                 
-                DetailIoTRowView(label: "Nama Model", value: "Smart Speaker Bluetooth 1")
+                DetailIoTRowView(label: "Nama Model".localized, value: "Smart Speaker Bluetooth 1")
                 
-                DetailIoTRowView(label: "Nomor Seri", value: "202411080001")
+                DetailIoTRowView(label: "Nomor Seri".localized, value: "202411080001")
                 
-                DetailIoTRowView(label: "Nama Wifi", value: "Muo Home")
+                DetailIoTRowView(label: "Nama Wifi".localized, value: "Muo Home")
 
                 Spacer()
                 
                 Button {
 
                 } label: {
-                   Text("Hapus Perangkat")
+                    Text("Hapus Perangkat".localized)
                         .foregroundStyle(.fontColors)
                       .frame(maxWidth: .infinity)
                 }
@@ -54,7 +54,7 @@ struct DetailIoTSettingView : View {
                             .font(.semibold20())
                             .bold()
                     
-                        Text("Kembali")
+                        Text("Kembali".localized)
                             .foregroundColor(.orangeDarkMode)
                             .font(.semibold16())
                             .bold()

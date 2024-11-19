@@ -17,12 +17,12 @@ struct GoalPageView: View {
       ZStack {
          VStack(alignment: .center, spacing: 16) {
             VStack(spacing: 8) {
-               Text("Peringkat")
+                Text("Peringkat".localized)
                   .font(Font.judulBesar())
                   .foregroundStyle(.white)
                
                HStack(alignment: .center) {
-                  Text("Perunggu")
+                   Text("Perunggu".localized)
                      .font(Font.subJudul())
                      .frame(width: 92, height: 35)
                      .foregroundColor(.orangeDarkMode)
@@ -57,7 +57,7 @@ struct GoalPageView: View {
             
             VStack(spacing: 16) {
                HStack {
-                  Text("Selesaikan tugas dibawah!")
+                   Text("Selesaikan tugas dibawah!".localized)
                      .foregroundStyle(.padlock)
                      .font(.subJudul())
                   
@@ -66,7 +66,7 @@ struct GoalPageView: View {
                   HStack(spacing: 4) {
                      Image(systemName: "clock")
                         .foregroundStyle(.padlock)
-                     Text("\(viewModel.remainHour) jam")
+                      Text("\(viewModel.remainHour) jam".localized)
                         .foregroundStyle(.padlock)
                         .font(.normalText())
                   }
@@ -74,15 +74,15 @@ struct GoalPageView: View {
                .padding([.top, .horizontal], 20)
                
                VStack(spacing: 2) {
-                  GoalTrackerView(task: .first, image: "Emas Cina", challenge: "Selesaikan 1 subbab cerita", doneTask: singleton.tasks[0]) {
+                   GoalTrackerView(task: .first, image: "Emas Cina", challenge: "Selesaikan 1 subbab cerita".localized, doneTask: singleton.tasks[0]) {
                      viewModel.taskDone(index: 0)
                   }
                   
-                  GoalTrackerView(task: .second, image: "Koin Cina", challenge: "Selesaikan 1 bagian flashcard", doneTask: singleton.tasks[1]) {
+                   GoalTrackerView(task: .second, image: "Koin Cina", challenge: "Selesaikan 1 bagian flashcard".localized, doneTask: singleton.tasks[1]) {
                      viewModel.taskDone(index: 1)
                   }
                   
-                  GoalTrackerView(task: .third, image: "Emas Batang", challenge: "Selesaikan 1 tantangan foto", doneTask: singleton.tasks[2]) {
+                   GoalTrackerView(task: .third, image: "Emas Batang", challenge: "Selesaikan 1 tantangan foto".localized, doneTask: singleton.tasks[2]) {
                      viewModel.taskDone(index: 2)
                   }
                }

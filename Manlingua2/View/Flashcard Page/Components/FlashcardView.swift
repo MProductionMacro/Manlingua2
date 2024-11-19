@@ -51,7 +51,7 @@ struct FlashcardView: View {
 
             if UIScreen.main.bounds.height > 700 {
                 VStack(alignment: .leading){
-                    Text("Contoh kalimat")
+                    Text("Contoh kalimat".localized)
                         .font(Font.boldText())
                     Text("\(vocab.pinyinSentence)")
                         .font(Font.normalText())

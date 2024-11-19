@@ -13,12 +13,12 @@ struct StoryListView: View {
       ScrollView(showsIndicators: false){
          VStack(spacing: 0) {
             VStack(alignment: .leading) {
-               Text("Cerita seru apa yang ingin kamu")
+                Text("Cerita seru apa yang ingin kamu".localized)
                   .fontWeight(.semibold)
                   .foregroundStyle(.white)
                   .font(.judulBiasa())
                
-               Text("Coba Jelajah?")
+                Text("Coba Jelajah?".localized)
                   .font(.judulSedang())
                   .foregroundStyle(.white)
             }

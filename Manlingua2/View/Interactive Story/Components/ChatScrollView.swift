@@ -30,7 +30,7 @@ struct ChatScrollView: View {
                   Button {
                      actionOnDone()
                   } label: {
-                     Text("Continue")
+                     Text("Continue".localized)
                         .frame(maxWidth: .infinity)
                   }
                   .id("button")

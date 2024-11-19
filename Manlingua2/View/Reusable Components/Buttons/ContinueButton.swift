@@ -14,7 +14,7 @@ struct ContinueButton: View {
       Button(action: {
          action()
       }) {
-         Text("Lanjut")
+          Text("Lanjut".localized)
             .foregroundStyle(Color.white)
             .font(.button())
             .padding(20)

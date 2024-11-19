@@ -24,7 +24,7 @@ struct CameraGrantedView: View {
          ScrollView {
             VStack(spacing: 24){
                VStack(alignment: .leading, spacing: 8) {
-                  Text("Cari dan fotokan")
+                   Text("Cari dan fotokan".localized)
                      .font(.judulBiasa())
                   
                   VStack(alignment: .leading) {
@@ -83,7 +83,7 @@ struct CameraGrantedView: View {
                Button {
                   viewModel.objects_example.shuffle()
                } label: {
-                  Text("Lewati")
+                   Text("Lewati".localized)
                      .frame(maxWidth: .infinity)
                }
                .buttonStyle(SecondaryButton(isDisabled: false))

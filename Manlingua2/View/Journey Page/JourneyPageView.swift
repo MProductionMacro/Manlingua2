@@ -48,7 +48,7 @@ struct JourneyPageView: View {
                            .font(.hanzi())
                            .fontWeight(.regular)
                            .foregroundStyle(.orangeDarkMode)
-                        Text("List Kata-Kata")
+                         Text("List Kata-Kata".localized)
                            .font(Font.semibold16())
                            .foregroundStyle(.orangeDarkMode)
                      }
@@ -85,7 +85,7 @@ struct JourneyPageView: View {
                      .foregroundStyle(Color.white)
                      .font(Font.semibold16())
                   
-                  Text("Kembali")
+                   Text("Kembali".localized)
                      .foregroundStyle(Color.white)
                      .font(Font.semibold20())
                }

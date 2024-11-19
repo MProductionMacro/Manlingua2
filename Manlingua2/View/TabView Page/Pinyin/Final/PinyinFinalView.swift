@@ -15,7 +15,7 @@ struct PinyinFinalView: View {
    var body : some View{
       ScrollView{
          VStack(spacing: 16){
-            Text("Final")
+             Text("Final".localized)
                .font(.system(size: 25, weight: .bold))
                //.padding(.top, 32 * 0.1)//(UIScreen.main.bounds.height / 852)
             
@@ -26,10 +26,10 @@ struct PinyinFinalView: View {
                .padding(.bottom, 16)
             
             VStack{
-               Text("Tekan karakter untuk tahu cara")
+                Text("Tekan karakter untuk tahu cara".localized)
                   .font(.system(size: 20))
                   .multilineTextAlignment(.center)
-               Text("pengucapannya")
+                Text("pengucapannya".localized)
                   .font(.system(size: 20))
                   .multilineTextAlignment(.center)
             }
@@ -60,7 +60,7 @@ struct PinyinFinalView: View {
                      .foregroundColor(.orangeDarkMode)
                      .font(.semibold16())
                   
-                  Text("Kembali")
+                   Text("Kembali".localized)
                      .foregroundColor(.orangeDarkMode)
                      .font(.semibold20())
                }

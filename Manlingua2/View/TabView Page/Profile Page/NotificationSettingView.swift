@@ -16,15 +16,15 @@ struct NotificationSettingView: View {
         VStack{
             
             VStack(alignment: .leading, spacing: 16){
-                Text("Pengaturan Notifikasi")
+                Text("Pengaturan Notifikasi".localized)
                     .font(.heavy32())
                     .padding(.bottom, -8)
                 
-                Text("Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih")
+                Text("Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih".localized)
                     .font(.subJudul())
                     .opacity(0.65)
                 
-                Text("Aktifkan notifikasi melalui sistem pengaturan")
+                Text("Aktifkan notifikasi melalui sistem pengaturan".localized)
                     .font(.subJudul())
                 
                 
@@ -35,7 +35,7 @@ struct NotificationSettingView: View {
                     UserDefaultSingleton.shared.setLanguage(language: lang)
                     router.pop()
                 }) {
-                   Text("Simpan")
+                    Text("Simpan".localized)
                       .foregroundStyle(Color.white)
                       .font(.button())
                       .padding(20)
@@ -62,7 +62,7 @@ struct NotificationSettingView: View {
                        .font(.title3)
                        .bold()
                     
-                    Text("Kembali")
+                     Text("Kembali".localized)
                        .foregroundColor(.orangeDarkMode)
                        .bold()
                  }

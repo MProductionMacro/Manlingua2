@@ -18,7 +18,7 @@ struct PinyinInitView: View {
          //TODO: Sizenya hard coded
          VStack(spacing: 16) {
             
-            Text("Inisial")
+             Text("Inisial".localized)
                .font(.system(size: 25, weight: .bold))
             
             Image("Inisial")
@@ -29,10 +29,10 @@ struct PinyinInitView: View {
 
             
             VStack{
-               Text("Tekan karakter untuk tahu cara")
+                Text("Tekan karakter untuk tahu cara".localized)
                   .font(.system(size: 20))
                   .multilineTextAlignment(.center)
-               Text("pengucapannya")
+                Text("pengucapannya".localized)
                   .font(.system(size: 20))
                   .multilineTextAlignment(.center)
             }
@@ -62,7 +62,7 @@ struct PinyinInitView: View {
                       .foregroundColor(.orangeDarkMode)
                       .font(.semibold16())
                    
-                   Text("Kembali")
+                    Text("Kembali".localized)
                       .foregroundColor(.orangeDarkMode)
                       .font(.semibold20())
                 }

@@ -29,7 +29,7 @@ class LocalizationManager: ObservableObject {
     
     func localizedString(for key: String) -> String {
         let languageCode = selectedLanguage.rawValue
-        guard let path = Bundle.main.path(forResource: languageCode, ofType: "lproj"),
+        guard let path = Bundle.main.path(forResource: UserDefaultSingleton.shared.language, ofType: "lproj"),
               let bundle = Bundle(path: path) else {
             return key
         }

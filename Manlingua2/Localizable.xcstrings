@@ -6,6 +6,12 @@
     },
     "%@" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15,6 +21,7 @@
       }
     },
     "%@ artinya '%@'" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -26,6 +33,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ artinya '%@'"
+          }
+        }
+      }
+    },
+    "%@ artinya %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ means %@"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ artinya %@"
           }
         }
       }
@@ -63,6 +87,7 @@
       }
     },
     "%lld jam" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -79,6 +104,7 @@
       }
     },
     "%lld Kata" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -95,6 +121,7 @@
       }
     },
     "12 menit" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -110,7 +137,25 @@
         }
       }
     },
+    "Account created successfully!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account created successfully!"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akun berhasil dibuat!"
+          }
+        }
+      }
+    },
     "Aktifkan notifikasi melalui sistem pengaturan" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -127,6 +172,7 @@
       }
     },
     "Already have an account? Sign In" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -137,12 +183,13 @@
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Already have an account? Sign In"
+            "value" : "Sudah punya akun? Masuk"
           }
         }
       }
     },
     "and" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -159,6 +206,7 @@
       }
     },
     "Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -191,6 +239,7 @@
       }
     },
     "Ayo simpan kata yang ingin" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -222,7 +271,25 @@
         }
       }
     },
+    "Bagian" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Section"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bagian"
+          }
+        }
+      }
+    },
     "Bagian %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -239,6 +306,7 @@
       }
     },
     "Bagian %lld - %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -254,7 +322,25 @@
         }
       }
     },
+    "Bahasa Indonesia" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indonesian"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bahasa Indonesia"
+          }
+        }
+      }
+    },
     "Batalkan" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -271,6 +357,7 @@
       }
     },
     "Batalkan memproses" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -286,7 +373,25 @@
         }
       }
     },
+    "Belajar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Learn"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belajar"
+          }
+        }
+      }
+    },
     "Berikan Izin Akses Kamera" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -303,6 +408,7 @@
       }
     },
     "Boleh Dilakukan:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -319,6 +425,7 @@
       }
     },
     "By logging in, you agree to the" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -335,6 +442,7 @@
       }
     },
     "Cari dan fotokan" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -351,6 +459,7 @@
       }
     },
     "Catatan" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -367,6 +476,7 @@
       }
     },
     "Catatan Penting" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -382,7 +492,25 @@
         }
       }
     },
+    "Cerita" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Story"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cerita"
+          }
+        }
+      }
+    },
     "Cerita %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -399,6 +527,7 @@
       }
     },
     "Cerita seru apa yang ingin kamu" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -415,6 +544,7 @@
       }
     },
     "Chapter %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -431,6 +561,7 @@
       }
     },
     "Coba Jelajah?" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -447,6 +578,7 @@
       }
     },
     "Coba Lagi" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -462,7 +594,25 @@
         }
       }
     },
+    "Completed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completed"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selesai"
+          }
+        }
+      }
+    },
     "Continue" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -479,6 +629,7 @@
       }
     },
     "Contoh kalimat" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -495,22 +646,24 @@
       }
     },
     "Daftar perangkat:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Device list:"
+            "value" : "List of Devices:"
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Daftar perangkat:"
           }
         }
       }
     },
     "Dictionary" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -527,6 +680,7 @@
       }
     },
     "Don't have an account? Sign Up" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -543,6 +697,7 @@
       }
     },
     "Email" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -558,7 +713,25 @@
         }
       }
     },
+    "English" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "English"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bahasa Inggris"
+          }
+        }
+      }
+    },
     "Favorit" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -575,6 +748,7 @@
       }
     },
     "Final" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -590,7 +764,25 @@
         }
       }
     },
+    "Flashcard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flashcard"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flashcard"
+          }
+        }
+      }
+    },
     "Flashcard Harian" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -602,6 +794,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Flashcard Harian"
+          }
+        }
+      }
+    },
+    "Foto" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Photo"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foto"
           }
         }
       }
@@ -623,6 +832,7 @@
       }
     },
     "Hapus Perangkat" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -639,6 +849,7 @@
       }
     },
     "Harus Berhati-hati:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -655,6 +866,7 @@
       }
     },
     "Hubungkan perangkat IoT ke aplikasi untuk mulai menggunakan flashcard!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -670,7 +882,42 @@
         }
       }
     },
+    "Huruf akhir terdiri dari vokal" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The final letter consists of a vowel"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Huruf akhir terdiri dari vokal"
+          }
+        }
+      }
+    },
+    "Huruf awal berupa konsonan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The initial letter is a consonant"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Huruf awal berupa konsonan"
+          }
+        }
+      }
+    },
     "Inisial" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -686,7 +933,42 @@
         }
       }
     },
+    "Intonasi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intonation"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intonasi"
+          }
+        }
+      }
+    },
+    "Invalid email format." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid email format."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Format email tidak valid."
+          }
+        }
+      }
+    },
     "Izinkan Akses Kamera" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -702,7 +984,25 @@
         }
       }
     },
+    "Jadwal Pengiriman" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delivery Schedule"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jadwal Pengiriman"
+          }
+        }
+      }
+    },
     "kamu pelajari kembali" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -719,6 +1019,7 @@
       }
     },
     "Kamu telah menyelesaikan" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -735,6 +1036,7 @@
       }
     },
     "Kamu terdengar seperti penutur asli!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -766,7 +1068,59 @@
         }
       }
     },
+    "Kata" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Words"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kata"
+          }
+        }
+      }
+    },
+    "Kata - kata favorit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorite words"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kata - kata favorit"
+          }
+        }
+      }
+    },
+    "Kata Favorit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorite Words"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kata Favorit"
+          }
+        }
+      }
+    },
     "Kata-kata" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -798,7 +1152,25 @@
         }
       }
     },
+    "Languages" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Languages"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bahasa"
+          }
+        }
+      }
+    },
     "Lanjut" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -831,6 +1203,7 @@
       }
     },
     "Lewati" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -847,6 +1220,7 @@
       }
     },
     "List Kata-Kata" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -863,6 +1237,7 @@
       }
     },
     "Log Out" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -878,7 +1253,25 @@
         }
       }
     },
+    "Minum Teh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drinking Tea"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minum Teh"
+          }
+        }
+      }
+    },
     "Mulai" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -895,6 +1288,7 @@
       }
     },
     "Nada" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -910,7 +1304,93 @@
         }
       }
     },
+    "Nada mengubah arti kata" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tone changes the meaning of a word"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nada mengubah arti kata"
+          }
+        }
+      }
+    },
+    "Nama Model" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Model Name"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Model Name"
+          }
+        }
+      }
+    },
+    "Nama Perangkat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Device Name"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nama Perangkat"
+          }
+        }
+      }
+    },
+    "Nama Wifi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wifi Name"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nama Wifi"
+          }
+        }
+      }
+    },
+    "Negosiasi Harga" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Price Negotiation"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Negosiasi Harga"
+          }
+        }
+      }
+    },
     "Next" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -927,6 +1407,7 @@
       }
     },
     "No notes found." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -942,7 +1423,76 @@
         }
       }
     },
+    "Nomor Seri" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serial Number"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nomor Seri"
+          }
+        }
+      }
+    },
+    "Not Completed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Completed"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belum Selesai"
+          }
+        }
+      }
+    },
+    "Notification" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notification"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifikasi"
+          }
+        }
+      }
+    },
+    "Obrolan Ringan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Small Talk"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obrolan Ringan"
+          }
+        }
+      }
+    },
     "Password" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -953,12 +1503,30 @@
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kata sandi"
+            "value" : "Kata Sandi"
+          }
+        }
+      }
+    },
+    "Password must be at least 6 characters." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password must be at least 6 characters."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kata sandi harus terdiri dari setidaknya 6 karakter."
           }
         }
       }
     },
     "Pelajari Pin Yin" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -974,7 +1542,59 @@
         }
       }
     },
+    "Pembahasan Kontrak" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contract Discussion"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pembahasan Kontrak"
+          }
+        }
+      }
+    },
+    "Pembayaran" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Payment"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pembayaran"
+          }
+        }
+      }
+    },
+    "Penerimaan Barang" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Receipt of Goods"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Penerimaan Barang"
+          }
+        }
+      }
+    },
     "Pengantar" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -991,6 +1611,7 @@
       }
     },
     "Pengaturan Bahasa" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1007,6 +1628,7 @@
       }
     },
     "Pengaturan IoT" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1023,6 +1645,7 @@
       }
     },
     "Pengaturan Notifikasi" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1038,7 +1661,25 @@
         }
       }
     },
+    "Pengiriman" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delivery"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pengiriman"
+          }
+        }
+      }
+    },
     "pengucapannya" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1054,7 +1695,25 @@
         }
       }
     },
+    "Penyelesaian Akhir" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Final Resolution"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Penyelesaian Akhir"
+          }
+        }
+      }
+    },
     "Peringkat" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1070,7 +1729,25 @@
         }
       }
     },
+    "Perkenalan Nama" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name Introduction"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perkenalan Nama"
+          }
+        }
+      }
+    },
     "Perunggu" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1087,6 +1764,7 @@
       }
     },
     "Pilih jawaban yang benar" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1102,7 +1780,25 @@
         }
       }
     },
+    "Please enter an email and password." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter an email and password."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silakan masukkan email dan kata sandi."
+          }
+        }
+      }
+    },
     "Previous" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1119,6 +1815,7 @@
       }
     },
     "Privacy Policy" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1134,7 +1831,25 @@
         }
       }
     },
+    "Profil" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
+          }
+        }
+      }
+    },
     "Sedang Merekam" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1151,6 +1866,7 @@
       }
     },
     "sekitar 10 menit" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1167,6 +1883,7 @@
       }
     },
     "Selamat datang" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1183,6 +1900,7 @@
       }
     },
     "Selamat!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1198,7 +1916,59 @@
         }
       }
     },
+    "Selesaikan 1 bagian flashcard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complete 1 flashcard section"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selesaikan 1 bagian flashcard"
+          }
+        }
+      }
+    },
+    "Selesaikan 1 subbab cerita" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complete 1 story subsection"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selesaikan 1 subbab cerita"
+          }
+        }
+      }
+    },
+    "Selesaikan 1 tantangan foto" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complete 1 photo challenge"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selesaikan 1 tantangan foto"
+          }
+        }
+      }
+    },
     "Selesaikan 3 tugas" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1215,6 +1985,7 @@
       }
     },
     "Selesaikan tugas dibawah!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1231,6 +2002,7 @@
       }
     },
     "Sign In" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1247,6 +2019,7 @@
       }
     },
     "Sign in with Email" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1263,6 +2036,7 @@
       }
     },
     "Sign Up" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1278,7 +2052,25 @@
         }
       }
     },
+    "Signed in successfully!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Signed in successfully!"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Berhasil masuk!"
+          }
+        }
+      }
+    },
     "Simpan" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1290,6 +2082,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Simpan"
+          }
+        }
+      }
+    },
+    "Simulasi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simulation"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simulasi"
           }
         }
       }
@@ -1310,7 +2119,25 @@
         }
       }
     },
+    "Spesifikasi Barang" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Product Specifications"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spesifikasi Barang"
+          }
+        }
+      }
+    },
     "Sub-bab" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1343,6 +2170,7 @@
       }
     },
     "Tantangan" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1359,6 +2187,7 @@
       }
     },
     "Tantangan Foto" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1374,7 +2203,25 @@
         }
       }
     },
+    "Tanya Kebutuhan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ask About Needs"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tanya Kebutuhan"
+          }
+        }
+      }
+    },
     "Tekan bagian kanan untuk kebagian sebelumnya" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1391,6 +2238,7 @@
       }
     },
     "Tekan bagian kiri untuk kebagian sebelumnya" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1407,6 +2255,7 @@
       }
     },
     "Tekan karakter untuk tahu cara" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1423,6 +2272,7 @@
       }
     },
     "Tekan lagi untuk tutup" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1439,6 +2289,7 @@
       }
     },
     "Tekan untuk membuka menu kumpulan kata atau putar audio" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1455,6 +2306,7 @@
       }
     },
     "Tekan Untuk Memulai" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1471,6 +2323,7 @@
       }
     },
     "Terms and Conditions." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1487,6 +2340,7 @@
       }
     },
     "Tidak Boleh Dilakukan:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1503,6 +2357,7 @@
       }
     },
     "Ulang" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1519,6 +2374,7 @@
       }
     },
     "Untuk mengerjakan tantangan, kami memerlukan kameramu untuk mendeteksi foto" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
