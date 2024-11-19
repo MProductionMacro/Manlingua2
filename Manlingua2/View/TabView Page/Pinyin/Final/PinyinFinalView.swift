@@ -56,13 +56,15 @@ struct PinyinFinalView: View {
                Button(action:{
                   router.pop()
                }){
-                  Image(systemName: "chevron.left")
-                     .foregroundColor(.orangeDarkMode)
-                     .font(.semibold16())
-                  
+                   Image(systemName: "chevron.left")
+                       .foregroundColor(.orangeDarkMode)
+                       .font(.semibold16())
+                       .bold()
+               
                    Text("Kembali".localized)
-                     .foregroundColor(.orangeDarkMode)
-                     .font(.semibold20())
+                       .foregroundColor(.orangeDarkMode)
+                       .font(.semibold20())
+                       .bold()
                }
             }
          }

@@ -1166,6 +1166,7 @@
       }
     },
     "Kembali" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
