@@ -33,19 +33,22 @@ class ChallengeViewModel: ObservableObject {
    }
    
    func taskDone(index: Int){
-      singleton.tasks[index] += 1
-      singleton.totalTasks = Double(singleton.tasks.reduce(0, +)) / Double(singleton.tasks.count)
-      
+      if singleton.tasks[index] < 1 {
+         singleton.tasks[index] += 1
+         singleton.totalTasks = Double(singleton.tasks.reduce(0, +)) / Double(singleton.tasks.count)
+         
+         singleton.saveGoalProgressData()
+      }
+   }
+   
+   func addStars(){
+      singleton.totalStars += 1
       singleton.saveGoalProgressData()
    }
    
    func setupHourlyTimer() {
       Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
          self.updateRemainHour()
-      }
-      
-      if self.remainHour == 0 && self.remainMinutes == 0 {
-         singleton.initializeGoalDefaultData()
       }
    }
    
@@ -59,6 +62,14 @@ class ChallengeViewModel: ObservableObject {
       // Update remainHour to reflect time left until midnight
       remainHour = hoursUntilMidnight
       remainMinutes = minutesUntilMidnight
+      
+      let lastResetDate = UserDefaults.standard.object(forKey: "lastResetDate") as? Date ?? Date.distantPast
+      print(lastResetDate)
+      
+      if !calendar.isDate(lastResetDate, inSameDayAs: now) {
+         UserDefaults.standard.set(now, forKey: "lastResetDate") // Update last reset date
+         singleton.initializeGoalDefaultData() // Reset progress
+      }
    }
    
    private var cancellables = Set<AnyCancellable>()

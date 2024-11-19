@@ -21,13 +21,13 @@ struct CustomOnTapButton : PrimitiveButtonStyle {
          }.onEnded { value in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.001){
                withAnimation {
-                  pressed = false
                   // optionally, use value.location and a geometry reader to determine whether
                   // the gesture ended inside the button's label
                   //               DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                   //                  configuration.trigger()
                   //               }
                   configuration.trigger()
+                  pressed = false
                }
             }
          })

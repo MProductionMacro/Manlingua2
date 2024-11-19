@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct DonePageView: View {
-   @EnvironmentObject var viewModel: FlashcardViewModel
+   @EnvironmentObject var flashcardVM: FlashcardViewModel
+   @EnvironmentObject var storyVM: StoryViewModel
    @EnvironmentObject var router: Router
+   
    var displayMode: DonePageDisplayMode
+   var chapterId: Int
+   var subChapterId: Int
    
    var body: some View {
       ZStack{
@@ -42,29 +46,32 @@ struct DonePageView: View {
                .frame(width: 335, height: 225)
                .padding(.bottom, 50)
             
-            HStack {
+            HStack(spacing: 24) {
                Button (action: {
-                  viewModel.showDonePage = false
-                  viewModel.currentIndex = 0
-                  viewModel.reshuffleCards()
+                  flashcardVM.showDonePage = false
+                  flashcardVM.currentIndex = 0
+                  storyVM.currentIndex = 0
+                  flashcardVM.reshuffleCards()
                   router.pop()
                }){
                   HStack(alignment: .center) {
                      Image(systemName: DonePageModel.returnSymbol)
                         .font(.button())
+                        .frame(height: UIScreen.main.bounds.height * 0.01)
                      
                      Text("Ulang")
                         .font(.button())
                   }
                   .frame(maxWidth: .infinity)
-                  .padding(.vertical, 8)
+                  .padding(UIScreen.main.bounds.width * 0.03)
                }
                .buttonStyle(SecondaryButton(isDisabled: false))
                
                Button (action: {
-                  viewModel.showDonePage = false
-                  viewModel.currentIndex = 0
-                  viewModel.reshuffleCards()
+                  flashcardVM.showDonePage = false
+                  flashcardVM.currentIndex = 0
+                  storyVM.currentIndex = 0
+                  flashcardVM.reshuffleCards()
                   
                   switch displayMode {
                   case .flashcard:
@@ -76,18 +83,23 @@ struct DonePageView: View {
                   HStack {
                      Image(systemName: displayMode == .flashcard ? "bookmark" : "list.clipboard")
                         .font(.button())
+                        .frame(height: UIScreen.main.bounds.height * 0.01)
                      
                      Text(displayMode == .flashcard ? "Favorit" : "Catatan")
                         .font(.button())
                   }
                   .frame(maxWidth: .infinity)
-                  .padding(.vertical, 8)
+                  .padding(UIScreen.main.bounds.width * 0.03)
                }
                .buttonStyle(SecondaryButton(isDisabled: false))
             }
             .padding(.horizontal)
             
             Button (action: {
+               if displayMode != .flashcard {
+                  storyVM.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
+               }
+               
                router.popToRoot()
             }){
                HStack {
@@ -99,9 +111,10 @@ struct DonePageView: View {
                }
                .foregroundStyle(Color.white)
                .frame(maxWidth: .infinity)
-               .padding()
+               .padding(UIScreen.main.bounds.width * 0.03)
             }
             .padding(.horizontal)
+            .padding(.vertical, 4)
             .buttonStyle(PrimaryButton(isDisabled: false))
          }
       }
@@ -109,6 +122,6 @@ struct DonePageView: View {
 }
 
 #Preview {
-   DonePageView(displayMode: .story(storyId: 1, subChapterId: 1))
+   DonePageView(displayMode: .story(storyId: 1, subChapterId: 1), chapterId: 1, subChapterId: 1)
    
 }

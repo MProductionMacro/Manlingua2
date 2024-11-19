@@ -7,19 +7,6 @@
 
 import SwiftUI
 
-extension View {
-   func customUnderline(color: Color = .blue, thickness: CGFloat = 2, offset: CGFloat = 5) -> some View {
-      self.overlay(
-         GeometryReader { geometry in
-            Rectangle()
-               .frame(width: geometry.size.width, height: thickness) // Match the width of the text
-               .foregroundColor(color)
-               .offset(y: offset) // Space from the text
-         }
-      )
-   }
-}
-
 struct Speaker1BubbleChatView: View {
    var hanzi: String
    var pinyin: String

@@ -79,8 +79,8 @@ class Router: ObservableObject {
       case .flashcardPage:
          FlashcardPageView()
             .navigationBarBackButtonHidden(true)
-      case .donePage(let displayMode):
-         DonePageView(displayMode: displayMode)
+      case .donePage(let displayMode, let chapterId, let subChapterId):
+         DonePageView(displayMode: displayMode, chapterId: chapterId, subChapterId: subChapterId)
             .onBackSwipe(perform: {
                self.pop()
             })
@@ -147,7 +147,7 @@ indirect enum Screen: Hashable {
    case storyPage(chapterId: Int, subChapterId: Int)
    case loadingPage(screen: Screen)
    case dictionary(judul:String, displayMode: DictionaryDisplayMode)
-   case donePage(displayMode : DonePageDisplayMode)
+   case donePage(displayMode : DonePageDisplayMode, chapterId: Int, subChapterId: Int)
    case flashcardPage
    case photoChallenge
    case cameraView

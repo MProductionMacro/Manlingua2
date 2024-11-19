@@ -49,6 +49,8 @@ class SwiftDataServices: ObservableObject {
       }
    }
    
+   //MARK: Fetching method for Goal and Story Progress
+   
    private func fetchGoalProgressData(){
       do {
          let progressData = try context.fetch(FetchDescriptor<Goal_Progress>()).first
@@ -90,6 +92,8 @@ class SwiftDataServices: ObservableObject {
       }
    }
    
+   //MARK: Initialize Story and Goal progress
+   
    private func initializeStoryDefaultData() {
       latestStory = 1
       latestSubChapter = 1
@@ -107,6 +111,8 @@ class SwiftDataServices: ObservableObject {
       
       saveGoalProgressData()
    }
+   
+   //MARK: Save Goal and Story progress
    
    func saveGoalProgressData(){
       do {
@@ -154,7 +160,8 @@ class SwiftDataServices: ObservableObject {
       }
    }
    
-   // MARK: - Public Methods for Story Progress
+   //MARK: Setter for Story progress
+   
    func setLatestChapter() {
       latestStory = max(latestStory, 1)
       saveStoryProgressData()
@@ -187,15 +194,17 @@ class SwiftDataServices: ObservableObject {
       saveStoryProgressData()
    }
    
-   func getSpecificStoryProgress(storyId: Int) -> Int {
-      return storyProgress[storyId - 1]
-   }
-   
    func updateSpecificStoryProgress(story: Int, subChapterProgress: Int) {
       if subChapterProgress >= storyProgress[story - 1] {
          storyProgress[story - 1] = subChapterProgress
          saveStoryProgressData()
       }
+   }
+   
+   //MARK: Getter
+   
+   func getSpecificStoryProgress(storyId: Int) -> Int {
+      return storyProgress[storyId - 1]
    }
    
    func hasNotOpenFlashcardPage() -> Bool {
@@ -207,6 +216,8 @@ class SwiftDataServices: ObservableObject {
       return false
    }
    
+   //MARK: Boolean in the Story Progress
+   
    func hasOpenStoryDetailPage() -> Bool {
       if !hasOpenStoryDetail {
          hasOpenStoryDetail = true
@@ -215,6 +226,8 @@ class SwiftDataServices: ObservableObject {
       }
       return false
    }
+   
+   //MARK: Vocabulary function
    
    func isVocabExist(vocab: Vocabulary) -> Bool{
       for vocabulary in vocabs {
@@ -284,7 +297,7 @@ class SwiftDataServices: ObservableObject {
       }
    }
    
-   
+   //MARK: Important notes function
    //================================================================
    //Important Notes
    func isNoteExist(_ importantNote: ImportantNote) -> Bool{

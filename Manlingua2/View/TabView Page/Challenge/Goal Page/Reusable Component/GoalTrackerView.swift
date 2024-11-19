@@ -9,9 +9,12 @@ import SwiftUI
 
 struct GoalTrackerView : View {
    @EnvironmentObject var router: Router
+   
    var task: TaskType
    var image: String
+   var challenge: String
    var doneTask: Int
+   var actionOnTapChevron: () -> Void
    
    var body : some View {
       HStack{
@@ -24,7 +27,7 @@ struct GoalTrackerView : View {
          Spacer()
          
          VStack(alignment: .leading, spacing: 8) {
-            Text("Selesaikan 1 tantangan foto")
+            Text(challenge)
                .font(Font.normalText())
             
             HStack {
@@ -49,7 +52,7 @@ struct GoalTrackerView : View {
          Spacer()
          
          Button(action: {
-            router.push(.photoChallenge)
+            actionOnTapChevron()
          }) {
             Image(systemName: "chevron.right")
                .font(Font.button())
@@ -64,6 +67,8 @@ struct GoalTrackerView : View {
 }
 
 #Preview {
-   GoalTrackerView(task: .first, image: "Koin Cina", doneTask: 0)
+   GoalTrackerView(task: .first, image: "Koin Cina", challenge: "Selesaikan 1 kali salto", doneTask: 0, actionOnTapChevron: {
+      
+   })
       .environmentObject(Router())
 }

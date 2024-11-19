@@ -50,7 +50,7 @@ struct FlashcardDictionaryView: View {
                         .font(Font.normalText())
                 
                     Button(action:{
-                        textToSpeech.speak(text: vocab.hanzi)
+                       textToSpeech.speak(text: vocab.hanzi)
                     }, label:{
                         Image(systemName: "speaker.wave.2")
                             .font(Font.button())

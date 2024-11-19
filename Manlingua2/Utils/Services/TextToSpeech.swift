@@ -39,6 +39,6 @@ class TextToSpeech: TextToSpeechProtocol, ObservableObject {
    
    // Public method to speak text at a slower speed
    func speakSlow(text: String) {
-      configureAndSpeak(text: text, rate: 0.25) // Adjusted rate for slower speech
+      configureAndSpeak(text: text, rate: 0.1) // Adjusted rate for slower speech
    }
 }

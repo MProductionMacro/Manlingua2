@@ -20,35 +20,7 @@ struct FlashcardPageView: View {
    var body: some View {
       ZStack (alignment: .bottom){
          VStack {
-            HStack(spacing: 4) {
-               Button {
-                  showConfirmationAlert = true
-               } label: {
-                  Image(systemName: "xmark")
-                     .resizable()
-                     .frame(width: UIScreen.main.bounds.width * 0.07, height: UIScreen.main.bounds.width * 0.07)
-                     .foregroundStyle(.orangeDarkMode)
-               }
-               .reusableAlert(
-                  isPresented: $showConfirmationAlert,
-                  alertData: AlertData(
-                     type: .confirmation,
-                     primaryAction: {
-                        showConfirmationAlert = false
-                     },
-                     dismissAction: {
-                        router.popToRoot()
-                     }
-                  )
-               )
-               
-               Spacer()
-               
-               
-               ProgressView(value: viewModel.getProgress())
-                  .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar ))
-            }
-            .padding(.horizontal)
+            DismissAndIndexView(showConfirmationAlert: $showConfirmationAlert, currentIndex: $viewModel.currentIndex, chatCounts: viewModel.showVocabularies.count)
             
             Spacer()
             
@@ -75,7 +47,7 @@ struct FlashcardPageView: View {
                         viewModel.performSwipeRight()
                         hasAnswered = false
                         if viewModel.currentIndex == viewModel.showVocabularies.count - 1 {
-                           router.push(.donePage(displayMode: .flashcard))
+                           router.push(.donePage(displayMode: .flashcard, chapterId: 0, subChapterId: 0))
                         }
                      }
                   }

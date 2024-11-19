@@ -72,21 +72,15 @@ struct GoalPageView: View {
                .padding([.top, .horizontal], 20)
                
                VStack(spacing: 2) {
-                  GoalTrackerView(task: .first, image: "Emas Cina", doneTask: singleton.tasks[0])
-                     .onTapGesture {
-                        viewModel.taskDone(index: 0)
-//                        router.push(.photoChallenge)
-                     }
+                  GoalTrackerView(task: .first, image: "Emas Cina", challenge: "Selesaikan 1 subbab cerita", doneTask: singleton.tasks[0]) {
+                  }
                   
-                  GoalTrackerView(task: .second, image: "Koin Cina", doneTask: singleton.tasks[1])
-                     .onTapGesture {
-                        viewModel.taskDone(index: 1)
-                     }
+                  GoalTrackerView(task: .second, image: "Koin Cina", challenge: "Selesaikan 1 bagian flashcard", doneTask: singleton.tasks[1]) {
+                     
+                  }
                   
-                  GoalTrackerView(task: .third, image: "Emas Batang", doneTask: singleton.tasks[2])
-                     .onTapGesture {
-                        viewModel.taskDone(index: 2)
-                     }
+                  GoalTrackerView(task: .third, image: "Emas Batang", challenge: "Selesaikan 1 tantangan foto", doneTask: singleton.tasks[2]) {
+                  }
                }
                .background(Color.customLightGray)
                .cornerRadius(25)
@@ -110,11 +104,15 @@ struct GoalPageView: View {
             .ignoresSafeArea()
       )
       .onAppear {
-         // Update the remaining hours immediately on app launch
+//         print(Date.distantPast)
          viewModel.updateRemainHour()
-         // Start the timer to update every minute while the app is open
          viewModel.setupHourlyTimer()
       }
+      .onChange(of: singleton.tasks, { oldValue, newValue in
+         if newValue.reduce(0, +) >= 3 {
+            viewModel.addStars()
+         }
+      })
       .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
          // Update the remaining hours when the app comes back from background
          viewModel.updateRemainHour()

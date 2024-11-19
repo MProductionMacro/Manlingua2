@@ -9,16 +9,17 @@ import SwiftUI
 struct UserAnswerView : View {
    @EnvironmentObject var router:Router
    @EnvironmentObject var viewModel: FlashcardViewModel
+   @State var isSpeaking = false
    
    var body : some View {
       VStack(spacing: 1){
-         BottomContainerButtons {
+         BottomContainerButtons(bookAction: {
             
-         } speakerAction: {
+         }, speakerAction: {
             
-         } turtleAction: {
+         }, turtleAction: {
             
-         }
+         }, isSpeaking: $isSpeaking)
          
          Divider()
          
