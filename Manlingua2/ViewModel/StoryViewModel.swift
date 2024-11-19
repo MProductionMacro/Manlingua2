@@ -16,10 +16,30 @@ class StoryViewModel: ObservableObject {
    @Published var currentIndex: Int = 0
    @Published var error: String = ""
    @Published var chapterId: Int = 0
-   @ObservedObject var singleton = CoreDataSingleton.shared
+   @ObservedObject var singleton = SwiftDataServices.shared
    
    init(){
       loadChatPreview()
+   }
+   
+   func correctAction(modalAppeared: inout Bool, index: inout Int, hasAnswered: inout Bool){
+      withAnimation{
+         //         DispatchQueue.main.async {
+         modalAppeared = false
+         index += 1
+         hasAnswered = false
+         //         }
+      }
+   }
+   
+   func wrongAction(modalAppeared: inout Bool, index: inout Int, hasAnswered: inout Bool){
+      withAnimation{
+         //         DispatchQueue.main.async {
+         modalAppeared = false
+         index -= 1
+         hasAnswered = false
+         //         }
+      }
    }
    
    func onTapDetectionChat(_ location: CGPoint, _ midPoint: CGFloat, _ currentIndex: inout Int){

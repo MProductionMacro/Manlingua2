@@ -7,59 +7,20 @@ struct TabPageView: View {
    @EnvironmentObject var learnVM: LearnViewModel
    
    var body: some View {
-      TabView(selection: $selectedTab) {
+      CustomTabBarContainerView(selection: $selectedTab) {
          StoryListView()
-            .tabItem {
-               TabItemView(selectedTab: $selectedTab, text:"Belajar", image: "house", tag: 0)
-            }
-            .tag(0)
+            .tabBarItem(tab: TabBarItem(tag: 0, iconName: "house", title: "Belajar"), selection: $selectedTab)
          
          PinyinPageView()
-            .tabItem {
-               TabItemView(selectedTab: $selectedTab, text:"Intonasi", image: "lightbulb", tag: 1)
-            }
-            .tag(1)
+            .tabBarItem(tab: TabBarItem(tag: 1, iconName: "lightbulb", title: "Intonasi"), selection: $selectedTab)
          
          GoalPageView()
-            .tabItem {
-               TabItemView(selectedTab: $selectedTab, text: "Challenge", image: "dice", tag: 2)
-            }
-            .tag(2)
+            .tabBarItem(tab: TabBarItem(tag: 2, iconName: "dice", title: "Tantangan"), selection: $selectedTab)
          
          ProfilePageView()
-            .tabItem {
-               TabItemView(selectedTab: $selectedTab,  text:"Profile", image: "person", tag: 3)
-            }
-            .tag(3)
-      }
-      .onAppear{
-         setTabViewAppearance()
-         homeViewModel.loadStories()
+            .tabBarItem(tab: TabBarItem(tag: 3, iconName: "person", title: "Profil"), selection: $selectedTab)
       }
    }
-   
-    func setTabViewAppearance(){
-         UITabBar.appearance().backgroundColor = UIColor.blankBackground
-        
-        let appearance = UITabBarAppearance()
-        
-        let selectedAttributes: [NSAttributedString.Key: Any] = [
-           .foregroundColor: UIColor.fontColors,
-           .font: UIFont.systemFont(ofSize: 12, weight: .bold)
-        ]
-        appearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedAttributes
-        appearance.stackedLayoutAppearance.selected.iconColor = UIColor.orangeDarkMode
-        
-        let normalAttributes: [NSAttributedString.Key: Any] = [
-           .foregroundColor: UIColor.lightGray,
-           .font: UIFont.systemFont(ofSize: 12)
-        ]
-        
-        appearance.stackedLayoutAppearance.normal.titleTextAttributes = normalAttributes
-        appearance.stackedLayoutAppearance.normal.iconColor = UIColor.lightGray
-         
-        UITabBar.appearance().standardAppearance = appearance
-    }
 }
 
 
@@ -68,6 +29,8 @@ struct TabPageView: View {
       .environmentObject(StoryViewModel())
       .environmentObject(HomeViewModel())
       .environmentObject(LearnViewModel())
+      .environmentObject(ChallengeViewModel())
       .environmentObject(Router())
-//      .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+      .preferredColorScheme(.dark)
+   //      .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
 }

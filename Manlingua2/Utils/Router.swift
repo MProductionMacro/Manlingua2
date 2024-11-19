@@ -69,7 +69,7 @@ class Router: ObservableObject {
          StoryDetailView(chapterId: chapterId, subChapterId: subChapterId)
             .navigationBarBackButtonHidden(true)
       case .loadingPage(let screen):
-          LoadingView(screen: screen)
+         LoadingView(screen: screen)
             .navigationBarBackButtonHidden(true)
       case .dictionary(let judul, let displayMode):
          DictionaryView(judul: judul, displayMode: displayMode)
@@ -78,12 +78,9 @@ class Router: ObservableObject {
             })
       case .flashcardPage:
          FlashcardPageView()
-            .onBackSwipe(perform: {
-               self.pop()
-            })
             .navigationBarBackButtonHidden(true)
-      case .donePage(let displayMode):
-         DonePageView(displayMode: displayMode)
+      case .donePage(let displayMode, let chapterId, let subChapterId):
+         DonePageView(displayMode: displayMode, chapterId: chapterId, subChapterId: subChapterId)
             .onBackSwipe(perform: {
                self.pop()
             })
@@ -102,21 +99,39 @@ class Router: ObservableObject {
             .navigationBarBackButtonHidden(true)
       case .importantNote(let displayMode):
          ImportantNotesPageView(displayMode: displayMode)
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       case .languageSetting:
          LanguageSettingView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       case .notificationSetting:
-          NotificationSettingView()
-              .navigationBarBackButtonHidden(true)
+         NotificationSettingView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
+            .navigationBarBackButtonHidden(true)
       case .ioTSetting:
-          IoTSettingView()
-              .navigationBarBackButtonHidden(true)
+         IoTSettingView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
+            .navigationBarBackButtonHidden(true)
       case .detailIoTSetting:
-          DetailIoTSettingView()
-              .navigationBarBackButtonHidden(true)
+         DetailIoTSettingView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
+            .navigationBarBackButtonHidden(true)
       case .aiSimulation:
          AIAssistantView()
+            .onBackSwipe(perform: {
+               self.pop()
+            })
             .navigationBarBackButtonHidden(true)
       }
    }
@@ -132,7 +147,7 @@ indirect enum Screen: Hashable {
    case storyPage(chapterId: Int, subChapterId: Int)
    case loadingPage(screen: Screen)
    case dictionary(judul:String, displayMode: DictionaryDisplayMode)
-   case donePage(displayMode : DonePageDisplayMode)
+   case donePage(displayMode : DonePageDisplayMode, chapterId: Int, subChapterId: Int)
    case flashcardPage
    case photoChallenge
    case cameraView

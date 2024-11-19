@@ -22,6 +22,8 @@ struct TabItemView: View {
          Image(systemName: "\(image)")
             .renderingMode(.original)
             .foregroundStyle(.orange)
+//            .imageScale(.small)
+            .font(.normalText())
          //.foregroundStyle(selectedTab == 0 ? Color.orange3 :  Color.white)
       }
       .environment(\.symbolVariants, .none)
@@ -30,5 +32,5 @@ struct TabItemView: View {
 }
 
 #Preview {
-   TabItemView(selectedTab: .constant(0), text: "Story", image: "Story", tag: 0)
+   TabItemView(selectedTab: .constant(0), text: "Story", image: "house", tag: 0)
 }

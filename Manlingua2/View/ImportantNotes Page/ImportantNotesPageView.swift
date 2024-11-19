@@ -10,8 +10,7 @@ import SwiftUI
 struct ImportantNotesPageView : View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var router: Router
-    //@StateObject var viewModel = ImportantNotesViewModel()
-    @EnvironmentObject var viewModel : ImportantNotesViewModel
+   @EnvironmentObject var viewModel : ImportantNotesViewModel
     var displayMode : NoteDisplayMode
     
     var body : some View{
@@ -101,5 +100,6 @@ struct ImportantNotesPageView : View {
         ImportantNotesPageView(displayMode : .subChapter(storyId: 1, subChapterId: 1))
     }
     .environmentObject(Router())
+    .environmentObject(ImportantNotesViewModel())
     .environmentObject(ImportantNotesViewModel())
 }

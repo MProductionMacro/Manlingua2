@@ -16,15 +16,15 @@ struct BubbleChatView: View {
          switch type {
          case .speaker1:
             Speaker1BubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning)
-               .padding(.leading)
+               .padding(.leading, UIScreen.main.bounds.width * 0.05)
             
          case .speaker2:
             Speaker2BubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning)
-               .padding(.trailing)
+               .padding(.trailing, UIScreen.main.bounds.width * 0.05)
             
          case .question:
             QuestionBubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, question: chat.question ?? "", meaning: chat.meaning)
-               .padding(.trailing)
+               .padding(.trailing, UIScreen.main.bounds.width * 0.05)
          }
       }
 //      .padding(.vertical, 4)

@@ -22,7 +22,7 @@ struct StoryDetailView: View {
    @State var isCorrect: Bool = false
    @State var selectedAnswer: String? = nil
    
-   @StateObject var singleton = CoreDataSingleton.shared
+   @StateObject var singleton = SwiftDataServices.shared
    
    var chapterId: Int
    var subChapterId: Int
@@ -30,67 +30,22 @@ struct StoryDetailView: View {
    
    var body: some View {
       GeometryReader { geometry in
-         VStack(spacing: 24) {
-             HStack(alignment: .center, spacing: 4) {
-               Button {
-                  showConfirmationAlert = true
-               } label: {
-                  Image(systemName: "xmark")
-                       .font(.judulBiasa())
-                       .foregroundStyle(.orangeDarkMode)
-                   /*
-                     .font(.system(size: 32))
-                     .frame(width: 32, height: 32)
-                     .foregroundStyle(.orangeDarkMode)
-                    */
-               }.reusableAlert(
-                  isPresented: $showConfirmationAlert,
-                  alertData: AlertData(
-                     type: .confirmation,
-                     primaryAction: {
-                         showConfirmationAlert = false
-                     },
-                     dismissAction: {
-                         router.popToRoot()
-                     }
-                  )
-               )
-               
-               Spacer()
-               
-               ProgressView(value: Double(currentIndex + 1) / Double(viewModel.chat_example.count))
-                  .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar))
-            }
-            .padding(.horizontal)
-            .padding(.top, 8)
-
+         VStack(spacing: 16) {
+            DismissAndIndexView(showConfirmationAlert: $showConfirmationAlert, currentIndex: $viewModel.currentIndex, chatCounts: viewModel.chat_example.count)
             
-            ChatScrollView(currentIndex: $currentIndex, hasAnswered: $hasAnswered, modalAppeared: $modalAppeared, chats: viewModel.chat_example) {
-               viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
-               router.push(.donePage(displayMode: .story(storyId: chapterId, subChapterId: subChapterId)))
+            ChatScrollView(currentIndex: $viewModel.currentIndex, hasAnswered: $hasAnswered, modalAppeared: $modalAppeared, chats: viewModel.chat_example) {
+               router.push(.donePage(displayMode: .story(storyId: chapterId, subChapterId: subChapterId), chapterId: chapterId, subChapterId: subChapterId))
             }
             
             if hasAnswered{
-               CorrectOrWrong(hanzi: viewModel.chat_example[currentIndex].hanzi, pinyin: viewModel.chat_example[currentIndex].pinyin, meaning: viewModel.chat_example[currentIndex].meaning, isCorrect: isCorrect) {
-                  withAnimation{
-                     DispatchQueue.main.async {
-                        modalAppeared = false
-                        currentIndex += 1
-                        hasAnswered = false
-                     }
-                  }
+               CorrectOrWrong(hanzi: viewModel.chat_example[viewModel.currentIndex].hanzi, pinyin: viewModel.chat_example[viewModel.currentIndex].pinyin, meaning: viewModel.chat_example[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
+                  viewModel.correctAction(modalAppeared: &modalAppeared, index: &viewModel.currentIndex, hasAnswered: &hasAnswered)
                } tryAgainFunc: {
-                  withAnimation{
-                     DispatchQueue.main.async {
-                        modalAppeared = false
-                        currentIndex -= 1
-                        hasAnswered = false
-                     }
-                  }
+                  viewModel.wrongAction(modalAppeared: &modalAppeared, index: &viewModel.currentIndex, hasAnswered: &hasAnswered)
                }
                .transition(.move(edge: .bottom))
             }else{
-               BottomStoryContainerView(currentIndex: $currentIndex, questionAppeared: $modalAppeared, selectedAnswer: $selectedAnswer, isCorrect: $isCorrect, hasAnswered: $hasAnswered, storyId: chapterId, chatType: viewModel.chat_example[currentIndex].type, choices: viewModel.chat_example[currentIndex].choice, realAnswer: viewModel.chat_example[currentIndex].answer)
+               BottomStoryContainerView(currentIndex: $viewModel.currentIndex, questionAppeared: $modalAppeared, selectedAnswer: $selectedAnswer, isCorrect: $isCorrect, hasAnswered: $hasAnswered, storyId: chapterId, chatType: viewModel.chat_example[viewModel.currentIndex].type, choices: viewModel.chat_example[viewModel.currentIndex].choice, realAnswer: viewModel.chat_example[viewModel.currentIndex].answer)
                   .transition(.move(edge: .bottom))
             }
          }
@@ -106,9 +61,9 @@ struct StoryDetailView: View {
                let screenWidth = geometry.size.width
                let midPoint = screenWidth / 2
                
-               print(currentIndex)
+//               print(currentIndex)
                
-               viewModel.onTapDetectionChat(location, midPoint, &currentIndex)
+               viewModel.onTapDetectionChat(location, midPoint, &viewModel.currentIndex)
             }
          }
          .overlay {

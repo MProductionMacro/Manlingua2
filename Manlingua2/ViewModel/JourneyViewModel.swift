@@ -10,7 +10,7 @@ import SwiftUI
 class JourneyViewModel: ObservableObject{
    @Published var story: Story_Example?
    
-   @ObservedObject var singleton = CoreDataSingleton.shared
+   @ObservedObject var singleton = SwiftDataServices.shared
   
     func loadStoryData(storyId:Int) {
         // Ganti "StoryData" dengan nama file JSON Anda tanpa ekstensi

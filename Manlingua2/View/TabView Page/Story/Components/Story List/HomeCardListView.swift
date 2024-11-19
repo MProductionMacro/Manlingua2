@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeCardListView: View {
    @EnvironmentObject var viewModel: HomeViewModel
    
-   @StateObject var singleton = CoreDataSingleton.shared
+   @StateObject var singleton = SwiftDataServices.shared
    
    var body: some View {
       ScrollView(.horizontal, showsIndicators: false) {

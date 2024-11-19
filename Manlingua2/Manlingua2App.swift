@@ -11,7 +11,6 @@ import FirebaseAuth
 
 @main
 struct Manlingua2App: App {
-   let persistenceController = PersistenceController.shared
    @StateObject var router = Router()
    @StateObject var homeViewModel = HomeViewModel()
    @StateObject var storyViewModel = StoryViewModel()
@@ -20,7 +19,6 @@ struct Manlingua2App: App {
    @StateObject var flashcardViewModel = FlashcardViewModel()
    @StateObject var journeyViewModel = JourneyViewModel()
    @StateObject var importantNotesViewModel = ImportantNotesViewModel()
-   @StateObject var coreData = CoreDataSingleton.shared
    @StateObject var swiftData = SwiftDataServices.shared
    @StateObject var audioController = AudioController.shared
    
@@ -38,7 +36,6 @@ struct Manlingua2App: App {
             
             //             FlashcardPageView(viewModel1: storyViewModel)
          }
-         .environment(\.managedObjectContext, persistenceController.container.viewContext)
          .environmentObject(router)
          .environmentObject(homeViewModel)
          .environmentObject(storyViewModel)

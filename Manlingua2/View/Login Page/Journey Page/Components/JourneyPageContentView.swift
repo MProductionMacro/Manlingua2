@@ -15,7 +15,7 @@ struct JourneyPageContentView: View {
    @EnvironmentObject var storyViewModel: StoryViewModel
    @EnvironmentObject var router: Router
    
-   @StateObject var singleton = CoreDataSingleton.shared
+   @StateObject var singleton = SwiftDataServices.shared
    
    var body: some View {
       ZStack{

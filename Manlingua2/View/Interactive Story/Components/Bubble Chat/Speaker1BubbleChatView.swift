@@ -15,57 +15,63 @@ struct Speaker1BubbleChatView: View {
    @State private var isShowingMeaning = false
    
    var body: some View {
-      HStack {
-         Image(.orangeSpeaker1)  // Your custom image
-            .resizable()
-            .scaledToFit()
-            .frame(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.height * 0.08)
-         
-         HStack(alignment: .top, spacing: 0) {
-            LeftCustomTriangle(cornerRadius: 16)
-               .fill(.cardBackground)
-               .frame(width: UIScreen.main.bounds.width * 0.04, height: UIScreen.main.bounds.height * 0.03)
-               .padding(.top, 8)
-             
+      VStack {
+         HStack(alignment: .top, spacing: 4) {
+            Image(.orangeSpeaker1)  // Your custom image
+               .resizable()
+               .scaledToFit()
+               .frame(width: UIScreen.main.bounds.width * 0.12, height: UIScreen.main.bounds.height * 0.06)
             
-            VStack(alignment: .leading, spacing: 2) {
-               Text(pinyin)
-                  .font(.pinyin())
-                  .fontWeight(.bold)
-                  .foregroundColor(.pinyinPhotoChallenge)
+            HStack(alignment: .top, spacing: 0) {
+               LeftCustomTriangle(cornerRadius: 16)
+                  .fill(.cardBackground)
+                  .frame(width: UIScreen.main.bounds.width * 0.035, height: UIScreen.main.bounds.height * 0.025)
+                  .offset(x: UIScreen.main.bounds.width * 0.004)
+                  .padding(.top, UIScreen.main.bounds.height * 0.005)
                
-               Text(hanzi)
-                  .font(.hanzi())
-                  .foregroundColor(.fontColors)
-                  .overlay {
-                     DottedUnderline()
-                        .frame(height: UIScreen.main.bounds.height * 0.015)
-                        .offset(y: UIScreen.main.bounds.height * 0.02)
+               VStack(spacing: 0) {
+                  VStack(alignment: .leading, spacing: 2) {
+                     Text(pinyin)
+                        .font(.pinyin())
+                        .fontWeight(.bold)
+                        .foregroundColor(.pinyinPhotoChallenge)
+                     
+                     Text(hanzi)
+                        .underline(pattern: .dot, color: .orange3)
+                        .font(.hanzi())
+                        .foregroundColor(.fontColors)
+                        .onTapGesture {
+                           isShowingMeaning.toggle()
+                        }
                   }
-                  .onTapGesture {
-                     isShowingMeaning.toggle()
-                  }
-                  .popover(isPresented: $isShowingMeaning, attachmentAnchor: .point(.bottom)) {
-                     ZStack {
-                        Color.cardBackground.scaleEffect(1.5)
+                  .padding(8)
+                  .frame(maxWidth: .infinity, alignment: .leading)
+                  
+                  if isShowingMeaning {
+                     VStack(alignment: .leading) {
+                        CustomDivider(color: .primary)
                         
                         Text(meaning)
-                           .font(.hanzi())
-                           .foregroundColor(.fontColors)
-                           .padding(.horizontal, 4)
+                           .font(.system(size: 14))
                            .multilineTextAlignment(.leading)
+                           .padding([.horizontal, .bottom], 8)
                      }
-                     .presentationCompactAdaptation(.popover)
+                     .frame(maxWidth: .infinity, alignment: .leading)
                   }
+               }
+               .background(
+                  RoundedRectangle(cornerRadius: 8)
+                     .fill(.cardBackground)
+               )
+               .fixedSize(horizontal: false, vertical: true)
             }
-            .padding(8)
-            .background(
-               RoundedRectangle(cornerRadius: 8)
-                  .fill(.cardBackground)
-            )
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(width: UIScreen.main.bounds.width * 0.6)
+            
+            Spacer()
          }
-         Spacer()
       }
+      .frame(maxHeight: UIScreen.main.bounds.height * 0.25)
    }
 }
 
@@ -92,4 +98,5 @@ struct DottedUnderline: View {
 #Preview {
    Speaker1BubbleChatView(hanzi: "Halo", pinyin: "Halo", meaning: "Halo")
       .background(.black)
+      .preferredColorScheme(.dark)
 }

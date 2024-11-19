@@ -18,7 +18,7 @@ struct ChatScrollView: View {
    var body: some View {
       ScrollViewReader { proxy in
          ScrollView{
-            VStack(spacing: 16){
+            VStack(spacing: 8){
                ForEach(0...currentIndex, id: \.self) { index in
                   let chat = chats[index]
                   

@@ -17,6 +17,8 @@ struct CameraGrantedView: View {
    @State var isPredicted = false
    @State var isCorrect = false
    
+   @State var isShowingCamera = false
+   
    var body: some View {
       if let randomObjects = viewModel.objects_example.randomElement(){
          ScrollView {
@@ -59,7 +61,8 @@ struct CameraGrantedView: View {
                
                VStack {
                   Button {
-                     router.push(.cameraView)
+//                     router.push(.cameraView)
+                     isShowingCamera = true
                   } label: {
                      Image(systemName: "camera.fill")
                         .font(.system(size: 32))

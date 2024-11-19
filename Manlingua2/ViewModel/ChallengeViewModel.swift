@@ -7,9 +7,6 @@
 
 import SwiftUI
 import Combine
-import SystemConfiguration
-
-//TODO: Fix Timer + Progress Bar di GoalPageView
 
 class ChallengeViewModel: ObservableObject {
    @Published var isPredicted = false
@@ -18,18 +15,16 @@ class ChallengeViewModel: ObservableObject {
    @Published var predictions: [Prediction] = []
    
    @Published var objects_example: [Object] = []
-   @Published var randomized_object: Object? = nil
    
-   @AppStorage("firstTaskProgress") var firstTask: Int = 0
-   @AppStorage("secondTaskProgress") var secondTask: Int = 0
-   @AppStorage("thirdTaskProgress") var thirdTask: Int = 0
-   @AppStorage("streakCount") var streakCount: Int = 0
-   @AppStorage("remainHour") var remainHour: Int = 12
-   @AppStorage("totalDuration") var totalDuration: TimeInterval = 12 * 3600 // 12 hours in seconds
-   @AppStorage("remainingTime") var remainingTime: TimeInterval = 12 * 3600
+   @Published var remainHour: Int = 24 // Initial hours remaining
+   @Published var remainMinutes: Int = 60
+   
+   @ObservedObject var singleton = SwiftDataServices.shared
+   
+   private let calendar = Calendar.current
    
    private let userDefaults = UserDefaults.standard
-   private let baseURL = "http://192.168.1.5:8000"
+   private let baseURL = "http://10.60.62.153:8000"
    
    static let shared = ChallengeViewModel()
    
@@ -37,41 +32,62 @@ class ChallengeViewModel: ObservableObject {
       fetchObjects()
    }
    
-   var startTime: Date {
-      get {
-         // Retrieve stored date, or return the default value if not set
-         if let date = userDefaults.object(forKey: "startTime") as? Date {
-            return date
+   func taskDone(index: Int){
+      let now = Date()
+      let lastDate = UserDefaults.standard.object(forKey: "lastCompletionDate") as? Date ?? Date.now
+      
+      if !calendar.isDate(lastDate, inSameDayAs: now) {
+         // Check if lastDate was yesterday to maintain streak
+         if let yesterday = calendar.date(byAdding: .day, value: -1, to: now), calendar.isDate(lastDate, inSameDayAs: yesterday) {
+            singleton.streak += 1 // Increment streak
          } else {
-            return Date() // Set a default date if it doesn't exist
+            singleton.streak = 0 // Reset streak to 1
          }
+         
+         // Update the lastCompletionDate to today
+         UserDefaults.standard.set(now, forKey: "lastCompletionDate")
       }
-      set {
-         userDefaults.set(newValue, forKey: "startTime")
+      
+      if singleton.tasks[index] < 1 {
+         singleton.tasks[index] += 1
+         singleton.totalTasks = Double(singleton.tasks.reduce(0, +)) / Double(singleton.tasks.count)
+      }
+      
+      singleton.saveGoalProgressData()
+   }
+   
+   func addStars(){
+      singleton.totalStars += 1
+      singleton.saveGoalProgressData()
+   }
+   
+   func setupHourlyTimer() {
+      Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
+         self.updateRemainHour()
+      }
+   }
+   
+   // Calculate the remaining hours until midnight and update the UI
+   func updateRemainHour() {
+      let now = Date()
+      let midnight = calendar.nextDate(after: now, matching: DateComponents(hour: 0, minute: 0, second: 0), matchingPolicy: .nextTime)!
+      let hoursUntilMidnight = calendar.dateComponents([.hour], from: now, to: midnight).hour ?? 0
+      let minutesUntilMidnight = calendar.dateComponents([.minute], from: now, to: midnight).minute ?? 0
+      
+      // Update remainHour to reflect time left until midnight
+      remainHour = hoursUntilMidnight
+      remainMinutes = minutesUntilMidnight
+      
+      let lastResetDate = UserDefaults.standard.object(forKey: "lastResetDate") as? Date ?? Date.distantPast
+      print(lastResetDate)
+      
+      if !calendar.isDate(lastResetDate, inSameDayAs: now) {
+         UserDefaults.standard.set(now, forKey: "lastResetDate") // Update last reset date
+         singleton.initializeGoalDefaultData() // Reset progress
       }
    }
    
    private var cancellables = Set<AnyCancellable>()
-   
-   var totalTasks: Int { 3 }
-   var completedTasks: Int {
-      [firstTask, secondTask, thirdTask].filter { $0 >= 1 }.count
-   }
-   
-   private var hourlyTimer: AnyCancellable?
-   
-   var isTimerExpired: Bool {
-      // Calculate remaining time based on the current date
-      let elapsedTime = Date().timeIntervalSince(startTime)
-      remainingTime = totalDuration - elapsedTime
-      
-      // If the remaining time is less than or equal to 0, reset
-      if remainingTime <= 0 {
-         resetTasks()
-         return true
-      }
-      return false
-   }
    
    //MARK: Photo Challenge
    func predictImage(_ image: UIImage) {
@@ -127,68 +143,6 @@ class ChallengeViewModel: ObservableObject {
       }.resume()
    }
    
-   func startHourlyCountdown() {
-      hourlyTimer?.cancel()
-      
-      hourlyTimer = Timer.publish(every: 3600, on: .main, in: .common)
-         .autoconnect()
-         .sink { [weak self] _ in
-            guard let self = self else { return }
-            
-            if self.remainHour > 0 {
-               self.remainHour -= 1
-            } else {
-               self.resetTasks()
-            }
-            
-            self.saveDailyStreak()
-         }
-   }
-   
-   private func resetTasks() {
-      firstTask = 0
-      secondTask = 0
-      thirdTask = 0
-      remainHour = 12
-      
-      startTime = Date() // Reset start time
-      remainingTime = totalDuration // Reset remaining time
-   }
-   
-   private func saveDailyStreak() {
-      if completedTasks == totalTasks {
-         streakCount += 1
-      } else {
-         streakCount = 0
-      }
-   }
-   
-   func incrementTaskProgress(task: TaskType) {
-      switch task {
-      case .first:
-         firstTask = min(firstTask + 1, 1)
-      case .second:
-         secondTask = min(secondTask + 1, 1)
-      case .third:
-         thirdTask = min(thirdTask + 1, 1)
-      }
-      
-      if completedTasks == totalTasks {
-         remainHour = 0  // Reset immediately if all tasks are done
-      }
-   }
-   
-   func checkElapsedTime() {
-      // Check the elapsed time when the app launches or comes to the foreground
-      let elapsedTime = Date().timeIntervalSince(startTime)
-      remainHour = max(0, Int((3600 - elapsedTime) / 3600))
-      
-      // Notify user if the timer has expired
-      if isTimerExpired {
-         
-      }
-   }
-   
    //MARK: Photo Challenge
    func fetchObjects() {
       guard let url = URL(string: "\(baseURL)/get_objects") else { return }
@@ -225,33 +179,5 @@ class ChallengeViewModel: ObservableObject {
             }
          }
       }.resume()
-   }
-   
-   
-   //   func fetchObjects() {
-   //      // Replace with your FastAPI endpoint URL
-   //      guard let url = URL(string: "\(baseURL)/get_objects") else { return }
-   //
-   //      URLSession.shared.dataTaskPublisher(for: url)
-   //         .map { $0.data }
-   //         .decode(type: ObjectResponse.self, decoder: JSONDecoder())
-   //         .map { response in
-   //            // Extract the objects dictionary and convert it to an array
-   //            Array(response.objects.values)
-   //         }
-   //         .replaceError(with: [])  // In case of error, return an empty array
-   //         .receive(on: DispatchQueue.main)
-   //         .sink { [weak self] objects in
-   //            print("Objects Fetched: \(objects.count)")
-   //            self?.objects_example = objects
-   //         }
-   //         .store(in: &cancellables)
-   //
-   //      print(objects_example.count)
-   //      randomizeObject()
-   //   }
-   
-   func randomizeObject(){
-      randomized_object = objects_example.randomElement()
    }
 }

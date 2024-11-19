@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomDivider: View {
    let color: Color
-   let width: CGFloat = 2
+   let width: CGFloat = 1
    
    var body: some View {
       Rectangle()

@@ -12,6 +12,7 @@ struct HomeNavigationButton: PrimitiveButtonStyle {
    var text: String
    
    @State var pressed = false
+   @State private var holdAction = false
    
    func makeBody(configuration: Configuration) -> some View {
       VStack(alignment: .center, spacing: 0) {
@@ -36,20 +37,22 @@ struct HomeNavigationButton: PrimitiveButtonStyle {
       .shadow(color: .cardShadow.opacity(0.18), radius: 8, x: 0, y: 0)
       .scaleEffect(pressed ? 1.1 : 1.0) // Immediate scale change on press
       .animation(pressed ? .none : .easeOut, value: pressed) // Animate on release only
-      .gesture(DragGesture(minimumDistance: 0).onChanged { _ in
-         pressed = true
-      }.onEnded { value in
-         DispatchQueue.main.asyncAfter(deadline: .now() + 0.001){
-            withAnimation {
-               pressed = false
-               // optionally, use value.location and a geometry reader to determine whether
-               // the gesture ended inside the button's label
-               //               DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-               //                  configuration.trigger()
-               //               }
-               configuration.trigger()
+      .gesture(
+         DragGesture(minimumDistance: 0)
+            .onChanged { _ in
+               pressed = true
             }
-         }
-      })
+            .onEnded { value in
+               DispatchQueue.main.asyncAfter(deadline: .now() + 0.001){
+                  if abs(value.translation.width) < 10 && abs(value.translation.height) < 10 {
+                     // Trigger action only if the user hasn't moved significantly
+                     withAnimation {
+                        configuration.trigger()
+                     }
+                  }
+                  pressed = false
+               }
+            }
+      )
    }
 }

@@ -59,17 +59,18 @@ struct BottomFlashcardContainerView: View {
    @EnvironmentObject var storyViewModel: StoryViewModel
    */
    @State var textToSpeech = TextToSpeech()
+   @State var isSpeaking = false
    
    var body: some View {
       VStack(spacing: 0) {
-          BottomContainerButtons {
-             router.push(.dictionary(judul: "Kata Favorit", displayMode: .favorite))
-          } speakerAction: {
-             textToSpeech.speak(text: flashcardViewModel.showVocabularies[flashcardViewModel.currentIndex].hanzi)
-          } turtleAction: {
-             textToSpeech.speakSlow(text: flashcardViewModel.showVocabularies[flashcardViewModel.currentIndex].hanzi)
-          }
-          
+         BottomContainerButtons(bookAction: {
+            router.push(.dictionary(judul: "Kata Favorit", displayMode: .favorite))
+         }, speakerAction: {
+            isSpeaking = true
+            textToSpeech.speak(text: flashcardViewModel.showVocabularies[flashcardViewModel.currentIndex].hanzi)
+         }, turtleAction: {
+            textToSpeech.speakSlow(text: flashcardViewModel.showVocabularies[flashcardViewModel.currentIndex].hanzi)
+         }, isSpeaking: $isSpeaking)
           
           Divider()
           
