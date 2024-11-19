@@ -15,7 +15,7 @@ struct GoalPageView: View {
    
    var body: some View {
       ZStack {
-         VStack(alignment: .center, spacing: 24) {
+         VStack(alignment: .center, spacing: 16) {
             VStack(spacing: 8) {
                Text("Peringkat")
                   .font(Font.judulBesar())
@@ -33,15 +33,15 @@ struct GoalPageView: View {
                      Image(systemName: "flame.fill")
                         .resizable()
                         .font(Font.subJudul())
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(singleton.streak == 0 ? .customLightGray : .orange)
                         .frame(width: 15, height: 17)
-                     Text("12")
+                     Text("\(singleton.streak)")
                         .font(Font.subJudul())
                         .foregroundStyle(.black)
                   }
                   .frame(width: 55, height: 33)
                   .background(.white)
-                  .cornerRadius(12)
+                  .cornerRadius(8)
                }
                
                RatingStarView(numberOfStars: singleton.totalStars)
@@ -73,13 +73,15 @@ struct GoalPageView: View {
                
                VStack(spacing: 2) {
                   GoalTrackerView(task: .first, image: "Emas Cina", challenge: "Selesaikan 1 subbab cerita", doneTask: singleton.tasks[0]) {
+                     viewModel.taskDone(index: 0)
                   }
                   
                   GoalTrackerView(task: .second, image: "Koin Cina", challenge: "Selesaikan 1 bagian flashcard", doneTask: singleton.tasks[1]) {
-                     
+                     viewModel.taskDone(index: 1)
                   }
                   
                   GoalTrackerView(task: .third, image: "Emas Batang", challenge: "Selesaikan 1 tantangan foto", doneTask: singleton.tasks[2]) {
+                     viewModel.taskDone(index: 2)
                   }
                }
                .background(Color.customLightGray)
@@ -95,6 +97,7 @@ struct GoalPageView: View {
             .background(.blankBackground)
             .cornerRadius(32, corners: [.topLeft, .topRight])
          }
+         .padding(.top)
          .ignoresSafeArea(edges: .bottom)
       }
       .background(
@@ -109,7 +112,7 @@ struct GoalPageView: View {
          viewModel.setupHourlyTimer()
       }
       .onChange(of: singleton.tasks, { oldValue, newValue in
-         if newValue.reduce(0, +) >= 3 {
+         if newValue.reduce(0, +) == 3 {
             viewModel.addStars()
          }
       })

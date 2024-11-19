@@ -15,12 +15,14 @@ class Goal_Progress {
    var task3: Int
    var totalTasks: Double
    var totalStars: Int
+   var streak: Int
    
-   init(task1: Int, task2: Int, task3: Int, totalTasks: Double, totalStars: Int) {
+   init(task1: Int, task2: Int, task3: Int, totalTasks: Double, totalStars: Int, streak: Int) {
       self.task1 = task1
       self.task2 = task2
       self.task3 = task3
       self.totalTasks = totalTasks
       self.totalStars = totalStars
+      self.streak = streak
    }
 }

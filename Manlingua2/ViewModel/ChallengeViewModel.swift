@@ -33,12 +33,27 @@ class ChallengeViewModel: ObservableObject {
    }
    
    func taskDone(index: Int){
+      let now = Date()
+      let lastDate = UserDefaults.standard.object(forKey: "lastCompletionDate") as? Date ?? Date.now
+      
+      if !calendar.isDate(lastDate, inSameDayAs: now) {
+         // Check if lastDate was yesterday to maintain streak
+         if let yesterday = calendar.date(byAdding: .day, value: -1, to: now), calendar.isDate(lastDate, inSameDayAs: yesterday) {
+            singleton.streak += 1 // Increment streak
+         } else {
+            singleton.streak = 0 // Reset streak to 1
+         }
+         
+         // Update the lastCompletionDate to today
+         UserDefaults.standard.set(now, forKey: "lastCompletionDate")
+      }
+      
       if singleton.tasks[index] < 1 {
          singleton.tasks[index] += 1
          singleton.totalTasks = Double(singleton.tasks.reduce(0, +)) / Double(singleton.tasks.count)
-         
-         singleton.saveGoalProgressData()
       }
+      
+      singleton.saveGoalProgressData()
    }
    
    func addStars(){
