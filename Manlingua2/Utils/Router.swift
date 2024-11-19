@@ -67,6 +67,9 @@ class Router: ObservableObject {
             .navigationBarBackButtonHidden(true)
       case .storyPage(let chapterId, let subChapterId):
          StoryDetailView(chapterId: chapterId, subChapterId: subChapterId)
+              .onBackSwipe(perform: {
+                 self.popToRoot()
+              })
             .navigationBarBackButtonHidden(true)
       case .loadingPage(let screen):
          LoadingView(screen: screen)
@@ -74,10 +77,18 @@ class Router: ObservableObject {
       case .dictionary(let judul, let displayMode):
          DictionaryView(judul: judul, displayMode: displayMode)
             .onBackSwipe(perform: {
-               self.pop()
+                if displayMode == .favorite {
+                    self.popToRoot()
+                }
+                else{
+                    self.pop()
+                }
             })
       case .flashcardPage:
          FlashcardPageView()
+              .onBackSwipe(perform: {
+                 self.popToRoot()
+              })
             .navigationBarBackButtonHidden(true)
       case .donePage(let displayMode, let chapterId, let subChapterId):
          DonePageView(displayMode: displayMode, chapterId: chapterId, subChapterId: subChapterId)
@@ -100,7 +111,12 @@ class Router: ObservableObject {
       case .importantNote(let displayMode):
          ImportantNotesPageView(displayMode: displayMode)
             .onBackSwipe(perform: {
-               self.pop()
+                if displayMode == .favorite {
+                    self.popToRoot()
+                }
+                else{
+                    self.pop()
+                }
             })
             .navigationBarBackButtonHidden(true)
       case .languageSetting:
@@ -130,7 +146,7 @@ class Router: ObservableObject {
       case .aiSimulation:
          AIAssistantView()
             .onBackSwipe(perform: {
-               self.pop()
+               self.popToRoot()
             })
             .navigationBarBackButtonHidden(true)
       }

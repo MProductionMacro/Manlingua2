@@ -49,7 +49,7 @@ struct PinyinFinalView: View {
          Spacer()
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity)
-      .background(.blankBackground)
+      .background( Color.blankBackground )
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {
             HStack(alignment: .top){

@@ -47,6 +47,7 @@ struct PinyinPageView: View {
             .resizable()
             .aspectRatio(contentMode: .fill)
             .ignoresSafeArea()
+
       )
       // Nanti Ganti Background
    }
