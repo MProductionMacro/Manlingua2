@@ -28,7 +28,7 @@ class ProfileViewModel: ObservableObject {
    
    func getLevel() -> String {
       //Sementara gini dulu, tapi nanti sepertinya manggil Level itu ngelibatin langkah yg lebih kompleks
-      return "Murid Senior"
+      return "Perunggu"
    }
    
 }
