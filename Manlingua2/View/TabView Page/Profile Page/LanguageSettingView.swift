@@ -11,6 +11,7 @@ struct LanguageSettingView: View {
     @EnvironmentObject var router: Router
     @State var selectedId: Int = 1
     @State var lang: Language = .indonesian
+    @StateObject var localizationManager: LocalizationManager = LocalizationManager.shared
 
     var body : some View {
         VStack{
@@ -38,6 +39,14 @@ struct LanguageSettingView: View {
                 
                 Button(action: {
                     UserDefaultSingleton.shared.setLanguage(language: lang)
+                    if lang == .english {
+                        
+                        localizationManager.selectedLanguage = .english
+                    }
+                    else{
+                        
+                        localizationManager.selectedLanguage = .indonesian
+                    }
                     router.popToRoot()
                 }) {
                    Text("Simpan")
