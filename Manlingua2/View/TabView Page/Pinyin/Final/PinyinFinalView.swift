@@ -70,6 +70,7 @@ struct PinyinFinalView: View {
          }
           
       }
+
    }
 }
 
