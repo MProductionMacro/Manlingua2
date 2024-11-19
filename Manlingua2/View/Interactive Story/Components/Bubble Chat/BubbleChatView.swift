@@ -10,6 +10,8 @@ import SwiftUI
 struct BubbleChatView: View {
    @Binding var chat: Chat_Example
    var type: ChatType
+   var questionIndex: Int
+   var isActive: Bool
    
    var body: some View {
       HStack(spacing: 0) {
@@ -23,7 +25,7 @@ struct BubbleChatView: View {
                .padding(.trailing, UIScreen.main.bounds.width * 0.05)
             
          case .question:
-            QuestionBubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, question: chat.question ?? "", meaning: chat.meaning)
+            QuestionBubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, question: chat.question ?? "", meaning: chat.meaning, isActive: isActive)
                .padding(.trailing, UIScreen.main.bounds.width * 0.05)
          }
       }
