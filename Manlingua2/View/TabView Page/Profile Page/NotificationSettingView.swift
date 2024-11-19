@@ -35,7 +35,7 @@ struct NotificationSettingView: View {
                     UserDefaultSingleton.shared.setLanguage(language: lang)
                     router.pop()
                 }) {
-                    Text("Simpan".localized)
+                    Text("Pergi ke Pengaturan".localized)
                       .foregroundStyle(Color.white)
                       .font(.button())
                       .padding(20)

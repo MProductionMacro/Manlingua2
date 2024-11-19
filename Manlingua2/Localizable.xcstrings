@@ -288,12 +288,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Section"
+            "value" : "Subchapter"
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Bagian"
           }
         }
@@ -332,6 +332,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bagian %lld - %@"
+          }
+        }
+      }
+    },
+    "Bahasa" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Languages"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Bahasa"
           }
         }
       }
@@ -1249,6 +1266,7 @@
       }
     },
     "Log Out" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1722,6 +1740,40 @@
         }
       }
     },
+    "Perangkat Pintar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smart Devices"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perangkat Pintar"
+          }
+        }
+      }
+    },
+    "Pergi ke Pengaturan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go to Settings"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pergi ke Pengaturan"
+          }
+        }
+      }
+    },
     "Peringkat" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1893,7 +1945,20 @@
       }
     },
     "sekitar 15 menit" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "around 15 minutes"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "sekitar 15 menit"
+          }
+        }
+      }
     },
     "Selamat datang" : {
       "extractionState" : "stale",
