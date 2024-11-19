@@ -112,7 +112,7 @@ struct SubChapterCard: View {
             }
             
             VStack(alignment: .leading, spacing: 4) {
-               Text("Bagian \(subChapter.id)")
+                Text("Bagian \(subChapter.id)".localized)
                   .font(.pinyin())
                   .fontWeight(.bold)
                Text(subChapter.title)
@@ -135,7 +135,7 @@ struct SubChapterCard: View {
                      .foregroundStyle(.emptyListText)
                      .font(.normalText())
                   
-                  Text("sekitar 10 menit")
+                   Text("sekitar 10 menit".localized)
                      .foregroundStyle(.emptyListText)
                      .font(.pinyin())
                }

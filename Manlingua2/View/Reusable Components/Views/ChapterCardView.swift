@@ -29,7 +29,7 @@ struct ChapterCardView: View {
             
             
             VStack(alignment: .leading, spacing: 6) {
-               Text("Chapter \(chapterNumber)")
+               Text("Chapter \(chapterNumber)".localized)
                   .font(.system(size: 14, weight: .regular))
                   .foregroundColor(.black)
                

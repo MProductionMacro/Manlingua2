@@ -42,7 +42,7 @@ struct NotesCardView : View{
                         .resizable()
                         .frame(width: 38, height: 38)
                     VStack(alignment: .leading){
-                        Text("Boleh Dilakukan:")
+                        Text("Boleh Dilakukan:".localized)
                             .font(.system(size: 14, weight: .bold))
                         Text(note.allowed)
                             .font(.system(size: 14, weight: .regular))
@@ -56,7 +56,7 @@ struct NotesCardView : View{
                         .resizable()
                         .frame(width: 38, height: 38)
                     VStack(alignment: .leading){
-                        Text("Tidak Boleh Dilakukan:")
+                        Text("Tidak Boleh Dilakukan:".localized)
                             .font(.system(size: 14, weight: .bold))
                         Text(note.forbidden)
                             .font(.system(size: 14, weight: .regular))
@@ -70,7 +70,7 @@ struct NotesCardView : View{
                         .resizable()
                         .frame(width: 38, height: 38)
                     VStack(alignment: .leading){
-                        Text("Harus Berhati-hati:")
+                        Text("Harus Berhati-hati:".localized)
                             .font(.system(size: 14, weight: .bold))
                         Text(note.caution)
                             .font(.system(size: 14, weight: .regular))

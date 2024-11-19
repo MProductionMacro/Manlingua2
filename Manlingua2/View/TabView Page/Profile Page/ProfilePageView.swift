@@ -72,6 +72,7 @@ struct ProfilePageView: View {
                         .font(Font.semibold16())
                         .foregroundColor(.profileNavigationText)
                     Spacer()
+                    
                 }
                 .frame(width: 361, height: 35)
                 .padding(.bottom, 80)

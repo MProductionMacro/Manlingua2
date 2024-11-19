@@ -47,7 +47,7 @@ struct Wrong: View {
             }
             
             HStack {
-               Text("\(hanzi) artinya '\(meaning)'")
+                Text("\(hanzi) artinya \(meaning)".localized)
                   .foregroundStyle(.black)
                   .font(.subJudul())
             }

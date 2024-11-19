@@ -85,7 +85,7 @@
         "pinyin": "hǎo de, wǒ men huì zūn shǒu shí jiān biǎo.",
         "hanzi": "好的，我们会遵守时间表。",
         "meaning": "Alright, we will adhere to the schedule.",
-        "answer": "好的，我们会遵守时间表。",
+        "answer": "好的，我们会遵守时间表",
         "question": "Answer in Mandarin: 'Alright, we will adhere to the schedule.'",
         "type": "question"
     },

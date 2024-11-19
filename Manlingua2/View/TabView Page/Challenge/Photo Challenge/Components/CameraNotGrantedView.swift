@@ -23,10 +23,10 @@ struct CameraNotGrantedView: View {
                         .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [8]))
                   )
                
-               Text("Izinkan Akses Kamera")
+                Text("Izinkan Akses Kamera".localized)
                   .font(.judulBiasa())
                
-               Text("Untuk mengerjakan tantangan, kami memerlukan kameramu untuk mendeteksi foto")
+                Text("Untuk mengerjakan tantangan, kami memerlukan kameramu untuk mendeteksi foto".localized)
                   .multilineTextAlignment(.center)
                   .font(.normalText())
                   .frame(width: UIScreen.main.bounds.width * 0.7)
@@ -39,7 +39,7 @@ struct CameraNotGrantedView: View {
                Button {
                   primaryButtonPressed()
                } label: {
-                  Text("Berikan Izin Akses Kamera")
+                   Text("Berikan Izin Akses Kamera".localized)
                      .frame(maxWidth: .infinity)
                }
                .buttonStyle(PrimaryButton(isDisabled: false))
@@ -47,7 +47,7 @@ struct CameraNotGrantedView: View {
                Button {
                   secondaryButtonPressed()
                } label: {
-                  Text("Batalkan")
+                   Text("Batalkan".localized)
                      .frame(maxWidth: .infinity)
                }
                .buttonStyle(SecondaryButton(isDisabled: false))

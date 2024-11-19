@@ -18,7 +18,7 @@ struct QuestionModalityView: View {
    
    var body: some View {
       VStack(spacing: 16) {
-         Text("Pilih jawaban yang benar")
+         Text("Pilih jawaban yang benar".localized)
             .font(.titleKe2())
          
          LazyVGrid(columns: columns) {

@@ -24,9 +24,9 @@ struct DictionaryView: View {
                .bold()
                .padding(.top, 16)
             
-            Text("\(viewModel.vocabularies.count) Kata")
+             Text("\(viewModel.vocabularies.count) " + "Kata".localized)
                .font(.subheadline)
-            
+           
             if viewModel.getVocabulary(displayMode).isEmpty {
                Spacer()
                VStack(alignment: .center){
@@ -58,7 +58,6 @@ struct DictionaryView: View {
                      ForEach(viewModel.getVocabulary(displayMode), id: \.self) { vocabulary in
                         FlashcardDictionaryView(vocab: vocabulary, textToSpeech: $textToSpeech, viewModel: viewModel)
                            .padding(0)
-                        //.background(.red)
                      }
                   }
                   .padding(.horizontal, 16)
@@ -66,6 +65,7 @@ struct DictionaryView: View {
                }
             }
          }
+         .padding(.top, UIScreen.main.bounds.height < 700 ? -60 : 8)
          .navigationBarItems(leading: Button(action: {
             if displayMode == .favorite {
                router.popToRoot()
@@ -75,7 +75,7 @@ struct DictionaryView: View {
          }) {
             HStack {
                Image(systemName: "chevron.left")
-               Text("Kembali")
+               Text("Kembali".localized)
             }
             .foregroundColor(.orangeDarkMode)
          })

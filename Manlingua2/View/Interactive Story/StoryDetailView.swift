@@ -52,7 +52,9 @@ struct StoryDetailView: View {
          .edgesIgnoringSafeArea(.bottom)
          .background(
             Image(.chatBackground)
-               .scaledToFill()
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
          )
          .onTapGesture { location in
             if !modalAppeared {

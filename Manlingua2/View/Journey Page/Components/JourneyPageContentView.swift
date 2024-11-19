@@ -49,7 +49,7 @@ struct JourneyPageContentView: View {
                   .padding(.horizontal)
                   /*
                   HStack{
-                      Text("Pengantar")
+                      Text("Pengantar".localized)
                           .font(Font.judulBiasa())
                       
                       Spacer()
@@ -70,7 +70,7 @@ struct JourneyPageContentView: View {
                   
                   /*
                   HStack{
-                      Text("Sub-bab")
+                      Text("Sub-bab".localized)
                           .font(Font.judulBiasa())
                       Spacer()
                   }

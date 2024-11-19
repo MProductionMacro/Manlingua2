@@ -41,13 +41,14 @@ struct JourneyPageView: View {
                   
                   Button {
                      router.push(.dictionary(judul: story.title, displayMode: .story(id: story.id)))
+                      print("Masuk Vertical")
                   } label: {
                      HStack(spacing: 8){
                         Image(systemName: "books.vertical")
                            .font(.hanzi())
                            .fontWeight(.regular)
                            .foregroundStyle(.orangeDarkMode)
-                        Text("List Kata-Kata")
+                         Text("List Kata-Kata".localized)
                            .font(Font.semibold16())
                            .foregroundStyle(.orangeDarkMode)
                      }
@@ -58,7 +59,7 @@ struct JourneyPageView: View {
                }
                .padding(.horizontal, 15.5)
                .padding(.vertical)
-               
+
                // List of Chapters
                JourneyPageContentView(story: story, storyId: storyId)
             }
@@ -68,9 +69,10 @@ struct JourneyPageView: View {
          }
       //}
       .background(
-         Image(.profilePage)
-            .ignoresSafeArea()
-            .scaledToFill()
+        Image(.profilePage)
+           .resizable()
+           .aspectRatio(contentMode: .fill)
+           .ignoresSafeArea()
       )
       .edgesIgnoringSafeArea(.bottom)
       .toolbar {
@@ -83,7 +85,7 @@ struct JourneyPageView: View {
                      .foregroundStyle(Color.white)
                      .font(Font.semibold16())
                   
-                  Text("Kembali")
+                   Text("Kembali".localized)
                      .foregroundStyle(Color.white)
                      .font(Font.semibold20())
                }

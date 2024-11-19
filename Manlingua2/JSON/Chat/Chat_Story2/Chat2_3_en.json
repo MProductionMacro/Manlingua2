@@ -85,7 +85,7 @@
         "pinyin": "wǒ men kě yǐ tí gōng bǎi fēn zhī wǔ de zhékòu.",
         "hanzi": "我们可以提供百分之五的折扣。",
         "meaning": "We can offer a 5% discount.",
-        "answer": "我们可以提供百分之五的折扣。",
+        "answer": "我们可以提供百分之五的折扣",
         "question": "Answer in Mandarin 'We can offer a 5% discount.'",
         "type": "question"
     },

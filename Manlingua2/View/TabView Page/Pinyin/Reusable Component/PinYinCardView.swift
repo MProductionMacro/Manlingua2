@@ -7,8 +7,9 @@
 import SwiftUI
 
 struct PinYinCardView: View {
+    @EnvironmentObject var router: Router 
    var body: some View {
-      VStack {
+      VStack {         
          HStack(alignment: .bottom) {
             VStack {
                HStack (alignment: .bottom){
@@ -16,7 +17,7 @@ struct PinYinCardView: View {
                   Image("FinalNada")
                }
                
-               Text("Suku Kata")
+                Text("Suku Kata".localized)
                   .bold()
             }
             .padding(.leading, 5)
@@ -25,7 +26,7 @@ struct PinYinCardView: View {
             VStack {
                Image("Karakter")
                   .padding(.bottom, 36)
-               Text("Karakter")
+                Text("Karakter".localized)
                   .bold()
             }
             .padding(.trailing, 5)

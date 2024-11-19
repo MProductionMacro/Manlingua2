@@ -64,7 +64,7 @@ struct BottomFlashcardContainerView: View {
    var body: some View {
       VStack(spacing: 0) {
          BottomContainerButtons(bookAction: {
-            router.push(.dictionary(judul: "Kata Favorit", displayMode: .favorite))
+             router.push(.dictionary(judul: "Kata Favorit".localized, displayMode: .favorite))
          }, speakerAction: {
             isSpeaking = true
             textToSpeech.speak(text: flashcardViewModel.showVocabularies[flashcardViewModel.currentIndex].hanzi)

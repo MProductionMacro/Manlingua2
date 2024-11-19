@@ -20,23 +20,23 @@ struct DonePageView: View {
       ZStack{
          Color.blankBackground
          VStack(spacing: 10){
-            Text("Selamat!")
+             Text("Selamat!".localized)
                .font(.system(size: 40))
                .fontWeight(.bold)
                .padding(12)
             
-            Text("Kamu telah menyelesaikan")
+             Text("Kamu telah menyelesaikan".localized)
                .font(Font.judulBiasa())
                .foregroundColor(.darkGrey)
             
             if case .story(let storyId, let subChapterId) = displayMode {
-               Text("Bagian \(subChapterId) - \(DonePageTitle.title(storyId: storyId, subChapterId: subChapterId))")
+                Text("Bagian".localized + " \(subChapterId) - \(DonePageTitle.title(storyId: storyId, subChapterId: subChapterId).localized)".localized)
                   .font(Font.judulBiasa())
                   .foregroundColor(.darkGrey)
                   .padding(.bottom, 60)
             }
             else{
-               Text("Flashcard Harian")
+                Text("Flashcard Harian".localized)
                   .font(Font.judulBiasa())
                   .foregroundColor(.darkGrey)
                   .padding(.bottom, 60)
@@ -59,7 +59,7 @@ struct DonePageView: View {
                         .font(.button())
                         .frame(height: UIScreen.main.bounds.height * 0.01)
                      
-                     Text("Ulang")
+                      Text("Ulang".localized)
                         .font(.button())
                   }
                   .frame(maxWidth: .infinity)
@@ -75,7 +75,7 @@ struct DonePageView: View {
                   
                   switch displayMode {
                   case .flashcard:
-                     router.push(.dictionary(judul: "Kata - kata favorit", displayMode: .favorite))
+                      router.push(.dictionary(judul: "Kata - kata favorit".localized, displayMode: .favorite))
                   case .story(let storyId, let subChapterId):
                      router.push(.importantNote(displayMode: .subChapter(storyId: storyId, subChapterId: subChapterId)))
                   }
@@ -85,7 +85,7 @@ struct DonePageView: View {
                         .font(.button())
                         .frame(height: UIScreen.main.bounds.height * 0.01)
                      
-                     Text(displayMode == .flashcard ? "Favorit" : "Catatan")
+                      Text(displayMode == .flashcard ? "Favorit".localized : "Catatan".localized)
                         .font(.button())
                   }
                   .frame(maxWidth: .infinity)
@@ -106,7 +106,7 @@ struct DonePageView: View {
                   Image(systemName: DonePageModel.houseSymbol)
                      .font(.button())
                   
-                  Text(DonePageModel.returnToStoryTxt)
+                  Text("Belajar".localized)
                      .font(.button())
                }
                .foregroundStyle(Color.white)

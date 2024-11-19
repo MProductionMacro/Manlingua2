@@ -9,7 +9,8 @@ import SwiftUI
 
 struct FlashcardPageView: View {
    @EnvironmentObject var router: Router
-   @EnvironmentObject var viewModel: FlashcardViewModel
+   //@EnvironmentObject var viewModel: FlashcardViewModel
+   @StateObject var viewModel = FlashcardViewModel()
    @StateObject var singleton = UserDefaultSingleton.shared
    @State var tutorialOverlay: Int = 1
    @State var audioController = AudioController.shared
@@ -37,6 +38,12 @@ struct FlashcardPageView: View {
                .shadow(radius: 0, x: 0, y: 0)
             }
             .shadow(color: .cardShadow.opacity(0.2), radius: 12, x: 0, y: 0)
+            .onAppear{
+                print("All Vocabularies 1 : ")
+                for vocab in viewModel.showVocabularies{
+                    print(vocab.pinyin)
+                }
+            }
             
             Spacer()
             
@@ -64,8 +71,16 @@ struct FlashcardPageView: View {
                BottomFlashcardContainerView(isCorrect: $isCorrect, hasAnswered: $hasAnswered)
                   .transition(.move(edge: .bottom))
             }
+            
          }
          .frame(maxHeight: .infinity)
+         .onAppear{
+             print(" ")
+             print("All Vocabularies 2 : ")
+             for vocab in viewModel.showVocabularies{
+                 print(vocab.pinyin)
+             }
+         }
          
          //          BottomContainerView(viewModel: viewModel, audioController: $audioController).onTapGesture{
          //              router.push(.donePage(currentPage: .story, currentPart: .first))
@@ -87,7 +102,9 @@ struct FlashcardPageView: View {
       .frame(maxHeight: .infinity)
       .background(
          Image(.chatBackground)
-            .scaledToFill()
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .ignoresSafeArea()
       )
       .ignoresSafeArea(.container, edges: .bottom)
       .onAppear{
