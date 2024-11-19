@@ -63,8 +63,8 @@ struct HomeCardView: View {
                   let subChapterId = singleton.latestSubChapter
                   //                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
                   storyVM.loadChat(storyId: story.id, subChapterId: subChapterId)
-                  //router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapterId)))
-                  router.push(.donePage(displayMode: .story(storyId: 1, subChapterId: 1), chapterId: 1, subChapterId: 1))
+                  router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapterId)))
+//                  router.push(.donePage(displayMode: .story(storyId: 1, subChapterId: 1), chapterId: 1, subChapterId: 1))
                }
             } label: {
                 Text("Mulai".localized)
