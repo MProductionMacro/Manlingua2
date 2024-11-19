@@ -66,8 +66,14 @@ struct DictionaryView: View {
                  }
              }
          }
+         .padding(.top, UIScreen.main.bounds.height < 700 ? -60 : 8)
          .navigationBarItems(leading: Button(action: {
-            router.popToRoot()
+             if displayMode == .favorite {
+                 router.popToRoot()
+             }
+             else{
+                 router.pop()
+             }
          }) {
             HStack {
                Image(systemName: "chevron.left")

@@ -148,6 +148,26 @@ extension Font {
         return .system(size: 12, weight: .regular)
     }
     
+    public static func heavy8() -> Font {
+        return .system(size: 8, weight: .heavy)
+    }
+    
+    public static func bold8() -> Font {
+        return .system(size: 8, weight: .bold)
+    }
+    
+    public static func semibold8() -> Font {
+        return .system(size: 8, weight: .semibold)
+    }
+    
+    public static func medium8() -> Font {
+        return .system(size: 8, weight: .medium)
+    }
+    
+    public static func normal8() -> Font {
+        return .system(size: 8, weight: .regular)
+    }
+    
    public static func judulBesar() -> Font {
       return .system(size: 40, weight: .heavy)
    }

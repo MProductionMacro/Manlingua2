@@ -15,7 +15,7 @@ struct PinyinPageView: View {
          Text("Pelajari Pin Yin")
             .font(Font.judulBesar())
             .foregroundStyle(.white)
-            .padding(.top)
+            .padding(.top, 40)//0
          
          
          PinYinCardView()
@@ -37,9 +37,9 @@ struct PinyinPageView: View {
          Spacer()
       }
       .background(
-         Image(.pinyinBackground)
+        Image(.pinyinBackground)
             .resizable()
-            .scaledToFill()
+            .aspectRatio(contentMode: .fill)
             .ignoresSafeArea()
       )
       // Nanti Ganti Background

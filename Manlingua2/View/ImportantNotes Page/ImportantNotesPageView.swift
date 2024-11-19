@@ -60,6 +60,7 @@ struct ImportantNotesPageView : View {
                 .frame(maxWidth: .infinity)
             }
         }
+        .padding(.top, UIScreen.main.bounds.height < 700 ? -50 : 8)
         .frame(maxWidth: .infinity)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -99,5 +100,6 @@ struct ImportantNotesPageView : View {
         ImportantNotesPageView(displayMode : .subChapter(storyId: 1, subChapterId: 1))
     }
     .environmentObject(Router())
+    .environmentObject(ImportantNotesViewModel())
     .environmentObject(ImportantNotesViewModel())
 }

@@ -16,7 +16,7 @@ struct NotificationSettingView: View {
         VStack{
             
             VStack(alignment: .leading, spacing: 16){
-                Text("Pengaturan Bahasa")
+                Text("Pengaturan Notifikasi")
                     .font(.heavy32())
                     .padding(.bottom, -8)
                 
@@ -45,7 +45,8 @@ struct NotificationSettingView: View {
                 }
             }
             .padding(.horizontal, 16)
-            .padding(.top, 8)
+            .padding(.top, UIScreen.main.bounds.height < 700 ? -40 : 8)
+            .padding(.bottom, UIScreen.main.bounds.height < 700 ? 8 : 0)
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
