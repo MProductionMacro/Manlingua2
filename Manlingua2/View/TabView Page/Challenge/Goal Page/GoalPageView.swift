@@ -25,8 +25,8 @@ struct GoalPageView: View {
                    Text("Perunggu".localized)
                      .font(Font.subJudul())
                      .frame(width: 92, height: 35)
-                     .foregroundColor(.orangeDarkMode)
-                     .background(.wordListButtonBackground)
+                     .foregroundColor(UserRankStyle.getTextColor("Emas"))
+                     .background(UserRankStyle.getBackgroundColor("Emas"))
                      .cornerRadius(8)
                   
                   HStack(spacing: 4){

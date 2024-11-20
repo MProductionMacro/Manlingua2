@@ -1282,6 +1282,17 @@
         }
       }
     },
+    "Let's have fun with Mandarin!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let's have fun with Mandarin!"
+          }
+        }
+      }
+    },
     "Lewati" : {
       "extractionState" : "stale",
       "localizations" : {
