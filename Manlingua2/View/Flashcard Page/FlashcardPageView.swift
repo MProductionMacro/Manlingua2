@@ -17,7 +17,7 @@ struct FlashcardPageView: View {
    @State var hasAnswered = false
    @State var isCorrect = false
    @State private var showConfirmationAlert = false
-   
+   @State var answer:String = ""
    var body: some View {
       ZStack (alignment: .bottom){
          VStack {
@@ -48,7 +48,7 @@ struct FlashcardPageView: View {
             Spacer()
             
             if hasAnswered {
-               CorrectOrWrong(hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, pinyin: viewModel.showVocabularies[viewModel.currentIndex].pinyin, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
+                FlashcardCorrectOrWrong(answer: $answer, hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, pinyin: viewModel.showVocabularies[viewModel.currentIndex].pinyin, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
                   withAnimation{
                      DispatchQueue.main.async {
                         viewModel.performSwipeRight()
@@ -68,7 +68,7 @@ struct FlashcardPageView: View {
                .transition(.move(edge: .bottom))
             }
             else{
-               BottomFlashcardContainerView(isCorrect: $isCorrect, hasAnswered: $hasAnswered)
+                BottomFlashcardContainerView(answer: $answer, isCorrect: $isCorrect, hasAnswered: $hasAnswered)
                   .transition(.move(edge: .bottom))
             }
             

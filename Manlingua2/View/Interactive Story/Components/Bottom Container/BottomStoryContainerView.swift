@@ -13,6 +13,7 @@ struct BottomStoryContainerView: View {
    @Binding var selectedAnswer: String?
    @Binding var isCorrect: Bool
    @Binding var hasAnswered: Bool
+   @Binding var isSpeakingQuestion: Bool
    
    var storyId: Int
    var chatType: ChatType
@@ -47,6 +48,7 @@ struct BottomStoryContainerView: View {
                         selectedAnswer = answer
                         
                         withAnimation {
+                           isSpeakingQuestion = false
                            isCorrect = (answer == realAnswer)
                            hasAnswered = true
                         }
@@ -56,6 +58,7 @@ struct BottomStoryContainerView: View {
                   }else{
                      MicrophoneModalityView() { answer in
                         withAnimation{
+                           isSpeakingQuestion = true
                            isCorrect = (answer == realAnswer)
                            hasAnswered = true
                         }

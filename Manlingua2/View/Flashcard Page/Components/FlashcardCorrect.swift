@@ -4,7 +4,7 @@
 //
 //  Created by Arrick Russell Adinoto on 18/10/24.
 //
-
+/*
 import SwiftUI
 
 struct FlashcardCorrect: View {
@@ -71,3 +71,4 @@ struct FlashcardCorrect: View {
       .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
    }
 }
+*/

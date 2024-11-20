@@ -4,6 +4,7 @@
 //
 //  Created by Arrick Russell Adinoto on 16/10/24.
 //
+/*
 import SwiftUI
 
 struct FlashcardSidebarButton: View {
@@ -77,3 +78,4 @@ struct FlashcardSidebarButton: View {
       .frame(maxWidth: .infinity, alignment: .trailing)
    }
 }
+*/
