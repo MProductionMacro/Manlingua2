@@ -47,6 +47,7 @@ struct BottomFlashcardContainerView: View {
 */
 
 struct BottomFlashcardContainerView: View {
+    @Binding var answer:String
    @Binding var isCorrect: Bool
    @Binding var hasAnswered: Bool
    

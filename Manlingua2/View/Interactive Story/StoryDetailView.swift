@@ -21,6 +21,8 @@ struct StoryDetailView: View {
    @State var hasAnswered: Bool = false
    @State var isCorrect: Bool = false
    @State var selectedAnswer: String? = nil
+    
+    @State var isSpeakingQuestion: Bool = false
    
    @StateObject var singleton = SwiftDataServices.shared
    
@@ -38,14 +40,14 @@ struct StoryDetailView: View {
             }
             
             if hasAnswered{
-               CorrectOrWrong(hanzi: viewModel.chat_example[viewModel.currentIndex].hanzi, pinyin: viewModel.chat_example[viewModel.currentIndex].pinyin, meaning: viewModel.chat_example[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
+               CorrectOrWrong(isSpeakingQuestion: $isSpeakingQuestion, hanzi: viewModel.chat_example[viewModel.currentIndex].hanzi, pinyin: viewModel.chat_example[viewModel.currentIndex].pinyin, meaning: viewModel.chat_example[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
                   viewModel.correctAction(modalAppeared: &modalAppeared, index: &viewModel.currentIndex, hasAnswered: &hasAnswered)
                } tryAgainFunc: {
                   viewModel.wrongAction(modalAppeared: &modalAppeared, index: &viewModel.currentIndex, hasAnswered: &hasAnswered)
                }
                .transition(.move(edge: .bottom))
             }else{
-               BottomStoryContainerView(currentIndex: $viewModel.currentIndex, questionAppeared: $modalAppeared, selectedAnswer: $selectedAnswer, isCorrect: $isCorrect, hasAnswered: $hasAnswered, storyId: chapterId, chatType: viewModel.chat_example[viewModel.currentIndex].type, choices: viewModel.chat_example[viewModel.currentIndex].choice, realAnswer: viewModel.chat_example[viewModel.currentIndex].answer)
+                BottomStoryContainerView(currentIndex: $viewModel.currentIndex, questionAppeared: $modalAppeared, selectedAnswer: $selectedAnswer, isCorrect: $isCorrect, hasAnswered: $hasAnswered, isSpeakingQuestion: $isSpeakingQuestion, storyId: chapterId, chatType: viewModel.chat_example[viewModel.currentIndex].type, choices: viewModel.chat_example[viewModel.currentIndex].choice, realAnswer: viewModel.chat_example[viewModel.currentIndex].answer)
                   .transition(.move(edge: .bottom))
             }
          }

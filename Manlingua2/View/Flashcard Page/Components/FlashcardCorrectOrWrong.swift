@@ -1,14 +1,14 @@
 //
-//  View.swift
-//  HXD
+//  FlashcardCorreectOrWrong.swift
+//  Manlingua2
 //
-//  Created by Ferdinand Jacques on 01/08/24.
+//  Created by Arrick Russell Adinoto on 20/11/24.
 //
 
 import SwiftUI
 
-struct CorrectOrWrong: View {
-   @Binding var isSpeakingQuestion: Bool
+struct FlashcardCorrectOrWrong: View {
+    @Binding var answer:String
    var hanzi: String
    var pinyin: String
    var meaning: String
@@ -16,21 +16,13 @@ struct CorrectOrWrong: View {
    
    var continueFunc: () -> Void
    var tryAgainFunc: () -> Void
-    
-   @State var audioController = AudioController.shared
-   @State var textToSpeech = TextToSpeech.shared
-   
+    @State var audioController = AudioController.shared
    var body: some View {
       VStack(alignment: .leading, spacing: 24) {
          VStack(alignment: .leading) {
             HStack(spacing: 12) {
                Button {
-                   if isSpeakingQuestion{
-                       audioController.playRecording()
-                   }
-                   else{
-                       textToSpeech.speakSlow(text: hanzi)
-                   }
+                   audioController.playRecording()
                } label: {
                   Image(systemName: "waveform")
                      .foregroundStyle(.white)
@@ -56,10 +48,18 @@ struct CorrectOrWrong: View {
                }
             }
             
+             
             HStack {
-                Text("\(hanzi) " + "artinya".localized + " \(meaning)")
-                  .foregroundStyle(.black)
-                  .font(.subJudul())
+                if answer == "Transcription error: No speech detected" || answer.replacingOccurrences(of: " ", with: "") == ""{
+                    Text("No characters detected".localized)
+                        .foregroundStyle(.black)
+                        .font(.subJudul())
+                }
+                else{
+                    Text("Anda mengucapkan".localized + " \(answer)")
+                        .foregroundStyle(.black)
+                        .font(.subJudul())
+                }
             }
          }
          
@@ -84,5 +84,6 @@ struct CorrectOrWrong: View {
 }
 
 #Preview {
-    CorrectOrWrong(isSpeakingQuestion: .constant(true), hanzi: "猫", pinyin: "Māo", meaning: "How many people", isCorrect: true, continueFunc: {}, tryAgainFunc: {})
+    FlashcardCorrectOrWrong(answer: .constant("Tes"), hanzi: "猫", pinyin: "Māo", meaning: "How many people", isCorrect: true, continueFunc: {}, tryAgainFunc: {})
 }
+

@@ -97,7 +97,7 @@ struct CameraGrantedView: View {
          .ignoresSafeArea()
          .overlay(content: {
             if isPredicted{
-               CorrectOrWrong(hanzi: "", pinyin: "", meaning: "", isCorrect: isCorrect) {
+                CorrectOrWrong(isSpeakingQuestion: .constant(false), hanzi: "", pinyin: "", meaning: "", isCorrect: isCorrect) {
                   isPredicted = false
                   viewModel.isPredicted = false
                } tryAgainFunc: {

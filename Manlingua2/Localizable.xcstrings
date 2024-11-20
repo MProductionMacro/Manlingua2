@@ -217,6 +217,23 @@
         }
       }
     },
+    "Anda mengucapkan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You say"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anda mengucapkan"
+          }
+        }
+      }
+    },
     "Apakah Anda yakin ingin untuk keluar?" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -263,6 +280,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apakah Anda yakin ingin meninggalkan halaman ini?"
+          }
+        }
+      }
+    },
+    "artinya" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "means"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "artinya"
           }
         }
       }
@@ -1290,6 +1324,12 @@
             "state" : "translated",
             "value" : "Let's have fun with Mandarin!"
           }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mari bersenang-senang dengan Mandarin!"
+          }
         }
       }
     },
@@ -1497,6 +1537,23 @@
         }
       }
     },
+    "No characters detected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No characters detected"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tidak ada karakter yang terdeteksi"
+          }
+        }
+      }
+    },
     "No notes found." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1510,6 +1567,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tidak ada catatan."
+          }
+        }
+      }
+    },
+    "No sound was detected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No sound was detected"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak ada suara yang terdeteksi"
           }
         }
       }
