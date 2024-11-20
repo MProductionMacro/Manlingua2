@@ -39,6 +39,8 @@ targets:
           product: FirebaseDatabase
         - package: firebase
           product: FirebaseStorage
+        - package: firebase
+          product: FirebaseFirestore
         - package: siriwaveview
           product: SiriWaveView
       settings:
