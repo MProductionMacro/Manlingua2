@@ -90,7 +90,7 @@ struct AuthenticationView: View {
             } else {
                errorMessage = "Signed in successfully!".localized
                router.pushReplace(.mainScreen)
-               UserDefaults.standard.set(true, forKey: "hasSignedIn")
+//               UserDefaults.standard.set(true, forKey: "hasSignedIn")
             }
          }
       } else {

@@ -11,6 +11,7 @@ struct GoalPageView: View {
    
    @EnvironmentObject var router: Router
    @EnvironmentObject var viewModel: ChallengeViewModel
+   @EnvironmentObject var storyVM: StoryViewModel
    @State private var lastResetDate: Date = Date() // Track last reset date
    
    var body: some View {
@@ -76,6 +77,7 @@ struct GoalPageView: View {
                VStack(spacing: 2) {
                   GoalTrackerView(task: .first, image: "Emas Cina", challenge: "Selesaikan 1 subbab cerita".localized, doneTask: singleton.tasks[0]) {
                      viewModel.taskDone(index: 0)
+                     storyVM.loadChat(storyId: singleton.latestStory, subChapterId: singleton.latestSubChapter)
                      router.push(.loadingPage(screen: .storyPage(chapterId: singleton.latestStory, subChapterId: singleton.latestSubChapter)))
                   }
                   
@@ -135,4 +137,5 @@ struct GoalPageView: View {
    GoalPageView()
       .environmentObject(Router())
       .environmentObject(ChallengeViewModel())
+      .environmentObject(StoryViewModel())
 }
