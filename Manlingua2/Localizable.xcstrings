@@ -1978,6 +1978,7 @@
       }
     },
     "Perunggu" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

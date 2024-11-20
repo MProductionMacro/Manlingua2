@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StoryListView: View {
+    @EnvironmentObject var router: Router
    var body: some View {
       //      TODO: Beberapa size masih hard coded
       ScrollView(showsIndicators: false){

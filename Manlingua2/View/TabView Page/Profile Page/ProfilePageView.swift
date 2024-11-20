@@ -20,7 +20,7 @@ struct ProfilePageView: View {
                      .font(Font.titleKe2())
                      .foregroundColor(.white)
                      .padding(.bottom, 1)
-                  Text("Perunggu")
+                  Text("Perunggu".localized)
                      .font(Font.subJudul())
                      .padding(.top, 1)
                      .foregroundColor(.userRank)
