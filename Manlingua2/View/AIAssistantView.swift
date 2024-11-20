@@ -20,7 +20,8 @@ struct AIAssistantView: View {
    var body: some View {
       VStack(spacing: 16) {
          SiriWaveView(power: $aiAssistantViewModel.audioPower)
-            .overlay(overlayView)
+              .opacity(aiAssistantViewModel.siriWaveFormOpacity)
+              .overlay(overlayView)
          
          Spacer()
          switch aiAssistantViewModel.state {

@@ -35,13 +35,13 @@ struct LoadingView: View {
     
    
     private func navigatePage(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5)  {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.25)  {
             router.push(screen)
         }
     }
     
    private func animateProgress() {
-      withAnimation(.easeInOut(duration: 1.5)) {
+       withAnimation(.easeInOut(duration: 1.25)) {
          progressValue = 1.0
       }
        
