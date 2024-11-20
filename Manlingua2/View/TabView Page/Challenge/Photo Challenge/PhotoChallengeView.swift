@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PhotoChallengeView: View {
    @EnvironmentObject var router: Router
-//   @StateObject var viewModel = ChallengeViewModel()
+   @EnvironmentObject var viewModel: ChallengeViewModel
    @StateObject var camera = CameraController.shared
    @State var isCorrect = false
    
@@ -26,7 +26,7 @@ struct PhotoChallengeView: View {
             CameraGrantedView()
          }else{
             CameraNotGrantedView(primaryButtonPressed: {
-               camera.requestPermission()
+               camera.checkPermission()
             }, secondaryButtonPressed: {
                router.pop()
             })
@@ -46,6 +46,9 @@ struct PhotoChallengeView: View {
       .overlay {
          
       }
+      .onAppear(perform: {
+         viewModel.fetchObjects()
+      })
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {
             HStack(alignment: .top) {

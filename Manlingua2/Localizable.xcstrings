@@ -1217,7 +1217,6 @@
       }
     },
     "Kembali" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1318,6 +1317,7 @@
       }
     },
     "Log Out" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
