@@ -20,6 +20,16 @@
         }
       }
     },
+    "%@ / %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ / %2$@"
+          }
+        }
+      }
+    },
     "%@ artinya '%@'" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -55,6 +65,7 @@
       }
     },
     "%lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -71,6 +82,7 @@
       }
     },
     "%lld / %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -239,7 +251,6 @@
       }
     },
     "Ayo simpan kata yang ingin" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -287,6 +298,9 @@
           }
         }
       }
+    },
+    "Bagian %@" : {
+
     },
     "Bagian %lld" : {
       "extractionState" : "stale",
@@ -612,7 +626,6 @@
       }
     },
     "Continue" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1002,7 +1015,6 @@
       }
     },
     "kamu pelajari kembali" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1237,7 +1249,6 @@
       }
     },
     "Log Out" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1474,6 +1485,9 @@
         }
       }
     },
+    "Notification Settings" : {
+
+    },
     "Obrolan Ringan" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1594,7 +1608,6 @@
       }
     },
     "Pengantar" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1881,6 +1894,9 @@
           }
         }
       }
+    },
+    "sekitar 15 menit" : {
+
     },
     "Selamat datang" : {
       "extractionState" : "stale",

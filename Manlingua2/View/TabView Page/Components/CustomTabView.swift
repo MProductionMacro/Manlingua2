@@ -43,8 +43,8 @@ extension CustomTabView {
             .fontWeight(selection == index ? .bold : .regular)
       }
       .frame(maxWidth: .infinity)
-      .frame(height: 60)
-      .padding(.top)
+//      .frame(height: 60)
+      .padding(.vertical)
 //      .background(selection == index ? .orange3.opacity(0.3) : .clear)
    }
    

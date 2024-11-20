@@ -20,25 +20,25 @@ struct AIAssistantView: View {
    var body: some View {
       VStack(spacing: 16) {
          SiriWaveView(power: $aiAssistantViewModel.audioPower)
-              .opacity(aiAssistantViewModel.siriWaveFormOpacity)
-              .overlay(overlayView)
+            .opacity(aiAssistantViewModel.siriWaveFormOpacity)
+            .overlay(overlayView)
          
          Spacer()
          switch aiAssistantViewModel.state {
          case .recordingSpeech:
-             Text("Sedang Merekam".localized)
+            Text("Sedang Merekam".localized)
                .font(.system(size: 20, weight: .medium, design: .rounded)).animation(.easeInOut)
             cancelRecordingButton
             
          case .processingSpeech, .playingSpeech:
-             Text("Batalkan memproses".localized)
+            Text("Batalkan memproses".localized)
                .font(.system(size: 20, weight: .medium, design: .rounded)).animation(.easeInOut)
             
             cancelButton
             
          case .idle:
             
-             Text("Tekan Untuk Memulai".localized)
+            Text("Tekan Untuk Memulai".localized)
                .font(.system(size: 20, weight: .medium, design: .rounded)).animation(.easeInOut)
             startCaptureButton
             
@@ -58,73 +58,73 @@ struct AIAssistantView: View {
          }
       }
       .toolbar {
-          ToolbarItem(placement: .topBarLeading) {
-              HStack(alignment: .top){
-                  Button(action:{
-                      router.pop()
-                  }){
-                      Image(systemName: "chevron.left")
-                          .foregroundColor(.orangeDarkMode)
-                          .font(.title3)
-                          .bold()
-                      
-                      Text("Kembali".localized)
-                          .foregroundColor(.orangeDarkMode)
-                          .bold()
-                  }
-              }
-          }
+         ToolbarItem(placement: .topBarLeading) {
+            HStack(alignment: .top){
+               Button(action:{
+                  router.pop()
+               }){
+                  Image(systemName: "chevron.left")
+                     .foregroundColor(.orangeDarkMode)
+                     .font(.title3)
+                     .bold()
+                  
+                  Text("Kembali".localized)
+                     .foregroundColor(.orangeDarkMode)
+                     .bold()
+               }
+            }
+         }
       }
       .padding()
    }
    
    @ViewBuilder
-       var overlayView: some View {
-           switch aiAssistantViewModel.state {
-           case .idle, .error:
-               EmptyView()
-           
-           case .processingSpeech:
-               Image(systemName: "brain")
-                   .symbolEffect(.bounce.up.byLayer, options: .repeating, value: isSymbolAnimating)
-                   .font(.system(size: 128))
-                   .onAppear { isSymbolAnimating = true }
-                   .onDisappear { isSymbolAnimating = false }
-           default: EmptyView()
-           }
-       }
-       
-       var startCaptureButton: some View {
-           Button {
-               aiAssistantViewModel.startCaptureAudio()
-           } label: {
-               Image(systemName: "mic.circle.fill")
-                   .symbolRenderingMode(.multicolor)
-                   .font(.system(size: 70))
-           }.buttonStyle(.borderless)
-       }
-       var cancelRecordingButton: some View {
-           Button(role: .destructive) {
-               aiAssistantViewModel.cancelRecording()
-           } label: {
-               Image(systemName: "xmark.circle.fill")
-                   .symbolRenderingMode(.multicolor)
-                   .font(.system(size: 60))
-           }.buttonStyle(.borderless)
-           
-       }
-       
-       var cancelButton: some View {
-           Button(role: .destructive) {
-               aiAssistantViewModel.cancelProcessingTask()
-           } label: {
-               Image(systemName: "stop.circle.fill")
-                   .symbolRenderingMode(.monochrome)
-                   .foregroundStyle(.red)
-                   .font(.system(size: 44))
-           }.buttonStyle(.borderless)
-           
-       }
+   var overlayView: some View {
+      switch aiAssistantViewModel.state {
+      case .idle, .error:
+         EmptyView()
+         
+      case .processingSpeech:
+         Image(systemName: "brain")
+            .symbolEffect(.bounce.up.byLayer, options: .repeating, value: isSymbolAnimating)
+            .font(.system(size: 128))
+            .onAppear { isSymbolAnimating = true }
+            .onDisappear { isSymbolAnimating = false }
+      default: EmptyView()
+      }
+   }
+   
+   var startCaptureButton: some View {
+      Button {
+         aiAssistantViewModel.startCaptureAudio()
+      } label: {
+         Image(systemName: "mic.circle.fill")
+            .symbolRenderingMode(.multicolor)
+            .font(.system(size: 70))
+      }.buttonStyle(.borderless)
+   }
+   var cancelRecordingButton: some View {
+      Button(role: .destructive) {
+         aiAssistantViewModel.cancelRecording()
+      } label: {
+         Image(systemName: "xmark.circle.fill")
+            .symbolRenderingMode(.multicolor)
+            .font(.system(size: 60))
+      }.buttonStyle(.borderless)
+      
+   }
+   
+   var cancelButton: some View {
+      Button(role: .destructive) {
+         aiAssistantViewModel.cancelProcessingTask()
+      } label: {
+         Image(systemName: "stop.circle.fill")
+            .symbolRenderingMode(.monochrome)
+            .foregroundStyle(.red)
+            .font(.system(size: 44))
+      }.buttonStyle(.borderless)
+      
+   }
 }
 
 
