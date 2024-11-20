@@ -20,17 +20,38 @@ struct NotificationSettingView: View {
                     Button(action: {
                         openNotificationSettings()
                     }) {
-                        HStack {
-                            Text("Manage Notifications")
-                            Spacer()
-                            if notificationsEnabled {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(.green)
-                            } else {
-                                Image(systemName: "xmark.circle.fill")
-                                    .foregroundColor(.red)
-                            }
-                        }
+                        VStack(alignment: .leading, spacing: 16){
+                          Text("Pengaturan Notifikasi".localized)
+                              .font(.heavy32())
+                              .padding(.bottom, -8)
+
+                          Text("Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih".localized)
+                              .font(.subJudul())
+                              .opacity(0.65)
+
+                          Text("Aktifkan notifikasi melalui sistem pengaturan".localized)
+                              .font(.subJudul())
+
+
+
+                          Spacer()
+
+                          Button(action: {
+                              UserDefaultSingleton.shared.setLanguage(language: lang)
+                              router.pop()
+                          }) {
+                              Text("Simpan".localized)
+                                .foregroundStyle(Color.white)
+                                .font(.button())
+                                .padding(20)
+                                .frame(maxWidth: .infinity)
+                                .background(.orangeDarkMode)
+                                .clipShape(.rect(cornerRadius: 8))
+                          }
+                      }
+                      .padding(.horizontal, 16)
+                      .padding(.top, UIScreen.main.bounds.height < 700 ? -40 : 8)
+                      .padding(.bottom, UIScreen.main.bounds.height < 700 ? 8 : 0)
                     }
                 }
             }

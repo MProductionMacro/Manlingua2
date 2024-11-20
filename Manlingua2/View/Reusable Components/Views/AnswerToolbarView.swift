@@ -17,7 +17,7 @@ struct AnswerToolbarView : View {
             Spacer()
             HStack{
                 Button(action:{
-                    router.push(.dictionary(judul: "Kata Favorit", displayMode: .favorite))
+                    router.push(.dictionary(judul: "Kata Favorit".localized, displayMode: .favorite))
                 }, label: {
                     Image(systemName: "book")
                         .foregroundColor(.white)
@@ -31,7 +31,7 @@ struct AnswerToolbarView : View {
                 Spacer()
                 
                 Button(action:{
-                    tts.speak(text: viewModel.showVocabularies[viewModel.currentIndex].hanzi)
+                   tts.speak(text: viewModel.showVocabularies[viewModel.currentIndex].hanzi)
                 }, label: {
                     Image(systemName: "speaker.wave.2")
                         .foregroundColor(.white)

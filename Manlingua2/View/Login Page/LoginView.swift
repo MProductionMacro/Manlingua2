@@ -17,7 +17,7 @@ struct LoginView: View {
       VStack {
          Spacer()
          
-         Text("Selamat datang")
+         Text("Selamat datang".localized)
             .font(.judulBesar())
             .fontWeight(.bold)
             .multilineTextAlignment(.center)
@@ -38,7 +38,7 @@ struct LoginView: View {
             }) {
                HStack {
                   Image(systemName: "envelope.fill")
-                  Text("Sign in with Email")
+                  Text("Sign in with Email".localized)
                      .font(.judulBiasa())
                }
                .frame(maxWidth: .infinity)
@@ -58,15 +58,15 @@ struct LoginView: View {
          
          Spacer()
          
-         Text("By logging in, you agree to the")
+          Text("By logging in, you agree to the".localized)
             .font(.footnote)
          
          HStack(spacing: 4) {
-            Text("Privacy Policy")
+             Text("Privacy Policy".localized)
                .foregroundColor(.blue)
                .underline()
-            Text("and")
-            Text("Terms and Conditions.")
+             Text("and".localized)
+             Text("Terms and Conditions.".localized)
                .foregroundColor(.blue)
                .underline()
          }

@@ -12,7 +12,7 @@ class DictionaryViewModel: ObservableObject {
     @Published var vocabularies: [Vocabulary] = []
     @Published var vocabularies_en: [Vocabulary] = []
     
-    func loadVocabularies(from displayMode: DictionaryDisplayMode) {
+   @MainActor func loadVocabularies(from displayMode: DictionaryDisplayMode) {
         switch displayMode {
         case .favorite:
             loadFavoriteVocabularies()
@@ -21,7 +21,7 @@ class DictionaryViewModel: ObservableObject {
         }
     }
     
-    private func loadFavoriteVocabularies() {
+   @MainActor private func loadFavoriteVocabularies() {
         if UserDefaultSingleton.shared.language == "en"{
             for vocab in SwiftDataServices.shared.vocabs_en{
                 vocabularies.append(Vocabulary(hanzi: vocab.hanzi, pinyin: vocab.pinyin, meaning: vocab.meaning, hanziSentence: vocab.hanziSentence, pinyinSentence: vocab.pinyinSentence, meaningSentence: vocab.meaningSentence, language: vocab.language))
@@ -41,7 +41,7 @@ class DictionaryViewModel: ObservableObject {
         }
     }
         
-    public func addVocabulary(_ vocab:Vocabulary){
+   @MainActor public func addVocabulary(_ vocab:Vocabulary){
         for i in 0..<vocabularies.count{
             if vocabularies[i].hanzi == vocab.hanzi{
                 SwiftDataServices.shared.addData(vocabularies[i])

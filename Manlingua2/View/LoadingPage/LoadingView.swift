@@ -12,34 +12,27 @@ struct LoadingView: View {
    @State private var isLoading = true
    @State private var progressValue: CGFloat = 0.0
     var screen: Screen
-   var body: some View {
-      ZStack {
-         
-         Image(.chatBackground)
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .ignoresSafeArea()
-         
-         VStack {
-            Spacer()
-            Image("Animate")
-               .frame(width: 60, height: 60)
-               .padding(.bottom, 70)
+    var body : some View {
+        ZStack{
+            Image(.chatBackground)
+               .resizable()
+               .aspectRatio(contentMode: .fill)
+               .ignoresSafeArea()
             VStack(spacing: 20) {
-//               ProgressBar(progress: progressValue)
-//                  .frame(width: 300, height: 8)
-               ProgressView(value: progressValue, total: 1)
+                Image("Animate")
+                   .frame(width: 60, height: 60)
+                   .padding(.bottom, 70)
+                ProgressView(value: progressValue, total: 1)
                     .progressViewStyle(CustomProgressViewStyle(height: 8, filledColor: .greenNormalActive, unfilledColor: .progressBar))
+                    .frame(width: UIScreen.main.bounds.width * 0.76)
             }
-            Spacer()
-         }
-         .padding()
-      }
-      .onAppear {
-         animateProgress()
-         navigatePage()
-      }
-   }
+        }
+        .onAppear {
+           animateProgress()
+           navigatePage()
+        }
+    }
+    
    
     private func navigatePage(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.25)  {

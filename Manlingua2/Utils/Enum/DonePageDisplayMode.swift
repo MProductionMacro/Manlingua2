@@ -44,7 +44,7 @@ enum PartOfTheStory: CaseIterable{
 struct DonePageModel{
    static let title = "Selamat!"
    static let description = "Kamu telah menyelesaikan"
-   static let returnToStoryTxt = "Balik ke cerita"
+   static let returnToStoryTxt = "Beranda"
    static let houseSymbol = "house"
    static let returnSymbol = "arrow.uturn.forward"
    

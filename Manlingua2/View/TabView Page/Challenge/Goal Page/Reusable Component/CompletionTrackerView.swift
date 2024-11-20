@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct CompletionTrackerView: View{
-   @StateObject var appStorageController = AppStorageController.shared
-   
+   @StateObject var singleton = SwiftDataServices.shared
+   @EnvironmentObject var viewModel: ChallengeViewModel
+   @EnvironmentObject var router: Router
    var body: some View {
       VStack(alignment: .center) {
           VStack(alignment: .leading, spacing: 8) {
-            Text("Selesaikan 3 tugas")
+              Text("Selesaikan 3 tugas".localized)
                .font(Font.subJudul())
             
             ProgressView(
-               value: Double(appStorageController.completedTasks),
-               total: Double(appStorageController.totalTasks)
+               value: Double(singleton.totalTasks),
+               total: 1
             )
             .progressViewStyle(CustomProgressViewStyle(
                 height: UIScreen.main.bounds.height * 0.02,

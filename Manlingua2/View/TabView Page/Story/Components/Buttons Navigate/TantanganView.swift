@@ -12,7 +12,7 @@ struct TantanganView: View {
   
     var body: some View {
        VStack(alignment: .leading, spacing: 0) {
-          Text("Tantangan")
+          Text("Tantangan".localized)
              .font(.judulBiasa())
              .padding(.leading, 24)
           
@@ -22,14 +22,14 @@ struct TantanganView: View {
              } label: {
                 EmptyView()
              }
-             .buttonStyle(HomeNavigationButton(image: "camera", text: "Foto"))
+             .buttonStyle(HomeNavigationButton(image: "camera", text: "Foto".localized))
              
              Button {
                 router.push(.aiSimulation)
              } label: {
                 EmptyView()
              }
-             .buttonStyle(HomeNavigationButton(image: "bubble.left.and.text.bubble.right", text: "Simulasi"))
+             .buttonStyle(HomeNavigationButton(image: "bubble.left.and.text.bubble.right", text: "Simulasi".localized))
           }
           .padding(.vertical)
           .padding(.leading, 24)

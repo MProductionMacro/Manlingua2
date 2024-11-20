@@ -33,7 +33,7 @@ struct BubbleChatNext: View {
 //                     viewModel.moveToNextStage()
                   }) {
                      //TODO: Modifiernya kasih spacing
-                     Text("Next").font(.title3).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/).foregroundStyle(.orange3)
+                     Text("Next".localized).font(.title3).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/).foregroundStyle(.orange3)
                   }
                }
                .padding(.top, 2)

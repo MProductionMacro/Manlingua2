@@ -50,7 +50,7 @@ struct FlashcardDictionaryView: View {
                         .font(Font.normalText())
                 
                     Button(action:{
-                        textToSpeech.speak(text: vocab.hanzi)
+                       textToSpeech.speak(text: vocab.hanzi)
                     }, label:{
                         Image(systemName: "speaker.wave.2")
                             .font(Font.button())
@@ -65,7 +65,7 @@ struct FlashcardDictionaryView: View {
         .onAppear{
             isBookmarked = SwiftDataServices.shared.isVocabExist(vocab: vocab)
         }
-        .frame(width: 170, height: 208)
+        .frame(width: 160, height: 208)
         .zIndex(2)
         .background(.cardBackground)
         .cornerRadius(16.98)

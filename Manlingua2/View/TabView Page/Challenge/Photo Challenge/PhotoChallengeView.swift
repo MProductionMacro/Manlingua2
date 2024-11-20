@@ -13,9 +13,11 @@ struct PhotoChallengeView: View {
    @StateObject var camera = CameraController.shared
    @State var isCorrect = false
    
+   @State var isShowingCamera = false
+   
    var body: some View {
       VStack(alignment: .leading){
-         Text("Tantangan Foto")
+          Text("Tantangan Foto".localized)
             .font(.judulBesar())
             .foregroundStyle(.white)
             .padding()
@@ -40,6 +42,9 @@ struct PhotoChallengeView: View {
             .scaledToFill()
             .ignoresSafeArea()
       )
+      .overlay {
+         
+      }
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {
             HStack(alignment: .top) {
@@ -50,7 +55,7 @@ struct PhotoChallengeView: View {
                      .foregroundColor(.white)
                      .font(.semibold16())
                   
-                  Text("Kembali")
+                   Text("Kembali".localized)
                      .foregroundColor(.white)
                      .font(.semibold20())
                }

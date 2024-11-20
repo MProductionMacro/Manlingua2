@@ -1,106 +1,108 @@
 [
-    {
-        "id": 1,
-        "speaker": "Abai",
-        "pinyin": "Wǒ men lái hē chá ba!",
-        "hanzi": "我们来喝茶吧！",
-        "meaning": "Let's have some tea!",
-        "type": "speaker1"
-    },
-    {
-        "id": 2,
-        "speaker": "Asui",
-        "pinyin": "Hǎo de, wǒ gāng pào le yì hú lǜ chá.",
-        "hanzi": "好的，我刚泡了一壶绿茶。",
-        "meaning": "Alright, I just brewed a pot of green tea.",
-        "type": "speaker2"
-    },
-    {
-        "id": 3,
-        "speaker": "Asui",
-        "pinyin": "Lǜchá",
-        "hanzi": "绿茶",
-        "meaning": "Green tea",
-        "choice": ["Green tea", "Black tea", "Milk tea", "Sweet tea"],
-        "answer": "Green tea",
-        "question": "What does 绿茶 (lǜchá) mean?",
-        "type": "question"
-    },
-    {
-        "id": 4,
-        "speaker": "Abai",
-        "pinyin": "Xiè xiè! Wǒ hěn xǐ huān hē lǜ chá.",
-        "hanzi": "谢谢！我很喜欢喝绿茶。",
-        "meaning": "Thank you! I really like green tea.",
-        "type": "speaker1"
-    },
-    {
-        "id": 5,
-        "speaker": "Asui",
-        "pinyin": "xǐhuān",
-        "hanzi": "喜欢",
-        "meaning": "xǐhuān",
-        "choice": ["To like", "To buy", "To order", "To try"],
-        "answer": "To like",
-        "question": "Listen, what does 喜欢 (xǐhuān) mean?",
-        "type": "question"
-    },
-    {
-        "id": 6,
-        "speaker": "Asui",
-        "pinyin": "Nǐ jué de zhè cì huì yì yǒu shōu huò ma?",
-        "hanzi": "你觉得这次会议有收获吗？",
-        "meaning": "Do you think this conference was beneficial?",
-        "type": "speaker2"
-    },
-    {
-        "id": 7,
-        "speaker": "Abai",
-        "pinyin": "Shì de, zhè cì huì yì gěi le wǒ men hěn duō xīn de jī huì.",
-        "hanzi": "是的，这次会议给了我们很多新的机会。",
-        "meaning": "Yes, this conference gave us many new opportunities.",
-        "type": "speaker1"
-    },
-    {
-        "id": 8,
-        "speaker": "Asui",
-        "pinyin": "Cì yīhuì",
-        "hanzi": "请重复 收获",
-        "meaning": "Please repeat 收获 (shōuhuò).",
-        "type": "question"
-    },
-    {
-        "id": 9,
-        "speaker": "Asui",
-        "pinyin": "Nà tài hǎo le, jī huì zǒng shì hěn zhòng yào de.",
-        "hanzi": "那太好了，机会总是很重要的。",
-        "meaning": "That’s great, opportunities are always very important.",
-        "type": "speaker2"
-    },
-    {
-        "id": 10,
-        "speaker": "Abai",
-        "pinyin": "Shì de, fēi cháng zhòng yào.",
-        "hanzi": "是的，非常重要。",
-        "meaning": "Yes, very important.",
-        "answer": "是的，非常重要",
-        "question": "Answer in Mandarin: 'Yes, very important.'",
-        "type": "question"
-    },
-    {
-        "id": 11,
-        "speaker": "Asui",
-        "pinyin": "Hǎo de, wǒ men jìxù hē chá ba!",
-        "hanzi": "好的，我们继续喝茶吧！",
-        "meaning": "Alright, let’s continue drinking tea!",
-        "type": "speaker2"
-    },
-    {
-        "id": 12,
-        "speaker": "Abai",
-        "pinyin": "Hǎo de, xiè xiè nǐ zhāo dài wǒ men!",
-        "hanzi": "好的，谢谢你招待我们！",
-        "meaning": "Alright, thank you for hosting us!",
-        "type": "speaker1"
-    }
+   {
+      "id": 1,
+      "speaker": "Abai",
+      "pinyin": "Wǒ men lái hē chá ba!",
+      "hanzi": "我们来喝茶吧！",
+      "meaning": "Let's have some tea!",
+      "type": "speaker1"
+   },
+   {
+      "id": 2,
+      "speaker": "Asui",
+      "pinyin": "Hǎo de, wǒ gāng pào le yì hú lǜ chá.",
+      "hanzi": "好的，我刚泡了一壶绿茶。",
+      "meaning": "Alright, I just brewed a pot of green tea.",
+      "type": "speaker2"
+   },
+   {
+      "id": 3,
+      "speaker": "Asui",
+      "pinyin": "Lǜchá",
+      "hanzi": "绿茶",
+      "meaning": "Green tea",
+      "choice": ["Green tea", "Black tea", "Milk tea", "Sweet tea"],
+      "answer": "Green tea",
+      "question": "What does 绿茶 (lǜchá) mean?",
+      "type": "question"
+   },
+   {
+      "id": 4,
+      "speaker": "Abai",
+      "pinyin": "Xiè xiè! Wǒ hěn xǐ huān hē lǜ chá.",
+      "hanzi": "谢谢！我很喜欢喝绿茶。",
+      "meaning": "Thank you! I really like green tea.",
+      "type": "speaker1"
+   },
+   {
+      "id": 5,
+      "speaker": "Asui",
+      "pinyin": "xǐhuān",
+      "hanzi": "喜欢",
+      "meaning": "xǐhuān",
+      "choice": ["To like", "To buy", "To order", "To try"],
+      "answer": "To like",
+      "question": "Listen, what does 喜欢 (xǐhuān) mean?",
+      "type": "question"
+   },
+   {
+      "id": 6,
+      "speaker": "Asui",
+      "pinyin": "Nǐ jué de zhè cì huì yì yǒu shōu huò ma?",
+      "hanzi": "你觉得这次会议有收获吗？",
+      "meaning": "Do you think this conference was beneficial?",
+      "type": "speaker2"
+   },
+   {
+      "id": 7,
+      "speaker": "Abai",
+      "pinyin": "Shì de, zhè cì huì yì gěi le wǒ men hěn duō xīn de jī huì.",
+      "hanzi": "是的，这次会议给了我们很多新的机会。",
+      "meaning": "Yes, this conference gave us many new opportunities.",
+      "type": "speaker1"
+   },
+   {
+      "id": 8,
+      "speaker": "Asui",
+      "pinyin": "shōuhuò",
+      "hanzi": "收获。",
+      "answer": "收获",
+      "meaning": "benefit",
+      "question": "Please repeat 收获 (shōuhuò).",
+      "type": "question"
+   },
+   {
+      "id": 9,
+      "speaker": "Asui",
+      "pinyin": "Nà tài hǎo le, jī huì zǒng shì hěn zhòng yào de.",
+      "hanzi": "那太好了，机会总是很重要的。",
+      "meaning": "That’s great, opportunities are always very important.",
+      "type": "speaker2"
+   },
+   {
+      "id": 10,
+      "speaker": "Abai",
+      "pinyin": "Shì de, fēi cháng zhòng yào.",
+      "hanzi": "是的，非常重要。",
+      "meaning": "Yes, very important.",
+      "answer": "是的，非常重要",
+      "question": "Answer in Mandarin: 'Yes, very important.'",
+      "type": "question"
+   },
+   {
+      "id": 11,
+      "speaker": "Asui",
+      "pinyin": "Hǎo de, wǒ men jìxù hē chá ba!",
+      "hanzi": "好的，我们继续喝茶吧！",
+      "meaning": "Alright, let’s continue drinking tea!",
+      "type": "speaker2"
+   },
+   {
+      "id": 12,
+      "speaker": "Abai",
+      "pinyin": "Hǎo de, xiè xiè nǐ zhāo dài wǒ men!",
+      "hanzi": "好的，谢谢你招待我们！",
+      "meaning": "Alright, thank you for hosting us!",
+      "type": "speaker1"
+   }
 ]

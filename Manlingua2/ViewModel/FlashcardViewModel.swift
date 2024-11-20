@@ -89,7 +89,7 @@ class FlashcardViewModel: ObservableObject {
        }
    }
     
-    public func addVocabulary(_ vocab:Vocabulary){
+   @MainActor public func addVocabulary(_ vocab:Vocabulary){
         for i in 0..<showVocabularies.count{
             if showVocabularies[i].hanzi == vocab.hanzi{
                 SwiftDataServices.shared.addData(vocabularies[i])

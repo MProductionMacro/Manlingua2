@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct DictionaryView: View {
-    @Environment(\.colorScheme) var colorScheme
+   @Environment(\.colorScheme) var colorScheme
    @EnvironmentObject var router: Router
    @StateObject var viewModel = DictionaryViewModel()
    @State var textToSpeech = TextToSpeech()
@@ -24,54 +24,58 @@ struct DictionaryView: View {
                .bold()
                .padding(.top, 16)
             
-            Text("\(viewModel.vocabularies.count) Kata")
+             Text("\(viewModel.vocabularies.count) " + "Kata".localized)
                .font(.subheadline)
-
-             if viewModel.getVocabulary(displayMode).isEmpty {
-                Spacer()
-                VStack(alignment: .center){
-                    Image(.orangeForBlank)
-                        .resizable()
-                        .frame(width: 158, height: 161)
-                        .padding(.bottom, 36)
-                         
-                    Text("Ayo simpan kata yang ingin")
-                        .font(.judulBiasa())
-                        .foregroundColor(.emptyListText)
-                        .opacity(colorScheme == .light ? 1 : 0.7)
-
-                    Text("kamu pelajari kembali")
-                        .font(.judulBiasa())
-                        .foregroundColor(.emptyListText)
-                        .opacity(colorScheme == .light ? 1 : 0.7)
-
-                }
-                Spacer()
-                Spacer()
-             }
-             else{
-                 ScrollView {
-                     LazyVGrid(
-                         columns: [GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 0)],
-                         spacing: 16 // Vertical spacing
-                     ) {
-                         ForEach(viewModel.getVocabulary(displayMode), id: \.self) { vocabulary in
-                             FlashcardDictionaryView(vocab: vocabulary, textToSpeech: $textToSpeech, viewModel: viewModel)
-                                 .padding(0)
-                                 //.background(.red)
-                         }
+           
+            if viewModel.getVocabulary(displayMode).isEmpty {
+               Spacer()
+               VStack(alignment: .center){
+                  Image(.orangeForBlank)
+                     .resizable()
+                     .frame(width: 158, height: 161)
+                     .padding(.bottom, 36)
+                  
+                  Text("Ayo simpan kata yang ingin")
+                     .font(.judulBiasa())
+                     .foregroundColor(.emptyListText)
+                     .opacity(colorScheme == .light ? 1 : 0.7)
+                  
+                  Text("kamu pelajari kembali")
+                     .font(.judulBiasa())
+                     .foregroundColor(.emptyListText)
+                     .opacity(colorScheme == .light ? 1 : 0.7)
+                  
+               }
+               Spacer()
+               Spacer()
+            }
+            else{
+               ScrollView {
+                  LazyVGrid(
+                     columns: [GridItem(.flexible(), spacing: 0), GridItem(.flexible(), spacing: 0)],
+                     spacing: 16 // Vertical spacing
+                  ) {
+                     ForEach(viewModel.getVocabulary(displayMode), id: \.self) { vocabulary in
+                        FlashcardDictionaryView(vocab: vocabulary, textToSpeech: $textToSpeech, viewModel: viewModel)
+                           .padding(0)
                      }
-                     .padding(.horizontal, 16)
-                     .padding(.top, 16)
-                 }
-             }
+                  }
+                  .padding(.horizontal, 16)
+                  .padding(.top, 16)
+               }
+            }
          }
+         .padding(.top, UIScreen.main.bounds.height < 700 ? -60 : 8)
          .navigationBarItems(leading: Button(action: {
-            router.popToRoot()
+            if displayMode == .favorite {
+               router.popToRoot()
+            }else{
+               router.pop()
+            }
          }) {
             HStack {
                Image(systemName: "chevron.left")
-               Text("Kembali")
+               Text("Kembali".localized)
             }
             .foregroundColor(.orangeDarkMode)
          })

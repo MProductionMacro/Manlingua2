@@ -20,10 +20,10 @@ struct PinYinNavigationButton: View {
             HStack(spacing: 12) {
                Image(labelImage)
                VStack(alignment: .leading) {
-                  Text(title)
+                   Text(title.localized)
                      .font(.title3)
                      .fontWeight(.bold)
-                  Text(content)
+                   Text(content.localized)
                      .multilineTextAlignment(.leading)
                      .font(.callout)
                      .frame(maxWidth: .infinity, alignment: .leading)

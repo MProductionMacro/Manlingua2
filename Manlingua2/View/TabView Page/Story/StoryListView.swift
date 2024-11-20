@@ -10,21 +10,21 @@ import SwiftUI
 struct StoryListView: View {
    var body: some View {
       //      TODO: Beberapa size masih hard coded
-      ScrollView{
+      ScrollView(showsIndicators: false){
          VStack(spacing: 0) {
             VStack(alignment: .leading) {
-               Text("Cerita seru apa yang ingin kamu")
+                Text("Cerita seru apa yang ingin kamu".localized)
                   .fontWeight(.semibold)
                   .foregroundStyle(.white)
                   .font(.judulBiasa())
                
-               Text("Coba Jelajah?")
+                Text("Coba Jelajah?".localized)
                   .font(.judulSedang())
                   .foregroundStyle(.white)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 20)
-   //         .padding(.top)
+//            .padding(.top)
             .padding(.bottom)
             
             VStack {
@@ -33,10 +33,14 @@ struct StoryListView: View {
                   KataKataView()
                   TantanganView()
 //               }
-               .padding(.bottom, 64)
             }
-            .background(.blankBackground)
-//            .ignoresSafeArea()
+            .padding(.bottom, UIScreen.main.bounds.height * 0.1)
+            .background(
+               Color.blankBackground
+                  .frame(maxHeight: .infinity)
+//                  .ignoresSafeArea()
+            )
+            .ignoresSafeArea()
             .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft]))
          }
          .padding(.top, 64)
@@ -46,6 +50,7 @@ struct StoryListView: View {
          Image(.profilePage)
             .resizable()
             .scaledToFill()
+            .ignoresSafeArea()
 //            .resizable()
 //            .scaledToFill()
       )

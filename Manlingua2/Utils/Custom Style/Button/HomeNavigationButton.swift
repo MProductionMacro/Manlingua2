@@ -12,21 +12,22 @@ struct HomeNavigationButton: PrimitiveButtonStyle {
    var text: String
    
    @State var pressed = false
+   @State private var holdAction = false
    
    func makeBody(configuration: Configuration) -> some View {
       VStack(alignment: .center, spacing: 0) {
          Image(systemName: image)
             .font(.judulBiasa())
             .fontWeight(.regular)
-            .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.width * 0.07, alignment: .center)
+            .frame(width: UIScreen.main.bounds.width * 0.1, height: UIScreen.main.bounds.width * 0.075, alignment: .center)
             .foregroundStyle(.orangeDarkMode)
             .padding()
          
          Text(text)
-            .font(.pinyin())
+            .font(Font.system(size: 10, weight: .regular))
             .fontWeight(.bold)
-            .frame(width: UIScreen.main.bounds.width * 0.14)
-            .padding(.vertical, 8)
+            .frame(width: UIScreen.main.bounds.width * 0.15)//0.14
+            .padding(.vertical, 8) //.padding(.horizontal)
             .padding(.horizontal)
             .foregroundStyle(.white)
             .background(.orangeDarkMode)
@@ -36,20 +37,22 @@ struct HomeNavigationButton: PrimitiveButtonStyle {
       .shadow(color: .cardShadow.opacity(0.18), radius: 8, x: 0, y: 0)
       .scaleEffect(pressed ? 1.1 : 1.0) // Immediate scale change on press
       .animation(pressed ? .none : .easeOut, value: pressed) // Animate on release only
-      .gesture(DragGesture(minimumDistance: 0).onChanged { _ in
-         pressed = true
-      }.onEnded { value in
-         DispatchQueue.main.asyncAfter(deadline: .now() + 0.001){
-            withAnimation {
-               pressed = false
-               // optionally, use value.location and a geometry reader to determine whether
-               // the gesture ended inside the button's label
-               //               DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-               //                  configuration.trigger()
-               //               }
-               configuration.trigger()
+      .gesture(
+         DragGesture(minimumDistance: 0)
+            .onChanged { _ in
+               pressed = true
             }
-         }
-      })
+            .onEnded { value in
+               DispatchQueue.main.asyncAfter(deadline: .now() + 0.001){
+                  if abs(value.translation.width) < 10 && abs(value.translation.height) < 10 {
+                     // Trigger action only if the user hasn't moved significantly
+                     withAnimation {
+                        configuration.trigger()
+                     }
+                  }
+                  pressed = false
+               }
+            }
+      )
    }
 }

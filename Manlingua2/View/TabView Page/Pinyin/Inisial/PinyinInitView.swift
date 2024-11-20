@@ -18,9 +18,8 @@ struct PinyinInitView: View {
          //TODO: Sizenya hard coded
          VStack(spacing: 16) {
             
-            Text("Inisial")
+             Text("Inisial".localized)
                .font(.system(size: 25, weight: .bold))
-               .padding(.top, 32)
             
             Image("Inisial")
                .resizable()
@@ -30,10 +29,10 @@ struct PinyinInitView: View {
 
             
             VStack{
-               Text("Tekan karakter untuk tahu cara")
+                Text("Tekan karakter untuk tahu cara".localized)
                   .font(.system(size: 20))
                   .multilineTextAlignment(.center)
-               Text("pengucapannya")
+                Text("pengucapannya".localized)
                   .font(.system(size: 20))
                   .multilineTextAlignment(.center)
             }
@@ -46,7 +45,12 @@ struct PinyinInitView: View {
             
          }
          .ignoresSafeArea()
+         .frame(maxWidth: .infinity, maxHeight: .infinity)
+         .padding(.top, UIScreen.main.bounds.height < 700 ? -40 : 32)
+
+         Spacer()
       }
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
       .background(.blankBackground)
       .toolbar {
           ToolbarItem(placement: .topBarLeading) {
@@ -58,7 +62,7 @@ struct PinyinInitView: View {
                       .foregroundColor(.orangeDarkMode)
                       .font(.semibold16())
                    
-                   Text("Kembali")
+                    Text("Kembali".localized)
                       .foregroundColor(.orangeDarkMode)
                       .font(.semibold20())
                 }

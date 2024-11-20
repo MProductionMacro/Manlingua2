@@ -11,24 +11,25 @@ struct LanguageSettingView: View {
     @EnvironmentObject var router: Router
     @State var selectedId: Int = 1
     @State var lang: Language = .indonesian
+    @StateObject var localizationManager: LocalizationManager = LocalizationManager.shared
 
     var body : some View {
         VStack{
             VStack(alignment: .leading, spacing: 16){
-                Text("Pengaturan Bahasa")
+                Text("Pengaturan Bahasa".localized)
                     .font(.heavy32())
                     .padding(.bottom, -8)
                 
-                Text("Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih")
+                Text("Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih".localized)
                     .font(.subJudul())
                     .opacity(0.65)
                 
-                LanguageSettingButton(image: .indonesianLogo, text: "Bahasa Indonesia", selectionId: 1, selectedId: $selectedId){
+                LanguageSettingButton(image: .indonesianLogo, text: "Bahasa Indonesia".localized, selectionId: 1, selectedId: $selectedId){
                     selectedId = 1
                     lang = .indonesian
                 }
                 
-                LanguageSettingButton(image: .englishLogo, text: "English", selectionId: 2, selectedId: $selectedId){
+                LanguageSettingButton(image: .englishLogo, text: "English".localized, selectionId: 2, selectedId: $selectedId){
                     selectedId = 2
                     lang = .english
                 }
@@ -38,9 +39,17 @@ struct LanguageSettingView: View {
                 
                 Button(action: {
                     UserDefaultSingleton.shared.setLanguage(language: lang)
+                    if lang == .english {
+                        
+                        localizationManager.selectedLanguage = .english
+                    }
+                    else{
+                        
+                        localizationManager.selectedLanguage = .indonesian
+                    }
                     router.popToRoot()
                 }) {
-                   Text("Simpan")
+                    Text("Simpan".localized)
                       .foregroundStyle(Color.white)
                       .font(.button())
                       .padding(20)
@@ -50,7 +59,10 @@ struct LanguageSettingView: View {
                 }
             }
             .padding(.horizontal, 16)
-            .padding(.top, 8)
+            .padding(.top, UIScreen.main.bounds.height < 700 ? -40 : 8)
+            .padding(.bottom, UIScreen.main.bounds.height < 700 ? 8 : 0)
+
+            //.padding(.top, 8)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.blankBackground)

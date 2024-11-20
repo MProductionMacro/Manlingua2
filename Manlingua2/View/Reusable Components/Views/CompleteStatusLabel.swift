@@ -12,7 +12,7 @@ struct CompleteStatusLabel: View {
    
    var body: some View {
       //TODO: Pake enum
-      let labelText = isComplete ? "Completed" : "Not Completed"
+       let labelText = isComplete ? "Completed".localized : "Not Completed".localized
       let foregroundColor = isComplete ? Color.green2 : Color.red
       let backgroundColor = isComplete ? Color.greenLight : Color.redLight
       

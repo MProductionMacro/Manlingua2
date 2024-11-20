@@ -17,12 +17,14 @@ struct CameraGrantedView: View {
    @State var isPredicted = false
    @State var isCorrect = false
    
+   @State var isShowingCamera = false
+   
    var body: some View {
       if let randomObjects = viewModel.objects_example.randomElement(){
          ScrollView {
             VStack(spacing: 24){
                VStack(alignment: .leading, spacing: 8) {
-                  Text("Cari dan fotokan")
+                   Text("Cari dan fotokan".localized)
                      .font(.judulBiasa())
                   
                   VStack(alignment: .leading) {
@@ -59,7 +61,8 @@ struct CameraGrantedView: View {
                
                VStack {
                   Button {
-                     router.push(.cameraView)
+//                     router.push(.cameraView)
+                     isShowingCamera = true
                   } label: {
                      Image(systemName: "camera.fill")
                         .font(.system(size: 32))
@@ -80,7 +83,7 @@ struct CameraGrantedView: View {
                Button {
                   viewModel.objects_example.shuffle()
                } label: {
-                  Text("Lewati")
+                   Text("Lewati".localized)
                      .frame(maxWidth: .infinity)
                }
                .buttonStyle(SecondaryButton(isDisabled: false))

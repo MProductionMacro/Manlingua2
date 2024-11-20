@@ -26,19 +26,19 @@ struct AIAssistantView: View {
          Spacer()
          switch aiAssistantViewModel.state {
          case .recordingSpeech:
-            Text("Sedang Merekam")
+             Text("Sedang Merekam".localized)
                .font(.system(size: 20, weight: .medium, design: .rounded)).animation(.easeInOut)
             cancelRecordingButton
             
          case .processingSpeech, .playingSpeech:
-            Text("Batalkan memproses")
+             Text("Batalkan memproses".localized)
                .font(.system(size: 20, weight: .medium, design: .rounded)).animation(.easeInOut)
             
             cancelButton
             
          case .idle:
             
-            Text("Tekan Untuk Memulai")
+             Text("Tekan Untuk Memulai".localized)
                .font(.system(size: 20, weight: .medium, design: .rounded)).animation(.easeInOut)
             startCaptureButton
             
@@ -68,7 +68,7 @@ struct AIAssistantView: View {
                           .font(.title3)
                           .bold()
                       
-                      Text("Kembali")
+                      Text("Kembali".localized)
                           .foregroundColor(.orangeDarkMode)
                           .bold()
                   }

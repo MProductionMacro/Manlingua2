@@ -15,6 +15,7 @@ class ImportantNotesViewModel : ObservableObject {
       //loadFavoriteNotes()
    }
    
+   @MainActor
    func loadNotes(from displayMode: NoteDisplayMode) {
        self.notes = []
        self.notes_en = []
@@ -35,6 +36,7 @@ class ImportantNotesViewModel : ObservableObject {
       }
    }
    
+   @MainActor
    private func loadFavoriteNotes() {
        for note in SwiftDataServices.shared.notes_en{
           notes_en.append(ImportantNote(title: note.title, allowed: note.allowed, forbidden: note.forbidden, caution: note.caution, language: note.language))
@@ -98,6 +100,7 @@ class ImportantNotesViewModel : ObservableObject {
       loadNoteId(storyId: storyId, subChapterId: subChapterId)
    }
    
+   @MainActor
    public func addNotes(_ note: ImportantNote){
       for i in 0..<notes.count{
           if notes[i].title == note.title || notes_en[i].title == note.title{

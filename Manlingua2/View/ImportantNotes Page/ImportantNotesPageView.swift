@@ -10,12 +10,12 @@ import SwiftUI
 struct ImportantNotesPageView : View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var router: Router
-    @StateObject var viewModel = ImportantNotesViewModel()
+   @EnvironmentObject var viewModel : ImportantNotesViewModel
     var displayMode : NoteDisplayMode
     
     var body : some View{
         VStack{
-            Text("Catatan Penting")
+            Text("Catatan Penting".localized)
                 .font(Font.titleKe2())
                 .padding(.top, 16)
                 .padding(.bottom,-2)
@@ -28,12 +28,12 @@ struct ImportantNotesPageView : View {
                        .frame(width: 158, height: 161)
                        .padding(.bottom, 36)
                         
-                   Text("Ayo simpan kata yang ingin")
+                   Text("Ayo simpan kata yang ingin".localized)
                        .font(.judulBiasa())
                        .foregroundColor(.emptyListText)
                        .opacity(colorScheme == .light ? 1 : 0.7)
                    
-                   Text("kamu pelajari kembali")
+                   Text("kamu pelajari kembali".localized)
                        .font(.judulBiasa())
                        .foregroundColor(.emptyListText)
                        .opacity(colorScheme == .light ? 1 : 0.7)
@@ -49,7 +49,7 @@ struct ImportantNotesPageView : View {
                             NotesCardView(note: note)
                         }
                         if viewModel.notes.count == 0 {
-                            Text("No notes found.")
+                            Text("No notes found.".localized)
                                 .foregroundColor(.gray)
                         }
                     }
@@ -60,6 +60,7 @@ struct ImportantNotesPageView : View {
                 .frame(maxWidth: .infinity)
             }
         }
+        .padding(.top, UIScreen.main.bounds.height < 700 ? -50 : 8)
         .frame(maxWidth: .infinity)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -77,7 +78,7 @@ struct ImportantNotesPageView : View {
                             .font(.title3)
                             .bold()
                         
-                        Text("Kembali")
+                        Text("Kembali".localized)
                             .foregroundColor(.orangeDarkMode)
                             .bold()
                     }
@@ -99,4 +100,6 @@ struct ImportantNotesPageView : View {
         ImportantNotesPageView(displayMode : .subChapter(storyId: 1, subChapterId: 1))
     }
     .environmentObject(Router())
+    .environmentObject(ImportantNotesViewModel())
+    .environmentObject(ImportantNotesViewModel())
 }

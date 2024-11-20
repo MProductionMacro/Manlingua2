@@ -12,6 +12,9 @@ struct BottomContainerButtons: View {
    var speakerAction: () -> Void
    var turtleAction: () -> Void
    
+   @State private var isSpeakerPressed = false
+   @Binding var isSpeaking: Bool
+   
    var body: some View {
       HStack{
          Button {
@@ -49,5 +52,5 @@ struct BottomContainerButtons: View {
 }
 
 #Preview {
-    BottomContainerButtons(bookAction: {}, speakerAction: {}, turtleAction: {}).environment(\.colorScheme, .dark)
+   BottomContainerButtons(bookAction: {}, speakerAction: {}, turtleAction: {}, isSpeaking: .constant(false)).environment(\.colorScheme, .dark)
 }

@@ -15,9 +15,8 @@ struct PinyinNadaView: View {
    var body : some View{
       ScrollView{
          VStack(spacing: 16){
-            Text("Nada")
+             Text("Nada".localized)
                .font(.system(size: 25, weight: .bold))
-               .padding(.top, 32)
             
             Image("Nada")
                .resizable()
@@ -27,10 +26,10 @@ struct PinyinNadaView: View {
             
             
             VStack{
-               Text("Tekan karakter untuk tahu cara")
+                Text("Tekan karakter untuk tahu cara".localized)
                   .font(.system(size: 20))
                   .multilineTextAlignment(.center)
-               Text("pengucapannya")
+                Text("pengucapannya".localized)
                   .font(.system(size: 20))
                   .multilineTextAlignment(.center)
             }
@@ -40,7 +39,12 @@ struct PinyinNadaView: View {
             RowOfPinyinView(listPinyin: viewModel.pinyinNada, audioController: $audioController)
          }
          .ignoresSafeArea()
+         .frame(maxWidth: .infinity, maxHeight: .infinity)
+         .padding(.top, UIScreen.main.bounds.height < 700 ? -40 : 32)
+         
+         Spacer()
       }
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
       .background(.blankBackground)
       .toolbar {
           ToolbarItem(placement: .topBarLeading) {
@@ -53,7 +57,7 @@ struct PinyinNadaView: View {
                       .font(.semibold16())
                       .bold()
                    
-                   Text("Kembali")
+                    Text("Kembali".localized)
                       .foregroundColor(.orangeDarkMode)
                       .font(.semibold20())
                 }

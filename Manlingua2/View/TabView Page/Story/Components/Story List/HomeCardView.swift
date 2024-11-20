@@ -16,7 +16,7 @@ struct HomeCardView: View {
    @EnvironmentObject var router: Router
    @EnvironmentObject var homeVM: HomeViewModel
    @EnvironmentObject var storyVM: StoryViewModel
-   @StateObject var singleton = CoreDataSingleton.shared
+   @StateObject var singleton = SwiftDataServices.shared
    
    var story: Story_Example
    
@@ -35,7 +35,7 @@ struct HomeCardView: View {
          }
          
          VStack(alignment: .leading, spacing: 4) {
-            Text("Cerita \(story.id)")
+             Text("Cerita".localized + " \(story.id)".localized)
                .font(.pinyin())
                .fontWeight(.bold)
             
@@ -63,10 +63,11 @@ struct HomeCardView: View {
                   let subChapterId = singleton.latestSubChapter
                   //                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
                   storyVM.loadChat(storyId: story.id, subChapterId: subChapterId)
-                  router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapterId)))
+                  //router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapterId)))
+                  router.push(.donePage(displayMode: .story(storyId: 1, subChapterId: 1), chapterId: 1, subChapterId: 1))
                }
             } label: {
-               Text("Mulai")
+                Text("Mulai".localized)
                   .frame(maxWidth: .infinity)
             }
             .buttonStyle(PrimaryButton(isDisabled: isDisabled))

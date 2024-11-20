@@ -16,13 +16,13 @@ struct FlashcardTutorialOverlay: View{
                     //Langsung menghilangkan overlay kalau tombol "Lewati" diklik
                     tutorialOverlay = 3
                 },label:{
-                    Text("Lewati")
+                    Text("Lewati".localized)
                         .font(Font.hanzi())
                         .foregroundColor(.white)
                 })
                 .offset(x:150, y:-390)
                HStack{
-                    Text("Tekan untuk membuka menu kumpulan kata atau putar audio")
+                   Text("Tekan untuk membuka menu kumpulan kata atau putar audio".localized)
                         .font(.subJudul())
                         .foregroundStyle(.white)
                         
@@ -43,13 +43,13 @@ struct FlashcardTutorialOverlay: View{
                     //Langsung menghilangkan overlay kalau tombol "Lewati" diklik
                     tutorialOverlay = 3
                 },label:{
-                    Text("Lewati")
+                    Text("Lewati".localized)
                         .font(Font.hanzi())
                         .foregroundColor(.white)
                 })
                 .offset(x:150, y:-390)
                 HStack{
-                    Text("Tekan lagi untuk tutup")
+                    Text("Tekan lagi untuk tutup".localized)
                         .font(.subJudul())
                         .foregroundStyle(.white)
                         

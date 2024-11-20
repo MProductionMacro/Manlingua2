@@ -24,16 +24,18 @@ struct BottomStoryContainerView: View {
    @EnvironmentObject var storyViewModel: StoryViewModel
    
    @State var textToSpeech = TextToSpeech()
+   @State var isSpeaking = false
    
    var body: some View {
       VStack(spacing: 0) {
-         BottomContainerButtons {
+         BottomContainerButtons(bookAction: {
             router.push(.dictionary(judul: homeViewModel.stories_example[storyId].title, displayMode: .story(id: storyId)))
-         } speakerAction: {
+         }, speakerAction: {
+            isSpeaking = true
             textToSpeech.speak(text: storyViewModel.chat_example[currentIndex].hanzi)
-         } turtleAction: {
+         }, turtleAction: {
             textToSpeech.speakSlow(text: storyViewModel.chat_example[currentIndex].hanzi)
-         }
+         }, isSpeaking: $isSpeaking)
          
          if chatType == .question {
             Divider()

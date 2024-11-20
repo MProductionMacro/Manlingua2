@@ -18,7 +18,7 @@ struct QuestionModalityView: View {
    
    var body: some View {
       VStack(spacing: 16) {
-         Text("Pilih jawaban yang benar")
+         Text("Pilih jawaban yang benar".localized)
             .font(.titleKe2())
          
          LazyVGrid(columns: columns) {
@@ -27,7 +27,8 @@ struct QuestionModalityView: View {
                   onAnswerSelected(choice)
                } label: {
                   Text(choice)
-                       .foregroundStyle(.fontColors)
+                     .foregroundStyle(.fontColors)
+                     .frame(maxWidth: .infinity)
                }
                .buttonStyle(AnswerButton())
             }
@@ -39,7 +40,9 @@ struct QuestionModalityView: View {
 }
 
 #Preview {
-   QuestionModalityView(choices: ["Hello", "Hi", "Hey", "Here"], onAnswerSelected: {_ in })
+   QuestionModalityView(choices: ["Hello", "Hi", "Hey", "Here"], onAnswerSelected: {_ in
+      print("Tapped")
+   })
       .frame(maxHeight: .infinity)
       .background(.black)
       .environment(\.colorScheme, .dark)
