@@ -705,6 +705,9 @@
         }
       }
     },
+    "Coming Soon" : {
+
+    },
     "Completed" : {
       "extractionState" : "manual",
       "localizations" : {
