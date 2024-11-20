@@ -47,6 +47,8 @@ struct BottomContainerButtons: View {
          }
          .buttonStyle(CustomOnTapButton())
       }
+      .padding(.top, 8)
+      .padding(.bottom)
       .background(.cardBackground)
    }
 }

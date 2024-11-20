@@ -14,11 +14,12 @@ struct ProfilePageView: View {
                         .frame(width: 63, height: 63)
                         .padding(.trailing, 5)
                     VStack(alignment: .leading){
-                        Text("\(viewModel.getName())")
+                       //FIXME: Nanti ganti lagi
+                        Text("Abai")
                             .font(Font.titleKe2())
                             .foregroundColor(.white)
                             .padding(.bottom, 1)
-                        Text("\(viewModel.getLevel())")
+                        Text("Perunggu")
                             .font(Font.subJudul())
                             .padding(.top, 1)
                             .foregroundColor(.userRank)

@@ -90,9 +90,6 @@ class Router: ObservableObject {
                 .navigationBarBackButtonHidden(true)
         case .photoChallenge:
             PhotoChallengeView()
-                .onBackSwipe(perform: {
-                    self.pop()
-                })
                 .navigationBarBackButtonHidden(true)
         case .cameraView:
             CameraView()

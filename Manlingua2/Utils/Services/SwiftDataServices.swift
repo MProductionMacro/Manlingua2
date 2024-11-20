@@ -33,6 +33,7 @@ class SwiftDataServices: ObservableObject {
    @Published var totalTasks = 0.0
    @Published var totalStars = 0
    @Published var streak = 0
+   @Published var rank: UserRank = .Perunggu
    
    //   @MainActor
    init() {
@@ -62,6 +63,7 @@ class SwiftDataServices: ObservableObject {
             totalTasks = progressData.totalTasks
             totalStars = progressData.totalStars
             streak = progressData.streak
+            rank = progressData.rank
          } else {
             initializeGoalDefaultData()
          }
@@ -106,11 +108,19 @@ class SwiftDataServices: ObservableObject {
       saveStoryProgressData()
    }
    
+   func resetGoalProgressPerDay(){
+      tasks = [0,0,0]
+      totalTasks = 0
+      
+      saveGoalProgressData()
+   }
+   
    func initializeGoalDefaultData() {
       tasks = [0, 0, 0]
       totalStars = 0
       totalTasks = 0
       streak = 0
+      rank = .Perunggu
       
       saveGoalProgressData()
    }
@@ -120,7 +130,7 @@ class SwiftDataServices: ObservableObject {
    func saveGoalProgressData(){
       do {
          let progressData = try context.fetch(FetchDescriptor<Goal_Progress>()).first
-         ?? Goal_Progress(task1: tasks[0], task2: tasks[1], task3: tasks[2], totalTasks: totalTasks, totalStars: totalStars, streak: streak)
+         ?? Goal_Progress(task1: tasks[0], task2: tasks[1], task3: tasks[2], totalTasks: totalTasks, totalStars: totalStars, streak: streak, rank: rank)
          // Update progress values
          progressData.task1 = tasks[0]
          progressData.task2 = tasks[1]
@@ -128,6 +138,7 @@ class SwiftDataServices: ObservableObject {
          progressData.totalStars = totalStars
          progressData.totalTasks = totalTasks
          progressData.streak = streak
+         progressData.rank = rank
          
          context.insert(progressData) // Ensure object is added to context if not already present
          try context.save()

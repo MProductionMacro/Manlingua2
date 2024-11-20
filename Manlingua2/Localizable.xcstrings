@@ -20,6 +20,9 @@
         }
       }
     },
+    "%@ " : {
+
+    },
     "%@ / %@" : {
       "localizations" : {
         "en" : {
@@ -149,6 +152,9 @@
         }
       }
     },
+    "Abai" : {
+
+    },
     "Account created successfully!" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -234,6 +240,9 @@
         }
       }
     },
+    "Anda mengucapkan %@" : {
+
+    },
     "Apakah Anda yakin ingin untuk keluar?" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -300,6 +309,9 @@
           }
         }
       }
+    },
+    "artinya %@" : {
+
     },
     "Ayo simpan kata yang ingin" : {
       "localizations" : {
@@ -711,6 +723,7 @@
       }
     },
     "Continue" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1334,7 +1347,6 @@
       }
     },
     "Lewati" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1948,7 +1960,6 @@
       }
     },
     "Perunggu" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

@@ -11,6 +11,7 @@ struct Speaker2BubbleChatView: View {
    var hanzi: String
    var pinyin: String
    var meaning: String
+   var actionAfterTap: () -> Void
    
    @State var isShowingMeaning = false
    @State private var textWidth: CGFloat = 0
@@ -41,6 +42,7 @@ struct Speaker2BubbleChatView: View {
                         .onTapGesture {
                            //                        withAnimation {
                            isShowingMeaning.toggle()
+                           actionAfterTap()
                            //                        }
                         }
                   }
@@ -87,7 +89,7 @@ struct Speaker2BubbleChatView: View {
 }
 
 #Preview {
-   Speaker2BubbleChatView(hanzi: "Halo", pinyin: "Halo", meaning: "Halo")
+   Speaker2BubbleChatView(hanzi: "Halo", pinyin: "Halo", meaning: "Halo", actionAfterTap: {})
       .background(.white)
       .preferredColorScheme(.dark)
 }

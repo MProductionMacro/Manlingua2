@@ -22,11 +22,11 @@ struct GoalPageView: View {
                   .foregroundStyle(.white)
                
                HStack(alignment: .center) {
-                   Text("Perunggu".localized)
+                  Text(singleton.rank.rawValue.localized)
                      .font(Font.subJudul())
                      .frame(width: 92, height: 35)
-                     .foregroundColor(UserRankStyle.getTextColor("Emas"))
-                     .background(UserRankStyle.getBackgroundColor("Emas"))
+                     .foregroundColor(UserRankStyle.getTextColor(singleton.rank))
+                     .background(UserRankStyle.getBackgroundColor(singleton.rank))
                      .cornerRadius(8)
                   
                   HStack(spacing: 4){
