@@ -15,6 +15,7 @@ struct QuestionBubbleChatView: View {
    var question: String
    var meaning: String
    var isActive: Bool
+   var actionAfterTap: () -> Void
    
    @State private var showQuestionModal: Bool = false
    @State private var showMeaningModal: Bool = false
@@ -50,6 +51,7 @@ struct QuestionBubbleChatView: View {
                         .foregroundColor(.black)
                         .onTapGesture {
                            showMeaningModal.toggle()
+                           actionAfterTap()
                         }
                   }
                   .padding(8)
@@ -98,7 +100,7 @@ struct QuestionBubbleChatView: View {
 }
 
 #Preview {
-   QuestionBubbleChatView(hanzi: "Halo", pinyin: "Halo", question: "Halo", meaning: "Halo", isActive: true)
+   QuestionBubbleChatView(hanzi: "Halo", pinyin: "Halo", question: "Halo", meaning: "Halo", isActive: true, actionAfterTap: {})
       .background(.black)
       .environmentObject(StoryViewModel())
 }

@@ -13,19 +13,21 @@ struct BubbleChatView: View {
    var questionIndex: Int
    var isActive: Bool
    
+   var actionAfterTap: () -> Void
+   
    var body: some View {
       HStack(spacing: 0) {
          switch type {
          case .speaker1:
-            Speaker1BubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning)
+            Speaker1BubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, actionAfterTap: actionAfterTap)
                .padding(.leading, UIScreen.main.bounds.width * 0.05)
             
          case .speaker2:
-            Speaker2BubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning)
+            Speaker2BubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, meaning: chat.meaning, actionAfterTap: actionAfterTap)
                .padding(.trailing, UIScreen.main.bounds.width * 0.05)
             
          case .question:
-            QuestionBubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, question: chat.question ?? "", meaning: chat.meaning, isActive: isActive)
+            QuestionBubbleChatView(hanzi: chat.hanzi, pinyin: chat.pinyin, question: chat.question ?? "", meaning: chat.meaning, isActive: isActive, actionAfterTap: actionAfterTap)
                .padding(.trailing, UIScreen.main.bounds.width * 0.05)
          }
       }

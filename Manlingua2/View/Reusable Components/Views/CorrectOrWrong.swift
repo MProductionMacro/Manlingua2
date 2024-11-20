@@ -16,21 +16,23 @@ struct CorrectOrWrong: View {
    
    var continueFunc: () -> Void
    var tryAgainFunc: () -> Void
-    
+   
+   @State var transcribedAudio = ""
+   
    @State var audioController = AudioController.shared
    @State var textToSpeech = TextToSpeech.shared
    
    var body: some View {
-      VStack(alignment: .leading, spacing: 24) {
-         VStack(alignment: .leading) {
+      VStack(alignment: .leading, spacing: 16) {
+         VStack(alignment: .leading, spacing: 16) {
             HStack(spacing: 12) {
                Button {
-                   if isSpeakingQuestion{
-                       audioController.playRecording()
-                   }
-                   else{
-                       textToSpeech.speakSlow(text: hanzi)
-                   }
+                  if isSpeakingQuestion{
+                     audioController.playRecording()
+                  }
+                  else{
+                     textToSpeech.speakSlow(text: hanzi)
+                  }
                } label: {
                   Image(systemName: "waveform")
                      .foregroundStyle(.white)
@@ -56,10 +58,29 @@ struct CorrectOrWrong: View {
                }
             }
             
-            HStack {
-                Text("\(hanzi) " + "artinya".localized + " \(meaning)")
-                  .foregroundStyle(.black)
+            if isSpeakingQuestion {
+               Text("Anda mengucapkan \(transcribedAudio)")
                   .font(.subJudul())
+                  .foregroundStyle(.black)
+                  .onAppear {
+                     audioController.transcribeAudio { result in
+                        transcribedAudio = result
+                     }
+                  }
+            } else {
+               HStack(alignment: .bottom, spacing: 0) {
+                  VStack {
+                     Text("\(pinyin)")
+                        .font(.pinyin())
+                     
+                     Text("\(hanzi) ")
+                        .font(.subJudul())
+                  }
+                  
+                  Text("artinya \(meaning)")
+                     .font(.subJudul())
+               }
+               .foregroundStyle(.black)
             }
          }
          
@@ -76,13 +97,14 @@ struct CorrectOrWrong: View {
       .edgesIgnoringSafeArea(.bottom)
       .frame(maxWidth: .infinity)
       .padding(.horizontal)
-      .padding(.vertical, 36)
-//      .padding(.bottom, 36)
+      .padding(.vertical, 24)
+      //      .padding(.bottom, 36)
       .background(isCorrect ? .greenLight : .redLight)
       .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
    }
 }
 
 #Preview {
-    CorrectOrWrong(isSpeakingQuestion: .constant(true), hanzi: "猫", pinyin: "Māo", meaning: "How many people", isCorrect: true, continueFunc: {}, tryAgainFunc: {})
+   CorrectOrWrong(isSpeakingQuestion: .constant(true), hanzi: "猫", pinyin: "Māo", meaning: "How many people", isCorrect: true, continueFunc: {}, tryAgainFunc: {})
+      .preferredColorScheme(.dark)
 }

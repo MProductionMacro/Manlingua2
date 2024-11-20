@@ -12,6 +12,8 @@ struct Speaker1BubbleChatView: View {
    var pinyin: String
    var meaning: String
    
+   var actionAfterTap: () -> Void
+   
    @State private var isShowingMeaning = false
    
    var body: some View {
@@ -43,6 +45,7 @@ struct Speaker1BubbleChatView: View {
                         .foregroundColor(.fontColors)
                         .onTapGesture {
                            isShowingMeaning.toggle()
+                           actionAfterTap()
                         }
                   }
                   .padding(8)
@@ -97,7 +100,7 @@ struct DottedUnderline: View {
 }
 
 #Preview {
-   Speaker1BubbleChatView(hanzi: "Halo", pinyin: "Halo", meaning: "Halo")
+   Speaker1BubbleChatView(hanzi: "Halo", pinyin: "Halo", meaning: "Halo", actionAfterTap: {})
       .background(.black)
       .preferredColorScheme(.dark)
 }

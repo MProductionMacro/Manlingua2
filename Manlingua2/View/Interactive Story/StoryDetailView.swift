@@ -65,11 +65,11 @@ struct StoryDetailView: View {
                
 //               print(currentIndex)
                
-               viewModel.onTapDetectionChat(location, midPoint, &viewModel.currentIndex)
+               viewModel.onTapDetectionChat(location, midPoint)
             }
          }
          .overlay {
-            TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.7)
+            TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.6)
          }
       }
    }
