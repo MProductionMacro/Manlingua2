@@ -49,7 +49,7 @@ struct StoryListView: View {
       .background(
          Image(.profilePage)
             .resizable()
-            .aspectRatio(contentMode: .fill)
+            .scaledToFill()
             .ignoresSafeArea()
 //            .resizable()
 //            .scaledToFill()

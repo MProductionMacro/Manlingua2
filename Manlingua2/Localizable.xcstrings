@@ -1318,7 +1318,6 @@
       }
     },
     "Log Out" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1554,6 +1553,9 @@
           }
         }
       }
+    },
+    "Notification Settings" : {
+
     },
     "Obrolan Ringan" : {
       "extractionState" : "manual",
