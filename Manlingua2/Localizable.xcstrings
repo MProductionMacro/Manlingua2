@@ -217,6 +217,23 @@
         }
       }
     },
+    "Apakah Anda yakin ingin untuk keluar?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to exit?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apakah Anda yakin ingin untuk keluar?"
+          }
+        }
+      }
+    },
     "Aplikasi akan beralih ke lingkungan bahasa yang Anda pilih" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -288,12 +305,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Section"
+            "value" : "Subchapter"
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Bagian"
           }
         }
@@ -336,6 +353,23 @@
         }
       }
     },
+    "Bahasa" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Languages"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Bahasa"
+          }
+        }
+      }
+    },
     "Bahasa Indonesia" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -349,6 +383,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bahasa Indonesia"
+          }
+        }
+      }
+    },
+    "Batal" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batal"
           }
         }
       }
@@ -1148,7 +1199,25 @@
         }
       }
     },
+    "Keluar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quit"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keluar"
+          }
+        }
+      }
+    },
     "Kembali" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1725,6 +1794,40 @@
         }
       }
     },
+    "Perangkat Pintar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smart Devices"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perangkat Pintar"
+          }
+        }
+      }
+    },
+    "Pergi ke Pengaturan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go to Settings"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pergi ke Pengaturan"
+          }
+        }
+      }
+    },
     "Peringkat" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1896,7 +1999,20 @@
       }
     },
     "sekitar 15 menit" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "around 15 minutes"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "sekitar 15 menit"
+          }
+        }
+      }
     },
     "Selamat datang" : {
       "extractionState" : "stale",

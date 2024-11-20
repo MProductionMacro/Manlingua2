@@ -21,6 +21,9 @@ struct TabPageView: View {
          ProfilePageView()
               .tabBarItem(tab: TabBarItem(tag: 3, iconName: "person", title: "Profil".localized), selection: $selectedTab)
       }
+      .onAppear{
+          homeViewModel.loadStories()
+      }
    }
 }
 

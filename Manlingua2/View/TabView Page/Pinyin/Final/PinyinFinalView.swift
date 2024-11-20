@@ -49,25 +49,28 @@ struct PinyinFinalView: View {
          Spacer()
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity)
-      .background(.blankBackground)
+      .background( Color.blankBackground )
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {
             HStack(alignment: .top){
                Button(action:{
                   router.pop()
                }){
-                  Image(systemName: "chevron.left")
-                     .foregroundColor(.orangeDarkMode)
-                     .font(.semibold16())
-                  
+                   Image(systemName: "chevron.left")
+                       .foregroundColor(.orangeDarkMode)
+                       .font(.semibold16())
+                       .bold()
+               
                    Text("Kembali".localized)
-                     .foregroundColor(.orangeDarkMode)
-                     .font(.semibold20())
+                       .foregroundColor(.orangeDarkMode)
+                       .font(.semibold20())
+                       .bold()
                }
             }
          }
           
       }
+
    }
 }
 

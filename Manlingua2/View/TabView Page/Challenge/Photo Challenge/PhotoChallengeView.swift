@@ -42,6 +42,7 @@ struct PhotoChallengeView: View {
             .scaledToFill()
             .ignoresSafeArea()
       )
+      .padding(.top, UIScreen.main.bounds.height < 700 ? -40 : 8)
       .overlay {
          
       }

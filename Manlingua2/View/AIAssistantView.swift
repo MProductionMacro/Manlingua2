@@ -58,22 +58,22 @@ struct AIAssistantView: View {
          }
       }
       .toolbar {
-         ToolbarItem(placement: .topBarLeading) {
-            HStack(alignment: .top){
-               Button(action:{
-                  router.pop()
-               }){
-                  Image(systemName: "chevron.left")
-                     .foregroundColor(.orangeDarkMode)
-                     .font(.title3)
-                     .bold()
-                  
-                  Text("Kembali".localized)
-                     .foregroundColor(.orangeDarkMode)
-                     .bold()
-               }
-            }
-         }
+          ToolbarItem(placement: .topBarLeading) {
+              HStack(alignment: .top){
+                  Button(action:{
+                      router.pop()
+                  }){
+                      Image(systemName: "chevron.left")
+                         .foregroundColor(.orangeDarkMode)
+                         .font(.semibold16())
+                         .bold()
+                      
+                       Text("Kembali".localized)
+                         .foregroundColor(.orangeDarkMode)
+                         .font(.semibold20())
+                  }
+              }
+          }
       }
       .padding()
    }

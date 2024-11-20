@@ -40,6 +40,7 @@ struct QuestionBubbleChatView: View {
                      
                      Text(pinyin)
                         .font(.pinyin())
+                        .fontWeight(.semibold)
 //                        .fontWeight(.bold)
                         .foregroundColor(.gray)
                      

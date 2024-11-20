@@ -37,7 +37,6 @@ struct PinYinNavigationButton: View {
                .fontWeight(.bold)
                .frame(width: 24, height: 24)
          }
-         .frame(width: 320)
          .padding()
          .overlay(
             RoundedRectangle(cornerRadius: 20)

@@ -92,6 +92,8 @@ struct GoalPageView: View {
                   RoundedRectangle(cornerRadius: 25)
                      .stroke(.customLightGray, lineWidth: 2)
                }
+               //.padding(.horizontal, 24)
+
                
                Spacer()
             }
