@@ -50,14 +50,13 @@ struct DetailIoTSettingView : View {
                         router.pop()
                     }){
                         Image(systemName: "chevron.left")
-                            .foregroundColor(.orangeDarkMode)
-                            .font(.semibold20())
-                            .bold()
-                    
-                        Text("Kembali".localized)
-                            .foregroundColor(.orangeDarkMode)
-                            .font(.semibold16())
-                            .bold()
+                           .foregroundColor(.orangeDarkMode)
+                           .font(.semibold16())
+                           .bold()
+                        
+                         Text("Kembali".localized)
+                           .foregroundColor(.orangeDarkMode)
+                           .font(.semibold20())
                     }
                 }
             }

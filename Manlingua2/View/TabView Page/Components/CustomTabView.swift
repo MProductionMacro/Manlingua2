@@ -44,7 +44,7 @@ extension CustomTabView {
       }
       .frame(maxWidth: .infinity)
 //      .frame(height: 60)
-      .padding(.vertical)
+      .padding(.top)
 //      .background(selection == index ? .orange3.opacity(0.3) : .clear)
    }
    

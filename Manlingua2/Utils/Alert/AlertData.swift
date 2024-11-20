@@ -14,7 +14,7 @@ struct AlertData {
     
     var title: String {
         //type.title
-        "Apakah Anda yakin ingin untuk keluar?"
+        "Apakah Anda yakin ingin untuk keluar?".localized
     }
 
     var message: String {
@@ -24,11 +24,11 @@ struct AlertData {
 
     var primaryButtonTitle: String {
         //type.primaryButtonTitle
-        "Batal"
+        "Batal".localized
     }
 
     var dismissButtonTitle: String {
         //type.dismissButtonTitle
-        "Keluar"
+        "Keluar".localized
     }
 }

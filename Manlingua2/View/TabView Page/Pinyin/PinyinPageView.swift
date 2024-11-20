@@ -10,12 +10,12 @@ struct PinyinPageView: View {
    @EnvironmentObject var router: Router
 
    var body: some View {
-      VStack(spacing: 32) {
+      VStack(spacing: UIScreen.main.bounds.height < 700 ? 8 : 32) {
           
           Text("Pelajari Pin Yin".localized)
             .font(Font.judulBesar())
             .foregroundStyle(.white)
-            .padding(.top, 40)//0
+            .padding(.top, UIScreen.main.bounds.height < 700 ? 0 : 40)
          
          PinYinCardView()
             .padding(.horizontal)
@@ -25,14 +25,20 @@ struct PinyinPageView: View {
              PinYinNavigationButton(labelImage: .inisialLogo, title: "Inisial", content: "Huruf awal berupa konsonan"){
                router.push(.pinyinInisial)
             }
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 24)
             
              PinYinNavigationButton(labelImage: .finalLogo, title: "Final", content: "Huruf akhir terdiri dari vokal"){
                router.push(.pinyinFinal)
             }
+             .frame(maxWidth: .infinity)
+             .padding(.horizontal, 24)
             
              PinYinNavigationButton(labelImage: .nadaLogo, title: "Nada", content: "Nada mengubah arti kata"){
                router.push(.pinyinNada)
             }
+             .frame(maxWidth: .infinity)
+             .padding(.horizontal, 24)
          }
          Spacer()
       }
@@ -41,6 +47,7 @@ struct PinyinPageView: View {
             .resizable()
             .aspectRatio(contentMode: .fill)
             .ignoresSafeArea()
+
       )
       // Nanti Ganti Background
    }

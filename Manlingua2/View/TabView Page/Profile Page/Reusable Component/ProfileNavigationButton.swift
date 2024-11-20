@@ -33,7 +33,7 @@ struct ProfileNavigationButton: View {
                 Image(systemName: "chevron.right")
                     .foregroundStyle(.orangeDarkMode)
                     .font(.semibold16())
-                    .padding(.trailing, 10)
+                    //.padding(.trailing, 10)
                 /*
                     .resizable()
                     .frame(width: 14, height: 25)

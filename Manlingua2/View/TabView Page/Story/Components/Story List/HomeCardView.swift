@@ -78,8 +78,16 @@ struct HomeCardView: View {
                router.push(.journeyPage(storyId: story.id))
             } label: {
                Image(systemName: "point.bottomleft.forward.to.point.topright.scurvepath.fill")
+                    .foregroundStyle(isDisabled ? Color.homeCardLock : Color.orangeDarkMode)
+                    .font(.button())
+                    .padding(12)
+                    .background(.cardBackground)
+                    .clipShape(.rect(cornerRadius: 8))
+                    .overlay(
+                       RoundedRectangle(cornerRadius: 8)
+                           .stroke(isDisabled ? Color.homeCardLock : Color.orangeDarkMode, lineWidth: 2)
+                    )
             }
-            .buttonStyle(SecondaryButton(isDisabled: isDisabled))
             .disabled(isDisabled)
          }
       }

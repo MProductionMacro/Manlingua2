@@ -74,8 +74,14 @@ struct DictionaryView: View {
             }
          }) {
             HStack {
-               Image(systemName: "chevron.left")
-               Text("Kembali".localized)
+                Image(systemName: "chevron.left")
+                   .foregroundColor(.orangeDarkMode)
+                   .font(.semibold16())
+                   .bold()
+                
+                 Text("Kembali".localized)
+                   .foregroundColor(.orangeDarkMode)
+                   .font(.semibold20())
             }
             .foregroundColor(.orangeDarkMode)
          })

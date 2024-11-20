@@ -75,6 +75,7 @@ struct JourneyPageView: View {
            .ignoresSafeArea()
       )
       .edgesIgnoringSafeArea(.bottom)
+      .padding(.top, UIScreen.main.bounds.height < 700 ? -30 : 0)
       .toolbar {
          ToolbarItem(placement: .navigationBarLeading) {
             Button(action: {

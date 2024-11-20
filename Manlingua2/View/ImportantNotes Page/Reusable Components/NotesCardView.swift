@@ -37,7 +37,7 @@ struct NotesCardView : View{
                 .padding(.bottom, 16)
             
             VStack(spacing: 16){
-                HStack(alignment: .top, spacing: 8){
+                HStack(alignment: .top, spacing: 16){
                     Image("Do")
                         .resizable()
                         .frame(width: 38, height: 38)
@@ -51,7 +51,7 @@ struct NotesCardView : View{
                     .frame(width: 252, alignment: .leading)
                 }
                 
-                HStack(alignment: .top, spacing: 8){
+                HStack(alignment: .top, spacing: 16){
                     Image("Dont")
                         .resizable()
                         .frame(width: 38, height: 38)
@@ -65,7 +65,7 @@ struct NotesCardView : View{
                     .frame(width: 252, alignment: .leading)
                 }
                 
-                HStack(alignment: .top, spacing: 8){
+                HStack(alignment: .top, spacing: 16){
                     Image("Warning")
                         .resizable()
                         .frame(width: 38, height: 38)
@@ -82,7 +82,7 @@ struct NotesCardView : View{
             }
             .padding(.bottom, 32)
         }
-        .frame(width: 359)
+        .frame(width : (UIScreen.main.bounds.height < 700 ? 339 : 359))
         .background(.cardBackground)
         .cornerRadius(17)
         .shadow(color: .cardShadow.opacity(0.2), radius: 12, x: 0, y: 0)
