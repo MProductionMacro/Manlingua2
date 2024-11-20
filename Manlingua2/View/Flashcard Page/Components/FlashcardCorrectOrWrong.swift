@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FlashcardCorrectOrWrong: View {
-    @Binding var answer:String
+   @Binding var answer:String
    var hanzi: String
    var pinyin: String
    var meaning: String
@@ -16,13 +16,15 @@ struct FlashcardCorrectOrWrong: View {
    
    var continueFunc: () -> Void
    var tryAgainFunc: () -> Void
-    @State var audioController = AudioController.shared
+   @State var audioController = AudioController.shared
+   @State var transcribedAudio = ""
+   
    var body: some View {
       VStack(alignment: .leading, spacing: 24) {
          VStack(alignment: .leading) {
             HStack(spacing: 12) {
                Button {
-                   audioController.playRecording()
+                  audioController.playRecording()
                } label: {
                   Image(systemName: "waveform")
                      .foregroundStyle(.white)
@@ -48,18 +50,26 @@ struct FlashcardCorrectOrWrong: View {
                }
             }
             
-             
+            
             HStack {
-                if answer == "Transcription error: No speech detected" || answer.replacingOccurrences(of: " ", with: "") == ""{
-                    Text("No characters detected".localized)
-                        .foregroundStyle(.black)
-                        .font(.subJudul())
-                }
-                else{
-                    Text("Anda mengucapkan".localized + " \(answer)")
-                        .foregroundStyle(.black)
-                        .font(.subJudul())
-                }
+               Text("Anda mengucapkan ".localized + "\(transcribedAudio)")
+                  .foregroundStyle(.black)
+                  .font(.subJudul())
+                  .onAppear {
+                     audioController.transcribeAudio { result in
+                        transcribedAudio = result
+                     }
+                  }
+               
+//               if answer == "Transcription error: No speech detected" || answer.replacingOccurrences(of: " ", with: "") == ""{
+//                  Text("No characters detected".localized)
+//                     .foregroundStyle(.black)
+//                     .font(.subJudul())
+//               }else{
+//                  Text("Anda mengucapkan".localized + " \(answer)")
+//                     .foregroundStyle(.black)
+//                     .font(.subJudul())
+//               }
             }
          }
          
@@ -76,14 +86,14 @@ struct FlashcardCorrectOrWrong: View {
       .edgesIgnoringSafeArea(.bottom)
       .frame(maxWidth: .infinity)
       .padding(.horizontal)
-      .padding(.vertical, 36)
-//      .padding(.bottom, 36)
+      .padding(.vertical, 24)
+      //      .padding(.bottom, 36)
       .background(isCorrect ? .greenLight : .redLight)
       .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
    }
 }
 
 #Preview {
-    FlashcardCorrectOrWrong(answer: .constant("Tes"), hanzi: "猫", pinyin: "Māo", meaning: "How many people", isCorrect: true, continueFunc: {}, tryAgainFunc: {})
+   FlashcardCorrectOrWrong(answer: .constant("Tes"), hanzi: "猫", pinyin: "Māo", meaning: "How many people", isCorrect: true, continueFunc: {}, tryAgainFunc: {})
 }
 
