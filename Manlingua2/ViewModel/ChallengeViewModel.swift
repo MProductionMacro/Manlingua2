@@ -29,6 +29,8 @@ class ChallengeViewModel: ObservableObject {
    private let userDefaults = UserDefaults.standard
    private let baseURL = "http://10.60.62.153:8000"
    
+   let ranks = UserRank.allCases
+   
    static let shared = ChallengeViewModel()
    
    init(){
@@ -61,6 +63,12 @@ class ChallengeViewModel: ObservableObject {
    
    func addStars(){
       singleton.totalStars += 1
+      singleton.rank += 1
+//      if singleton.totalStars == 5 {
+//         singleton.rank += 1
+//         singleton.totalStars = 0
+//      }
+      
       singleton.saveGoalProgressData()
    }
    
@@ -86,7 +94,7 @@ class ChallengeViewModel: ObservableObject {
       
       if !calendar.isDate(lastResetDate, inSameDayAs: now) {
          UserDefaults.standard.set(now, forKey: "lastResetDate") // Update last reset date
-         singleton.initializeGoalDefaultData() // Reset progress
+         singleton.resetGoalProgressPerDay()
       }
    }
    

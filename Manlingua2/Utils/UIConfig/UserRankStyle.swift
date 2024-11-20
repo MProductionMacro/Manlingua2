@@ -41,7 +41,7 @@ struct UserRankStyle{
    }
 }
 
-enum UserRank: String, Hashable, Codable {
+enum UserRank: String, Hashable, Codable, CaseIterable {
    case Perunggu
    case Perak
    case Emas

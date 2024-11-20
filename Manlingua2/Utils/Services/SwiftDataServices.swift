@@ -33,7 +33,7 @@ class SwiftDataServices: ObservableObject {
    @Published var totalTasks = 0.0
    @Published var totalStars = 0
    @Published var streak = 0
-   @Published var rank: UserRank = .Perunggu
+   @Published var rank = 0
    
    //   @MainActor
    init() {
@@ -120,7 +120,7 @@ class SwiftDataServices: ObservableObject {
       totalStars = 0
       totalTasks = 0
       streak = 0
-      rank = .Perunggu
+      rank = 0
       
       saveGoalProgressData()
    }

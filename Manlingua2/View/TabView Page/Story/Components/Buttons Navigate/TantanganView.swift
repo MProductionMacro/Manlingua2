@@ -8,38 +8,38 @@
 import SwiftUI
 
 struct TantanganView: View {
-    @EnvironmentObject var router: Router
-  
-    var body: some View {
-       VStack(alignment: .leading, spacing: 0) {
-          Text("Tantangan".localized)
-             .font(.judulBiasa())
-             .padding(.leading, 24)
-          
-          HStack(spacing: 24) {
-             Button {
-                 router.push(.loadingPage(screen : .photoChallenge))
-             } label: {
-                EmptyView()
-             }
-             .buttonStyle(HomeNavigationButton(image: "camera", text: "Foto".localized))
-             
-             Button {
-                router.push(.aiSimulation)
-             } label: {
-                EmptyView()
-             }
-             .buttonStyle(HomeNavigationButton(image: "bubble.left.and.text.bubble.right", text: "Simulasi".localized))
-          }
-          .padding(.vertical)
-          .padding(.leading, 24)
-       }
-       .frame(maxWidth: .infinity, alignment: .leading)
-       .padding(.bottom)
-    }
+   @EnvironmentObject var router: Router
+   
+   var body: some View {
+      VStack(alignment: .leading, spacing: 0) {
+         Text("Tantangan".localized)
+            .font(.judulBiasa())
+            .padding(.leading, 24)
+         
+         HStack(spacing: 24) {
+            Button {
+               router.push(.comingSoon)
+            } label: {
+               EmptyView()
+            }
+            .buttonStyle(HomeNavigationButton(image: "camera", text: "Foto".localized))
+            
+            Button {
+               router.push(.comingSoon)
+            } label: {
+               EmptyView()
+            }
+            .buttonStyle(HomeNavigationButton(image: "bubble.left.and.text.bubble.right", text: "Simulasi".localized))
+         }
+         .padding(.vertical)
+         .padding(.leading, 24)
+      }
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .padding(.bottom)
+   }
 }
 
 #Preview {
-    TantanganView()
-       .environmentObject(Router())
+   TantanganView()
+      .environmentObject(Router())
 }

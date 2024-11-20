@@ -65,7 +65,9 @@ struct StoryDetailView: View {
                
 //               print(currentIndex)
                
-               viewModel.onTapDetectionChat(location, midPoint)
+               viewModel.onTapDetectionChat(location, midPoint) {
+                  router.push(.donePage(displayMode: .story(storyId: chapterId, subChapterId: subChapterId), chapterId: chapterId, subChapterId: subChapterId))
+               }
             }
          }
          .overlay {

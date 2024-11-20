@@ -17,16 +17,16 @@ struct GoalPageView: View {
       ZStack {
          VStack(alignment: .center, spacing: 16) {
             VStack(spacing: 8) {
-                Text("Peringkat".localized)
+               Text("Peringkat".localized)
                   .font(Font.judulBesar())
                   .foregroundStyle(.white)
                
                HStack(alignment: .center) {
-                  Text(singleton.rank.rawValue.localized)
+                  Text(viewModel.ranks[singleton.rank].rawValue.localized)
                      .font(Font.subJudul())
                      .frame(width: 92, height: 35)
-                     .foregroundColor(UserRankStyle.getTextColor(singleton.rank))
-                     .background(UserRankStyle.getBackgroundColor(singleton.rank))
+                     .foregroundColor(UserRankStyle.getTextColor(viewModel.ranks[singleton.rank]))
+                     .background(UserRankStyle.getBackgroundColor(viewModel.ranks[singleton.rank]))
                      .cornerRadius(8)
                   
                   HStack(spacing: 4){
@@ -48,16 +48,16 @@ struct GoalPageView: View {
             }
             .padding(.horizontal)
             
-             if UIScreen.main.bounds.height>700{
-                 CompletionTrackerView()
-                    .frame(width: 353, height: 92)
-                    .background(.cardBackground)
-                    .cornerRadius(16)
-             }
+            if UIScreen.main.bounds.height>700{
+               CompletionTrackerView()
+                  .frame(width: 353, height: 92)
+                  .background(.cardBackground)
+                  .cornerRadius(16)
+            }
             
             VStack(spacing: 16) {
                HStack {
-                   Text("Selesaikan tugas dibawah!".localized)
+                  Text("Selesaikan tugas dibawah!".localized)
                      .foregroundStyle(.padlock)
                      .font(.subJudul())
                   
@@ -66,7 +66,7 @@ struct GoalPageView: View {
                   HStack(spacing: 4) {
                      Image(systemName: "clock")
                         .foregroundStyle(.padlock)
-                      Text("\(viewModel.remainHour) jam".localized)
+                     Text("\(viewModel.remainHour) jam".localized)
                         .foregroundStyle(.padlock)
                         .font(.normalText())
                   }
@@ -74,15 +74,17 @@ struct GoalPageView: View {
                .padding([.top, .horizontal], 20)
                
                VStack(spacing: 2) {
-                   GoalTrackerView(task: .first, image: "Emas Cina", challenge: "Selesaikan 1 subbab cerita".localized, doneTask: singleton.tasks[0]) {
+                  GoalTrackerView(task: .first, image: "Emas Cina", challenge: "Selesaikan 1 subbab cerita".localized, doneTask: singleton.tasks[0]) {
                      viewModel.taskDone(index: 0)
+                     router.push(.loadingPage(screen: .storyPage(chapterId: singleton.latestStory, subChapterId: singleton.latestSubChapter)))
                   }
                   
-                   GoalTrackerView(task: .second, image: "Koin Cina", challenge: "Selesaikan 1 bagian flashcard".localized, doneTask: singleton.tasks[1]) {
+                  GoalTrackerView(task: .second, image: "Koin Cina", challenge: "Selesaikan 1 bagian flashcard".localized, doneTask: singleton.tasks[1]) {
                      viewModel.taskDone(index: 1)
+                     router.push(.loadingPage(screen: .flashcardPage))
                   }
                   
-                   GoalTrackerView(task: .third, image: "Emas Batang", challenge: "Selesaikan 1 tantangan foto".localized, doneTask: singleton.tasks[2]) {
+                  GoalTrackerView(task: .third, image: "Emas Batang", challenge: "Selesaikan 1 tantangan foto".localized, doneTask: singleton.tasks[2]) {
                      viewModel.taskDone(index: 2)
                   }
                }
@@ -93,7 +95,7 @@ struct GoalPageView: View {
                      .stroke(.customLightGray, lineWidth: 2)
                }
                //.padding(.horizontal, 24)
-
+               
                
                Spacer()
             }
@@ -111,7 +113,7 @@ struct GoalPageView: View {
             .ignoresSafeArea()
       )
       .onAppear {
-//         print(Date.distantPast)
+         //         print(Date.distantPast)
          viewModel.updateRemainHour()
          viewModel.setupHourlyTimer()
       }
