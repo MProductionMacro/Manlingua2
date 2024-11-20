@@ -17,7 +17,7 @@ struct SplashScreenView: View {
    var body: some View {
       ZStack {
          // Main screen is rendered behind the splash screen
-         router.build(hasSignedIn ? .mainScreen : .loginScreen)
+         router.build(.mainScreen)
          
          ZStack{
             LinearGradient(
@@ -64,7 +64,7 @@ struct SplashScreenView: View {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                // After fade-out, push to the main screen
-               router.pushReplace(hasSignedIn ? .mainScreen : .loginScreen)
+               router.pushReplace(.mainScreen)
             }
          }
       }
