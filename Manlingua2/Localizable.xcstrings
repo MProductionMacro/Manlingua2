@@ -277,6 +277,23 @@
         }
       }
     },
+    "Aplikasi akan memberikan notifikasi jika anda mengaktifkannya" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The application will send notifications if you enable it"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplikasi akan memberikan notifikasi jika anda mengaktifkannya"
+          }
+        }
+      }
+    },
     "Are you sure you want to leave this page?" : {
       "localizations" : {
         "en" : {
@@ -1267,6 +1284,7 @@
       }
     },
     "Kembali" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1653,9 +1671,6 @@
           }
         }
       }
-    },
-    "Notification Settings" : {
-
     },
     "Obrolan Ringan" : {
       "extractionState" : "manual",

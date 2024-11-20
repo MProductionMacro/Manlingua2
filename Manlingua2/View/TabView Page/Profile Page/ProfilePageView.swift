@@ -57,7 +57,7 @@ struct ProfilePageView: View {
                .padding(.horizontal, 20)
                
                Spacer()
-               
+               /*
                HStack{
                   Image(systemName: "door.left.hand.open")
                      .foregroundStyle(.orangeDarkMode)
@@ -70,7 +70,9 @@ struct ProfilePageView: View {
                    .frame(width: 25, height: 25)
                    .padding(.trailing, 10)
                    */
-                  Text("Log Out".localized)
+                  
+                   
+                   Text("Log Out".localized)
                      .font(Font.semibold16())
                      .foregroundColor(.profileNavigationText)
                   Spacer()
@@ -79,6 +81,7 @@ struct ProfilePageView: View {
                .frame(maxWidth: .infinity)
                .padding(.horizontal, 20)
                .padding(.bottom, 124)
+                */
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.blankBackground)
