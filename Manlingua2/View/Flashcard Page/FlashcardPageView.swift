@@ -10,7 +10,7 @@ import SwiftUI
 struct FlashcardPageView: View {
    @EnvironmentObject var router: Router
    //@EnvironmentObject var viewModel: FlashcardViewModel
-   @StateObject var viewModel = FlashcardViewModel()
+   @EnvironmentObject var viewModel: FlashcardViewModel
    @StateObject var singleton = UserDefaultSingleton.shared
    @State var tutorialOverlay: Int = 1
    @State var audioController = AudioController.shared
