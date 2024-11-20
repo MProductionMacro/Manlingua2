@@ -57,9 +57,8 @@ struct GoalTrackerView : View {
             actionOnTapChevron()
          }) {
             Image(systemName: "chevron.right")
-               .font(Font.button())
-               .foregroundStyle(.orangeDarkMode)
          }
+         .buttonStyle(ChevronRightButton())
          
          Spacer()
       }
