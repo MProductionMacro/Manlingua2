@@ -17,7 +17,7 @@ struct DictionaryButtonView: View {
       }) {
          HStack {
             Image("BookOpenText")
-            Text("Dictionary")
+            Text("Dictionary".localized)
                .font(.button())
                .foregroundStyle(.orange3)
          }

@@ -15,7 +15,7 @@ struct ImportantNotesPageView : View {
     
     var body : some View{
         VStack{
-            Text("Catatan Penting")
+            Text("Catatan Penting".localized)
                 .font(Font.titleKe2())
                 .padding(.top, 16)
                 .padding(.bottom,-2)
@@ -28,12 +28,12 @@ struct ImportantNotesPageView : View {
                        .frame(width: 158, height: 161)
                        .padding(.bottom, 36)
                         
-                   Text("Ayo simpan kata yang ingin")
+                   Text("Ayo simpan kata yang ingin".localized)
                        .font(.judulBiasa())
                        .foregroundColor(.emptyListText)
                        .opacity(colorScheme == .light ? 1 : 0.7)
                    
-                   Text("kamu pelajari kembali")
+                   Text("kamu pelajari kembali".localized)
                        .font(.judulBiasa())
                        .foregroundColor(.emptyListText)
                        .opacity(colorScheme == .light ? 1 : 0.7)
@@ -49,7 +49,7 @@ struct ImportantNotesPageView : View {
                             NotesCardView(note: note)
                         }
                         if viewModel.notes.count == 0 {
-                            Text("No notes found.")
+                            Text("No notes found.".localized)
                                 .foregroundColor(.gray)
                         }
                     }
@@ -74,13 +74,13 @@ struct ImportantNotesPageView : View {
                         }
                     }){
                         Image(systemName: "chevron.left")
-                            .foregroundColor(.orangeDarkMode)
-                            .font(.title3)
-                            .bold()
+                           .foregroundColor(.orangeDarkMode)
+                           .font(.semibold16())
+                           .bold()
                         
-                        Text("Kembali")
-                            .foregroundColor(.orangeDarkMode)
-                            .bold()
+                        Text("Kembali".localized)
+                           .foregroundColor(.orangeDarkMode)
+                           .font(.semibold20())
                     }
                 }
             }

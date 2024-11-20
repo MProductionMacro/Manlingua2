@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PhotoChallengeView: View {
    @EnvironmentObject var router: Router
-//   @StateObject var viewModel = ChallengeViewModel()
+   @EnvironmentObject var viewModel: ChallengeViewModel
    @StateObject var camera = CameraController.shared
    @State var isCorrect = false
    
@@ -17,7 +17,7 @@ struct PhotoChallengeView: View {
    
    var body: some View {
       VStack(alignment: .leading){
-         Text("Tantangan Foto")
+          Text("Tantangan Foto".localized)
             .font(.judulBesar())
             .foregroundStyle(.white)
             .padding()
@@ -26,7 +26,7 @@ struct PhotoChallengeView: View {
             CameraGrantedView()
          }else{
             CameraNotGrantedView(primaryButtonPressed: {
-               camera.requestPermission()
+               camera.checkPermission()
             }, secondaryButtonPressed: {
                router.pop()
             })
@@ -42,9 +42,13 @@ struct PhotoChallengeView: View {
             .scaledToFill()
             .ignoresSafeArea()
       )
+      .padding(.top, UIScreen.main.bounds.height < 700 ? -40 : 8)
       .overlay {
          
       }
+      .onAppear(perform: {
+         viewModel.fetchObjects()
+      })
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {
             HStack(alignment: .top) {
@@ -55,7 +59,7 @@ struct PhotoChallengeView: View {
                      .foregroundColor(.white)
                      .font(.semibold16())
                   
-                  Text("Kembali")
+                   Text("Kembali".localized)
                      .foregroundColor(.white)
                      .font(.semibold20())
                }

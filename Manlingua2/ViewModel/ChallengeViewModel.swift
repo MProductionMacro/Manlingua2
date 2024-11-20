@@ -19,6 +19,9 @@ class ChallengeViewModel: ObservableObject {
    @Published var remainHour: Int = 24 // Initial hours remaining
    @Published var remainMinutes: Int = 60
    
+   @Published var chatResponse: String = ""
+   @Published var chatPrompt: String = ""
+   
    @ObservedObject var singleton = SwiftDataServices.shared
    
    private let calendar = Calendar.current
@@ -147,37 +150,55 @@ class ChallengeViewModel: ObservableObject {
    func fetchObjects() {
       guard let url = URL(string: "\(baseURL)/get_objects") else { return }
       
-      URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-         if let error = error {
-            DispatchQueue.main.async {
-               self?.errorMessage = "Failed to fetch objects: \(error.localizedDescription)"
-               print(self?.errorMessage ?? "Unknown error")
-            }
-            return
-         }
-         
-         if let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) {
-            guard let data = data else { return }
-            
+      let config = URLSessionConfiguration.ephemeral
+      config.waitsForConnectivity = true
+      
+      let session = URLSession(configuration: config)
+      
+      session.dataTask(with: url) { data, response, error in
+         if let data = data {
             do {
                let decodedResponse = try JSONDecoder().decode(ObjectResponse.self, from: data)
-               let objectsArray = Array(decodedResponse.objects.values)
-               
                DispatchQueue.main.async {
-                  self?.objects_example = objectsArray
+                  self.objects_example = Array(decodedResponse.objects.values)
                }
             } catch {
-               DispatchQueue.main.async {
-                  self?.errorMessage = "Failed to parse object data: \(error.localizedDescription)"
-                  print(self?.errorMessage ?? "Unknown parsing error")
-               }
-            }
-         } else {
-            DispatchQueue.main.async {
-               self?.errorMessage = "Failed with status code: \((response as? HTTPURLResponse)?.statusCode ?? -1)"
-               print(self?.errorMessage ?? "Unknown status code error")
+               print("Error decoding objects: \(error)")
             }
          }
       }.resume()
    }
+   
+   //   func generateChat(prompt: String) {
+   //      guard let url = URL(string: "http://10.60.62.153:8000/generate_chat"),
+   //            let jsonData = try? JSONEncoder().encode(ChatRequest(prompt: prompt)) else { return }
+   //
+   //      var request = URLRequest(url: url)
+   //      request.httpMethod = "POST"
+   //      request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+   //      request.httpBody = jsonData
+   //
+   //      URLSession.shared.dataTask(with: request) { data, response, error in
+   //         if let data = data {
+   //            do {
+   //               let decodedResponse = try JSONDecoder().decode(ChatResponse.self, from: data)
+   //               DispatchQueue.main.async {
+   //                  self.chatResponse = decodedResponse.response
+   //                  print(self.chatResponse)
+   //               }
+   //            } catch {
+   //               print("Error decoding chat response: \(error)")
+   //            }
+   //         }
+   //      }.resume()
+   //   }
+   
+}
+
+struct ChatRequest: Codable {
+   let prompt: String
+}
+
+struct ChatResponse: Codable {
+   let response: String
 }

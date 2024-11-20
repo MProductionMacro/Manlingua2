@@ -47,7 +47,7 @@ struct FlashcardCorrect: View {
             }
             
             HStack {
-               Text("Kamu terdengar seperti penutur asli!")
+                Text("Kamu terdengar seperti penutur asli!".localized)
                   .foregroundStyle(.black)
                   .font(.subJudul())
             }

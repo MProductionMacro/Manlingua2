@@ -48,7 +48,7 @@ struct JourneyPageView: View {
                            .font(.hanzi())
                            .fontWeight(.regular)
                            .foregroundStyle(.orangeDarkMode)
-                        Text("List Kata-Kata")
+                         Text("List Kata-Kata".localized)
                            .font(Font.semibold16())
                            .foregroundStyle(.orangeDarkMode)
                      }
@@ -75,6 +75,7 @@ struct JourneyPageView: View {
            .ignoresSafeArea()
       )
       .edgesIgnoringSafeArea(.bottom)
+      .padding(.top, UIScreen.main.bounds.height < 700 ? -30 : 0)
       .toolbar {
          ToolbarItem(placement: .navigationBarLeading) {
             Button(action: {
@@ -85,7 +86,7 @@ struct JourneyPageView: View {
                      .foregroundStyle(Color.white)
                      .font(Font.semibold16())
                   
-                  Text("Kembali")
+                   Text("Kembali".localized)
                      .foregroundStyle(Color.white)
                      .font(Font.semibold20())
                }

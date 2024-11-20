@@ -83,7 +83,7 @@ struct CameraView: View {
                      .font(.title3)
                      .bold()
                   
-                  Text("Kembali")
+                  Text("Kembali".localized)
                      .bold()
                }
                .foregroundStyle(.white)

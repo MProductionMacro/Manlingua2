@@ -25,7 +25,8 @@ struct Speaker2BubbleChatView: View {
                   VStack(alignment: .leading, spacing: 2) {
                      Text(pinyin)
                         .font(.pinyin())
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
+//                        .fontWeight(.bold)
                         .foregroundColor(.pinyinPhotoChallenge)
                      
                      // Chinese characters

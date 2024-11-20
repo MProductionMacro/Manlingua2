@@ -33,7 +33,7 @@ struct FlashcardSidebarButton: View {
          if showContent {
             HStack(spacing: 12) {
                Button(action: {
-                  router.push(.dictionary(judul: "Kata Favorit", displayMode: .favorite))
+                   router.push(.dictionary(judul: "Kata Favorit".localized, displayMode: .favorite))
                }) {
                   Image(systemName: "book.fill")
                      .frame(width: 24, height: 24)

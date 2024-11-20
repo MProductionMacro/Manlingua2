@@ -19,7 +19,7 @@ struct TutorialOverlayView: View {
                   .font(.system(size: 48))
                   .foregroundStyle(.white)
                
-               Text("Tekan bagian kiri untuk kebagian sebelumnya")
+               Text("Tekan bagian kiri untuk kebagian sebelumnya".localized)
                   .font(.subJudul())
                   .foregroundStyle(.white)
             }
@@ -34,7 +34,7 @@ struct TutorialOverlayView: View {
       }else if tutorialOverlay == 2 {
          VStack {
             HStack {
-               Text("Tekan bagian kanan untuk kebagian sebelumnya")
+               Text("Tekan bagian kanan untuk kebagian sebelumnya".localized)
                   .font(.subJudul())
                   .foregroundStyle(.white)
                

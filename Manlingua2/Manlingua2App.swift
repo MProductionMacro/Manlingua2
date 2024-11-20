@@ -33,6 +33,10 @@ struct Manlingua2App: App {
                .navigationDestination(for: Screen.self) { screen in
                   router.build(screen)
                }
+               .onAppear{
+                   UserNotificationManager.shared.requestNotificationPermission()
+                   UserNotificationManager.shared.scheduleNotification()
+               }
             
             //             FlashcardPageView(viewModel1: storyViewModel)
          }

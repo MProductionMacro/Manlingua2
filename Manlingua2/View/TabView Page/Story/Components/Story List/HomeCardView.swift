@@ -35,7 +35,7 @@ struct HomeCardView: View {
          }
          
          VStack(alignment: .leading, spacing: 4) {
-            Text("Cerita \(story.id)")
+             Text("Cerita".localized + " \(story.id)".localized)
                .font(.pinyin())
                .fontWeight(.bold)
             
@@ -64,9 +64,10 @@ struct HomeCardView: View {
                   //                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
                   storyVM.loadChat(storyId: story.id, subChapterId: subChapterId)
                   router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapterId)))
+//                  router.push(.donePage(displayMode: .story(storyId: 1, subChapterId: 1), chapterId: 1, subChapterId: 1))
                }
             } label: {
-               Text("Mulai")
+                Text("Mulai".localized)
                   .frame(maxWidth: .infinity)
             }
             .buttonStyle(PrimaryButton(isDisabled: isDisabled))
@@ -77,8 +78,16 @@ struct HomeCardView: View {
                router.push(.journeyPage(storyId: story.id))
             } label: {
                Image(systemName: "point.bottomleft.forward.to.point.topright.scurvepath.fill")
+                    .foregroundStyle(isDisabled ? Color.homeCardLock : Color.orangeDarkMode)
+                    .font(.button())
+                    .padding(12)
+                    .background(.cardBackground)
+                    .clipShape(.rect(cornerRadius: 8))
+                    .overlay(
+                       RoundedRectangle(cornerRadius: 8)
+                           .stroke(isDisabled ? Color.homeCardLock : Color.orangeDarkMode, lineWidth: 2)
+                    )
             }
-            .buttonStyle(SecondaryButton(isDisabled: isDisabled))
             .disabled(isDisabled)
          }
       }

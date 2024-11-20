@@ -33,7 +33,8 @@ struct Speaker1BubbleChatView: View {
                   VStack(alignment: .leading, spacing: 2) {
                      Text(pinyin)
                         .font(.pinyin())
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
+//                        .fontWeight(.bold)
                         .foregroundColor(.pinyinPhotoChallenge)
                      
                      Text(hanzi)

@@ -14,7 +14,7 @@ struct TryAgainButton: View {
       Button(action: {
          action()
       }) {
-         Text("Coba Lagi")
+         Text("Coba Lagi".localized)
             .foregroundStyle(.orangeDarkMode)
             .font(.button())
             .padding(20)

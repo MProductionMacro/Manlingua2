@@ -15,7 +15,7 @@ struct PinyinNadaView: View {
    var body : some View{
       ScrollView{
          VStack(spacing: 16){
-            Text("Nada")
+             Text("Nada".localized)
                .font(.system(size: 25, weight: .bold))
             
             Image("Nada")
@@ -26,10 +26,10 @@ struct PinyinNadaView: View {
             
             
             VStack{
-               Text("Tekan karakter untuk tahu cara")
+                Text("Tekan karakter untuk tahu cara".localized)
                   .font(.system(size: 20))
                   .multilineTextAlignment(.center)
-               Text("pengucapannya")
+                Text("pengucapannya".localized)
                   .font(.system(size: 20))
                   .multilineTextAlignment(.center)
             }
@@ -57,7 +57,7 @@ struct PinyinNadaView: View {
                       .font(.semibold16())
                       .bold()
                    
-                   Text("Kembali")
+                    Text("Kembali".localized)
                       .foregroundColor(.orangeDarkMode)
                       .font(.semibold20())
                 }

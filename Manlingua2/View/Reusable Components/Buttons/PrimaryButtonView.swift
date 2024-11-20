@@ -23,7 +23,7 @@ struct PrimaryButtonView: View {
          
             //router.push(.storyPage(chapterId: id, isFromHome: true))
       }){
-         Text("Mulai")
+          Text("Mulai".localized)
             .frame(maxWidth: .infinity)
             .padding()
             .foregroundStyle(isDisabled ? Color(red: 0.7, green: 0.7, blue: 0.7) : Color.white)

@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct QuestionBubbleChatView: View {
+   @EnvironmentObject var storyVM: StoryViewModel
+   
    var hanzi: String
    var pinyin: String
    var question: String
    var meaning: String
+   var isActive: Bool
    
    @State private var showQuestionModal: Bool = false
    @State private var showMeaningModal: Bool = false
@@ -22,10 +25,12 @@ struct QuestionBubbleChatView: View {
             Spacer()
             
             HStack(alignment: .top, spacing: 0) {
-               Image(systemName: "exclamationmark.circle.fill")
-                  .foregroundStyle(.orange1)
-                  .offset(x: UIScreen.main.bounds.width * 0.025, y: -UIScreen.main.bounds.width * 0.02)
-                  .zIndex(1)
+               if isActive {
+                  Image(systemName: "exclamationmark.circle.fill")
+                     .foregroundStyle(.orange1)
+                     .offset(x: UIScreen.main.bounds.width * 0.025, y: -UIScreen.main.bounds.width * 0.02)
+                     .zIndex(1)
+               }
                
                VStack(spacing: 0) {
                   VStack(alignment: .leading, spacing: 2) {
@@ -35,7 +40,8 @@ struct QuestionBubbleChatView: View {
                      
                      Text(pinyin)
                         .font(.pinyin())
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
+//                        .fontWeight(.bold)
                         .foregroundColor(.gray)
                      
                      // Chinese characters
@@ -76,6 +82,7 @@ struct QuestionBubbleChatView: View {
                   .padding(.top, UIScreen.main.bounds.height * 0.005)
             }
             .frame(maxWidth: .infinity, alignment: .trailing)
+            .frame(width: UIScreen.main.bounds.width * 0.6)
             
             Image(.orangeSpeaker2)
                .resizable()
@@ -91,6 +98,7 @@ struct QuestionBubbleChatView: View {
 }
 
 #Preview {
-   QuestionBubbleChatView(hanzi: "Halo", pinyin: "Halo", question: "Halo", meaning: "Halo")
+   QuestionBubbleChatView(hanzi: "Halo", pinyin: "Halo", question: "Halo", meaning: "Halo", isActive: true)
       .background(.black)
+      .environmentObject(StoryViewModel())
 }

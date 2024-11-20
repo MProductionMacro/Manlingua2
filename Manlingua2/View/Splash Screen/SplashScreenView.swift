@@ -21,8 +21,8 @@ struct SplashScreenView: View {
          ZStack{
             LinearGradient(
                stops: [
-                  Gradient.Stop(color: Color(red: 1, green: 0.72, blue: 0.3), location: 0.00),
-                  Gradient.Stop(color: Color(red: 1, green: 0.83, blue: 0), location: 1.00),
+                Gradient.Stop(color: .splashScreenTop, location: 0.00),
+                Gradient.Stop(color: .splashScreenBottom, location: 1.00),
                ],
                startPoint: UnitPoint(x: 0.5, y: 0),
                endPoint: UnitPoint(x: 0.5, y: 1)

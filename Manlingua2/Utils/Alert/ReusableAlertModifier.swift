@@ -18,8 +18,9 @@ struct ReusableAlertModifier: ViewModifier {
                 Alert(
                     title: Text(alertData.title),
                     message: Text(alertData.message),
-                    primaryButton: .default(Text(alertData.primaryButtonTitle), action: alertData.primaryAction),
-                    secondaryButton: .destructive(Text(alertData.dismissButtonTitle), action: alertData.dismissAction)
+                    primaryButton: .cancel(Text(alertData.primaryButtonTitle).bold(), action: alertData.primaryAction),
+                    secondaryButton: .default(Text(alertData.dismissButtonTitle).foregroundStyle(.blue), action: alertData.dismissAction)
+
                 )
             }
     }
