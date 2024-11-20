@@ -42,7 +42,7 @@ class StoryViewModel: ObservableObject {
       }
    }
    
-   func onTapDetectionChat(_ location: CGPoint, _ midPoint: CGFloat){
+   func onTapDetectionChat(_ location: CGPoint, _ midPoint: CGFloat, action: () -> Void){
       if location.x < midPoint {
          // Tapped left screen, move to previous item
          if currentIndex > 0 {
@@ -52,6 +52,8 @@ class StoryViewModel: ObservableObject {
          // Tapped right screen, move to next item
          if currentIndex < chat_example.count - 1 {
             currentIndex += 1
+         }else if currentIndex + 1 == chat_example.count {
+            action()
          }
       }
    }
