@@ -81,6 +81,7 @@ struct JourneyPageContentView: View {
                       ForEach(story.subChapter, id: \.self){ subChapter in
                           Button(action:{
                               if !viewModel.isSubChapterLocked(storyId: storyId, subChapter: subChapter) {
+                                  storyViewModel.clearChat()
                                   storyViewModel.loadChat(storyId: storyId, subChapterId: subChapter.id)
                                   router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapter.id)))
                               }

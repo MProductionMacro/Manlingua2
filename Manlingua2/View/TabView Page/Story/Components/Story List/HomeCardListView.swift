@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeCardListView: View {
    @EnvironmentObject var viewModel: HomeViewModel
-   
+   @EnvironmentObject var router: Router
    @StateObject var singleton = SwiftDataServices.shared
    
    var body: some View {
@@ -37,4 +37,5 @@ struct HomeCardListView: View {
 #Preview {
    HomeCardListView()
       .environmentObject(HomeViewModel())
+      .environmentObject(Router())
 }

@@ -21,6 +21,12 @@ class StoryViewModel: ObservableObject {
    init(){
       loadChatPreview()
    }
+    
+    func clearChat(){
+        currentIndex = 0
+        chat_example.removeAll()
+        chat_preview.removeAll()
+    }
    
    func correctAction(modalAppeared: inout Bool, index: inout Int, hasAnswered: inout Bool){
       withAnimation{

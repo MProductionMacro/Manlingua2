@@ -37,6 +37,8 @@ struct StoryDetailView: View {
             
             ChatScrollView(currentIndex: $viewModel.currentIndex, hasAnswered: $hasAnswered, modalAppeared: $modalAppeared, chats: viewModel.chat_example) {
                router.push(.donePage(displayMode: .story(storyId: chapterId, subChapterId: subChapterId), chapterId: chapterId, subChapterId: subChapterId))
+                viewModel.currentIndex = 0
+                //viewModel.chat_example.removeAll()
             }
             
             if hasAnswered{

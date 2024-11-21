@@ -32,7 +32,7 @@ class LearnViewModel: ObservableObject {
    ]
    
    init() {
-      loadLearnData()
+      //loadLearnData()
       //        print(learnData)
    }
    
