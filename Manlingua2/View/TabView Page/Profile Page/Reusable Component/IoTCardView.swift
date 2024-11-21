@@ -30,7 +30,9 @@ struct IoTCardView : View {
 
             Spacer()
         }
-        .frame(width: 361, height: 78)
+        .frame(height: 78)
+        .frame(maxWidth: .infinity)
+        //.frame(width: 361, height: 78)
         .background(.cardBackground)
         .cornerRadius(8)
         .shadow(color: .cardShadow.opacity(0.15), radius: 5, x: 0, y: 0)

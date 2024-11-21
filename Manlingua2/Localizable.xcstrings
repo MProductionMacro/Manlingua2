@@ -895,6 +895,23 @@
         }
       }
     },
+    "FinalNada_id" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FinalNada_en"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FinalNada_id"
+          }
+        }
+      }
+    },
     "Flashcard" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1060,6 +1077,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Inisial"
+          }
+        }
+      }
+    },
+    "Inisial_id" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inisial_en"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Inisial_id"
           }
         }
       }
@@ -1464,6 +1498,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nada"
+          }
+        }
+      }
+    },
+    "Nada _id" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nada_en"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nada_id"
           }
         }
       }

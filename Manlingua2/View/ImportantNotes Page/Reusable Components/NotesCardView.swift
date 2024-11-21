@@ -48,8 +48,10 @@ struct NotesCardView : View{
                             .font(.system(size: 14, weight: .regular))
                         
                     }
-                    .frame(width: 252, alignment: .leading)
+                    //.frame(width: 252, alignment: .leading)
+                    Spacer()
                 }
+                .padding(.horizontal, 24)
                 
                 HStack(alignment: .top, spacing: 16){
                     Image("Dont")
@@ -62,8 +64,11 @@ struct NotesCardView : View{
                             .font(.system(size: 14, weight: .regular))
                         
                     }
-                    .frame(width: 252, alignment: .leading)
+                    //.frame(width: 252, alignment: .leading)
+                    Spacer()
                 }
+                .padding(.horizontal, 24)
+
                 
                 HStack(alignment: .top, spacing: 16){
                     Image("Warning")
@@ -76,13 +81,16 @@ struct NotesCardView : View{
                             .font(.system(size: 14, weight: .regular))
                         
                     }
-                    .frame(width: 252, alignment: .leading)
-                    
+                    //.frame(width: 252, alignment: .leading)
+                    Spacer()
                 }
+                .padding(.horizontal, 24)
+
             }
             .padding(.bottom, 32)
         }
-        .frame(width : (UIScreen.main.bounds.height < 700 ? 339 : 359))
+        //.frame(width : (UIScreen.main.bounds.height < 700 ? 339 : 359))
+        .frame(maxWidth: .infinity)
         .background(.cardBackground)
         .cornerRadius(17)
         .shadow(color: .cardShadow.opacity(0.2), radius: 12, x: 0, y: 0)

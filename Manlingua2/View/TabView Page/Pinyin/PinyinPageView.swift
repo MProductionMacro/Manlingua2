@@ -15,7 +15,7 @@ struct PinyinPageView: View {
           Text("Pelajari Pin Yin".localized)
             .font(Font.judulBesar())
             .foregroundStyle(.white)
-            .padding(.top, UIScreen.main.bounds.height < 700 ? 0 : 20)
+            .padding(.top, UIScreen.main.bounds.height < 700 ? -3 : 20)
          
          PinYinCardView()
             .padding(.horizontal)

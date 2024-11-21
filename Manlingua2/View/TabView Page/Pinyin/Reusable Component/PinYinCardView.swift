@@ -13,8 +13,8 @@ struct PinYinCardView: View {
          HStack(alignment: .bottom) {
             VStack {
                HStack (alignment: .bottom){
-                  Image("Inisial")
-                  Image("FinalNada")
+                   Image("Inisial_id".localized)
+                   Image("FinalNada_id".localized)
                }
                
                 Text("Suku Kata".localized)

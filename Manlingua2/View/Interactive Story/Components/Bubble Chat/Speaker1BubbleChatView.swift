@@ -40,7 +40,7 @@ struct Speaker1BubbleChatView: View {
                         .foregroundColor(.pinyinPhotoChallenge)
                      
                      Text(hanzi)
-                        .underline(pattern: .dot, color: .orange3)
+                        .underline(pattern: .dot, color: .chatDot)
                         .font(.hanzi())
                         .foregroundColor(.fontColors)
                         .onTapGesture {

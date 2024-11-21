@@ -46,7 +46,17 @@ struct ImportantNotesPageView : View {
                 ScrollView{
                     VStack (spacing: 32){
                         ForEach(viewModel.getNotes(), id: \.self){ note in
-                            NotesCardView(note: note)
+                            
+                            if UIScreen.main.bounds.width < 393 {
+                                NotesCardView(note: note)
+                                    .padding(.horizontal, 16)
+                            }
+                            else{
+                                NotesCardView(note: note)
+                                    .frame(width: 359)
+                            }
+                            
+
                         }
                         if viewModel.notes.count == 0 {
                             Text("No notes found.".localized)

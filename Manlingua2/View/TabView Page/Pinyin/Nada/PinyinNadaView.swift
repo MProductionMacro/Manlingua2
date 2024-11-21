@@ -18,7 +18,7 @@ struct PinyinNadaView: View {
              Text("Nada".localized)
                .font(.system(size: 25, weight: .bold))
             
-            Image("Nada")
+             Image("Nada_id".localized)
                .resizable()
                .scaledToFit()
                .frame(width:100, height: 100)

@@ -50,7 +50,8 @@ struct ProfilePageView: View {
                .padding(.horizontal, 20)
                
                ProfileNavigationButton(title: "Perangkat Pintar".localized, imageName: "externaldrive.connected.to.line.below"){
-                  router.push(.ioTSetting)
+                  //router.push(.ioTSetting)
+                   router.push(.comingSoon)
                }
                .frame(height: 35)
                .frame(maxWidth: .infinity)

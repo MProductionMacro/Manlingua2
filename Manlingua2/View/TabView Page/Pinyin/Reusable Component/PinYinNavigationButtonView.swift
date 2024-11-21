@@ -20,13 +20,13 @@ struct PinYinNavigationButton: View {
             HStack(spacing: 12) {
                Image(labelImage)
                VStack(alignment: .leading) {
-                   Text(title.localized)
-                     .font(.title3)
-                     .fontWeight(.bold)
-                   Text(content.localized)
-                     .multilineTextAlignment(.leading)
-                     .font(.callout)
-                     .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(title.localized)
+                      .font(.semibold20())
+                      .fontWeight(.bold)
+                    Text(content.localized)
+                      .multilineTextAlignment(.leading)
+                      .font(.normal16())
+                      .frame(maxWidth: .infinity, alignment: .leading)
                }
                .frame(maxWidth: .infinity, alignment: .leading)
             }

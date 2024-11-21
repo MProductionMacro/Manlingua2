@@ -13,7 +13,6 @@ struct NotificationSettingView: View {
 
     var body : some View {
         VStack{
-            
             VStack(alignment: .leading, spacing: 16){
                 Text("Pengaturan Notifikasi".localized)
                     .font(.heavy32())

@@ -21,7 +21,7 @@ struct PinyinInitView: View {
              Text("Inisial".localized)
                .font(.system(size: 25, weight: .bold))
             
-            Image("Inisial")
+            Image("Inisial_id".localized)
                .resizable()
                .scaledToFit()
                .frame(width: 100, height: 100)
