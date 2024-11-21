@@ -18,7 +18,7 @@ struct DonePageView: View {
    
    var body: some View {
       ZStack{
-         Color.blankBackground
+          Color.blankBackground.edgesIgnoringSafeArea(.all)
          VStack(spacing: 10){
              Text("Selamat!".localized)
                .font(.system(size: 40))
