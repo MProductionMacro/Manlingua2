@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct NotesCardView : View{
-   
    var note: ImportantNote
    @State var isBookmarked = false
    @EnvironmentObject var viewModel: ImportantNotesViewModel
@@ -99,7 +98,6 @@ struct NotesCardView : View{
         }
     }
 }
-
 
 #Preview{
    NotesCardView(note : ImportantNote(title: "Perkenalan Nama", allowed: "Gunakan sapaan formal “您好” (Nín hǎo), perkenalkan diri dan posisi, ungkapkan minat kerjasama.", forbidden: "Jangan langsung pakai panggilan informal & masuk ke bisnis.", caution: "Perhatikan bahasa tubuh, jaga sikap tetap ramah.", language: "en"))
