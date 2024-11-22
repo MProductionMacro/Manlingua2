@@ -65,6 +65,9 @@ class Router: ObservableObject {
                self.pop()
             })
             .navigationBarBackButtonHidden(true)
+//      case .cameraView:
+//         CameraView()
+//            .navigationBarBackButtonHidden(true)
       case .journeyPage(let storyId):
          JourneyPageView(storyId: storyId)
             .onBackSwipe(perform: {
@@ -93,12 +96,6 @@ class Router: ObservableObject {
             .navigationBarBackButtonHidden(true)
       case .photoChallenge:
          PhotoChallengeView()
-            .navigationBarBackButtonHidden(true)
-      case .cameraView:
-         CameraView()
-            .onBackSwipe(perform: {
-               self.pop()
-            })
             .navigationBarBackButtonHidden(true)
       case .importantNote(let displayMode):
          ImportantNotesPageView(displayMode: displayMode)
@@ -155,7 +152,7 @@ indirect enum Screen: Hashable {
    case donePage(displayMode : DonePageDisplayMode, chapterId: Int, subChapterId: Int)
    case flashcardPage
    case photoChallenge
-   case cameraView
+//   case cameraView
    case languageSetting
    case importantNote(displayMode: NoteDisplayMode)
    case notificationSetting

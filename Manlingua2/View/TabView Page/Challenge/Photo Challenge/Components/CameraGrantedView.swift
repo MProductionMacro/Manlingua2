@@ -14,24 +14,26 @@ struct CameraGrantedView: View {
    
    @State var image: UIImage = UIImage(resource: .placeholderChallenge)
    @State var isShowingMeaning = false
-   @State var isPredicted = false
    @State var isCorrect = false
-   
-   @State var isShowingCamera = false
+   @State var objects: [Object] = []
+
+   @Binding var isShowingCamera: Bool
+   @Binding var isPredicted: Bool
+   @Binding var isLoading: Bool
    
    var body: some View {
-      if let randomObjects = viewModel.objects_example.randomElement(){
+      ZStack {
          ScrollView {
-            VStack(spacing: 24){
+            VStack(spacing: 24) {
                VStack(alignment: .leading, spacing: 8) {
-                   Text("Cari dan fotokan".localized)
+                  Text("Cari dan fotokan".localized)
                      .font(.judulBiasa())
                   
                   VStack(alignment: .leading) {
-                     Text(randomObjects.pinyin)
+                     Text(objects.first?.pinyin ?? "Pinyin")
                         .font(.pinyin())
                         .foregroundStyle(.gray)
-                     Text(randomObjects.hanzi)
+                     Text(objects.first?.hanzi ?? "Hanzi")
                         .font(.hanzi())
                         .overlay {
                            DottedUnderline()
@@ -41,49 +43,32 @@ struct CameraGrantedView: View {
                         .onTapGesture {
                            isShowingMeaning.toggle()
                         }
-                        .popover(isPresented: $isShowingMeaning, attachmentAnchor: .point(.bottom)) {
-                           ZStack {
-                              Color.customLightGray
-                                 .scaleEffect(1.5)
-                              
-                              Text(randomObjects.meaning)
-                                 .font(.hanzi())
-                                 .foregroundColor(.black)
-                                 .padding(.horizontal, 4)
-                                 .multilineTextAlignment(.leading)
-                           }
-                           .presentationCompactAdaptation(.popover)
+                        .popover(isPresented: $isShowingMeaning) {
+                           Text(objects.first?.meaning ?? "Meaning")
+                              .font(.hanzi())
+                              .foregroundColor(.black)
+                              .padding()
+                              .background(Color.customLightGray)
+                              .cornerRadius(8)
+                              .presentationCompactAdaptation(.popover)
                         }
-                     
                   }
                }
                .frame(maxWidth: .infinity, alignment: .leading)
                
-               VStack {
-                  Button {
-//                     router.push(.cameraView)
-                     isShowingCamera = true
-                  } label: {
-                     Image(systemName: "camera.fill")
-                        .font(.system(size: 32))
-                        .padding(8)
-                  }
-                  .buttonStyle(CircleButton())
+               Button {
+                  isShowingCamera = true
+               } label: {
+                  Image(systemName: "camera.fill")
+                     .font(.system(size: 32))
+                     .padding(8)
                }
-               .frame(maxWidth: .infinity)
-               .padding(.top, UIScreen.main.bounds.height * 0.3)
-               .padding(.bottom, UIScreen.main.bounds.height * 0.02)
-               .background(.gray)
-               .clipShape(.rect(cornerRadius: 16))
-               .overlay(
-                  RoundedRectangle(cornerRadius: 16)
-                     .stroke(Color.gray.opacity(0.3), lineWidth: 2)
-               )
+               .buttonStyle(CircleButton())
                
                Button {
-                  viewModel.objects_example.shuffle()
+                  objects = viewModel.objects_example.shuffled()
                } label: {
-                   Text("Lewati".localized)
+                  Text("Lewati".localized)
                      .frame(maxWidth: .infinity)
                }
                .buttonStyle(SecondaryButton(isDisabled: false))
@@ -92,38 +77,51 @@ struct CameraGrantedView: View {
          .padding(.horizontal)
          .padding(.top, 32)
          .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-         .background(.blankBackground)
+         .background(Color.blankBackground)
          .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
          .ignoresSafeArea()
-         .overlay(content: {
-            if isPredicted{
-                CorrectOrWrong(isSpeakingQuestion: .constant(false), hanzi: "", pinyin: "", meaning: "", isCorrect: isCorrect) {
-                  isPredicted = false
-                  viewModel.isPredicted = false
+         .onAppear {
+            objects = viewModel.objects_example.shuffled()
+         }
+         .overlay {
+            if viewModel.isPredicted {
+               CorrectOrWrong(
+                  isSpeakingQuestion: .constant(false),
+                  hanzi: objects.first?.hanzi ?? "",
+                  pinyin: objects.first?.pinyin ?? "",
+                  meaning: objects.first?.meaning ?? "",
+                  isCorrect: isCorrect
+               ) {
+                  withAnimation{
+                     viewModel.isPredicted = false
+                  }
                } tryAgainFunc: {
-                  isPredicted = false
-                  viewModel.isPredicted = false
+                  withAnimation{
+                     viewModel.isPredicted = false
+                  }
                }
                .frame(maxHeight: .infinity, alignment: .bottom)
                .ignoresSafeArea()
-            }
-         })
-         .onChange(of: viewModel.isPredicted) { oldValue, newValue in
-            if viewModel.isPredicted {
-               DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                  isPredicted = true
-                  isCorrect = viewModel.predictions.contains { prediction in
-                     prediction.class == randomObjects.meaning
-                  }
+               .transition(.move(edge: .bottom))
+               .onAppear {
+                  isLoading = false
                }
+            }
+         }
+         .animation(.easeInOut, value: isShowingCamera)
+         .onChange(of: viewModel.predictions) { _, newValue in
+            withAnimation{
+               guard viewModel.isPredicted else { return }
+               isCorrect = viewModel.predictions.contains { $0.class == objects.first?.meaning }
             }
          }
       }
    }
 }
 
-#Preview {
-   CameraGrantedView()
-      .environmentObject(Router())
-      .environmentObject(ChallengeViewModel())
-}
+
+//#Preview {
+//   CameraGrantedView()
+//      .environmentObject(Router())
+//      .environmentObject(ChallengeViewModel())
+//}

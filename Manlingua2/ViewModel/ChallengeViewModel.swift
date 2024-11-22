@@ -9,10 +9,12 @@ import SwiftUI
 import Combine
 
 class ChallengeViewModel: ObservableObject {
-   @Published var isPredicted = false
+   //   @Published var isPredicted = false
    @Published var objects: [String] = []
    @Published var errorMessage: String?
    @Published var predictions: [Prediction] = []
+   
+   @Published var isPredicted = false
    
    @Published var objects_example: [Object] = []
    
@@ -27,7 +29,7 @@ class ChallengeViewModel: ObservableObject {
    private let calendar = Calendar.current
    
    private let userDefaults = UserDefaults.standard
-   private let baseURL = "http://10.60.62.153:8000"
+   private let baseURL = "https://paullmich28-manlingua.hf.space"
    
    let ranks = UserRank.allCases
    
@@ -39,35 +41,48 @@ class ChallengeViewModel: ObservableObject {
    
    func taskDone(index: Int){
       let now = Date()
-      let lastDate = UserDefaults.standard.object(forKey: "lastCompletionDate") as? Date ?? Date.now
+      let calendar = Calendar.current
+      let defaults = UserDefaults.standard
       
-      if !calendar.isDate(lastDate, inSameDayAs: now) {
-         // Check if lastDate was yesterday to maintain streak
-         if let yesterday = calendar.date(byAdding: .day, value: -1, to: now), calendar.isDate(lastDate, inSameDayAs: yesterday) {
-            singleton.streak += 1 // Increment streak
-         } else {
-            singleton.streak = 0 // Reset streak to 1
+      // Retrieve last completion date or handle first launch
+      if let lastDate = defaults.object(forKey: "lastCompletionDate") as? Date {
+         // Not the first launch
+         if !calendar.isDate(lastDate, inSameDayAs: now) {
+            if let yesterday = calendar.date(byAdding: .day, value: -1, to: now),
+               calendar.isDate(lastDate, inSameDayAs: yesterday) {
+               // Last task was completed yesterday, increment streak
+               singleton.streak += 1
+            } else {
+               // Streak broken, reset to 1
+               singleton.streak = 0
+            }
+            
+            // Update last completion date
+            defaults.set(now, forKey: "lastCompletionDate")
          }
-         
-         // Update the lastCompletionDate to today
-         UserDefaults.standard.set(now, forKey: "lastCompletionDate")
+      } else {
+         // First launch: initialize streak and save the current date
+         singleton.streak += 1
+         defaults.set(now, forKey: "lastCompletionDate")
       }
       
+      // Update task completion and total progress
       if singleton.tasks[index] < 1 {
          singleton.tasks[index] += 1
          singleton.totalTasks = Double(singleton.tasks.reduce(0, +)) / Double(singleton.tasks.count)
       }
       
+      // Save updated progress
       singleton.saveGoalProgressData()
    }
    
    func addStars(){
       singleton.totalStars += 1
       singleton.rank += 1
-//      if singleton.totalStars == 5 {
-//         singleton.rank += 1
-//         singleton.totalStars = 0
-//      }
+      //      if singleton.totalStars == 5 {
+      //         singleton.rank += 1
+      //         singleton.totalStars = 0
+      //      }
       
       singleton.saveGoalProgressData()
    }
@@ -101,18 +116,17 @@ class ChallengeViewModel: ObservableObject {
    private var cancellables = Set<AnyCancellable>()
    
    //MARK: Photo Challenge
-   func predictImage(_ image: UIImage) {
+   func predictImage(_ image: UIImage, onPredictionComplete: @escaping (Bool) -> Void) {
       guard let url = URL(string: "\(baseURL)/predict") else { return }
       
-      // Convert UIImage to JPEG data
       guard let imageData = image.jpegData(compressionQuality: 0.8) else {
          DispatchQueue.main.async {
             self.errorMessage = "Failed to convert image to data"
          }
+         onPredictionComplete(false)
          return
       }
       
-      // Set up the request with multipart form data
       var request = URLRequest(url: url)
       request.httpMethod = "POST"
       let boundary = UUID().uuidString
@@ -136,20 +150,23 @@ class ChallengeViewModel: ObservableObject {
          }
          
          guard let data = data else {
-            print("Error disini")
             return
          }
          
          do {
             let decodedResponse = try JSONDecoder().decode(PredictionResponse.self, from: data)
             DispatchQueue.main.async {
-               self.isPredicted = true
                self.predictions = decodedResponse.predictions
+               withAnimation{
+                  self.isPredicted = true
+               }
+               onPredictionComplete(true)
             }
          } catch {
             DispatchQueue.main.async {
-               self.errorMessage = "Failed to parse prediction data"
+               self.errorMessage = "Error decoding prediction response"
             }
+            onPredictionComplete(false)
          }
       }.resume()
    }

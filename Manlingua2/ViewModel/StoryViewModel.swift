@@ -17,26 +17,27 @@ class StoryViewModel: ObservableObject {
    @Published var error: String = ""
    @Published var chapterId: Int = 0
    @ObservedObject var singleton = SwiftDataServices.shared
+   @Published var restartStory = [1, 1, 1, 1]
    
    init(){
       loadChatPreview()
    }
    
-   func correctAction(modalAppeared: inout Bool, index: inout Int, hasAnswered: inout Bool){
+   func correctAction(modalAppeared: inout Bool, hasAnswered: inout Bool){
       withAnimation{
          //         DispatchQueue.main.async {
          modalAppeared = false
-         index += 1
+         currentIndex += 1
          hasAnswered = false
          //         }
       }
    }
    
-   func wrongAction(modalAppeared: inout Bool, index: inout Int, hasAnswered: inout Bool){
+   func wrongAction(modalAppeared: inout Bool, hasAnswered: inout Bool){
       withAnimation{
          //         DispatchQueue.main.async {
          modalAppeared = false
-         index -= 1
+         currentIndex -= 1
          hasAnswered = false
          //         }
       }
@@ -95,6 +96,7 @@ class StoryViewModel: ObservableObject {
    func updateUserProgress(currentStory: Int, currentSubChapter: Int){
       if currentSubChapter > 3 {
          singleton.updateSpecificStoryProgress(story: currentStory + 1, subChapterProgress: 1)
+         restartStory[currentStory - 1] = 1
       }else{
          singleton.updateSpecificStoryProgress(story: currentStory, subChapterProgress: currentSubChapter + 1)
       }

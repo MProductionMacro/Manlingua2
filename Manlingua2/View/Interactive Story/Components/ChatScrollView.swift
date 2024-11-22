@@ -27,7 +27,7 @@ struct ChatScrollView: View {
                         proxy.scrollTo(index, anchor: .bottom)
                      }
                   })
-                     .id(index)
+                  .id(index)
                }
             }
             .onChange(of: modalAppeared, { oldValue, newValue in

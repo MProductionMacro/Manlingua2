@@ -124,7 +124,6 @@ class SwiftDataServices: ObservableObject {
       
       saveGoalProgressData()
    }
-   
    //MARK: Save Goal and Story progress
    
    func saveGoalProgressData(){
