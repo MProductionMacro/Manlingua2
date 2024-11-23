@@ -83,7 +83,12 @@ class Router: ObservableObject {
       case .dictionary(let judul, let displayMode):
          DictionaryView(judul: judul, displayMode: displayMode)
             .onBackSwipe(perform: {
-               self.pop()
+                if displayMode == .favorite(isFromHome: true){
+                    self.popToRoot()
+                }
+                else{
+                    self.pop()
+                }
             })
       case .flashcardPage:
          FlashcardPageView()
@@ -96,11 +101,19 @@ class Router: ObservableObject {
             .navigationBarBackButtonHidden(true)
       case .photoChallenge:
          PhotoChallengeView()
+            .onBackSwipe(perform: {
+                self.popToRoot()
+            })
             .navigationBarBackButtonHidden(true)
       case .importantNote(let displayMode):
          ImportantNotesPageView(displayMode: displayMode)
             .onBackSwipe(perform: {
-               self.pop()
+                if displayMode == .favorite{
+                    self.popToRoot()
+                }
+                else{
+                    self.pop()
+                }
             })
             .navigationBarBackButtonHidden(true)
       case .languageSetting:
@@ -133,6 +146,12 @@ class Router: ObservableObject {
                self.pop()
             })
             .navigationBarBackButtonHidden(true)
+      case .changeName:
+          ChangeNameView()
+              .onBackSwipe(perform: {
+                 self.pop()
+              })
+              .navigationBarBackButtonHidden(true)
       }
    }
 }
@@ -159,6 +178,7 @@ indirect enum Screen: Hashable {
    case ioTSetting
    case detailIoTSetting
    case aiSimulation
+   case changeName
 }
 
 /*

@@ -24,7 +24,7 @@ struct KataKataView: View {
             .buttonStyle(HomeNavigationButton(image: "book.pages", text: "Flashcard"))
             
             Button {
-                router.push(.loadingPage(screen:.dictionary(judul: "Kata Favorit".localized, displayMode: .favorite)))
+                router.push(.loadingPage(screen:.dictionary(judul: "Kata Favorit".localized, displayMode: .favorite(isFromHome: true))))
             } label: {
                EmptyView()
             }

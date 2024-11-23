@@ -18,6 +18,7 @@ struct SimpleItem: Hashable{
 
 class ProfileViewModel: ObservableObject {
    @Published var name: String = "Loading..."
+    @Published var isShowProfilePict : Bool = false
    
    init() {
       fetchUserName()

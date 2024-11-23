@@ -1,25 +1,84 @@
+//
+//  NotificationSettingView.swift
+//  Manlingua2
+//
+//  Created by Arrick Russell Adinoto on 11/11/24.
+//
+
 import SwiftUI
 import FirebaseAuth
+import PhotosUI
 
 struct ProfilePageView: View {
    @StateObject var viewModel = ProfileViewModel()
    @StateObject var singleton = SwiftDataServices.shared
    @EnvironmentObject var router: Router
-   
+    //@EnvironmentObject var swiftDataServices: SwiftDataServices
+    //@State private var avatarImage: Image = SwiftDataServices.shared.profilePicture
+   @StateObject private var swiftDataServices = SwiftDataServices.shared
+   @State private var photosPickerItem: PhotosPickerItem?
+    
    var body: some View {
       ZStack{
          VStack(alignment: .center, spacing: 0) {
             HStack{
-               Image("ProfilePicture")
-                  .resizable()
-                  .frame(width: 63, height: 63)
-                  .padding(.trailing, 5)
+                ZStack(alignment: .bottomTrailing){
+                    swiftDataServices.profilePicture
+                       .resizable()
+                       .frame(width: 63, height: 63)
+                       .cornerRadius(180)
+                       .padding(.trailing, 5)
+                       .onTapGesture{
+                           withAnimation{
+                               viewModel.isShowProfilePict.toggle()
+                           }
+                       }
+                    
+                    PhotosPicker(selection: $photosPickerItem, matching: .images){
+                        Image(systemName: "plus")
+                            .font(.bold12())
+                            .foregroundStyle(.orangeDarkMode)
+                            .frame(width: 20, height: 20)
+                            .background(.cardBackground)
+                            .cornerRadius(180)
+                            .shadow(color: .cardShadow.opacity(0.15), radius: 5, x: 0, y: 0)
+                            .padding(.trailing, 2)
+                            .padding(.bottom, 2)
+                            //.frame(width: 30, height: 30)
+                    }
+                    .onChange(of: photosPickerItem) { newItem in
+                        Task {
+                            if let data = try? await newItem?.loadTransferable(type: Data.self),
+                               let uiImage = UIImage(data: data) {
+                                swiftDataServices.profilePicture = Image(uiImage: uiImage)
+                            }
+                            
+                            if let photo = newItem {
+                                SwiftDataServices.shared.updateProfilePicture(photo: photo)
+                            }
+                        }
+
+
+                    }
+                }
+
                VStack(alignment: .leading){
                   //FIXME: Nanti ganti lagi
-                  Text("Abai")
-                     .font(Font.titleKe2())
-                     .foregroundColor(.white)
-                     .padding(.bottom, 1)
+                   HStack(alignment: .center){
+                       Text("\(swiftDataServices.username)")
+                          .font(Font.titleKe2())
+                          .foregroundColor(.white)
+                       
+                       Button(action:{
+                           router.push(.changeName)
+                       },label:{
+                           Image(systemName: "pencil.line")
+                               .font(Font.bold20())
+                               .foregroundColor(.white)
+                       })
+                   }
+                   .padding(.bottom, 1)
+
                   Text("Perunggu".localized)
                      .font(Font.subJudul())
                      .padding(.top, 1)
@@ -52,37 +111,14 @@ struct ProfilePageView: View {
                ProfileNavigationButton(title: "Perangkat Pintar".localized, imageName: "externaldrive.connected.to.line.below"){
                   //router.push(.ioTSetting)
                    router.push(.comingSoon)
+                   print(SwiftDataServices.shared.getProfilePicture())
+
                }
                .frame(height: 35)
                .frame(maxWidth: .infinity)
                .padding(.horizontal, 20)
                
                Spacer()
-               /*
-               HStack{
-                  Image(systemName: "door.left.hand.open")
-                     .foregroundStyle(.orangeDarkMode)
-                     .font(.semibold16())
-                     .padding(.trailing, 10)
-                  
-                  /*
-                   .resizable()
-                   .foregroundStyle(.orange)
-                   .frame(width: 25, height: 25)
-                   .padding(.trailing, 10)
-                   */
-                  
-                   
-                   Text("Log Out".localized)
-                     .font(Font.semibold16())
-                     .foregroundColor(.profileNavigationText)
-                  Spacer()
-               }
-               .frame(height: 35)
-               .frame(maxWidth: .infinity)
-               .padding(.horizontal, 20)
-               .padding(.bottom, 124)
-                */
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.blankBackground)
@@ -90,6 +126,26 @@ struct ProfilePageView: View {
          }
          .padding(.top)
          .ignoresSafeArea(edges: .bottom)
+      }
+      .overlay{
+          if viewModel.isShowProfilePict{
+              ZStack{
+                  swiftDataServices.profilePicture
+                      .resizable()
+                      .frame(width: 300, height: 300)
+                      .cornerRadius(180)
+              }
+              .frame(maxWidth: .infinity, maxHeight: .infinity)
+              .safeAreaPadding(.bottom)
+              .background(.black.opacity(0.7))
+              .onTapGesture{
+                  withAnimation(.easeInOut(duration: 0.2)) {
+                      viewModel.isShowProfilePict.toggle()
+                  }
+              }
+          }
+
+
       }
       .edgesIgnoringSafeArea(.bottom)
       .background(
@@ -105,4 +161,5 @@ struct ProfilePageView: View {
 #Preview {
    ProfilePageView()
       .environmentObject(Router())
+      .environmentObject(SwiftDataServices())
 }

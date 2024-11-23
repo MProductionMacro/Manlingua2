@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
+import PhotosUI
 
 @MainActor
 class SwiftDataServices: ObservableObject {
@@ -35,10 +37,13 @@ class SwiftDataServices: ObservableObject {
    @Published var streak = 0
    @Published var rank = 0
    
+   @Published var profilePicture: Image = Image("ProfilePicture")  // To store the profile picture data
+   @Published var username: String = "Jane Doe"
+    
    //   @MainActor
    init() {
       do {
-         self.container = try ModelContainer(for: VocabularyModel.self, ImportantNoteModel.self, Story_Progress.self, Goal_Progress.self, configurations: ModelConfiguration(isStoredInMemoryOnly: false))
+        self.container = try ModelContainer(for: VocabularyModel.self, ImportantNoteModel.self, Story_Progress.self, Goal_Progress.self, ProfilePicture.self, Username.self, configurations: ModelConfiguration(isStoredInMemoryOnly: false))
          self.context = container.mainContext
          
          fetchStoryProgressData()
@@ -46,11 +51,105 @@ class SwiftDataServices: ObservableObject {
          
          _ = self.getData()
          _ = self.getNotes()
+          
+         profilePicture = getProfilePicture()
+         username = fetchUsername()
       } catch {
          fatalError(error.localizedDescription)
       }
    }
-   
+    
+    
+    // MARK: - Create/Update
+    func updateUsername(newName: String) {
+       // Fetch existing username if any
+       if let existingUsername = try? context.fetch(FetchDescriptor<Username>()).first {
+           // Update existing username
+           existingUsername.username = newName
+           self.username = newName
+       } else {
+           // Create a new username if none exists
+           let newUsername = Username(username: newName)
+           context.insert(newUsername)
+           self.username = newUsername.username
+       }
+       try? context.save()
+    }
+
+    // MARK: - Read
+    func fetchUsername() ->String{
+        if let fetchedUsername = try? context.fetch(FetchDescriptor<Username>()).first {
+            return fetchedUsername.username
+        }
+        else{
+            return "Jane Doe"
+        }
+    }
+
+
+    func getProfilePicture() -> Image {
+       do {
+          // Try to fetch the first profile picture from the context
+          if let savedProfilePicture = try context.fetch(FetchDescriptor<ProfilePicture>()).first {
+             // If a profile picture exists, convert it to UIImage and return as SwiftUI Image
+             if let uiImage = UIImage(data: savedProfilePicture.imageData) {
+                 self.profilePicture = Image(uiImage: uiImage)
+                 print(profilePicture)
+                 return profilePicture
+             }
+          }
+       } catch {
+          print("Error fetching profile picture: \(error)")
+       }
+       return Image("ProfilePicture")
+    }
+
+    // Function to update the profile picture when the user selects a new photo
+    func updateProfilePicture(photo: PhotosPickerItem) {
+       Task {
+          do {
+             // Load the selected photo data
+             if let data = try await photo.loadTransferable(type: Data.self) {
+                // Create a new ProfilePicture object with the new image data
+                let newProfilePicture = ProfilePicture(imageData: data)
+                
+                // Save the new profile picture data to the context
+                saveProfilePictureData(newProfilePicture: newProfilePicture)
+             }
+          } catch {
+             print("Error updating profile picture: \(error)")
+          }
+       }
+    }
+
+    // MARK: Save Profile Picture to Model
+    private func saveProfilePictureData(newProfilePicture: ProfilePicture) {
+       do {
+          // Check if a profile picture already exists in the database
+          let existingProfilePicture = try context.fetch(FetchDescriptor<ProfilePicture>()).first
+          
+          if let existing = existingProfilePicture {
+             // If a profile picture exists, update it with the new image data
+             existing.imageData = newProfilePicture.imageData
+          } else {
+             // If no profile picture exists, insert a new one
+             context.insert(newProfilePicture)
+          }
+           
+          // Save the changes to the context
+          try context.save()
+          
+           let existingProfilePicture2 = try context.fetch(FetchDescriptor<ProfilePicture>()).first
+          
+           
+          // Update the published property to reflect the changes
+          _ = getProfilePicture()
+       } catch {
+          print("Error saving profile picture data: \(error)")
+       }
+    }
+        
+       
    //MARK: Fetching method for Goal and Story Progress
    
    private func fetchGoalProgressData(){
