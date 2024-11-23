@@ -16,7 +16,7 @@ struct CameraGrantedView: View {
    @State var isShowingMeaning = false
    @State var isCorrect = false
    @State var objects: [Object] = []
-
+   
    @Binding var isShowingCamera: Bool
    @Binding var isPredicted: Bool
    @Binding var isLoading: Bool
@@ -90,7 +90,8 @@ struct CameraGrantedView: View {
                   hanzi: objects.first?.hanzi ?? "",
                   pinyin: objects.first?.pinyin ?? "",
                   meaning: objects.first?.meaning ?? "",
-                  isCorrect: isCorrect
+                  isCorrect: isCorrect,
+                  type: .cameraQuestion
                ) {
                   withAnimation{
                      viewModel.isPredicted = false
@@ -111,8 +112,18 @@ struct CameraGrantedView: View {
          .animation(.easeInOut, value: isShowingCamera)
          .onChange(of: viewModel.predictions) { _, newValue in
             withAnimation{
-               guard viewModel.isPredicted else { return }
-               isCorrect = viewModel.predictions.contains { $0.class == objects.first?.meaning }
+//               guard viewModel.isPredicted else { return }
+               let matchingPredictions = viewModel.predictions.filter { prediction in
+                  prediction.class == objects.first?.meaning
+               }
+               
+               print(objects.first?.meaning ?? "Kosong")
+               
+               // Check if there are any matches
+               isCorrect = !matchingPredictions.isEmpty
+               
+               // Debugging: Print matching predictions
+               print("Matching Predictions: \(matchingPredictions)")
             }
          }
       }

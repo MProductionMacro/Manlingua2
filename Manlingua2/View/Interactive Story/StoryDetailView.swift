@@ -41,7 +41,7 @@ struct StoryDetailView: View {
             }
             
             if hasAnswered{
-               CorrectOrWrong(isSpeakingQuestion: $isSpeakingQuestion, hanzi: viewModel.chat_example[viewModel.currentIndex].hanzi, pinyin: viewModel.chat_example[viewModel.currentIndex].pinyin, meaning: viewModel.chat_example[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
+               CorrectOrWrong(isSpeakingQuestion: $isSpeakingQuestion, hanzi: viewModel.chat_example[viewModel.currentIndex].hanzi, pinyin: viewModel.chat_example[viewModel.currentIndex].pinyin, meaning: viewModel.chat_example[viewModel.currentIndex].meaning, isCorrect: isCorrect, type: viewModel.chat_example[viewModel.currentIndex].choice != nil ? .writingQuestion : .speakingQuestion) {
                   withAnimation {
                      guard !isTransitioning else { return }
                      isTransitioning = true

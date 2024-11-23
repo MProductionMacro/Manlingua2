@@ -27,8 +27,10 @@ struct CameraView: View {
             Button {
                cameraController.capturePhoto()
                
-               isShowingCamera = false
-               isLoading = true
+               DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+                  isShowingCamera = false
+                  isLoading = true
+               }
                
                cameraController.onCaptureComplete = { image in
                   viewModel.predictImage(image) { result in

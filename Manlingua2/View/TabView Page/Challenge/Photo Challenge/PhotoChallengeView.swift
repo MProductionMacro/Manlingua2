@@ -71,7 +71,7 @@ struct PhotoChallengeView: View {
                ProgressView("Loading...")
                   .progressViewStyle(CircularProgressViewStyle())
                   .scaleEffect(1.5, anchor: .center)
-                  .font(.judulBesar())
+                  .font(.subJudul())
                   .foregroundColor(.white)
             }
          }

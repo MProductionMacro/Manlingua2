@@ -157,6 +157,8 @@ class ChallengeViewModel: ObservableObject {
             let decodedResponse = try JSONDecoder().decode(PredictionResponse.self, from: data)
             DispatchQueue.main.async {
                self.predictions = decodedResponse.predictions
+               print(self.predictions)
+               
                withAnimation{
                   self.isPredicted = true
                }
