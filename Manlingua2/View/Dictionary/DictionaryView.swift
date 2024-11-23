@@ -2,7 +2,7 @@
 //  DictionaryView.swift
 //  Manlingua2
 //
-//  Created by Paulus Michael on 03/10/24.
+//  Created by Arrick Russell Adinoto on 03/10/24.
 //
 import SwiftUI
 
@@ -67,11 +67,13 @@ struct DictionaryView: View {
          }
          .padding(.top, UIScreen.main.bounds.height < 700 ? -60 : 8)
          .navigationBarItems(leading: Button(action: {
-            if displayMode == .favorite {
+             
+             if displayMode == .favorite(isFromHome: true) {
                router.popToRoot()
             }else{
                router.pop()
             }
+
          }) {
             HStack {
                 Image(systemName: "chevron.left")

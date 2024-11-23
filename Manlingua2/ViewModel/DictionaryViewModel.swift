@@ -53,7 +53,7 @@ class DictionaryViewModel: ObservableObject {
     
     
     public func getVocabulary(_ displayMode: DictionaryDisplayMode) -> [Vocabulary]{
-        if displayMode == .favorite || UserDefaultSingleton.shared.language == "id"{
+        if displayMode == .favorite(isFromHome: true) || displayMode == .favorite(isFromHome: false) || UserDefaultSingleton.shared.language == "id"{
             return vocabularies
         }
         else{

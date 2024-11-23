@@ -6,6 +6,6 @@
 //
 
 enum DictionaryDisplayMode: Equatable, Hashable {
-   case favorite
+   case favorite(isFromHome: Bool)
    case story(id: Int)
 }
