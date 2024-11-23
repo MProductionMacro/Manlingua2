@@ -18,7 +18,7 @@ struct TantanganView: View {
          
          HStack(spacing: 24) {
             Button {
-               router.push(.comingSoon)
+                router.push(.loadingPage(screen: .photoChallenge))
             } label: {
                EmptyView()
             }

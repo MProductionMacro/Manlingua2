@@ -13,6 +13,8 @@ struct CorrectOrWrong: View {
    var pinyin: String
    var meaning: String
    var isCorrect: Bool
+//   var isCamera: Bool
+   var type: ModalityType
    
    var continueFunc: () -> Void
    var tryAgainFunc: () -> Void
@@ -58,16 +60,8 @@ struct CorrectOrWrong: View {
                }
             }
             
-            if isSpeakingQuestion {
-               Text("Anda mengucapkan \(transcribedAudio)")
-                  .font(.subJudul())
-                  .foregroundStyle(.black)
-                  .onAppear {
-                     audioController.transcribeAudio { result in
-                        transcribedAudio = result
-                     }
-                  }
-            } else {
+            switch type {
+            case .writingQuestion:
                HStack(alignment: .bottom, spacing: 0) {
                   VStack {
                      Text("\(pinyin)")
@@ -81,6 +75,19 @@ struct CorrectOrWrong: View {
                      .font(.subJudul())
                }
                .foregroundStyle(.black)
+            case .speakingQuestion:
+               Text("Anda mengucapkan \(transcribedAudio)")
+                  .font(.subJudul())
+                  .foregroundStyle(.black)
+                  .onAppear {
+                     audioController.transcribeAudio { result in
+                        transcribedAudio = result
+                     }
+                  }
+            case .cameraQuestion:
+               Text(isCorrect ? "Tepat sekali!" : "Masih belum tepat!")
+                  .font(.subJudul())
+                  .foregroundStyle(.black)
             }
          }
          
@@ -104,7 +111,13 @@ struct CorrectOrWrong: View {
    }
 }
 
-#Preview {
-   CorrectOrWrong(isSpeakingQuestion: .constant(true), hanzi: "猫", pinyin: "Māo", meaning: "How many people", isCorrect: true, continueFunc: {}, tryAgainFunc: {})
-      .preferredColorScheme(.dark)
+enum ModalityType {
+   case writingQuestion
+   case speakingQuestion
+   case cameraQuestion
 }
+
+//#Preview {
+//   CorrectOrWrong(isSpeakingQuestion: .constant(true), hanzi: "猫", pinyin: "Māo", meaning: "How many people", isCorrect: true, continueFunc: {}, tryAgainFunc: {})
+//      .preferredColorScheme(.dark)
+//}

@@ -9,10 +9,10 @@ import SwiftUI
 import AVFoundation
 
 struct CameraView: View {
-   @EnvironmentObject var router: Router
    @EnvironmentObject var viewModel: ChallengeViewModel
-   
    @StateObject private var cameraController = CameraController.shared
+   @Binding var isShowingCamera: Bool
+   @Binding var isLoading: Bool
    
    var body: some View {
       ZStack {
@@ -24,51 +24,33 @@ struct CameraView: View {
          VStack {
             Spacer()
             
-            Button(action: {
+            Button {
                cameraController.capturePhoto()
-               //               router.pop()
-            }) {
+               
+               DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+                  isShowingCamera = false
+                  isLoading = true
+               }
+               
+               cameraController.onCaptureComplete = { image in
+                  viewModel.predictImage(image) { result in
+                     DispatchQueue.main.async {
+                        // After prediction, update the UI
+                        viewModel.isPredicted = true
+                     }
+                  }
+               }
+            } label: {
                Circle()
                   .fill(Color.white)
                   .frame(width: 70, height: 70)
-                  .overlay(
-                     Circle()
-                        .stroke(Color.gray, lineWidth: 3)
-                  )
+                  .overlay(Circle().stroke(Color.gray, lineWidth: 3))
             }
             .padding(.bottom)
          }
-         
-         //         if let capturedImage = cameraController.capturedImage {
-         //            Color.black.opacity(0.6)
-         //               .edgesIgnoringSafeArea(.all)
-         //
-         //            Image(uiImage: capturedImage)
-         //               .resizable()
-         //               .scaledToFit()
-         //               .padding()
-         //
-         //            VStack {
-         //               Spacer()
-         //               Button(action: {
-         //                  cameraController.capturedImage = nil
-         //               }) {
-         //                  Text("Dismiss")
-         //                     .padding()
-         //                     .background(Color.white)
-         //                     .cornerRadius(10)
-         //               }
-         //               .padding(.bottom)
-         //            }
-         //         }
       }
       .onAppear {
          cameraController.startSession()
-         cameraController.onCaptureComplete = { image in
-            cameraController.capturedImage = image // Update captured image to display
-            viewModel.predictImage(image)
-            router.pop() // Navigate back to CameraGrantedView
-         }
       }
       .onDisappear {
          cameraController.stopSession()
@@ -76,13 +58,12 @@ struct CameraView: View {
       .toolbar {
          ToolbarItem(placement: .topBarLeading) {
             Button {
-               router.pop()
+               isShowingCamera = false
             } label: {
-               HStack{
+               HStack {
                   Image(systemName: "chevron.left")
                      .font(.title3)
                      .bold()
-                  
                   Text("Kembali".localized)
                      .bold()
                }
@@ -90,15 +71,17 @@ struct CameraView: View {
             }
          }
       }
-      .frame(maxWidth: .infinity)
-      .background(.black)
+      .background(Color.black)
    }
 }
 
-#Preview {
-   NavigationStack {
-      CameraView()
-   }
-   .environmentObject(Router())
-   .environmentObject(ChallengeViewModel())
-}
+
+
+
+//#Preview {
+//   NavigationStack {
+//      CameraView()
+//   }
+//   .environmentObject(Router())
+//   .environmentObject(ChallengeViewModel())
+//}

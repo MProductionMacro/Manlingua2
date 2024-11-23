@@ -61,10 +61,13 @@ struct HomeCardView: View {
             Button {
                if !isDisabled {
                   let subChapterId = singleton.latestSubChapter
-                  //                  router.push(.storyPage(chapterId: story.id, subChapterId: subChapterId))
-                  storyVM.clearChat()
-                  storyVM.loadChat(storyId: story.id, subChapterId: subChapterId)
-                  router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: subChapterId)))
+                  let chapterId = singleton.latestStory
+                  
+                  let isRestart = story.id < chapterId
+                  
+                  storyVM.loadChat(storyId: story.id, subChapterId: isRestart ? storyVM.restartStory[story.id - 1] : subChapterId)
+                  storyVM.currentIndex = 0
+                  router.push(.loadingPage(screen : .storyPage(chapterId: story.id, subChapterId: isRestart ? storyVM.restartStory[story.id - 1] : subChapterId)))
 //                  router.push(.donePage(displayMode: .story(storyId: 1, subChapterId: 1), chapterId: 1, subChapterId: 1))
                }
             } label: {
