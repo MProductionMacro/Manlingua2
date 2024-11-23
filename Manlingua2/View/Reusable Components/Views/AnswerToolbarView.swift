@@ -17,7 +17,7 @@ struct AnswerToolbarView : View {
             Spacer()
             HStack{
                 Button(action:{
-                    router.push(.dictionary(judul: "Kata Favorit".localized, displayMode: .favorite))
+                    router.push(.dictionary(judul: "Kata Favorit".localized, displayMode: .favorite(isFromHome: false)))
                 }, label: {
                     Image(systemName: "book")
                         .foregroundColor(.white)

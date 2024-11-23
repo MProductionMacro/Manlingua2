@@ -75,7 +75,7 @@ struct DonePageView: View {
                   
                   switch displayMode {
                   case .flashcard:
-                      router.push(.dictionary(judul: "Kata - kata favorit".localized, displayMode: .favorite))
+                      router.push(.dictionary(judul: "Kata - kata favorit".localized, displayMode: .favorite(isFromHome: false)))
                   case .story(let storyId, let subChapterId):
                      router.push(.importantNote(displayMode: .subChapter(storyId: storyId, subChapterId: subChapterId)))
                   }
