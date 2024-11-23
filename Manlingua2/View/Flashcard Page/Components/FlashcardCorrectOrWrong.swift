@@ -18,7 +18,8 @@ struct FlashcardCorrectOrWrong: View {
    var tryAgainFunc: () -> Void
    @State var audioController = AudioController.shared
    @State var transcribedAudio = ""
-   
+   @State private var isTransitioning: Bool = false
+
    var body: some View {
       VStack(alignment: .leading, spacing: 24) {
          VStack(alignment: .leading) {
@@ -79,7 +80,14 @@ struct FlashcardCorrectOrWrong: View {
             })
             
             ContinueButton(action: {
-               continueFunc()
+                withAnimation{
+                    guard !isTransitioning else { return }
+                    isTransitioning = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                       isTransitioning = false
+                    }
+                    continueFunc()
+                }
             })
          }
       }

@@ -18,6 +18,7 @@ struct FlashcardPageView: View {
    @State var isCorrect = false
    @State private var showConfirmationAlert = false
    @State var answer:String = ""
+    @State var isTransitioning: Bool = false
    var body: some View {
       ZStack (alignment: .bottom){
          VStack {
@@ -50,6 +51,13 @@ struct FlashcardPageView: View {
             if hasAnswered {
                 FlashcardCorrectOrWrong(answer: $answer, hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, pinyin: viewModel.showVocabularies[viewModel.currentIndex].pinyin, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
                   withAnimation{
+                      guard !isTransitioning else { return }
+                      isTransitioning = true
+                      DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                         isTransitioning = false
+                      }
+                      
+                      
                      DispatchQueue.main.async {
                         viewModel.performSwipeRight()
                         hasAnswered = false

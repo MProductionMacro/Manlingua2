@@ -75,7 +75,7 @@ struct BottomFlashcardContainerView: View {
          Divider()
          
          MicrophoneModalityView() { answer in
-            withAnimation{
+             withAnimation(.easeInOut(duration: 0.3)){
                isCorrect = (answer == flashcardViewModel.showVocabularies[flashcardViewModel.currentIndex].hanzi)
                hasAnswered = true
             }

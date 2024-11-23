@@ -291,6 +291,23 @@
         }
       }
     },
+    "Aplikasi akan menampilkan nama yang Anda tuliskan dibawah" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The application will display the name you entered below"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplikasi akan menampilkan nama yang Anda tuliskan di bawah"
+          }
+        }
+      }
+    },
     "Are you sure you want to leave this page?" : {
       "localizations" : {
         "en" : {
@@ -1533,6 +1550,23 @@
         }
       }
     },
+    "Nama" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Display Name"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nama"
+          }
+        }
+      }
+    },
     "Nama Model" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2291,7 +2325,7 @@
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Selesaikan tugas dibawah!"
+            "value" : "Selesaikan tugas di bawah!"
           }
         }
       }

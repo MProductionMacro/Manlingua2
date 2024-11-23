@@ -44,6 +44,10 @@ class Router: ObservableObject {
       case .comingSoon:
          ComingSoonView()
             .navigationBarBackButtonHidden(true)
+            .onBackSwipe(perform: {
+               self.popToRoot()
+            })
+            .navigationBarBackButtonHidden(true)
       case .mainScreen:
          TabPageView()
             .navigationBarBackButtonHidden(true)

@@ -19,6 +19,7 @@ class FlashcardViewModel: ObservableObject {
     @Published var showVocabularies: [Vocabulary] = []
     @Published var apiResult = ""
     
+    @Published var isTransitioning: Bool = false
     init(){
         loadVocabularies()
         reshuffleCards()
@@ -101,13 +102,25 @@ class FlashcardViewModel: ObservableObject {
    
    
    func performSwipeRight() {
+       
+       guard !isTransitioning else { return }
+
+       
       guard currentIndex <= showVocabularies.count else {
          return
       }
       
-      showMicrophone = true
+      //showMicrophone = true
       
       withAnimation {
+         isTransitioning = true
+         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+             self.isTransitioning = false
+         }
+         
+         showMicrophone = true
+
+          
          self.offset = CGSize(width: 500, height: 0)
          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.offset = .zero
