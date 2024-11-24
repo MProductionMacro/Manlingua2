@@ -95,6 +95,7 @@ struct CameraGrantedView: View {
                ) {
                   withAnimation{
                      viewModel.isPredicted = false
+                     objects = viewModel.objects_example.shuffled()
                   }
                } tryAgainFunc: {
                   withAnimation{
@@ -107,22 +108,25 @@ struct CameraGrantedView: View {
                .onAppear {
                   isLoading = false
                }
+            }else{
+               EmptyView()
             }
          }
          .animation(.easeInOut, value: isShowingCamera)
-         .onChange(of: viewModel.predictions) { _, newValue in
-            withAnimation{
-//               guard viewModel.isPredicted else { return }
+         .onChange(of: viewModel.predictions) { oldValue, newValue in
+            withAnimation {
+               guard !viewModel.predictions.isEmpty else {
+                  print("No predictions available")
+                  isCorrect = false // Mark as incorrect if no predictions are available
+                  return
+               }
+               
                let matchingPredictions = viewModel.predictions.filter { prediction in
                   prediction.class == objects.first?.meaning
                }
                
-               print(objects.first?.meaning ?? "Kosong")
-               
                // Check if there are any matches
                isCorrect = !matchingPredictions.isEmpty
-               
-               // Debugging: Print matching predictions
                print("Matching Predictions: \(matchingPredictions)")
             }
          }

@@ -116,14 +116,13 @@ class ChallengeViewModel: ObservableObject {
    private var cancellables = Set<AnyCancellable>()
    
    //MARK: Photo Challenge
-   func predictImage(_ image: UIImage, onPredictionComplete: @escaping (Bool) -> Void) {
+   func predictImage(_ image: UIImage) {
       guard let url = URL(string: "\(baseURL)/predict") else { return }
       
       guard let imageData = image.jpegData(compressionQuality: 0.8) else {
          DispatchQueue.main.async {
             self.errorMessage = "Failed to convert image to data"
          }
-         onPredictionComplete(false)
          return
       }
       
@@ -145,6 +144,7 @@ class ChallengeViewModel: ObservableObject {
          if let error = error {
             DispatchQueue.main.async {
                self.errorMessage = "Failed to predict image: \(error.localizedDescription)"
+               print(self.errorMessage)
             }
             return
          }
@@ -156,19 +156,22 @@ class ChallengeViewModel: ObservableObject {
          do {
             let decodedResponse = try JSONDecoder().decode(PredictionResponse.self, from: data)
             DispatchQueue.main.async {
-               self.predictions = decodedResponse.predictions
+               self.predictions = decodedResponse.predictions ?? [Prediction(class: "Not Detected", confidence: 100)]
                print(self.predictions)
                
                withAnimation{
                   self.isPredicted = true
                }
-               onPredictionComplete(true)
             }
          } catch {
             DispatchQueue.main.async {
+               print(error.localizedDescription)
+               withAnimation{
+                  self.isPredicted = true
+               }
                self.errorMessage = "Error decoding prediction response"
+               print(self.errorMessage)
             }
-            onPredictionComplete(false)
          }
       }.resume()
    }
