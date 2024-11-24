@@ -18,6 +18,7 @@ class StoryViewModel: ObservableObject {
    @Published var chapterId: Int = 0
    @ObservedObject var singleton = SwiftDataServices.shared
    @Published var restartStory = [1, 1, 1, 1]
+   @Published var isRestart = false
    
    init(){
       loadChatPreview()

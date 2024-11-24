@@ -17,6 +17,7 @@ struct StoryDetailView: View {
    @State var hasAnswered: Bool = false
    @State var isCorrect: Bool = false
    @State var selectedAnswer: String? = nil
+   @State var tutorialOverlay: Int = 1
    
    @State private var isTransitioning: Bool = false // Prevents skipping during animations
    @State private var isTransitionComplete: Bool = true // Tracks if the view can handle taps
@@ -86,6 +87,9 @@ struct StoryDetailView: View {
          .onTapGesture { location in
             handleTap(location: location, midPoint: geometry.size.width / 2)
          }
+         .overlay {
+            TutorialOverlayView(tutorialOverlay: $tutorialOverlay, width: geometry.size.width * 0.6)
+         }
       }
    }
    
@@ -127,6 +131,7 @@ struct StoryDetailView: View {
             }
          }
       }
+      
       DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
          isTransitionComplete = true // Re-enable taps after animation
       }

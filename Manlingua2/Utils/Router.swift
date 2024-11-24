@@ -99,9 +99,6 @@ class Router: ObservableObject {
             .navigationBarBackButtonHidden(true)
       case .donePage(let displayMode, let chapterId, let subChapterId):
          DonePageView(displayMode: displayMode, chapterId: chapterId, subChapterId: subChapterId)
-            .onBackSwipe(perform: {
-               self.pop()
-            })
             .navigationBarBackButtonHidden(true)
       case .photoChallenge:
          PhotoChallengeView()

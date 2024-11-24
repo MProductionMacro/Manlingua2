@@ -24,6 +24,9 @@ packages:
    siriwaveview:
       url: https://github.com/alfianlosari/SiriWaveView
       from: 1.1.0
+   xcaopenaiclient:
+      url: https://github.com/alfianlosari/XCAOpenAIClient
+      branch: main
 targets:
    Manlingua2:
       type: application
@@ -43,6 +46,8 @@ targets:
           product: FirebaseFirestore
         - package: siriwaveview
           product: SiriWaveView
+        - package: xcaopenaiclient
+          product: XCAOpenAIClient
       settings:
          PRODUCT_BUNDLE_IDENTIFIER: com.mproduction-macro.Manlingua2
          ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"

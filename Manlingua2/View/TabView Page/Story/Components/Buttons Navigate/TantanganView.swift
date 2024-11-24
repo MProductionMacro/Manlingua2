@@ -25,7 +25,7 @@ struct TantanganView: View {
             .buttonStyle(HomeNavigationButton(image: "camera", text: "Foto".localized))
             
             Button {
-               router.push(.comingSoon)
+               router.push(.aiSimulation)
             } label: {
                EmptyView()
             }
