@@ -120,22 +120,22 @@ struct ProfilePageView: View {
                
                Spacer()
                 
-               HStack{
-                   Image(systemName: "door.left.hand.open")
-                      .foregroundStyle(.orangeDarkMode)
-                      .font(.semibold16())
-                      .padding(.trailing, 10)
-    
-                    
-                   Text("Log Out".localized)
-                      .font(Font.semibold16())
-                      .foregroundColor(.profileNavigationText)
-                   Spacer()
-               }
-               .frame(height: 35)
-               .frame(maxWidth: .infinity)
-               .padding(.horizontal, 20)
-               .padding(.bottom, 124)
+//               HStack{
+//                   Image(systemName: "door.left.hand.open")
+//                      .foregroundStyle(.orangeDarkMode)
+//                      .font(.semibold16())
+//                      .padding(.trailing, 10)
+//    
+//                    
+//                   Text("Log Out".localized)
+//                      .font(Font.semibold16())
+//                      .foregroundColor(.profileNavigationText)
+//                   Spacer()
+//               }
+//               .frame(height: 35)
+//               .frame(maxWidth: .infinity)
+//               .padding(.horizontal, 20)
+//               .padding(.bottom, 124)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.blankBackground)

@@ -15,6 +15,7 @@ struct CorrectOrWrong: View {
    var isCorrect: Bool
 //   var isCamera: Bool
    var type: ModalityType
+   var correctForCamera: String?
    
    var continueFunc: () -> Void
    var tryAgainFunc: () -> Void

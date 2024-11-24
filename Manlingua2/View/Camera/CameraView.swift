@@ -27,18 +27,13 @@ struct CameraView: View {
             Button {
                cameraController.capturePhoto()
                
-               DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+               DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                   isShowingCamera = false
-                  isLoading = true
+                  isLoading = true // Set loading state true
                }
                
                cameraController.onCaptureComplete = { image in
-                  viewModel.predictImage(image) { result in
-                     DispatchQueue.main.async {
-                        // After prediction, update the UI
-                        viewModel.isPredicted = true
-                     }
-                  }
+                  viewModel.predictImage(image) // Perform the prediction
                }
             } label: {
                Circle()
@@ -49,6 +44,7 @@ struct CameraView: View {
             .padding(.bottom)
          }
       }
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
       .onAppear {
          cameraController.startSession()
       }
