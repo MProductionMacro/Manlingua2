@@ -107,6 +107,11 @@ struct FlashcardCorrectOrWrong: View {
       //      .padding(.bottom, 36)
       .background(isCorrect ? .greenLight : .redLight)
       .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
+      .onAppear{
+          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+              audioController.playSoundFromData(speak: isCorrect ? "Correct" : "Wrong")
+          }
+      }
    }
 }
 
