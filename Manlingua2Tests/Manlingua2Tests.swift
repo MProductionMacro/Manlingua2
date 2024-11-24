@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Manlingua2
+@testable import Manlingua
 
 final class Manlingua2Tests: XCTestCase {
 
