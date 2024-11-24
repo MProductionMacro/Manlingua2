@@ -13,19 +13,19 @@ struct AIAssistantView: View {
    @EnvironmentObject var router: Router
    @StateObject var audioController = AudioController.shared
    @State var isSymbolAnimating = false
-   @State var message = ""
-   @State var showMicrophone = true
-   @State var power = 0.0
+//   @State var message = ""
+//   @State var showMicrophone = true
+//   @State var power = 0.0
    
    var body: some View {
       VStack(spacing: 16) {
          SiriWaveView(power: $aiAssistantViewModel.audioPower)
             .opacity(aiAssistantViewModel.siriWaveFormOpacity)
+            .frame(height: 256)
             .overlay(overlayView)
          
-         
          Spacer()
-         switch aiAssistantViewModel.state {
+          switch aiAssistantViewModel.state {
          case .recordingSpeech:
             Text("Sedang Merekam".localized)
                .font(.system(size: 20, weight: .medium, design: .rounded)).animation(.easeInOut)
@@ -42,6 +42,8 @@ struct AIAssistantView: View {
             Text("Tekan Untuk Memulai".localized)
                .font(.system(size: 20, weight: .medium, design: .rounded)).animation(.easeInOut)
             startCaptureButton
+              
+              
             
             
             
@@ -49,6 +51,14 @@ struct AIAssistantView: View {
          }
          
          Spacer()
+          
+//        Picker("Select Voice", selection: $aiAssistantViewModel.selectedVoice) {
+//              ForEach(VoiceType.allCases, id: \.self) {
+//                  Text($0.rawValue).id($0)
+//              }
+//          }
+//          .pickerStyle(.segmented)
+//          .disabled(!aiAssistantViewModel.isIdle)
          
          // Kalau ada error bisa muncul disini
          if case let .error(error) = aiAssistantViewModel.state {
@@ -80,20 +90,19 @@ struct AIAssistantView: View {
    }
    
    @ViewBuilder
-   var overlayView: some View {
-      switch aiAssistantViewModel.state {
-      case .idle, .error:
-         EmptyView()
-         
-      case .processingSpeech:
-         Image(systemName: "brain")
-            .symbolEffect(.bounce.up.byLayer, options: .repeating, value: isSymbolAnimating)
-            .font(.system(size: 128))
-            .onAppear { isSymbolAnimating = true }
-            .onDisappear { isSymbolAnimating = false }
-      default: EmptyView()
-      }
-   }
+    var overlayView: some View {
+        switch aiAssistantViewModel.state {
+        case .idle, .error:
+            EmptyView()
+        case .processingSpeech:
+            Image(systemName: "brain")
+                .symbolEffect(.bounce.up.byLayer, options: .repeating, value: isSymbolAnimating)
+                .font(.system(size: 128))
+                .onAppear { isSymbolAnimating = true }
+                .onDisappear { isSymbolAnimating = false }
+        default: EmptyView()
+        }
+    }
    
    var startCaptureButton: some View {
       Button {
@@ -132,3 +141,4 @@ struct AIAssistantView: View {
 //#Preview {
 //   AIAssistantView()
 //}
+
