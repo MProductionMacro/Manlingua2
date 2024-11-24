@@ -15,7 +15,6 @@ struct CorrectOrWrong: View {
    var isCorrect: Bool
 //   var isCamera: Bool
    var type: ModalityType
-   var correctForCamera: String?
    
    var continueFunc: () -> Void
    var tryAgainFunc: () -> Void
@@ -24,6 +23,7 @@ struct CorrectOrWrong: View {
    
    @State var audioController = AudioController.shared
    @State var textToSpeech = TextToSpeech.shared
+   @State private var checkMessages: String = ""
    
    var body: some View {
       VStack(alignment: .leading, spacing: 16) {
@@ -72,19 +72,27 @@ struct CorrectOrWrong: View {
                         .font(.subJudul())
                   }
                   
-                  Text("artinya \(meaning)")
+                   Text("artinya".localized + " \(meaning)")
                      .font(.subJudul())
                }
                .foregroundStyle(.black)
             case .speakingQuestion:
-               Text("Anda mengucapkan \(transcribedAudio)")
-                  .font(.subJudul())
-                  .foregroundStyle(.black)
-                  .onAppear {
-                     audioController.transcribeAudio { result in
-                        transcribedAudio = result
-                     }
-                  }
+                Text(checkMessages)
+                   .foregroundStyle(.black)
+                   .font(.subJudul())
+                   .onAppear {
+                      audioController.transcribeAudio { result in
+                         transcribedAudio = result
+                        
+                          if result == "Transcription error: No speech detected" {
+                              checkMessages = "No characters detected".localized
+                          }
+                          else{
+                              checkMessages = "Anda mengucapkan".localized + " \(transcribedAudio)"
+                          }
+                          
+                      }
+                   }
             case .cameraQuestion:
                Text(isCorrect ? "Tepat sekali!" : "Masih belum tepat!")
                   .font(.subJudul())
