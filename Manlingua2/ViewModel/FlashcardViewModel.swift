@@ -10,6 +10,7 @@ import SwiftUI
 
 class FlashcardViewModel: ObservableObject {
     @Published var currentIndex: Int = 0
+    @Published var currentIndexProgressBar: Int = 0
     @Published var offset: CGSize = .zero
     @Published var showMicrophone: Bool = true
     @Published var showDonePage: Bool = false
@@ -103,7 +104,7 @@ class FlashcardViewModel: ObservableObject {
    
    func performSwipeRight() {
        
-       guard !isTransitioning else { return }
+       //guard !isTransitioning else { return }
 
        
       guard currentIndex <= showVocabularies.count else {
@@ -112,14 +113,15 @@ class FlashcardViewModel: ObservableObject {
       
       //showMicrophone = true
       
-      withAnimation {
+      //withAnimation {
+          /*
          isTransitioning = true
          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
              self.isTransitioning = false
          }
          
          showMicrophone = true
-
+           */
           
          self.offset = CGSize(width: 500, height: 0)
          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -128,10 +130,17 @@ class FlashcardViewModel: ObservableObject {
                self.showDonePage = true
             }
             else {
-               self.currentIndex = min(self.currentIndex + 1, self.vocabularies.count-1 )
+                self.currentIndex = min(self.currentIndex + 1, self.vocabularies.count-1 )
+                
+                //DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+                    withAnimation(.easeInOut(duration: 0.3)){
+                        self.currentIndexProgressBar = self.currentIndex
+                    }
+                //}
+
             }
          }
-      }
+      //}
    }
    
    func createFlashcardView(for index: Int) -> some View {
@@ -147,6 +156,7 @@ class FlashcardViewModel: ObservableObject {
             .rotationEffect(.degrees(offset.width / 40.0))
             .animation(.spring(), value: offset)
          )
+    
       }else if index == currentIndex - 1 {
          modifiedView = AnyView(modifiedView
             .opacity(1.0)
@@ -155,6 +165,8 @@ class FlashcardViewModel: ObservableObject {
             .animation(.spring(), value: offset)
          )
       }
+       
+      
       return modifiedView
    }
    

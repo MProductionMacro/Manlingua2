@@ -1,5 +1,5 @@
 //
-//  LanguageSettingView.swift
+//  FlashcardPageView.swift
 //  Manlingua2
 //
 //  Created by Arrick Russell Adinoto on 02/11/24.
@@ -22,7 +22,7 @@ struct FlashcardPageView: View {
    var body: some View {
       ZStack (alignment: .bottom){
          VStack {
-            DismissAndIndexView(showConfirmationAlert: $showConfirmationAlert, currentIndex: $viewModel.currentIndex, chatCounts: viewModel.showVocabularies.count)
+            DismissAndIndexView(showConfirmationAlert: $showConfirmationAlert, currentIndex: $viewModel.currentIndexProgressBar, chatCounts: viewModel.showVocabularies.count)
             
             Spacer()
             
@@ -33,6 +33,9 @@ struct FlashcardPageView: View {
                         viewModel.createFlashcardView(for: index)
                            .zIndex(Double(viewModel.showVocabularies.count - index))
                            .opacity(viewModel.currentIndex == index ? 1 : 0)
+                           .onDisappear(){
+                               print("MASUKK")
+                           }
                      }
                   }
                }
@@ -51,13 +54,28 @@ struct FlashcardPageView: View {
             if hasAnswered {
                 FlashcardCorrectOrWrong(answer: $answer, hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, pinyin: viewModel.showVocabularies[viewModel.currentIndex].pinyin, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
                   withAnimation{
+                      /*
                       guard !isTransitioning else { return }
                       isTransitioning = true
                       DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                          isTransitioning = false
                       }
+                      */
+                      
+                      DispatchQueue.main.async {
+                          //withAnimation{
+                              viewModel.performSwipeRight()
+                          //}
+                          withAnimation(.easeInOut(duration:0.45)){
+                              hasAnswered = false
+                          }
+                          if viewModel.currentIndex == viewModel.showVocabularies.count - 1 {
+                              router.push(.donePage(displayMode: .flashcard, chapterId: 0, subChapterId: 0))
+                          }
+                     }
                       
                       
+                      /*
                      DispatchQueue.main.async {
                         viewModel.performSwipeRight()
                         hasAnswered = false
@@ -65,19 +83,37 @@ struct FlashcardPageView: View {
                            router.push(.donePage(displayMode: .flashcard, chapterId: 0, subChapterId: 0))
                         }
                      }
+                       */
                   }
                } tryAgainFunc: {
+                   /*
                   withAnimation{
                      DispatchQueue.main.async {
                         hasAnswered = false
                      }
                   }
+                    */
+                   withAnimation(.easeInOut(duration:0.45)){
+                       hasAnswered = false
+                   }
                }
                .transition(.move(edge: .bottom))
             }
             else{
                 BottomFlashcardContainerView(answer: $answer, isCorrect: $isCorrect, hasAnswered: $hasAnswered)
                   .transition(.move(edge: .bottom))
+                  .onAppear {
+                     isTransitioning = true
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { // Match your animation duration
+                        isTransitioning = false
+                     }
+                  }
+                  .onDisappear {
+                     isTransitioning = true
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { // Match your animation duration
+                        isTransitioning = false
+                     }
+                  }
             }
             
          }
@@ -117,6 +153,7 @@ struct FlashcardPageView: View {
       .ignoresSafeArea(.container, edges: .bottom)
       .onAppear{
          viewModel.currentIndex = 0
+          viewModel.currentIndexProgressBar = 0
          viewModel.reshuffleCards()
       }
    }

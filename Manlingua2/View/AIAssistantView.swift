@@ -8,6 +8,14 @@
 import SwiftUI
 import SiriWaveView
 
+
+struct AIAssistantView: View {
+    var body : some View{
+        Text("Hello")
+    }
+}
+
+/*
 struct AIAssistantView: View {
    @State var aiAssistantViewModel = AIAssistantViewModel()
    @EnvironmentObject var router: Router
@@ -137,6 +145,7 @@ struct AIAssistantView: View {
    }
 }
 
+*/
 
 //#Preview {
 //   AIAssistantView()

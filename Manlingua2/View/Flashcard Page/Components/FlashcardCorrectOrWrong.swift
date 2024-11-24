@@ -19,6 +19,7 @@ struct FlashcardCorrectOrWrong: View {
    @State var audioController = AudioController.shared
    @State var transcribedAudio = ""
    @State private var isTransitioning: Bool = false
+   @State private var checkMessages: String = ""
 
    var body: some View {
       VStack(alignment: .leading, spacing: 24) {
@@ -53,12 +54,20 @@ struct FlashcardCorrectOrWrong: View {
             
             
             HStack {
-               Text("Anda mengucapkan ".localized + "\(transcribedAudio)")
+               Text(checkMessages)
                   .foregroundStyle(.black)
                   .font(.subJudul())
                   .onAppear {
                      audioController.transcribeAudio { result in
                         transcribedAudio = result
+                       
+                         if result == "Transcription error: No speech detected" {
+                             checkMessages = "No characters detected".localized
+                         }
+                         else{
+                             checkMessages = "Anda mengucapkan".localized + " \(transcribedAudio)"
+                         }
+                         
                      }
                   }
                
