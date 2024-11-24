@@ -110,8 +110,7 @@ struct ProfilePageView: View {
                
                ProfileNavigationButton(title: "Perangkat Pintar".localized, imageName: "externaldrive.connected.to.line.below"){
                   //router.push(.ioTSetting)
-                   router.push(.comingSoon)
-                   print(SwiftDataServices.shared.getProfilePicture())
+                   router.push(.ioTSetting)
 
                }
                .frame(height: 35)
