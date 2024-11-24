@@ -84,7 +84,7 @@ struct CorrectOrWrong: View {
                       audioController.transcribeAudio { result in
                          transcribedAudio = result
                         
-                          if result == "Transcription error: No speech detected" {
+                          if result.hasPrefix("Transcription error:") {
                               checkMessages = "No characters detected".localized
                           }
                           else{
