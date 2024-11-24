@@ -59,8 +59,13 @@ struct BottomStoryContainerView: View {
                      MicrophoneModalityView() { answer in
                         withAnimation{
                            isSpeakingQuestion = true
-                           isCorrect = (answer == realAnswer)
-                           hasAnswered = true
+                           let transcribedAnswer = answer
+                           //                           DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                           withAnimation {
+                              isCorrect = (transcribedAnswer == realAnswer)
+                              hasAnswered = true
+                           }
+                           //                           }
                         }
                      }
                      .padding(.vertical, 24)
