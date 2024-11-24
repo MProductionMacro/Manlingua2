@@ -65,7 +65,7 @@ struct FlashcardCorrectOrWrong: View {
                              checkMessages = "No characters detected".localized
                          }
                          else{
-                             checkMessages = "Anda mengucapkan ".localized + "\(transcribedAudio)"
+                             checkMessages = "Anda mengucapkan".localized + " \(transcribedAudio)"
                          }
                          
                      }

@@ -237,9 +237,6 @@
         }
       }
     },
-    "Anda mengucapkan %@" : {
-
-    },
     "Apakah Anda yakin ingin untuk keluar?" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -340,9 +337,6 @@
           }
         }
       }
-    },
-    "artinya %@" : {
-
     },
     "Ayo simpan kata yang ingin" : {
       "localizations" : {
@@ -1026,6 +1020,9 @@
           }
         }
       }
+    },
+    "Hello" : {
+
     },
     "Hubungkan perangkat IoT ke aplikasi untuk mulai menggunakan flashcard!" : {
       "extractionState" : "stale",
