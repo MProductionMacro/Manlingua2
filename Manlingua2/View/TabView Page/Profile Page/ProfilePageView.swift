@@ -17,7 +17,8 @@ struct ProfilePageView: View {
     //@State private var avatarImage: Image = SwiftDataServices.shared.profilePicture
    @StateObject private var swiftDataServices = SwiftDataServices.shared
    @State private var photosPickerItem: PhotosPickerItem?
-    
+   var userRank = UserRank.allCases
+   
    var body: some View {
       ZStack{
          VStack(alignment: .center, spacing: 0) {
@@ -79,10 +80,15 @@ struct ProfilePageView: View {
                    }
                    .padding(.bottom, 1)
 
-                  Text("Perunggu".localized)
+                  Text(userRank[swiftDataServices.rank].rawValue.localized)
                      .font(Font.subJudul())
-                     .padding(.top, 1)
-                     .foregroundColor(.userRank)
+                     .padding(.horizontal)
+                     .padding(.vertical, 8)
+//                     .frame(width: 92, height: 35)
+                     .foregroundColor(UserRankStyle.getTextColor(userRank[swiftDataServices.rank]))
+                     .background(UserRankStyle.getBackgroundColor(userRank[swiftDataServices.rank]))
+//                     .padding()
+                     .cornerRadius(8)
                }
                Spacer()
             }
@@ -110,7 +116,8 @@ struct ProfilePageView: View {
                
                ProfileNavigationButton(title: "Perangkat Pintar".localized, imageName: "externaldrive.connected.to.line.below"){
                   //router.push(.ioTSetting)
-                   router.push(.ioTSetting)
+                   router.push(.comingSoon)
+                   print(SwiftDataServices.shared.getProfilePicture())
 
                }
                .frame(height: 35)
@@ -124,8 +131,8 @@ struct ProfilePageView: View {
 //                      .foregroundStyle(.orangeDarkMode)
 //                      .font(.semibold16())
 //                      .padding(.trailing, 10)
-//    
-//                    
+//
+//
 //                   Text("Log Out".localized)
 //                      .font(Font.semibold16())
 //                      .foregroundColor(.profileNavigationText)
@@ -171,11 +178,4 @@ struct ProfilePageView: View {
             .ignoresSafeArea()
       )
    }
-}
-
-
-#Preview {
-   ProfilePageView()
-      .environmentObject(Router())
-      .environmentObject(SwiftDataServices())
 }
