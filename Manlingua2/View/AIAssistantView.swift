@@ -23,6 +23,7 @@ struct AIAssistantView: View {
             .opacity(aiAssistantViewModel.siriWaveFormOpacity)
             .overlay(overlayView)
          
+         
          Spacer()
          switch aiAssistantViewModel.state {
          case .recordingSpeech:
