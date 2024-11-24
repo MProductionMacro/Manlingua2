@@ -88,7 +88,7 @@ struct GoalPageView: View {
                   
                   GoalTrackerView(task: .third, image: "Emas Batang", challenge: "Selesaikan 1 tantangan foto".localized, doneTask: singleton.tasks[2]) {
                      viewModel.taskDone(index: 2)
-                      router.push(.comingSoon)
+                      router.push(.photoChallenge)
                   }
                }
                .background(Color.customLightGray)
