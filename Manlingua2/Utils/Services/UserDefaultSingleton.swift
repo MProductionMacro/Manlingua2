@@ -28,7 +28,7 @@ class UserDefaultSingleton : ObservableObject{
         language = UserDefaults.standard.string(forKey: "language") ?? "en"
     }
     
-    func setLanguage(language : Language){
+    func setLanguage(language : Lang){
         if language == .english{
             self.language = "en"
             UserDefaults.standard.set("en", forKey: "language")
@@ -117,5 +117,7 @@ class UserDefaultSingleton : ObservableObject{
       }
    }
 }
+
+
 
 

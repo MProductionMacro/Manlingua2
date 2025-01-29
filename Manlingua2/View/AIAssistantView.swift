@@ -14,6 +14,7 @@ struct AIAssistantView: View {
     }
 }
 */
+
 struct AIAssistantView: View {
    @State var aiAssistantViewModel = AIAssistantViewModel()
    @EnvironmentObject var router: Router
