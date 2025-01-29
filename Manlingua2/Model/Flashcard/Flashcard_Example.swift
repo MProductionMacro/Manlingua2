@@ -5,14 +5,13 @@
 //  Created by Arrick Russell Adinoto on 29/09/24.
 //
 
-//struct Flashcard_Example hasn't been finalize yet.
-struct Flashcard_Example: Codable, Identifiable, Hashable {
-    var id: Int
-    var hanzi: String
-    var pinyin: String
-    var meaning: String
-    var image_url: String
-    var voice_url: String
+struct Flashcard: Codable, Identifiable, Hashable {
+    public var id: Int
+    public var hanzi: String
+    public var pinyin: String
+    public var meaning: String
+    public var image_url: String
+    public var voice_url: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -23,4 +22,3 @@ struct Flashcard_Example: Codable, Identifiable, Hashable {
         case voice_url
     }
 }
-

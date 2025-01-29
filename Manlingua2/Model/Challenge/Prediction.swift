@@ -8,6 +8,6 @@
 import Foundation
 
 struct Prediction: Hashable, Decodable {
-    let `class`: String
-    let confidence: Double
+    public let `class`: String
+    public let confidence: Double
 }

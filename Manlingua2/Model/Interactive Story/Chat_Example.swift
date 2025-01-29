@@ -23,16 +23,16 @@ import Foundation
 ///   - `choice`: Properti opsional yang menyimpan pilihan yang harus dipilih oleh pengguna
 ///     (jika chat bersifat soal pilihan ganda).
 ///   - `answer`: Properti opsional yang berisi jawaban untuk soal pilihan ganda yang diberikan melalui array `choice`.
-struct Chat_Example: Codable, Identifiable, Hashable {
-   let id: Int
-   let speaker: String
-   let pinyin: String
-   let hanzi: String
-   let meaning: String
-   let choice: [String]?
-   let answer: String?
-   let question: String?
-   let type: ChatType
+struct Chat: Codable, Identifiable, Hashable {
+   public let id: Int
+   public let speaker: String
+   public let pinyin: String
+   public let hanzi: String
+   public let meaning: String
+   public let choice: [String]?
+   public let answer: String?
+   public let question: String?
+   public let type: ChatType
 }
 
 enum ChatType: String, Codable {

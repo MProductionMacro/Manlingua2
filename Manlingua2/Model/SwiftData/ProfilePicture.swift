@@ -10,7 +10,7 @@ import SwiftUI
 
 @Model
 class ProfilePicture {
-    var imageData: Data
+    public var imageData: Data
     
     init(imageData: Data) {
         self.imageData = imageData

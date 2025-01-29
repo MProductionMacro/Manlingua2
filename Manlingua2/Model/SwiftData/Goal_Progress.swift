@@ -10,13 +10,13 @@ import SwiftUI
 
 @Model
 class Goal_Progress {
-   var task1: Int
-   var task2: Int
-   var task3: Int
-   var totalTasks: Double
-   var totalStars: Int
-   var streak: Int
-   var rank: Int
+   public var task1: Int
+   public var task2: Int
+   public var task3: Int
+   public var totalTasks: Double
+   public var totalStars: Int
+   public var streak: Int
+   public var rank: Int
    
    init(task1: Int, task2: Int, task3: Int, totalTasks: Double, totalStars: Int, streak: Int, rank: Int) {
       self.task1 = task1

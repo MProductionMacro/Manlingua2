@@ -9,11 +9,11 @@ import Foundation
 import SwiftData
 
 struct ImportantNote: Hashable, Decodable{
-    let title: String
-    let allowed: String
-    let forbidden: String
-    let caution: String
-    let language: String
+    public let title: String
+    public let allowed: String
+    public let forbidden: String
+    public let caution: String
+    public let language: String
     
     enum CodingKeys: String, CodingKey {
         case title
@@ -26,12 +26,12 @@ struct ImportantNote: Hashable, Decodable{
 
 @Model
 class ImportantNoteModel{
-    var id = UUID()
-    var title: String
-    var allowed: String
-    var forbidden: String
-    var caution: String
-    var language: String
+    public var id = UUID()
+    public var title: String
+    public var allowed: String
+    public var forbidden: String
+    public var caution: String
+    public var language: String
 
     init(from importantNote: ImportantNote){
         self.title = importantNote.title

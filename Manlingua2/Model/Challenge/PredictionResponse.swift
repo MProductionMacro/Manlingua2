@@ -8,5 +8,5 @@
 import Foundation
 
 struct PredictionResponse: Hashable, Decodable {
-    let predictions: [Prediction]?
+    public let predictions: [Prediction]?
 }

@@ -9,14 +9,14 @@ import Foundation
 import SwiftData
 
 struct Vocabulary: Identifiable, Codable, Hashable {
-    let id = UUID()
-    let hanzi: String
-    let pinyin: String
-    let meaning: String
-    let hanziSentence: String
-    let pinyinSentence: String
-    let meaningSentence: String
-    let language: String
+    public let id = UUID()
+    public let hanzi: String
+    public let pinyin: String
+    public let meaning: String
+    public let hanziSentence: String
+    public let pinyinSentence: String
+    public let meaningSentence: String
+    public let language: String
     
     enum CodingKeys: String, CodingKey {
         case hanzi
@@ -31,14 +31,14 @@ struct Vocabulary: Identifiable, Codable, Hashable {
 
 @Model
 class VocabularyModel{
-    var id = UUID()
-    var hanzi: String
-    var pinyin: String
-    var meaning: String
-    var hanziSentence: String
-    var pinyinSentence: String
-    var meaningSentence: String
-    var language: String
+    public var id = UUID()
+    public var hanzi: String
+    public var pinyin: String
+    public var meaning: String
+    public var hanziSentence: String
+    public var pinyinSentence: String
+    public var meaningSentence: String
+    public var language: String
     
     init(vocab: Vocabulary){
         self.hanzi = vocab.hanzi

@@ -8,7 +8,7 @@
 import Foundation
 
 struct TabBarItem: Hashable {
-   let tag: Int
-   let iconName: String
-   let title: String
+   public let tag: Int
+   public let iconName: String
+   public let title: String
 }
