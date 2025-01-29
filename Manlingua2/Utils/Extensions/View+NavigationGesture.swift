@@ -19,7 +19,7 @@ import SwiftUI
 //}
 
 extension View {
-    func onBackSwipe(perform action: @escaping () -> Void) -> some View {
+    public func onBackSwipe(perform action: @escaping () -> Void) -> some View {
         gesture(
             DragGesture()
                 .onEnded({ value in

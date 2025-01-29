@@ -6,10 +6,10 @@
 //
 
 struct StoryData: Codable {
-    var stories: [Story]
+    var stories: [StoryBackground]
 }
 
-struct Story: Codable {
+struct StoryBackground: Codable {
     var background: String
     var onboarding: [OnboardingEntry]
     var flashcard: [String]

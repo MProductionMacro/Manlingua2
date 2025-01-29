@@ -4,7 +4,7 @@
 //
 //  Created by Reynard Octavius Tan on 30/10/24.
 //
-
+/*
 import SwiftUI
 struct DeviceInfoView: View {
     @State private var deviceInfo: String = ""
@@ -26,3 +26,4 @@ struct DeviceInfoView: View {
 #Preview {
     DeviceInfoView()
 }
+*/

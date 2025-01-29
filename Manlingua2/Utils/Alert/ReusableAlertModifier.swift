@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct ReusableAlertModifier: ViewModifier {
-    @Binding var isPresented: Bool
-    let alertData: AlertData
+    @Binding public var isPresented: Bool
+    public let alertData: AlertData
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .alert(isPresented: $isPresented) {
                 Alert(

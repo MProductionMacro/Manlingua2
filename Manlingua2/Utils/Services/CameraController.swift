@@ -39,15 +39,19 @@ class CameraController: NSObject, ObservableObject {
       case .denied, .restricted:
          // If denied or restricted, set permission status to false
          hasCameraPermission = false
+          
       @unknown default:
          hasCameraPermission = false
       }
    }
    
    func requestPermission(){
+      //print("MASUK ATAS")
       AVCaptureDevice.requestAccess(for: .video) { granted in
+         //print("MASUK TENGAH")
          DispatchQueue.main.async {
             self.hasCameraPermission = granted
+            //print(granted)
          }
       }
    }
@@ -117,5 +121,13 @@ extension CameraController: AVCapturePhotoCaptureDelegate {
          self.capturedImage = image
          self.onCaptureComplete?(image)
       }
+   }
+    
+   func allowCameraAccess(){
+       if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+          if UIApplication.shared.canOpenURL(settingsUrl) {
+             UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+          }
+       }
    }
 }

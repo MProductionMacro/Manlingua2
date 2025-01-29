@@ -12,82 +12,152 @@ import PhotosUI
 
 @MainActor
 class SwiftDataServices: ObservableObject {
-   private let container: ModelContainer
-   
-   let context: ModelContext
-   
-   //   @MainActor
-   static let shared = SwiftDataServices()
-   
-   @Published var vocabs: [VocabularyModel] = []
-   @Published var notes: [ImportantNoteModel] = []
-   
-   @Published var vocabs_en: [VocabularyModel] = []
-   @Published var notes_en: [ImportantNoteModel] = []
-   
-   @Published var latestStory: Int = 0
-   @Published var latestSubChapter: Int = 0
-   @Published var storyProgress: [Int] = [1, 1, 1, 1]
-   @Published var hasOpenFlashcard: Bool = false
-   @Published var hasOpenStoryDetail: Bool = false
-   
-   @Published var tasks = [0, 0, 0]
-   @Published var totalTasks = 0.0
-   @Published var totalStars = 0
-   @Published var streak = 0
-   @Published var rank = 0
-   
-   @Published var profilePicture: Image = Image("ProfilePicture")  // To store the profile picture data
-   @Published var username: String = "Jane Doe"
+    private let container: ModelContainer
     
-   //   @MainActor
-   init() {
-      do {
-        self.container = try ModelContainer(for: VocabularyModel.self, ImportantNoteModel.self, Story_Progress.self, Goal_Progress.self, ProfilePicture.self, Username.self, configurations: ModelConfiguration(isStoredInMemoryOnly: false))
-         self.context = container.mainContext
-         
-         fetchStoryProgressData()
-         fetchGoalProgressData()
-         
-         _ = self.getData()
-         _ = self.getNotes()
-          
-         profilePicture = getProfilePicture()
-         username = fetchUsername()
-      } catch {
-         fatalError(error.localizedDescription)
-      }
-   }
+    let context: ModelContext
     
+    //   @MainActor
+    static public let shared = SwiftDataServices()
+    
+    @Published var vocabs: [VocabularyModel] = []
+    @Published var notes: [ImportantNoteModel] = []
+    
+    @Published var vocabs_en: [VocabularyModel] = []
+    @Published var notes_en: [ImportantNoteModel] = []
+    
+    @Published var latestStory: Int = 0
+    @Published var latestSubChapter: Int = 0
+    @Published var language: Lang = .english
+    @Published var storyProgress: [Int] = [1, 1, 1, 1]
+    @Published var hasOpenFlashcard: Bool = false
+    @Published var hasOpenStoryDetail: Bool = false
+    
+    @Published var tasks = [0, 0, 0]
+    @Published var totalTasks = 0.0
+    @Published var totalStars = 0
+    @Published var streak = 0
+    @Published var rank = 0
+    
+    @Published var profilePicture: Image = Image("ProfilePicture")  // To store the profile picture data
+    @Published var username: String = "Jane Doe"
+    
+    //   @MainActor
+    private init() {
+        do {
+            self.container = try ModelContainer(for: VocabularyModel.self, ImportantNoteModel.self, Story_Progress.self, Goal_Progress.self, ProfilePicture.self, Username.self, Language.self, UserProfile.self, configurations: ModelConfiguration(isStoredInMemoryOnly: false))
+            self.context = container.mainContext
+            
+            fetchStoryProgressData()
+            fetchGoalProgressData()
+            
+            _ = self.getData()
+            _ = self.getNotes()
+            
+            _ = getProfilePicture()
+            username = fetchUsername()
+            
+            if let fetchedLanguage = try? context.fetch(FetchDescriptor<Language>()).first {
+                self.language = fetchedLanguage.lang
+            }
+            
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
+    
+    public func getLanguage()-> Lang{
+        return self.language
+    }
+    
+    public func setSelectedLanguage(lang: Lang){
+        // Fetch existing username if any
+        if let existingLanguage = try? context.fetch(FetchDescriptor<Language>()).first {
+            // Update existing username
+            existingLanguage.lang = lang
+            self.language = lang
+        } else {
+            // Create a new username if none exists
+            let newLanguage = Language(lang: lang)
+            context.insert(newLanguage)
+        }
+        try? context.save()
+    }
     
     // MARK: - Create/Update
-    func updateUsername(newName: String) {
+    public func updateUsername(newName: String) {
        // Fetch existing username if any
-       if let existingUsername = try? context.fetch(FetchDescriptor<Username>()).first {
+       if let userProfile = try? context.fetch(FetchDescriptor<UserProfile>()).first {
            // Update existing username
-           existingUsername.username = newName
+           userProfile.username = newName
            self.username = newName
        } else {
            // Create a new username if none exists
-           let newUsername = Username(username: newName)
-           context.insert(newUsername)
-           self.username = newUsername.username
+           let userProfile = UserProfile(username: newName, imageData: getProfilePicture())
+           
+           //let newUsername = Username(username: newName)
+           context.insert(userProfile)
+           self.username = userProfile.username
        }
        try? context.save()
     }
 
     // MARK: - Read
-    func fetchUsername() ->String{
-        if let fetchedUsername = try? context.fetch(FetchDescriptor<Username>()).first {
-            return fetchedUsername.username
+    public func fetchUsername() ->String{
+        if let userProfile = try? context.fetch(FetchDescriptor<UserProfile>()).first {
+            return userProfile.username
         }
         else{
             return "Jane Doe"
         }
     }
 
-
-    func getProfilePicture() -> Image {
+    
+    public func getStreak()->Int{
+        return self.streak
+    }
+    
+    public func getRank()->Int{
+        return self.rank
+    }
+    
+    public func getStoryChallengeProgress()->Int {
+        return self.tasks[0]
+    }
+    
+    public func getFlashcardProgress()->Int {
+        return self.tasks[1]
+    }
+    
+    public func getPhotoChallengeProgress()-> Int {
+        return self.tasks[2]
+    }
+    
+    
+    public func getProfilePicture() -> Data{
+        do {
+           // Try to fetch the first profile picture from the context
+           if let userProfile = try context.fetch(FetchDescriptor<UserProfile>()).first {
+              // If a profile picture exists, convert it to UIImage and return as SwiftUI Image
+               if userProfile.imageData == Data([0x48, 0x65, 0x6C, 0x6C, 0x6F]){
+                   self.profilePicture = Image("ProfilePicture")
+                   return Data([0x48, 0x65, 0x6C, 0x6C, 0x6F])
+               }
+               else{
+                   if let uiImage = UIImage(data: userProfile.imageData) {
+                       self.profilePicture = Image(uiImage: uiImage)
+                       print(profilePicture)
+                   }
+                   return userProfile.imageData
+               }
+           }
+        } catch {
+           print("Error fetching profile picture: \(error)")
+        }
+        self.profilePicture = Image("ProfilePicture")
+        return Data([0x48, 0x65, 0x6C, 0x6C, 0x6F])
+    }
+    /*
+    public func getProfilePicture() -> Image {
        do {
           // Try to fetch the first profile picture from the context
           if let savedProfilePicture = try context.fetch(FetchDescriptor<ProfilePicture>()).first {
@@ -103,9 +173,56 @@ class SwiftDataServices: ObservableObject {
        }
        return Image("ProfilePicture")
     }
-
+     */
+    
+    
+    public func updateProfilePicture(photo: PhotosPickerItem) {
+       Task {
+          do {
+             // Load the selected photo data
+             if let data = try await photo.loadTransferable(type: Data.self) {
+                // Create a new ProfilePicture object with the new image data
+                //let newProfilePicture = ProfilePicture(imageData: data)
+                
+                // Save the new profile picture data to the context
+                saveProfilePictureData(newProfilePicture: data)
+             }
+          } catch {
+             print("Error updating profile picture: \(error)")
+          }
+       }
+    }
+    
+    private func saveProfilePictureData(newProfilePicture: Data) {
+       do {
+          // Check if a profile picture already exists in the database
+          let existingProfilePicture = try context.fetch(FetchDescriptor<UserProfile>()).first
+          
+          if let existing = existingProfilePicture {
+             // If a profile picture exists, update it with the new image data
+             existing.imageData = newProfilePicture
+          } else {
+             // If no profile picture exists, insert a new one
+             let userProfile = UserProfile(username: self.fetchUsername(), imageData: newProfilePicture)
+             context.insert(userProfile)
+          }
+           
+          // Save the changes to the context
+          try context.save()
+          
+           _ = try context.fetch(FetchDescriptor<UserProfile>()).first
+          
+           
+          // Update the published property to reflect the changes
+          _ = getProfilePicture()
+       } catch {
+          print("Error saving profile picture data: \(error)")
+       }
+    }
+    
     // Function to update the profile picture when the user selects a new photo
-    func updateProfilePicture(photo: PhotosPickerItem) {
+    /*
+    public func updateProfilePicture(photo: PhotosPickerItem) {
        Task {
           do {
              // Load the selected photo data
@@ -121,8 +238,10 @@ class SwiftDataServices: ObservableObject {
           }
        }
     }
-
+     */
+    
     // MARK: Save Profile Picture to Model
+    /*
     private func saveProfilePictureData(newProfilePicture: ProfilePicture) {
        do {
           // Check if a profile picture already exists in the database
@@ -139,7 +258,7 @@ class SwiftDataServices: ObservableObject {
           // Save the changes to the context
           try context.save()
           
-           let existingProfilePicture2 = try context.fetch(FetchDescriptor<ProfilePicture>()).first
+           _ = try context.fetch(FetchDescriptor<ProfilePicture>()).first
           
            
           // Update the published property to reflect the changes
@@ -148,7 +267,7 @@ class SwiftDataServices: ObservableObject {
           print("Error saving profile picture data: \(error)")
        }
     }
-        
+    */
        
    //MARK: Fetching method for Goal and Story Progress
    
@@ -207,14 +326,14 @@ class SwiftDataServices: ObservableObject {
       saveStoryProgressData()
    }
    
-   func resetGoalProgressPerDay(){
+   public func resetGoalProgressPerDay(){
       tasks = [0,0,0]
       totalTasks = 0
       
       saveGoalProgressData()
    }
    
-   func initializeGoalDefaultData() {
+   public func initializeGoalDefaultData() {
       tasks = [0, 0, 0]
       totalStars = 0
       totalTasks = 0
@@ -225,7 +344,7 @@ class SwiftDataServices: ObservableObject {
    }
    //MARK: Save Goal and Story progress
    
-   func saveGoalProgressData(){
+   public func saveGoalProgressData(){
       do {
          let progressData = try context.fetch(FetchDescriptor<Goal_Progress>()).first
          ?? Goal_Progress(task1: tasks[0], task2: tasks[1], task3: tasks[2], totalTasks: totalTasks, totalStars: totalStars, streak: streak, rank: rank)
@@ -275,17 +394,17 @@ class SwiftDataServices: ObservableObject {
    
    //MARK: Setter for Story progress
    
-   func setLatestChapter() {
+   public func setLatestChapter() {
       latestStory = max(latestStory, 1)
       saveStoryProgressData()
    }
    
-   func setLatestSubChapter() {
+   public func setLatestSubChapter() {
       latestSubChapter = max(latestSubChapter, 1)
       saveStoryProgressData()
    }
    
-   func updateLatestSubChapter(for subChapterId: Int) {
+   public func updateLatestSubChapter(for subChapterId: Int) {
       if subChapterId > 3 {
          updateLatestStory(for: latestStory + 1)
          latestSubChapter = 1
@@ -295,32 +414,52 @@ class SwiftDataServices: ObservableObject {
       saveStoryProgressData()
    }
    
-   func updateLatestStory(for chapterId: Int) {
+   public func updateLatestStory(for chapterId: Int) {
       latestStory = chapterId
       saveStoryProgressData()
    }
-   
-   func setAllSpecificStoryProgress() {
+    
+   public func setAllSpecificStoryProgress() {
       for (index, progress) in storyProgress.enumerated() where progress == 0 {
          storyProgress[index] = 1
       }
       saveStoryProgressData()
    }
-   
-   func updateSpecificStoryProgress(story: Int, subChapterProgress: Int) {
-      if subChapterProgress >= storyProgress[story - 1] {
+   /*
+   public func updateSpecificStoryProgress(story: Int, subChapterProgress: Int) {
+       if subChapterProgress >= storyProgress[story - 1] {
+           
+          
          storyProgress[story - 1] = subChapterProgress
          saveStoryProgressData()
       }
    }
+   */
+    
+    public func updateSpecificStoryProgress(story: Int, subChapterProgress: Int) {
+        if subChapterProgress >= storyProgress[story - 1] {
+            if subChapterProgress <= 3 {
+                storyProgress[story - 1] = subChapterProgress
+            }
+            else{
+                storyProgress[story - 1] = 1
+            }
+            saveStoryProgressData()
+        }
+    }
+    
+   public func updateStoryProgress(story: Int, subChapterProgress: Int) {
+        storyProgress[story - 1] = subChapterProgress
+        saveStoryProgressData()
+    }
    
    //MARK: Getter
    
-   func getSpecificStoryProgress(storyId: Int) -> Int {
+   public func getSpecificStoryProgress(storyId: Int) -> Int {
       return storyProgress[storyId - 1]
    }
    
-   func hasNotOpenFlashcardPage() -> Bool {
+   public func hasNotOpenFlashcardPage() -> Bool {
       if !hasOpenFlashcard {
          hasOpenFlashcard = true
          saveStoryProgressData()
@@ -331,7 +470,7 @@ class SwiftDataServices: ObservableObject {
    
    //MARK: Boolean in the Story Progress
    
-   func hasOpenStoryDetailPage() -> Bool {
+   public func hasOpenStoryDetailPage() -> Bool {
       if !hasOpenStoryDetail {
          hasOpenStoryDetail = true
          saveStoryProgressData()
@@ -342,7 +481,7 @@ class SwiftDataServices: ObservableObject {
    
    //MARK: Vocabulary function
    
-   func isVocabExist(vocab: Vocabulary) -> Bool{
+   public func isVocabExist(vocab: Vocabulary) -> Bool{
       for vocabulary in vocabs {
          if vocabulary.hanzi == vocab.hanzi {
             return true
@@ -352,7 +491,7 @@ class SwiftDataServices: ObservableObject {
    }
    
    // Fungsi untuk menambahkan data baru ke database
-   func addData(_ data: Vocabulary) {
+   public func addData(_ data: Vocabulary) {
       // Menyisipkan (insert) data baru ke dalam konteks
       
       let vocab = VocabularyModel(vocab: data)
@@ -366,7 +505,7 @@ class SwiftDataServices: ObservableObject {
    }
    
    // Fungsi untuk menghapus data dari database
-   func deleteData(_ data: Vocabulary) {
+   public func deleteData(_ data: Vocabulary) {
       // Menghapus data dari konteks
       for i in 0..<vocabs.count {
          if vocabs[i].hanzi == data.hanzi {
@@ -383,9 +522,9 @@ class SwiftDataServices: ObservableObject {
       }
    }
    
-   func getData() -> [VocabularyModel] {
+   public func getData() -> [VocabularyModel] {
       do {
-         var vocabsAll = try context.fetch(FetchDescriptor<VocabularyModel>())
+         let vocabsAll = try context.fetch(FetchDescriptor<VocabularyModel>())
          
          self.vocabs = []
          self.vocabs_en = []
@@ -399,7 +538,7 @@ class SwiftDataServices: ObservableObject {
             }
          }
          
-         if UserDefaultSingleton.shared.language == "en"{
+         if self.language == .english{
             return vocabs_en
          }
          else{
@@ -409,12 +548,14 @@ class SwiftDataServices: ObservableObject {
          fatalError(error.localizedDescription)
       }
    }
-   
+    
+    
    //MARK: Important notes function
    //================================================================
    //Important Notes
-   func isNoteExist(_ importantNote: ImportantNote) -> Bool{
-      if UserDefaultSingleton.shared.language == "en"{
+   public func isNoteExist(_ importantNote: ImportantNote) -> Bool{
+      //if UserDefaultSingleton.shared.language == "en"{
+       if self.language == .english{
          for note in notes_en{
             if importantNote.title == note.title {
                return true
@@ -433,7 +574,7 @@ class SwiftDataServices: ObservableObject {
    }
    
    // Fungsi untuk menambahkan data baru ke database
-   func addNote(_ importantNote: ImportantNote) {
+   public func addNote(_ importantNote: ImportantNote) {
       // Menyisipkan (insert) data baru ke dalam konteks
       
       let note = ImportantNoteModel(from: importantNote)
@@ -448,7 +589,7 @@ class SwiftDataServices: ObservableObject {
    }
    
    // Fungsi untuk menghapus data dari database
-   func deleteNote(_ data: ImportantNote) {
+   public func deleteNote(_ data: ImportantNote) {
       // Menghapus data dari konteks
       for i in 0..<notes.count {
          if notes[i].title == data.title || notes_en[i].title == data.title{
@@ -465,9 +606,9 @@ class SwiftDataServices: ObservableObject {
       }
    }
    
-   func getNotes() -> [ImportantNoteModel] {
+   public func getNotes() -> [ImportantNoteModel] {
       do {
-         var notesAll = try context.fetch(FetchDescriptor<ImportantNoteModel>())
+          let notesAll = try context.fetch(FetchDescriptor<ImportantNoteModel>())
          
          self.notes = []
          self.notes_en = []
@@ -481,7 +622,7 @@ class SwiftDataServices: ObservableObject {
             }
          }
          
-         if UserDefaultSingleton.shared.language == "en"{
+          if self.language == .english{
             return notes_en
          }
          else{

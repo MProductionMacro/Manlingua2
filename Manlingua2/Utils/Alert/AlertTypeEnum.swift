@@ -12,7 +12,7 @@ enum AlertType {
     case confirmation
     case error
 
-    var title: String {
+    public var title: String {
         switch self {
         case .confirmation:
             return "Confirmation"
@@ -21,7 +21,7 @@ enum AlertType {
         }
     }
 
-    var message: String {
+    public var message: String {
         switch self {
         case .confirmation:
             return "Are you sure you want to proceed?"
@@ -30,7 +30,7 @@ enum AlertType {
         }
     }
 
-    var primaryButtonTitle: String {
+    public var primaryButtonTitle: String {
         switch self {
         case .confirmation:
             return "OK"
@@ -39,7 +39,7 @@ enum AlertType {
         }
     }
 
-    var dismissButtonTitle: String {
+    public var dismissButtonTitle: String {
         switch self {
         case .confirmation:
             return "Cancel"

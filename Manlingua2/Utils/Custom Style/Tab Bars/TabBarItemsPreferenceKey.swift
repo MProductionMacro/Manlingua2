@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct TabBarItemsPreferenceKey: PreferenceKey {
-   static var defaultValue: [TabBarItem] = []
+   public static var defaultValue: [TabBarItem] = []
    
-   static func reduce(value: inout [TabBarItem], nextValue: () -> [TabBarItem]) {
+   public static func reduce(value: inout [TabBarItem], nextValue: () -> [TabBarItem]) {
       value += nextValue()
    }
 }

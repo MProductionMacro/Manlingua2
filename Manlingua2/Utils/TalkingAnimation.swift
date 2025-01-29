@@ -11,7 +11,7 @@ class TalkingAnimation: ObservableObject, TalkingAnimationProtocol {
    @Published var isTalking = false
    private let animationInterval = 0.2
    
-   func startTalking(duration: Double) {
+   public func startTalking(duration: Double) {
       let totalIntervals = Int(duration / animationInterval)
       animate(intervalsLeft: totalIntervals)
    }

@@ -10,13 +10,13 @@ import UserNotifications
 
 class UserNotificationManager {
     // Singleton instance
-    static let shared = UserNotificationManager()
+    public static let shared = UserNotificationManager()
     
     // Private initializer untuk mencegah pembuatan instance baru
     private init() {}
 
     // Meminta izin notifikasi
-    func requestNotificationPermission() {
+    public func requestNotificationPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
@@ -27,7 +27,7 @@ class UserNotificationManager {
     }
 
     // Menjadwalkan notifikasi setiap menit pada detik ke-10
-    func scheduleNotification() {
+    public func scheduleNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Manlingua"
         content.body = "Let's have fun with Mandarin!".localized

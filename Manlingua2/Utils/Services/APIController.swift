@@ -8,13 +8,13 @@
 import Foundation
 
 class APIController {
-    static let instance = APIController()
+    public static let instance = APIController()
     
     
     private init() {} // Ensure singleton pattern
     
     // Convert audio file to Data
-    func convertAudioToData(audioPath: String) -> Data? {
+    public func convertAudioToData(audioPath: String) -> Data? {
         do {
             let audioData = try Data(contentsOf: URL(fileURLWithPath: audioPath))
             return audioData
@@ -25,7 +25,7 @@ class APIController {
     }
     
     // Retrieve API key from Info.plist
-    func getApiKey() -> String? {
+    public func getApiKey() -> String? {
         guard let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String, !apiKey.isEmpty else {
             print("API key not found or empty in Info.plist")
             return nil
@@ -34,7 +34,7 @@ class APIController {
     }
     
     // Fetch response from API
-    func getResponse(audioPath: String) async -> String? {
+    public func getResponse(audioPath: String) async -> String? {
         guard let audioData = convertAudioToData(audioPath: audioPath) else {
             print("Failed to convert audio to data")
             return nil
@@ -75,7 +75,7 @@ class APIController {
         }
     }
     
-    func getResponseSecond(audioPath: String) async -> String? {
+    public func getResponseSecond(audioPath: String) async -> String? {
         guard let audioData = convertAudioToData(audioPath: audioPath) else {
             print("Failed to convert audio to data")
             return nil

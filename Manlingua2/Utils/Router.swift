@@ -9,31 +9,31 @@ import SwiftUI
 
 class Router: ObservableObject {
    @Published var path: [Screen] = [Screen.splashScreen]
-   @Published var rootView: Screen = Screen.splashScreen
+   @Published private var rootView: Screen = Screen.splashScreen
    
    // MARK: - Navigation Functions
-   func push(_ screen: Screen) {
+   public func push(_ screen: Screen) {
       path.append(screen)
    }
    
-   func pushReplace(_ screen: Screen) {
+   public func pushReplace(_ screen: Screen) {
       rootView = screen
       let lastIndex = path.endIndex - 1
       path[lastIndex] = screen
    }
    
-   func pop() {
+   public func pop() {
       path.removeLast()
    }
    
-   func popToRoot() {
+   public func popToRoot() {
       DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
          self.path.removeLast(self.path.count - 1)
       }
    }
    
    @ViewBuilder
-   func build(_ screen: Screen) -> some View {
+   public func build(_ screen: Screen) -> some View {
       switch screen {
       case .splashScreen:
          SplashScreenView()
@@ -181,6 +181,7 @@ indirect enum Screen: Hashable {
    case aiSimulation
    case changeName
 }
+
 
 /*
  case dictionary(judul:String, story: Int)

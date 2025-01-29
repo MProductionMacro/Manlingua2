@@ -10,7 +10,7 @@ import AVFoundation
 class TextToSpeech: TextToSpeechProtocol, ObservableObject {
    private let synthesizer = AVSpeechSynthesizer()
    
-   static let shared = TextToSpeech()
+   public static let shared = TextToSpeech()
    
    // General method to configure and speak text
    private func configureAndSpeak(text: String, rate: Float) {
@@ -33,12 +33,12 @@ class TextToSpeech: TextToSpeechProtocol, ObservableObject {
    }
    
    // Public method to speak text at normal speed
-   func speak(text: String) {
+   public func speak(text: String) {
       configureAndSpeak(text: text, rate: 0.5)
    }
    
    // Public method to speak text at a slower speed
-   func speakSlow(text: String) {
+   public func speakSlow(text: String) {
       configureAndSpeak(text: text, rate: 0.1) // Adjusted rate for slower speech
    }
 }

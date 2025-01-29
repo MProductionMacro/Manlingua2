@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct UserRankStyle{
-   static func getTextColor(_ userRank : UserRank) -> Color{
+   public static func getTextColor(_ userRank : UserRank) -> Color{
       switch(userRank){
       case .Berlian:
          return Color.berlian
@@ -24,7 +24,7 @@ struct UserRankStyle{
       }
    }
    
-   static func getBackgroundColor(_ userRank : UserRank) -> Color{
+   public static func getBackgroundColor(_ userRank : UserRank) -> Color{
       switch(userRank){
       case .Berlian :
          return Color.berlianBackground

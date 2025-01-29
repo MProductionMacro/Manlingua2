@@ -8,26 +8,26 @@
 import Foundation
 
 struct AlertData {
-    let type: AlertType
-    let primaryAction: () -> Void
-    let dismissAction: (() -> Void)?
+    public let type: AlertType
+    public let primaryAction: () -> Void
+    public let dismissAction: (() -> Void)?
     
-    var title: String {
+    public var title: String {
         //type.title
         "Apakah Anda yakin ingin untuk keluar?".localized
     }
 
-    var message: String {
+    public var message: String {
         //type.message
         ""
     }
 
-    var primaryButtonTitle: String {
+    public var primaryButtonTitle: String {
         //type.primaryButtonTitle
         "Batal".localized
     }
 
-    var dismissButtonTitle: String {
+    public var dismissButtonTitle: String {
         //type.dismissButtonTitle
         "Keluar".localized
     }
