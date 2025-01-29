@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StoryListView: View {
-    @EnvironmentObject var router: Router
+    @EnvironmentObject private var router: Router
    var body: some View {
       //      TODO: Beberapa size masih hard coded
       ScrollView(showsIndicators: false){
@@ -63,3 +63,4 @@ struct StoryListView: View {
       .environmentObject(HomeViewModel())
       .environment(\.colorScheme, .dark)
 }
+

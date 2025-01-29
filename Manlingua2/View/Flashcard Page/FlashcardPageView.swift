@@ -11,14 +11,14 @@ struct FlashcardPageView: View {
    @EnvironmentObject var router: Router
    //@EnvironmentObject var viewModel: FlashcardViewModel
    @EnvironmentObject var viewModel: FlashcardViewModel
-   @StateObject var singleton = UserDefaultSingleton.shared
-   @State var tutorialOverlay: Int = 1
-   @State var audioController = AudioController.shared
-   @State var hasAnswered = false
-   @State var isCorrect = false
+   @StateObject private var singleton = UserDefaultSingleton.shared
+   @State private var tutorialOverlay: Int = 1
+   @State private var audioController = AudioController.shared
+   @State private var hasAnswered = false
+   @State private var isCorrect = false
    @State private var showConfirmationAlert = false
-   @State var answer:String = ""
-    @State var isTransitioning: Bool = false
+   @State private var answer:String = ""
+    @State private var isTransitioning: Bool = false
    var body: some View {
       ZStack (alignment: .bottom){
          VStack {
@@ -70,6 +70,7 @@ struct FlashcardPageView: View {
                               hasAnswered = false
                           }
                           if viewModel.currentIndex == viewModel.showVocabularies.count - 1 {
+                              viewModel.saveDailyProgress()
                               router.push(.donePage(displayMode: .flashcard, chapterId: 0, subChapterId: 0))
                           }
                      }

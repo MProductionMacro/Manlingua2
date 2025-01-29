@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SplashScreenView: View {
    @StateObject private var logoAnimation = LogoAnimation()
-   @EnvironmentObject var router: Router
+   @EnvironmentObject private var router: Router
    @State private var showTagline = false
    @State private var viewOpacity = 1.0
    @State private var hasSignedIn = UserDefaults.standard.bool(forKey: "hasSignedIn")

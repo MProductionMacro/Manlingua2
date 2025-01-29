@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct PinyinNadaView: View {
-   @EnvironmentObject var router: Router
-   @StateObject var viewModel = LearnViewModel()
-   @State var audioController = AudioController()
+   @EnvironmentObject private var router: Router
+   @StateObject private var viewModel = LearnViewModel()
+   @State private var audioController = AudioController()
    
    var body : some View{
       ScrollView{
@@ -36,7 +36,7 @@ struct PinyinNadaView: View {
             //.padding(.top, 32)
             .padding(.bottom, 32)
 
-            RowOfPinyinView(listPinyin: viewModel.pinyinNada, audioController: $audioController)
+            RowOfPinyinView(listPinyin: viewModel.getPinyinNada(), audioController: $audioController)
          }
          .ignoresSafeArea()
          .frame(maxWidth: .infinity, maxHeight: .infinity)

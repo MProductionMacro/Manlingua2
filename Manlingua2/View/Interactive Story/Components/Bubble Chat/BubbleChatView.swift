@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BubbleChatView: View {
-   @Binding var chat: Chat_Example
+   @Binding var chat: Chat
    var type: ChatType
    var questionIndex: Int
    var isActive: Bool

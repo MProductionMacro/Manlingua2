@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChangeNameView : View{
-    @EnvironmentObject var router: Router
+    @EnvironmentObject private var router: Router
     @State private var editText: String = ""
     @State private var characters: Int = 10
     @StateObject private var swiftDataServices = SwiftDataServices.shared

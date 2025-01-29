@@ -10,7 +10,7 @@ import SwiftUI
 struct AnswerToolbarView : View {
     @EnvironmentObject var router:Router
    @EnvironmentObject var viewModel: FlashcardViewModel
-    @State var tts = TextToSpeech()
+    @State private var tts = TextToSpeech()
     var body : some View {
         VStack{
             Spacer()
@@ -65,3 +65,4 @@ struct AnswerToolbarView : View {
         .background(.cardBackground)
     }
 }
+

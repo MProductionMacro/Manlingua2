@@ -5,6 +5,7 @@
 //  Created by Paulus Michael on 10/11/24.
 //
 
+
 import SwiftUI
 /*
  struct BottomFlashcardContainerView: View {
@@ -58,8 +59,8 @@ struct BottomFlashcardContainerView: View {
     @EnvironmentObject var homeViewModel: HomeViewModel
     @EnvironmentObject var storyViewModel: StoryViewModel
     */
-   @State var textToSpeech = TextToSpeech()
-   @State var isSpeaking = false
+   @State private var textToSpeech = TextToSpeech()
+   @State private var isSpeaking = false
    
    var body: some View {
       VStack(spacing: 0) {
@@ -76,7 +77,8 @@ struct BottomFlashcardContainerView: View {
          
          MicrophoneModalityView() { answer in
              withAnimation(.easeInOut(duration: 0.45)){
-               isCorrect = (answer == flashcardViewModel.showVocabularies[flashcardViewModel.currentIndex].hanzi)
+                 isCorrect = flashcardViewModel.checkAnswer(answer: answer)
+                 //(answer == flashcardViewModel.showVocabularies[flashcardViewModel.currentIndex].hanzi)
                hasAnswered = true
             }
          }
@@ -89,4 +91,3 @@ struct BottomFlashcardContainerView: View {
       //.animation(.easeInOut(duration: 0.3), value: chatType == .question)
    }
 }
-

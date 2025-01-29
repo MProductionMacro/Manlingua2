@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct JourneyPageContentView: View {
-   var story: Story_Example
+   var story: Story
    var storyId: Int
    
    @EnvironmentObject var viewModel: JourneyViewModel
    @EnvironmentObject var storyViewModel: StoryViewModel
    @EnvironmentObject var router: Router
    
-   @StateObject var singleton = SwiftDataServices.shared
+   @StateObject private var singleton = SwiftDataServices.shared
    
    var body: some View {
       ZStack{
@@ -104,6 +104,8 @@ struct JourneyPageContentView: View {
       }
    }
 }
+
+
 
 
 

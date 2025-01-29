@@ -101,3 +101,4 @@ struct TutorialOverlayView: View {
 #Preview {
    TutorialOverlayView(tutorialOverlay: .constant(1), width: 1000)
 }
+

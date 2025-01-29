@@ -9,8 +9,8 @@ import SwiftUI
 struct DictionaryView: View {
    @Environment(\.colorScheme) var colorScheme
    @EnvironmentObject var router: Router
-   @StateObject var viewModel = DictionaryViewModel()
-   @State var textToSpeech = TextToSpeech()
+   @StateObject private var viewModel = DictionaryViewModel()
+   @State private var textToSpeech = TextToSpeech()
    var judul: String
    var displayMode: DictionaryDisplayMode
    
@@ -27,7 +27,7 @@ struct DictionaryView: View {
              Text("\(viewModel.vocabularies.count) " + "Kata".localized)
                .font(.subheadline)
            
-            if viewModel.getVocabulary(displayMode).isEmpty {
+             if viewModel.isVocabsEmpty() {
                Spacer()
                VStack(alignment: .center){
                   Image(.orangeForBlank)
@@ -100,5 +100,6 @@ struct DictionaryView: View {
       DictionaryView(judul: "Story Vocabulary", displayMode: .story(id: 1))
    }
 }
+
 
 

@@ -56,3 +56,4 @@ struct BottomContainerButtons: View {
 #Preview {
    BottomContainerButtons(bookAction: {}, speakerAction: {}, turtleAction: {}, isSpeaking: .constant(false)).environment(\.colorScheme, .dark)
 }
+

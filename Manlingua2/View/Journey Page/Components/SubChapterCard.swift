@@ -10,7 +10,7 @@ import SwiftUI
 struct SubChapterButton : PrimitiveButtonStyle {
     @State var isLocked:Bool
     var id: Int
-    var subChapter: SubChapter_Example
+    var subChapter: SubChapter
     
     func makeBody(configuration: Configuration) -> some View {
         HStack {
@@ -89,7 +89,7 @@ struct SubChapterCard: View {
    @State var labelImage: ImageResource
    @State var isLocked:Bool
    var id: Int
-   var subChapter: SubChapter_Example
+   var subChapter: SubChapter
    
    @EnvironmentObject var router: Router
    @EnvironmentObject var viewModel: StoryViewModel

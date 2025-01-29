@@ -12,7 +12,7 @@ struct FlashcardView: View {
     let vocab: Vocabulary
     var width: CGFloat = 300
     var height: CGFloat = 200
-    @State var isBookmarked = false
+    @State private var isBookmarked = false
     @ObservedObject var viewModel: FlashcardViewModel
     var body: some View{
         VStack(alignment: .center, spacing: 16){

@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct PinyinPageView: View {
-   @EnvironmentObject var router: Router
+   @EnvironmentObject private var router: Router
 
    var body: some View {
       VStack(spacing: UIScreen.main.bounds.height < 700 ? 8 : 32) {

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct NotificationSettingView: View {
-    @EnvironmentObject var router: Router
-    @State var selectedId: Int = 1
+    @EnvironmentObject private var router: Router
+    @State private var selectedId: Int = 1
 
     var body : some View {
         VStack{

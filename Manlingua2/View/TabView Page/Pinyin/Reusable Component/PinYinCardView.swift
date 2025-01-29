@@ -7,9 +7,9 @@
 import SwiftUI
 
 struct PinYinCardView: View {
-    @EnvironmentObject var router: Router 
+    @EnvironmentObject private var router: Router
    var body: some View {
-      VStack {         
+      VStack {
          HStack(alignment: .bottom) {
             VStack {
                HStack (alignment: .bottom){
@@ -43,3 +43,4 @@ struct PinYinCardView: View {
 #Preview{
    PinYinCardView()
 }
+

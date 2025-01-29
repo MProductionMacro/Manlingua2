@@ -4,7 +4,6 @@
 //
 //  Created by Paulus Michael on 31/10/24.
 //
-
 import SwiftUI
 
 struct ChatScrollView: View {
@@ -12,7 +11,7 @@ struct ChatScrollView: View {
    @Binding var hasAnswered: Bool
    @Binding var modalAppeared: Bool
    
-   var chats: [Chat_Example]
+   var chats: [Chat]
    var actionOnDone: () -> Void
    
    var body: some View {

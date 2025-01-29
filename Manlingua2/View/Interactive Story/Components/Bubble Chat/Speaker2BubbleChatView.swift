@@ -13,7 +13,7 @@ struct Speaker2BubbleChatView: View {
    var meaning: String
    var actionAfterTap: () -> Void
    
-   @State var isShowingMeaning = false
+   @State private var isShowingMeaning = false
    @State private var textWidth: CGFloat = 0
    
    var body: some View {

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CompletionTrackerView: View{
-   @StateObject var singleton = SwiftDataServices.shared
-   @EnvironmentObject var viewModel: ChallengeViewModel
-   @EnvironmentObject var router: Router
+   @StateObject private var singleton = SwiftDataServices.shared
+   @EnvironmentObject private var viewModel: ChallengeViewModel
+   @EnvironmentObject private var router: Router
    var body: some View {
       VStack(alignment: .center) {
           VStack(alignment: .leading, spacing: 8) {

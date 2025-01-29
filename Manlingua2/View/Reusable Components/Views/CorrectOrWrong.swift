@@ -19,10 +19,10 @@ struct CorrectOrWrong: View {
    var continueFunc: () -> Void
    var tryAgainFunc: () -> Void
    
-   @State var transcribedAudio = ""
+   @State private var transcribedAudio = ""
    
-   @State var audioController = AudioController.shared
-   @State var textToSpeech = TextToSpeech.shared
+   @State private var audioController = AudioController.shared
+   @State private var textToSpeech = TextToSpeech.shared
    @State private var checkMessages: String = ""
    
    var body: some View {

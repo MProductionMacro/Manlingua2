@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct HomeCardListView: View {
-   @EnvironmentObject var viewModel: HomeViewModel
-   @EnvironmentObject var router: Router
-   @StateObject var singleton = SwiftDataServices.shared
+   @EnvironmentObject private var viewModel: HomeViewModel
+   @EnvironmentObject private var router: Router
+   @StateObject private var singleton = SwiftDataServices.shared
    
    var body: some View {
       ScrollView(.horizontal, showsIndicators: false) {

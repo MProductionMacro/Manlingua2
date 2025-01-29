@@ -9,7 +9,7 @@ import SwiftUI
 struct FlashcardDictionaryView: View {
     let vocab: Vocabulary
     @Binding var textToSpeech: TextToSpeech
-    @State var isBookmarked = false
+    @State private var isBookmarked = false
     @EnvironmentObject var router: Router
     @ObservedObject var viewModel: DictionaryViewModel
 

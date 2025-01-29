@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ChatModalityView: View {
-   var chat: Chat_Example
+   var chat: Chat
    
    @Binding var modalAppeared: Bool
    @Binding var currentIndex: Int
    
-   @State var hasAnswered: Bool = false
-   @State var isCorrect: Bool = false
-   @State var selectedAnswer: String? = nil
+   @State private var hasAnswered: Bool = false
+   @State private var isCorrect: Bool = false
+   @State private var selectedAnswer: String? = nil
    
    var body: some View {
       ZStack{

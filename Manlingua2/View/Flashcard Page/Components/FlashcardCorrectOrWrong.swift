@@ -16,8 +16,8 @@ struct FlashcardCorrectOrWrong: View {
    
    var continueFunc: () -> Void
    var tryAgainFunc: () -> Void
-   @State var audioController = AudioController.shared
-   @State var transcribedAudio = ""
+   @State private var audioController = AudioController.shared
+   @State private var transcribedAudio = ""
    @State private var isTransitioning: Bool = false
    @State private var checkMessages: String = ""
 

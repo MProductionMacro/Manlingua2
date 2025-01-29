@@ -30,4 +30,3 @@ struct CompleteStatusLabel: View {
 #Preview {
    CompleteStatusLabel(isComplete: false)
 }
-

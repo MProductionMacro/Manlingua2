@@ -49,7 +49,7 @@ struct SidebarButton: View {
                
                Button(action: {
                   // Action for speaker icon
-                  textToSpeech.speak(text: storyViewModel.chat_example[chatIndex].hanzi)
+                  textToSpeech.speak(text: storyViewModel.chats[chatIndex].hanzi)
                }) {
                   Image(systemName: "speaker.wave.2.fill")
                      .frame(width: 24, height: 24)
@@ -62,7 +62,7 @@ struct SidebarButton: View {
                Button(action: {
                   // Action for turtle icon
 //                  textToSpeech.speakSlow(text: storyViewModel.chat_example[chatIndex].hanzi)
-                  textToSpeech.speakSlow(text: storyViewModel.chat_example[chatIndex].hanzi)
+                  textToSpeech.speakSlow(text: storyViewModel.chats[chatIndex].hanzi)
                }) {
                   Image(systemName: "tortoise.fill")
                      .frame(width: 24, height: 24)

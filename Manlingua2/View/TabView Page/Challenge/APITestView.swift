@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct APITestView: View {
-   @StateObject var viewModel = ChallengeViewModel()
+   @StateObject private var viewModel = ChallengeViewModel()
    
    var body: some View {
       VStack{

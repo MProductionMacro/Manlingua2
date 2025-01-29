@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct PinyinInitView: View {
-   @EnvironmentObject var router: Router
-   @StateObject var viewModel = LearnViewModel()
-   @State var audioController = AudioController()
+   @EnvironmentObject private var router: Router
+   @StateObject private var viewModel = LearnViewModel()
+   @State private var audioController = AudioController()
    
    var body: some View {
       //TODO: Jadiin ScrollView
@@ -38,7 +38,7 @@ struct PinyinInitView: View {
             }
             
              VStack(alignment: .leading, spacing: 12){
-               ForEach(viewModel.pinyinInisial, id: \.self){ pinyins in
+               ForEach(viewModel.getPinyinInisial(), id: \.self){ pinyins in
                   RowOfPinyinView(listPinyin: pinyins, audioController: $audioController)
                }
             }

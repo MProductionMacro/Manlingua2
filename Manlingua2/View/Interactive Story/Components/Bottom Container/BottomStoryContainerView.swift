@@ -24,18 +24,20 @@ struct BottomStoryContainerView: View {
    @EnvironmentObject var homeViewModel: HomeViewModel
    @EnvironmentObject var storyViewModel: StoryViewModel
    
-   @State var textToSpeech = TextToSpeech()
-   @State var isSpeaking = false
-   
+   @State private var textToSpeech = TextToSpeech()
+   @State private var isSpeaking = false
+   @State private var transcribedAnswer = ""
+   //@State private var answer = ""
+    
    var body: some View {
       VStack(spacing: 0) {
          BottomContainerButtons(bookAction: {
             router.push(.dictionary(judul: homeViewModel.stories_example[storyId].title, displayMode: .story(id: storyId)))
          }, speakerAction: {
             isSpeaking = true
-            textToSpeech.speak(text: storyViewModel.chat_example[currentIndex].hanzi)
+            textToSpeech.speak(text: storyViewModel.chats[currentIndex].hanzi)
          }, turtleAction: {
-            textToSpeech.speakSlow(text: storyViewModel.chat_example[currentIndex].hanzi)
+            textToSpeech.speakSlow(text: storyViewModel.chats[currentIndex].hanzi)
          }, isSpeaking: $isSpeaking)
          
          if chatType == .question {
@@ -46,10 +48,11 @@ struct BottomStoryContainerView: View {
                   if let choices = choices {
                      QuestionModalityView(choices: choices) { answer in
                         selectedAnswer = answer
-                        
+                        //self.answer = answer
                         withAnimation {
                            isSpeakingQuestion = false
-                           isCorrect = (answer == realAnswer)
+                           //isCorrect = (answer == realAnswer)
+                           isCorrectCheck()
                            hasAnswered = true
                         }
                      }
@@ -59,12 +62,28 @@ struct BottomStoryContainerView: View {
                      MicrophoneModalityView() { answer in
                         withAnimation{
                            isSpeakingQuestion = true
-                           let transcribedAnswer = answer
+                           self.transcribedAnswer = answer
+                            
+                            print(transcribedAnswer)
+                            print(realAnswer)
+                            isCorrect = (transcribedAnswer == realAnswer)
+                            //isCorrectCheck()
+                            print(isCorrect)
+                           //let transcribedAnswer = answer
                            //                           DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                            withAnimation {
-                              isCorrect = (transcribedAnswer == realAnswer)
-                              hasAnswered = true
+                               //print(transcribedAnswer)
+                               //print(realAnswer)
+                               isCorrectCheck()
+                              //isCorrect = (transcribedAnswer == realAnswer)
+                              //isCorrectCheck()
                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+                                withAnimation{
+                                    hasAnswered = true
+                                }
+                            }
                            //                           }
                         }
                      }
@@ -85,7 +104,27 @@ struct BottomStoryContainerView: View {
       .clipShape(CustomRoundedRectangle(cornerRadius: 24, corners: [.topLeft, .topRight]))
       .animation(.easeInOut(duration: 0.3), value: chatType == .question)
    }
+    
+    private func isCorrectCheck(){
+        if let choices = choices{
+            
+            print(selectedAnswer)
+            print(realAnswer)
+            
+            isCorrect = (selectedAnswer == realAnswer)
+            print(isCorrect)
+        }
+        else{
+            print(transcribedAnswer)
+            print(realAnswer)
+            //if let transcribedAnswer
+            isCorrect = (transcribedAnswer == realAnswer)
+            
+            print(isCorrect)
+        }
+    }
 }
+
 
 //#Preview {
 //   BottomStoryContainerView(currentIndex: .constant(1), questionAppeared: .constant(true), storyId: 1, chatType: .question, choices: [], onAnswerSelected: {result in})

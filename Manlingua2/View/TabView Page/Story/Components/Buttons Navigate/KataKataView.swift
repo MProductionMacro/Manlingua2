@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct KataKataView: View {
-   @EnvironmentObject var router: Router
+   @EnvironmentObject private var router: Router
    
    var body: some View {
       VStack(alignment: .leading, spacing: 0) {
@@ -49,3 +49,4 @@ struct KataKataView: View {
 #Preview {
    KataKataView()
 }
+

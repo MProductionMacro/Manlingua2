@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct CameraGrantedView: View {
-   @EnvironmentObject var router: Router
-   @EnvironmentObject var viewModel: ChallengeViewModel
-   @StateObject var cameraController = CameraController.shared
+   @EnvironmentObject private var router: Router
+   @EnvironmentObject private var viewModel: ChallengeViewModel
+   @StateObject private var cameraController = CameraController.shared
    
-   @State var image: UIImage = UIImage(resource: .placeholderChallenge)
-   @State var isShowingMeaning = false
-   @State var isCorrect = false
-   @State var objects: [Object] = []
+   @State private var image: UIImage = UIImage(resource: .placeholderChallenge)
+   @State private var isShowingMeaning = false
+   @State private var isCorrect = false
+   @State private var objects: [Object] = []
    
    @Binding var isShowingCamera: Bool
    @Binding var isPredicted: Bool
@@ -44,7 +44,7 @@ struct CameraGrantedView: View {
                            isShowingMeaning.toggle()
                         }
                         .popover(isPresented: $isShowingMeaning) {
-                           Text(objects.first?.meaning ?? "Meaning")
+                            Text(objects.first?.meaning.localized ?? "Meaning")
                               .font(.hanzi())
                               .foregroundColor(.black)
                               .padding()
@@ -128,6 +128,10 @@ struct CameraGrantedView: View {
                // Check if there are any matches
                isCorrect = !matchingPredictions.isEmpty
                print("Matching Predictions: \(matchingPredictions)")
+                
+               if isCorrect{
+                   viewModel.saveDailyProgress()
+               }
             }
          }
       }

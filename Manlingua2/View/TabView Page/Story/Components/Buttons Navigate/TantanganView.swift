@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TantanganView: View {
-   @EnvironmentObject var router: Router
+   @EnvironmentObject private var router: Router
    
    var body: some View {
       VStack(alignment: .leading, spacing: 0) {
@@ -43,3 +43,4 @@ struct TantanganView: View {
    TantanganView()
       .environmentObject(Router())
 }
+

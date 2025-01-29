@@ -9,8 +9,8 @@ import SwiftUI
 
 struct NotesCardView : View{
    var note: ImportantNote
-   @State var isBookmarked = false
-   @EnvironmentObject var viewModel: ImportantNotesViewModel
+   @State private var isBookmarked = false
+   @EnvironmentObject private var viewModel: ImportantNotesViewModel
 
     var body : some View {
         VStack{

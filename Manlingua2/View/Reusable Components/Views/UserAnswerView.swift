@@ -9,7 +9,7 @@ import SwiftUI
 struct UserAnswerView : View {
    @EnvironmentObject var router:Router
    @EnvironmentObject var viewModel: FlashcardViewModel
-   @State var isSpeaking = false
+   @State private var isSpeaking = false
    
    var body : some View {
       VStack(spacing: 1){

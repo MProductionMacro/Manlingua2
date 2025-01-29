@@ -21,7 +21,7 @@ struct AudioBTN: View {
    
    var onPressedMic: (String) -> Void
    
-   func sendAudioToAPI() {
+   private func sendAudioToAPI() {
       guard let audioURL = audioController.getAudioFileName() else {
          print("No audio file to send")
          return
@@ -51,7 +51,7 @@ struct AudioBTN: View {
                      if !isRecording {
 //                        audioController.initializeAudioSessionAndRecorder()
                         self.isRecording = true
-                        audioController.startRecording()
+                        _ = audioController.startRecording()
                      }
                   }
                   .onEnded { _ in

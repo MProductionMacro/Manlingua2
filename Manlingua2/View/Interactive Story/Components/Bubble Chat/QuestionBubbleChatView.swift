@@ -104,3 +104,4 @@ struct QuestionBubbleChatView: View {
       .background(.black)
       .environmentObject(StoryViewModel())
 }
+

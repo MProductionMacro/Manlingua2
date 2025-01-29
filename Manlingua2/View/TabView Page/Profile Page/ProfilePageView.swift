@@ -10,14 +10,14 @@ import FirebaseAuth
 import PhotosUI
 
 struct ProfilePageView: View {
-   @StateObject var viewModel = ProfileViewModel()
-   @StateObject var singleton = SwiftDataServices.shared
-   @EnvironmentObject var router: Router
+   @StateObject private var viewModel = ProfileViewModel()
+   @StateObject private var singleton = SwiftDataServices.shared
+   @EnvironmentObject private var router: Router
     //@EnvironmentObject var swiftDataServices: SwiftDataServices
     //@State private var avatarImage: Image = SwiftDataServices.shared.profilePicture
    @StateObject private var swiftDataServices = SwiftDataServices.shared
    @State private var photosPickerItem: PhotosPickerItem?
-   var userRank = UserRank.allCases
+   private var userRank = UserRank.allCases
    
    var body: some View {
       ZStack{
@@ -31,7 +31,7 @@ struct ProfilePageView: View {
                        .padding(.trailing, 5)
                        .onTapGesture{
                            withAnimation{
-                               viewModel.isShowProfilePict.toggle()
+                               //viewModel.isShowProfilePict.toggle()
                            }
                        }
                     
@@ -47,14 +47,16 @@ struct ProfilePageView: View {
                             .padding(.bottom, 2)
                             //.frame(width: 30, height: 30)
                     }
-                    .onChange(of: photosPickerItem) { newItem in
+                    .onChange(of: photosPickerItem) { oldItem, newItem in
                         Task {
                             if let data = try? await newItem?.loadTransferable(type: Data.self),
                                let uiImage = UIImage(data: data) {
+                                print("Tahap Pertama")
                                 swiftDataServices.profilePicture = Image(uiImage: uiImage)
                             }
                             
                             if let photo = newItem {
+                                print("Tahap Kedua")
                                 SwiftDataServices.shared.updateProfilePicture(photo: photo)
                             }
                         }
@@ -64,7 +66,6 @@ struct ProfilePageView: View {
                 }
 
                VStack(alignment: .leading){
-                  //FIXME: Nanti ganti lagi
                    HStack(alignment: .center){
                        Text("\(swiftDataServices.username)")
                           .font(Font.titleKe2())
@@ -80,7 +81,7 @@ struct ProfilePageView: View {
                    }
                    .padding(.bottom, 1)
 
-                  Text(userRank[swiftDataServices.rank].rawValue.localized)
+                   Text(viewModel.getLevel().localized)
                      .font(Font.subJudul())
                      .padding(.horizontal)
                      .padding(.vertical, 8)
@@ -113,7 +114,7 @@ struct ProfilePageView: View {
                .frame(height: 35)
                .frame(maxWidth: .infinity)
                .padding(.horizontal, 20)
-               
+               /*
                ProfileNavigationButton(title: "Perangkat Pintar".localized, imageName: "externaldrive.connected.to.line.below"){
                   //router.push(.ioTSetting)
                    router.push(.ioTSetting)
@@ -123,7 +124,7 @@ struct ProfilePageView: View {
                .frame(height: 35)
                .frame(maxWidth: .infinity)
                .padding(.horizontal, 20)
-               
+               */
                Spacer()
                 
 //               HStack{
@@ -151,6 +152,7 @@ struct ProfilePageView: View {
          .ignoresSafeArea(edges: .bottom)
       }
       .overlay{
+          /*
           if viewModel.isShowProfilePict{
               ZStack{
                   swiftDataServices.profilePicture
@@ -167,8 +169,7 @@ struct ProfilePageView: View {
                   }
               }
           }
-
-
+           */
       }
       .edgesIgnoringSafeArea(.bottom)
       .background(

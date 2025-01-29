@@ -21,3 +21,4 @@ struct MicrophoneView: View {
         .background(.cardBackground)
     }
 }
+

@@ -7,11 +7,11 @@
 import SwiftUI
 
 struct GoalPageView: View {
-   @StateObject var singleton = SwiftDataServices.shared
+   @StateObject private var singleton = SwiftDataServices.shared
    
-   @EnvironmentObject var router: Router
-   @EnvironmentObject var viewModel: ChallengeViewModel
-   @EnvironmentObject var storyVM: StoryViewModel
+   @EnvironmentObject private var router: Router
+   @EnvironmentObject private var viewModel: ChallengeViewModel
+   @EnvironmentObject private var storyVM: StoryViewModel
    @State private var lastResetDate: Date = Date() // Track last reset date
    
    var body: some View {
@@ -23,20 +23,20 @@ struct GoalPageView: View {
                   .foregroundStyle(.white)
                
                HStack(alignment: .center) {
-                  Text(viewModel.ranks[singleton.rank].rawValue.localized)
+                   Text(viewModel.ranks[SwiftDataServices.shared.rank].rawValue.localized)
                      .font(Font.subJudul())
                      .frame(width: 92, height: 35)
-                     .foregroundColor(UserRankStyle.getTextColor(viewModel.ranks[singleton.rank]))
-                     .background(UserRankStyle.getBackgroundColor(viewModel.ranks[singleton.rank]))
+                     .foregroundColor(UserRankStyle.getTextColor(viewModel.ranks[SwiftDataServices.shared.rank]))
+                     .background(UserRankStyle.getBackgroundColor(viewModel.ranks[SwiftDataServices.shared.rank]))
                      .cornerRadius(8)
                   
                   HStack(spacing: 4){
                      Image(systemName: "flame.fill")
                         .resizable()
                         .font(Font.subJudul())
-                        .foregroundStyle(singleton.streak == 0 ? .customLightGray : .orange)
+                        .foregroundStyle(SwiftDataServices.shared.getStreak() == 0 ? .customLightGray : .orange)
                         .frame(width: 15, height: 17)
-                     Text("\(singleton.streak)")
+                     Text("\(SwiftDataServices.shared.getStreak())")
                         .font(Font.subJudul())
                         .foregroundStyle(.black)
                   }
@@ -75,19 +75,19 @@ struct GoalPageView: View {
                .padding([.top, .horizontal], 20)
                
                VStack(spacing: 2) {
-                  GoalTrackerView(task: .first, image: "Emas Cina", challenge: "Selesaikan 1 subbab cerita".localized, doneTask: singleton.tasks[0]) {
-                     viewModel.taskDone(index: 0)
+                   GoalTrackerView(task: .first, image: "Emas Cina", challenge: "Selesaikan 1 subbab cerita".localized, doneTask: SwiftDataServices.shared.getStoryChallengeProgress()) {
+                     //viewModel.taskDone(index: 0)
                      storyVM.loadChat(storyId: singleton.latestStory, subChapterId: singleton.latestSubChapter)
                      router.push(.loadingPage(screen: .storyPage(chapterId: singleton.latestStory, subChapterId: singleton.latestSubChapter)))
                   }
                   
-                  GoalTrackerView(task: .second, image: "Koin Cina", challenge: "Selesaikan 1 bagian flashcard".localized, doneTask: singleton.tasks[1]) {
-                     viewModel.taskDone(index: 1)
+                   GoalTrackerView(task: .second, image: "Koin Cina", challenge: "Selesaikan 1 bagian flashcard".localized, doneTask: SwiftDataServices.shared.getFlashcardProgress()) {
+                     //viewModel.taskDone(index: 1)
                      router.push(.loadingPage(screen: .flashcardPage))
                   }
                   
-                  GoalTrackerView(task: .third, image: "Emas Batang", challenge: "Selesaikan 1 tantangan foto".localized, doneTask: singleton.tasks[2]) {
-                     viewModel.taskDone(index: 2)
+                   GoalTrackerView(task: .third, image: "Emas Batang", challenge: "Selesaikan 1 tantangan foto".localized, doneTask: SwiftDataServices.shared.getPhotoChallengeProgress()) {
+                     //viewModel.taskDone(index: 2)
                       router.push(.photoChallenge)
                   }
                }

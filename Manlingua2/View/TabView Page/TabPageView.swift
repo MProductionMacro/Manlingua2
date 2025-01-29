@@ -2,10 +2,10 @@ import SwiftUI
 
 struct TabPageView: View {
    @State private var selectedTab = 0
-    @EnvironmentObject var router: Router
-   @EnvironmentObject var homeViewModel: HomeViewModel
-   @EnvironmentObject var viewModel: StoryViewModel
-   @EnvironmentObject var learnVM: LearnViewModel
+    @EnvironmentObject private var router: Router
+   @EnvironmentObject private var homeViewModel: HomeViewModel
+   @EnvironmentObject private var viewModel: StoryViewModel
+   @EnvironmentObject private var learnVM: LearnViewModel
    
    var body: some View {
       CustomTabBarContainerView(selection: $selectedTab) {

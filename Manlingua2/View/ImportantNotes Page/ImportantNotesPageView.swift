@@ -20,7 +20,7 @@ struct ImportantNotesPageView : View {
                 .padding(.top, 16)
                 .padding(.bottom,-2)
             
-            if viewModel.getNotes().isEmpty {
+            if viewModel.isNotesEmpty() {
                Spacer()
                VStack(alignment: .center){
                    Image(.orangeForBlank)
@@ -57,10 +57,6 @@ struct ImportantNotesPageView : View {
                             }
                             
 
-                        }
-                        if viewModel.notes.count == 0 {
-                            Text("No notes found.".localized)
-                                .foregroundColor(.gray)
                         }
                     }
                     .frame(maxWidth: .infinity)

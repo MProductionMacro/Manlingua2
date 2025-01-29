@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GoalTrackerView : View {
-   @EnvironmentObject var router: Router
+   @EnvironmentObject private var router: Router
    
    var task: TaskType
    var image: String

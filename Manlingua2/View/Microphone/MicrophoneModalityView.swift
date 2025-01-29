@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MicrophoneModalityView: View {
-   @State var responseText : String = ""
-   @State var showMicrophone = false
+   @State private var responseText : String = ""
+   @State private var showMicrophone = false
    
    var onPressedMic: (String) -> Void
    

@@ -10,12 +10,12 @@ import SwiftUI
 struct PhotoChallengeView: View {
    @EnvironmentObject var router: Router
    @EnvironmentObject var viewModel: ChallengeViewModel
-   @StateObject var camera = CameraController.shared
-   @State var isCorrect = false
+   @StateObject private var camera = CameraController.shared
+   @State private var isCorrect = false
    
-   @State var isPredicted = false
-   @State var isShowingCamera = false
-   @State var isLoading = false
+   @State private var isPredicted = false
+   @State private var isShowingCamera = false
+   @State private var isLoading = false
    
    var body: some View {
       ZStack {
@@ -29,7 +29,10 @@ struct PhotoChallengeView: View {
                CameraGrantedView(isShowingCamera: $isShowingCamera, isPredicted: $isPredicted, isLoading: $isLoading)
             } else {
                CameraNotGrantedView(primaryButtonPressed: {
-                  camera.checkPermission()
+                  print("Halo dunia")
+                  //camera.requestPermission()
+                   camera.allowCameraAccess()
+                  //camera.requestPermission()
                }, secondaryButtonPressed: {
                   router.pop()
                })
