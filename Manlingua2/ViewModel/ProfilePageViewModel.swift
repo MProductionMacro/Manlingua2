@@ -9,29 +9,16 @@ import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
 
-//Datanya dari mana kan masih belum tau cara ngitungnya persisnya gimana
-//Jadi untuk sementara, pake class dummy dulu kayak gini. Supaya bisa ngeload chart di ProfilePageView
-struct SimpleItem: Hashable{
-   let name: String
-   let value: Int
-}
-
 class ProfileViewModel: ObservableObject {
-   @Published var name: String = "Loading..."
-    @Published var isShowProfilePict : Bool = false
+   @Published public var name: String = "Loading..."
+    //@Published public var isShowProfilePict : Bool = false
    
    init() {
       fetchUserName()
    }
    
-   let datas = [
-      SimpleItem(name: "Terjemah", value: 1),
-      SimpleItem(name: "Dengar", value: 3),
-      SimpleItem(name: "Ucap", value: 2),
-      SimpleItem(name: "Obrol", value: 4)
-   ]
    
-   func fetchUserName() {
+   public func fetchUserName() {
       guard let userID = Auth.auth().currentUser?.uid else {
          name = "Unknown"
          return
@@ -52,9 +39,11 @@ class ProfileViewModel: ObservableObject {
       }
    }
    
-   func getLevel() -> String {
+   @MainActor public func getLevel() -> String {
       //Sementara gini dulu, tapi nanti sepertinya manggil Level itu ngelibatin langkah yg lebih kompleks
-      return "Perunggu".localized
+       let userRank = UserRank.allCases
+       return userRank[SwiftDataServices.shared.getRank()].rawValue
+      //return "Perunggu".localized
    }
    
 }

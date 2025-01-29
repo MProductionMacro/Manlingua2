@@ -9,14 +9,9 @@ import SwiftUI
 import Combine
 
 class LearnViewModel: ObservableObject {
-   @Published var learnData: Learn?
-   @Published var pinyinInit: [PinyinInit] = []
-   @Published var pinyinFinal: [PinyinFinal] = []
-   @Published var tones: [Tone] = []
-   @Published var currentStage: pinyinCase = .front
    
-   let pinyinNada = ["ā", "á", "ǎ", "à"]
-   let pinyinInisial = [
+   private let pinyinNada = ["ā", "á", "ǎ", "à"]
+   private let pinyinInisial = [
       ["b", "p", "m", "f"],
       ["d", "t", "n", "l"],
       ["g", "k", "h"],
@@ -24,7 +19,7 @@ class LearnViewModel: ObservableObject {
       ["z", "c", "s"],
       ["zh", "ch", "sh", "r"]
    ]
-   let pinyinFinals = [
+   private let pinyinFinals = [
       ["a", "o", "e", "i", "u", "ü"],
       ["ai", "ei", "ui", "ao", "ou", "iu", "ie", "üe", "an", "en", "in", "un"],
       ["ün", "er"],
@@ -36,32 +31,17 @@ class LearnViewModel: ObservableObject {
       //        print(learnData)
    }
    
-   enum pinyinCase {
-      case front
-      case initial
-      case final
-      case tone
-   }
+    public func getPinyinFinals()->[[String]]{
+        return self.pinyinFinals
+    }
+    
+    public func getPinyinInisial()->[[String]]{
+        return self.pinyinInisial
+    }
+    
+    public func getPinyinNada()->[String]{
+        return self.pinyinNada
+    }
    
-   // Function to load the Learn data from the JSON file
-   private func loadLearnData() {
-      // Locate the JSON file in the bundle
-      guard let url = Bundle.main.url(forResource: "pinyin", withExtension: "json") else {
-         //         print("File not found")
-         return
-      }
-      
-      do {
-         // Load and decode the JSON data
-         let data = try Data(contentsOf: url)
-         let decoder = JSONDecoder()
-         let learn = try decoder.decode(Learn.self, from: data)
-         self.learnData = learn
-         self.pinyinInit = learn.pinyinInit
-         self.pinyinFinal = learn.pinyinFinal
-         self.tones = learn.tone
-      } catch {
-         print("Failed to decode JSON: \(error.localizedDescription)")
-      }
-   }
 }
+

@@ -16,7 +16,7 @@ class ImportantNotesViewModel : ObservableObject {
    }
    
    @MainActor
-   func loadNotes(from displayMode: NoteDisplayMode) {
+   public func loadNotes(from displayMode: NoteDisplayMode) {
        self.notes = []
        self.notes_en = []
       switch displayMode {
@@ -27,8 +27,9 @@ class ImportantNotesViewModel : ObservableObject {
       }
    }
    
+   @MainActor
    public func getNotes() -> [ImportantNote]{
-      if UserDefaultSingleton.shared.language == "id"{
+      if SwiftDataServices.shared.getLanguage() == .indonesian{
          return notes
       }
       else{
@@ -38,6 +39,18 @@ class ImportantNotesViewModel : ObservableObject {
    
    @MainActor
    private func loadFavoriteNotes() {
+       if SwiftDataServices.shared.getLanguage() == .english{
+           for note in SwiftDataServices.shared.getNotes(){
+               notes_en.append(ImportantNote(title: note.title, allowed: note.allowed, forbidden: note.forbidden, caution: note.caution, language: note.language))
+           }
+       }
+       else{
+           for note in SwiftDataServices.shared.getNotes(){
+               notes.append(ImportantNote(title: note.title, allowed: note.allowed, forbidden: note.forbidden, caution: note.caution, language: note.language))
+           }
+       }
+       
+       /*
        for note in SwiftDataServices.shared.notes_en{
           notes_en.append(ImportantNote(title: note.title, allowed: note.allowed, forbidden: note.forbidden, caution: note.caution, language: note.language))
        }
@@ -45,7 +58,15 @@ class ImportantNotesViewModel : ObservableObject {
        for note in SwiftDataServices.shared.notes{
           notes.append(ImportantNote(title: note.title, allowed: note.allowed, forbidden: note.forbidden, caution: note.caution, language: note.language))
        }
+        */
    }
+    
+    public func isNotesEmpty()->Bool{
+        if notes_en.isEmpty && notes.isEmpty{
+            return true
+        }
+        return false
+    }
    
    private func loadNoteEn(storyId: Int, subChapterId: Int){
       // Ganti "StoryData" dengan nama file JSON Anda tanpa ekstensi

@@ -10,35 +10,35 @@ import Combine
 
 class ChallengeViewModel: ObservableObject {
    //   @Published var isPredicted = false
-   @Published var objects: [String] = []
-   @Published var errorMessage: String?
-   @Published var predictions: [Prediction] = []
+   @Published public var objects: [String] = []
+   @Published public var errorMessage: String?
+   @Published public var predictions: [Prediction] = []
    
-   @Published var isPredicted = false
+   @Published public var isPredicted = false
    
-   @Published var objects_example: [Object] = []
+   @Published public var objects_example: [Object] = []
    
-   @Published var remainHour: Int = 24 // Initial hours remaining
-   @Published var remainMinutes: Int = 60
+   @Published public var remainHour: Int = 24 // Initial hours remaining
+   @Published public var remainMinutes: Int = 60
    
-   @Published var chatResponse: String = ""
-   @Published var chatPrompt: String = ""
+   @Published public var chatResponse: String = ""
+   @Published public var chatPrompt: String = ""
    
-   @ObservedObject var singleton = SwiftDataServices.shared
+   @ObservedObject private var singleton = SwiftDataServices.shared
    
    private let calendar = Calendar.current
    
    private let userDefaults = UserDefaults.standard
    private let baseURL = "https://paullmich28-manlingua.hf.space"
    
-   let ranks = UserRank.allCases
+   public let ranks = UserRank.allCases
    
-   static let shared = ChallengeViewModel()
+   public static let shared = ChallengeViewModel()
    
    init(){
       fetchObjects()
    }
-   
+   /*
    func taskDone(index: Int){
       let now = Date()
       let calendar = Calendar.current
@@ -75,8 +75,45 @@ class ChallengeViewModel: ObservableObject {
       // Save updated progress
       singleton.saveGoalProgressData()
    }
-   
-   func addStars(){
+    */
+   @MainActor public func saveDailyProgress(){
+        let now = Date()
+        let calendar = Calendar.current
+        let defaults = UserDefaults.standard
+        
+        // Retrieve last completion date or handle first launch
+        if let lastDate = defaults.object(forKey: "lastCompletionDate") as? Date {
+           // Not the first launch
+           if !calendar.isDate(lastDate, inSameDayAs: now) {
+              if let yesterday = calendar.date(byAdding: .day, value: -1, to: now),
+                 calendar.isDate(lastDate, inSameDayAs: yesterday) {
+                 // Last task was completed yesterday, increment streak
+                  SwiftDataServices.shared.streak += 1
+              } else {
+                 // Streak broken, reset to 1
+                  SwiftDataServices.shared.streak = 0
+              }
+              
+              // Update last completion date
+              defaults.set(now, forKey: "lastCompletionDate")
+           }
+        } else {
+           // First launch: initialize streak and save the current date
+            SwiftDataServices.shared.streak += 1
+           defaults.set(now, forKey: "lastCompletionDate")
+        }
+        
+        // Update task completion and total progress
+        if SwiftDataServices.shared.tasks[2] < 1 {
+            SwiftDataServices.shared.tasks[2] += 1
+            SwiftDataServices.shared.totalTasks = Double(SwiftDataServices.shared.tasks.reduce(0, +)) / Double(SwiftDataServices.shared.tasks.count)
+        }
+        
+        // Save updated progress
+        SwiftDataServices.shared.saveGoalProgressData()
+    }
+    
+   public func addStars(){
       singleton.totalStars += 1
       singleton.rank += 1
       //      if singleton.totalStars == 5 {
@@ -87,14 +124,14 @@ class ChallengeViewModel: ObservableObject {
       singleton.saveGoalProgressData()
    }
    
-   func setupHourlyTimer() {
+   public func setupHourlyTimer() {
       Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
          self.updateRemainHour()
       }
    }
    
    // Calculate the remaining hours until midnight and update the UI
-   func updateRemainHour() {
+   public func updateRemainHour() {
       let now = Date()
       let midnight = calendar.nextDate(after: now, matching: DateComponents(hour: 0, minute: 0, second: 0), matchingPolicy: .nextTime)!
       let hoursUntilMidnight = calendar.dateComponents([.hour], from: now, to: midnight).hour ?? 0
@@ -116,7 +153,7 @@ class ChallengeViewModel: ObservableObject {
    private var cancellables = Set<AnyCancellable>()
    
    //MARK: Photo Challenge
-   func predictImage(_ image: UIImage) {
+   public func predictImage(_ image: UIImage) {
       guard let url = URL(string: "\(baseURL)/predict") else { return }
       
       guard let imageData = image.jpegData(compressionQuality: 0.8) else {
@@ -144,7 +181,7 @@ class ChallengeViewModel: ObservableObject {
          if let error = error {
             DispatchQueue.main.async {
                self.errorMessage = "Failed to predict image: \(error.localizedDescription)"
-               print(self.errorMessage)
+               //print(self.errorMessage)
             }
             return
          }
@@ -170,14 +207,14 @@ class ChallengeViewModel: ObservableObject {
                   self.isPredicted = true
                }
                self.errorMessage = "Error decoding prediction response"
-               print(self.errorMessage)
+               //print(self.errorMessage)
             }
          }
       }.resume()
    }
    
    //MARK: Photo Challenge
-   func fetchObjects() {
+   public func fetchObjects() {
       guard let url = URL(string: "\(baseURL)/get_objects") else { return }
       
       let config = URLSessionConfiguration.ephemeral

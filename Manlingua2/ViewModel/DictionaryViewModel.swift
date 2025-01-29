@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 class DictionaryViewModel: ObservableObject {
-    @Published var vocabularies: [Vocabulary] = []
-    @Published var vocabularies_en: [Vocabulary] = []
+    @Published public var vocabularies: [Vocabulary] = []
+    @Published public var vocabularies_en: [Vocabulary] = []
     
-   @MainActor func loadVocabularies(from displayMode: DictionaryDisplayMode) {
+   @MainActor public func loadVocabularies(from displayMode: DictionaryDisplayMode) {
         switch displayMode {
         case .favorite:
             loadFavoriteVocabularies()
@@ -20,9 +20,9 @@ class DictionaryViewModel: ObservableObject {
             loadStoryVocabularies(storyId: id)
         }
     }
-    
+    /*
    @MainActor private func loadFavoriteVocabularies() {
-        if UserDefaultSingleton.shared.language == "en"{
+       if SwiftDataServices.shared.getLanguage() == .english{
             for vocab in SwiftDataServices.shared.vocabs_en{
                 vocabularies.append(Vocabulary(hanzi: vocab.hanzi, pinyin: vocab.pinyin, meaning: vocab.meaning, hanziSentence: vocab.hanziSentence, pinyinSentence: vocab.pinyinSentence, meaningSentence: vocab.meaningSentence, language: vocab.language))
             }
@@ -33,6 +33,20 @@ class DictionaryViewModel: ObservableObject {
             }
         }
     }
+    */
+    @MainActor private func loadFavoriteVocabularies() {
+        if SwiftDataServices.shared.getLanguage() == .english{
+             for vocab in SwiftDataServices.shared.getData(){
+                 vocabularies_en.append(Vocabulary(hanzi: vocab.hanzi, pinyin: vocab.pinyin, meaning: vocab.meaning, hanziSentence: vocab.hanziSentence, pinyinSentence: vocab.pinyinSentence, meaningSentence: vocab.meaningSentence, language: vocab.language))
+             }
+         }
+         else{
+             for vocab in SwiftDataServices.shared.getData(){
+                 vocabularies.append(Vocabulary(hanzi: vocab.hanzi, pinyin: vocab.pinyin, meaning: vocab.meaning, hanziSentence: vocab.hanziSentence, pinyinSentence: vocab.pinyinSentence, meaningSentence: vocab.meaningSentence, language: vocab.language))
+             }
+         }
+     }
+    
     
     private func loadStoryVocabularies(storyId: Int) {
         vocabularies = []
@@ -51,14 +65,30 @@ class DictionaryViewModel: ObservableObject {
         }
     }
     
-    
-    public func getVocabulary(_ displayMode: DictionaryDisplayMode) -> [Vocabulary]{
-        if displayMode == .favorite(isFromHome: true) || displayMode == .favorite(isFromHome: false) || UserDefaultSingleton.shared.language == "id"{
+    /*
+    @MainActor public func getVocabulary(_ displayMode: DictionaryDisplayMode) -> [Vocabulary]{
+        if displayMode == .favorite(isFromHome: true) || displayMode == .favorite(isFromHome: false) ||     SwiftDataServices.shared.getLanguage()  == .indonesian{
             return vocabularies
         }
         else{
             return vocabularies_en
         }
+    }
+     */
+    @MainActor public func getVocabulary(_ displayMode: DictionaryDisplayMode) -> [Vocabulary]{
+        if SwiftDataServices.shared.getLanguage()  == .indonesian{
+            return vocabularies
+        }
+        else{
+            return vocabularies_en
+        }
+    }
+    
+    public func isVocabsEmpty()->Bool{
+        if vocabularies.isEmpty && vocabularies_en.isEmpty{
+            return true
+        }
+        return false
     }
     
     private func loadVocabulary(from storyId: Int, subIndex: Int) {

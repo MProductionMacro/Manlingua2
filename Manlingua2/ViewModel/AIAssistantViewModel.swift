@@ -14,21 +14,21 @@ import Speech
 @Observable
 class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
-    let client = //MARK: Khusus ini, replace sama OpenAIClient dari Notion
-    var audioPlayer: AVAudioPlayer!
-    var audioRecorder: AVAudioRecorder!
-    var recordingSession = AVAudioSession.sharedInstance()
-    var animationTimer: Timer?
-    var recordingTimer: Timer?
+    private let client = //MARK: Khusus ini, replace sama OpenAIClient dari Notion
+    private var audioPlayer: AVAudioPlayer!
+    private var audioRecorder: AVAudioRecorder!
+    private var recordingSession = AVAudioSession.sharedInstance()
+    private var animationTimer: Timer?
+    private var recordingTimer: Timer?
     var audioPower = 0.0
-    var prevAudioPower: Double?
-    var processingSpeechTask: Task<Void, Never>?
+    private var prevAudioPower: Double?
+    private var processingSpeechTask: Task<Void, Never>?
     
-    var selectedVoice = VoiceType.echo
-    var lastTranscription: String?
-    var textToSpeechViewModel = TextToSpeech.shared
+    private var selectedVoice = VoiceType.echo
+    private var lastTranscription: String?
+    private var textToSpeechViewModel = TextToSpeech.shared
     
-    var captureURL: URL {
+    private var captureURL: URL {
         FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
             .first!.appendingPathComponent("recording.m4a")
     }
@@ -36,7 +36,8 @@ class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDele
     var state = VoiceChatStatsenum.idle {
         didSet { print(state) }
     }
-    var isIdle: Bool {
+    
+    private var isIdle: Bool {
         if case .idle = state {
             return true
         }
@@ -66,7 +67,7 @@ class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDele
         }
     }
     
-    func startCaptureAudio() {
+    public func startCaptureAudio() {
         resetValues()
         state = .recordingSpeech
         do {
@@ -109,7 +110,7 @@ class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDele
         }
     }
     
-    func finishCaptureAudio() {
+    public func finishCaptureAudio() {
         resetValues()
         do {
             let data = try Data(contentsOf: captureURL)
@@ -133,7 +134,7 @@ class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDele
     }
     
     
-    func processSpeechTask(audioString: Data) -> Task<Void, Never> {
+    public func processSpeechTask(audioString: Data) -> Task<Void, Never> {
         Task { @MainActor [unowned self] in
             do {
                 self.state = .processingSpeech
@@ -142,7 +143,7 @@ class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDele
                 
                 let transcribedText = try await transcribeAudioInMandarin()
                 self.lastTranscription = transcribedText
-                print("Transcribed Text: \(self.lastTranscription)")
+                //print("Transcribed Text: \(self.lastTranscription)")
 
 
 //                 //Menggunakan hasil transcription untuk menghasilkan prompt                try Task.checkCancellation()
@@ -174,7 +175,7 @@ class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDele
         }
     }
     
-    func playAudio(data: Data) throws {
+    public func playAudio(data: Data) throws {
         self.state = .playingSpeech
         audioPlayer = try AVAudioPlayer(data: data)
         audioPlayer.isMeteringEnabled = true
@@ -190,55 +191,55 @@ class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDele
     }
     
     
-    func transcribeAudioInMandarin() async throws -> String {
-            let mandarinLocale = Locale(identifier: "zh-CN")
-            guard let recognizer = SFSpeechRecognizer(locale: mandarinLocale) else {
-                throw NSError(domain: "SFSpeechRecognizerError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Speech recognizer is not available."])
-            }
-            let request = SFSpeechURLRecognitionRequest(url: captureURL)
+    public func transcribeAudioInMandarin() async throws -> String {
+        let mandarinLocale = Locale(identifier: "zh-CN")
+        guard let recognizer = SFSpeechRecognizer(locale: mandarinLocale) else {
+            throw NSError(domain: "SFSpeechRecognizerError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Speech recognizer is not available."])
+        }
+        let request = SFSpeechURLRecognitionRequest(url: captureURL)
     
-            return try await withCheckedThrowingContinuation { continuation in
-                var hasResumed = false // Flag to ensure continuation is called only once
+        return try await withCheckedThrowingContinuation { continuation in
+            var hasResumed = false // Flag to ensure continuation is called only once
     
-                recognizer.recognitionTask(with: request) { result, error in
-                    guard !hasResumed else { return } // Prevent multiple resumptions
+            recognizer.recognitionTask(with: request) { result, error in
+                guard !hasResumed else { return } // Prevent multiple resumptions
     
-                    if let error = error {
-                        hasResumed = true
-                        continuation.resume(throwing: error)
-                    } else if let result = result, result.isFinal { // Only capture the final result
-                        hasResumed = true
-                        continuation.resume(returning: result.bestTranscription.formattedString)
-                    }
+                if let error = error {
+                    hasResumed = true
+                    continuation.resume(throwing: error)
+                } else if let result = result, result.isFinal { // Only capture the final result
+                    hasResumed = true
+                    continuation.resume(returning: result.bestTranscription.formattedString)
                 }
             }
         }
+    }
     
-    func cancelRecording() {
+    public func cancelRecording() {
         resetValues()
         state = .idle
     }
     
-    func cancelProcessingTask() {
+    public func cancelProcessingTask() {
         processingSpeechTask?.cancel()
         processingSpeechTask = nil
         resetValues()
         state = .idle
     }
     
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+    public func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if !flag {
             resetValues()
             state = .idle
         }
     }
     
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+    public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         resetValues()
         state = .idle
     }
     
-    func resetValues() {
+    public func resetValues() {
         audioPower = 0
         prevAudioPower = nil
         audioRecorder?.stop()
@@ -252,4 +253,5 @@ class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDele
     }
     
 }
+
 

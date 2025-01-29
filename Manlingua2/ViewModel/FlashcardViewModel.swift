@@ -9,28 +9,29 @@ import Foundation
 import SwiftUI
 
 class FlashcardViewModel: ObservableObject {
-    @Published var currentIndex: Int = 0
-    @Published var currentIndexProgressBar: Int = 0
-    @Published var offset: CGSize = .zero
-    @Published var showMicrophone: Bool = true
-    @Published var showDonePage: Bool = false
-    @Published var vocabularies: [Vocabulary] = []
-    @Published var vocabularies_en: [Vocabulary] = []
-    @Published var vocab_indices: [Int] = []
-    @Published var showVocabularies: [Vocabulary] = []
-    @Published var apiResult = ""
+    @Published public var currentIndex: Int = 0
+    @Published public var currentIndexProgressBar: Int = 0
+    @Published public var offset: CGSize = .zero
+    @Published public var showMicrophone: Bool = true
+    @Published public var showDonePage: Bool = false
+    @Published public var vocabularies: [Vocabulary] = []
+    @Published public var vocabularies_en: [Vocabulary] = []
+    @Published public var vocab_indices: [Int] = []
+    @Published public var showVocabularies: [Vocabulary] = []
+    @Published public var apiResult = ""
     
-    @Published var isTransitioning: Bool = false
-    init(){
+    @Published public var isTransitioning: Bool = false
+    
+    @MainActor init(){
         loadVocabularies()
         reshuffleCards()
     }
     
-    func checkResult() -> Bool{
+    public func checkResult() -> Bool{
         return apiResult == vocabularies[currentIndex].hanzi
     }
     
-    func loadVocabularies() {
+    public func loadVocabularies() {
         for index in 1..<5 {
             for subIndex in 1..<4 {
                 loadVocabularyEn(index: index, subIndex: subIndex)
@@ -75,14 +76,14 @@ class FlashcardViewModel: ObservableObject {
     }
     
 
-   func reshuffleCards(limit: Int = 10) {
+    @MainActor public func reshuffleCards(limit: Int = 10) {
        let shuffled_indices = vocab_indices.indices.shuffled()
        //print(shuffled_indices)
        
        vocabularies = shuffled_indices.map { vocabularies[$0] }
        vocabularies_en = shuffled_indices.map { vocabularies_en[$0] }
        
-       if UserDefaultSingleton.shared.language == "en" {
+       if SwiftDataServices.shared.getLanguage() == .english{
            showVocabularies = Array(vocabularies_en.prefix(limit))
        }
        else{
@@ -102,7 +103,48 @@ class FlashcardViewModel: ObservableObject {
     }
    
    
-   func performSwipeRight() {
+    public func checkAnswer(answer: String)->Bool{
+        return answer == showVocabularies[currentIndex].hanzi
+    }
+    
+    @MainActor public func saveDailyProgress(){
+        let now = Date()
+        let calendar = Calendar.current
+        let defaults = UserDefaults.standard
+        
+        // Retrieve last completion date or handle first launch
+        if let lastDate = defaults.object(forKey: "lastCompletionDate") as? Date {
+           // Not the first launch
+           if !calendar.isDate(lastDate, inSameDayAs: now) {
+              if let yesterday = calendar.date(byAdding: .day, value: -1, to: now),
+                 calendar.isDate(lastDate, inSameDayAs: yesterday) {
+                 // Last task was completed yesterday, increment streak
+                  SwiftDataServices.shared.streak += 1
+              } else {
+                 // Streak broken, reset to 1
+                  SwiftDataServices.shared.streak = 0
+              }
+              
+              // Update last completion date
+              defaults.set(now, forKey: "lastCompletionDate")
+           }
+        } else {
+           // First launch: initialize streak and save the current date
+            SwiftDataServices.shared.streak += 1
+           defaults.set(now, forKey: "lastCompletionDate")
+        }
+        
+        // Update task completion and total progress
+        if SwiftDataServices.shared.tasks[1] < 1 {
+            SwiftDataServices.shared.tasks[1] += 1
+            SwiftDataServices.shared.totalTasks = Double(SwiftDataServices.shared.tasks.reduce(0, +)) / Double(SwiftDataServices.shared.tasks.count)
+        }
+        
+        // Save updated progress
+        SwiftDataServices.shared.saveGoalProgressData()
+    }
+    
+   public func performSwipeRight() {
        
        //guard !isTransitioning else { return }
 
@@ -143,7 +185,7 @@ class FlashcardViewModel: ObservableObject {
       //}
    }
    
-   func createFlashcardView(for index: Int) -> some View {
+   public func createFlashcardView(for index: Int) -> some View {
        let flashcardView = FlashcardView(vocab: showVocabularies[index], width: 300, height: 400, viewModel: self)
          .frame(width: 300, height: 400)
       var modifiedView: AnyView = AnyView(flashcardView)
@@ -170,7 +212,8 @@ class FlashcardViewModel: ObservableObject {
       return modifiedView
    }
    
-   func getProgress() -> Double {
+   public func getProgress() -> Double {
       return Double(currentIndex+1)/Double(showVocabularies.count)
    }
 }
+
