@@ -305,6 +305,23 @@
         }
       }
     },
+    "Apple" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apel"
+          }
+        }
+      }
+    },
     "Are you sure you want to leave this page?" : {
       "localizations" : {
         "en" : {
@@ -366,6 +383,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kembali ke Cerita"
+          }
+        }
+      }
+    },
+    "Backpack" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Backpack"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ransel"
           }
         }
       }
@@ -458,6 +492,23 @@
         }
       }
     },
+    "Banana" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Banana"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pisang"
+          }
+        }
+      }
+    },
     "Batal" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -509,6 +560,23 @@
         }
       }
     },
+    "Bed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bed"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tempat Tidur"
+          }
+        }
+      }
+    },
     "Belajar" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -522,6 +590,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Belajar"
+          }
+        }
+      }
+    },
+    "Bench" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bench"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bangku"
           }
         }
       }
@@ -543,6 +628,57 @@
         }
       }
     },
+    "Berlian" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diamond"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berlian"
+          }
+        }
+      }
+    },
+    "Bicycle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bicycle"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sepeda"
+          }
+        }
+      }
+    },
+    "Bird" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bird"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Burung"
+          }
+        }
+      }
+    },
     "Boleh Dilakukan:" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -556,6 +692,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Boleh Dilakukan:"
+          }
+        }
+      }
+    },
+    "Book" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Book"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buku"
+          }
+        }
+      }
+    },
+    "Bottle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bottle"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Botol"
+          }
+        }
+      }
+    },
+    "Bowl" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bowl"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mangkuk"
+          }
+        }
+      }
+    },
+    "Broccoli" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Broccoli"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brokoli"
           }
         }
       }
@@ -577,6 +781,40 @@
         }
       }
     },
+    "Cake" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cake"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kue"
+          }
+        }
+      }
+    },
+    "Car" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Car"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mobil"
+          }
+        }
+      }
+    },
     "Cari dan fotokan" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -590,6 +828,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cari dan fotokan"
+          }
+        }
+      }
+    },
+    "Carrot" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carrot"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wortel"
+          }
+        }
+      }
+    },
+    "Cat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cat"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kucing"
           }
         }
       }
@@ -679,6 +951,23 @@
         }
       }
     },
+    "Chair" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chair"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kursi"
+          }
+        }
+      }
+    },
     "Chapter %lld" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -692,6 +981,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cerita %lld"
+          }
+        }
+      }
+    },
+    "Clock" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clock"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jam"
           }
         }
       }
@@ -784,6 +1090,40 @@
         }
       }
     },
+    "Couch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couch"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sofa"
+          }
+        }
+      }
+    },
+    "Cup" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cup"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cangkir"
+          }
+        }
+      }
+    },
     "Daftar perangkat:" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -818,6 +1158,40 @@
         }
       }
     },
+    "Dining Table" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dining Table"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meja Makan"
+          }
+        }
+      }
+    },
+    "Dog" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dog"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Anjing"
+          }
+        }
+      }
+    },
     "Don't have an account? Sign Up" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -835,6 +1209,23 @@
         }
       }
     },
+    "Donut" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Donut"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Donat"
+          }
+        }
+      }
+    },
     "Email" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -848,6 +1239,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Email"
+          }
+        }
+      }
+    },
+    "Emas" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gold"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emas"
           }
         }
       }
@@ -954,6 +1362,23 @@
         }
       }
     },
+    "Fork" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fork"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Garpu"
+          }
+        }
+      }
+    },
     "Foto" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -983,6 +1408,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "hái cuò ,       zài   shì   yī    cì"
+          }
+        }
+      }
+    },
+    "Hair Drier" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hair Drier"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pengering Rambut"
+          }
+        }
+      }
+    },
+    "Handbag" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Handbag"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tas Tangan"
           }
         }
       }
@@ -1023,6 +1482,23 @@
     },
     "Hello" : {
 
+    },
+    "Hot Dog" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hot Dog"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hot Dog"
+          }
+        }
+      }
     },
     "Hubungkan perangkat IoT ke aplikasi untuk mulai menggunakan flashcard!" : {
       "extractionState" : "stale",
@@ -1345,6 +1821,40 @@
         }
       }
     },
+    "Keyboard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keyboard"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ponsel"
+          }
+        }
+      }
+    },
+    "Knife" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Knife"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pisau"
+          }
+        }
+      }
+    },
     "Languages" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1375,6 +1885,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lanjut"
+          }
+        }
+      }
+    },
+    "Laptop" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laptop"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laptop"
           }
         }
       }
@@ -1462,6 +1989,23 @@
         }
       }
     },
+    "Microwave" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Microwave"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Microwave"
+          }
+        }
+      }
+    },
     "Minum Teh" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1475,6 +2019,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Minum Teh"
+          }
+        }
+      }
+    },
+    "Motorcycle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motorcycle"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sepeda Motor"
+          }
+        }
+      }
+    },
+    "Mouse" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mouse"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mouse"
           }
         }
       }
@@ -1768,6 +2346,40 @@
         }
       }
     },
+    "Orange" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orange"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeruk"
+          }
+        }
+      }
+    },
+    "Oven" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oven"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oven"
+          }
+        }
+      }
+    },
     "Password" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1988,6 +2600,23 @@
         }
       }
     },
+    "Perak" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silver"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perak"
+          }
+        }
+      }
+    },
     "Perangkat Pintar" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2056,6 +2685,23 @@
         }
       }
     },
+    "Person" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Person"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orang"
+          }
+        }
+      }
+    },
     "Perunggu" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -2086,6 +2732,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pilih jawaban yang benar"
+          }
+        }
+      }
+    },
+    "Pizza" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pizza"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pizza"
+          }
+        }
+      }
+    },
+    "Platina" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Platinum"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Platina"
           }
         }
       }
@@ -2154,6 +2834,74 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profil"
+          }
+        }
+      }
+    },
+    "Refrigerator" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refrigerator"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kulkas"
+          }
+        }
+      }
+    },
+    "Remote" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remote"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remote"
+          }
+        }
+      }
+    },
+    "Sandwich" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sandwich"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Roti Lapis"
+          }
+        }
+      }
+    },
+    "Scissors" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scissors"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gunting"
           }
         }
       }
@@ -2429,6 +3177,23 @@
         }
       }
     },
+    "Sink" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sink"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wastafel"
+          }
+        }
+      }
+    },
     "Smart Speaker 1" : {
       "localizations" : {
         "en" : {
@@ -2462,6 +3227,23 @@
         }
       }
     },
+    "Spoon" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spoon"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sendok"
+          }
+        }
+      }
+    },
     "Sub-bab" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -2475,6 +3257,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sub-bab"
+          }
+        }
+      }
+    },
+    "Suitcase" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suitcase"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koper"
           }
         }
       }
@@ -2682,6 +3481,91 @@
         }
       }
     },
+    "Tie" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tie"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dasi"
+          }
+        }
+      }
+    },
+    "Toaster" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toaster"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pemanggang Roti"
+          }
+        }
+      }
+    },
+    "Toilet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toilet"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toilet"
+          }
+        }
+      }
+    },
+    "Toothbrush" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toothbrush"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sikat Gigi"
+          }
+        }
+      }
+    },
+    "TV" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TV"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Televisi"
+          }
+        }
+      }
+    },
     "Ulang" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -2695,6 +3579,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ulang"
+          }
+        }
+      }
+    },
+    "Umbrella" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umbrella"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Payung"
           }
         }
       }
@@ -2716,6 +3617,23 @@
         }
       }
     },
+    "Vase" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vase"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vas Bunga"
+          }
+        }
+      }
+    },
     "wán quán zhèng què!" : {
       "localizations" : {
         "en" : {
@@ -2728,6 +3646,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "wán quán zhèng què!"
+          }
+        }
+      }
+    },
+    "Wine Glass" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wine Glass"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelas Anggur"
           }
         }
       }
