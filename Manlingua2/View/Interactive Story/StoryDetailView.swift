@@ -145,12 +145,14 @@ struct StoryDetailView: View {
       if !modalAppeared {
          withAnimation {
             viewModel.onTapDetectionChat(location, midPoint) {
-                viewModel.saveDailyProgress()
+               viewModel.saveDailyProgress()
                router.push(.donePage(
                   displayMode: .story(storyId: chapterId, subChapterId: subChapterId),
                   chapterId: chapterId,
                   subChapterId: subChapterId
                ))
+               viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
+
             }
          }
       }
@@ -159,12 +161,14 @@ struct StoryDetailView: View {
           //hasAnswered = false
           withAnimation {
              viewModel.onTapDetectionChat(location, midPoint) {
-                 viewModel.saveDailyProgress()
+                viewModel.saveDailyProgress()
                 router.push(.donePage(
                    displayMode: .story(storyId: chapterId, subChapterId: subChapterId),
                    chapterId: chapterId,
                    subChapterId: subChapterId
                 ))
+                viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
+
              }
           }
           //hasAnswered = true

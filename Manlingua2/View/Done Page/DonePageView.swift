@@ -97,10 +97,11 @@ struct DonePageView: View {
             .padding(.horizontal)
             
             Button (action: {
+                /*
                if displayMode != .flashcard {
                   storyVM.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
                }
-               
+               */
                router.popToRoot()
             }){
                HStack {
