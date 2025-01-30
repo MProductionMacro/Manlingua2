@@ -421,9 +421,6 @@
         }
       }
     },
-    "Bagian %@" : {
-
-    },
     "Bagian %lld" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1497,9 +1494,6 @@
         }
       }
     },
-    "Hello" : {
-
-    },
     "hot dog" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2503,6 +2497,7 @@
       }
     },
     "Pengantar" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2961,6 +2956,7 @@
       }
     },
     "sekitar 15 menit" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

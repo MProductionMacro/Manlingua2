@@ -30,7 +30,7 @@ struct JourneyPageContentView: View {
                
                VStack{
                   HStack{
-                     Text("Pengantar")
+                     Text("Pengantar".localized)
                         .font(Font.judulBiasa())
                      
                      Spacer()

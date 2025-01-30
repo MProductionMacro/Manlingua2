@@ -27,7 +27,7 @@ struct SubChapterButton : PrimitiveButtonStyle {
               }
               
               VStack(alignment: .leading, spacing: 4) {
-                 Text("Bagian \(subChapter.id)")
+                 Text("Bagian".localized + " \(subChapter.id)")
                     .font(.pinyin())
                     .fontWeight(.bold)
                  Text(subChapter.title)
@@ -50,7 +50,7 @@ struct SubChapterButton : PrimitiveButtonStyle {
                        .foregroundStyle(.emptyListText)
                        .font(.normalText())
                     
-                    Text("sekitar 15 menit")
+                    Text("sekitar 15 menit".localized)
                        .foregroundStyle(.emptyListText)
                        .font(.pinyin())
                  }
@@ -112,7 +112,7 @@ struct SubChapterCard: View {
             }
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("Bagian \(subChapter.id)".localized)
+                Text("Bagian".localized + " \(subChapter.id)")
                   .font(.pinyin())
                   .fontWeight(.bold)
                Text(subChapter.title)

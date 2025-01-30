@@ -59,6 +59,11 @@ class SwiftDataServices: ObservableObject {
             if let fetchedLanguage = try? context.fetch(FetchDescriptor<Language>()).first {
                 self.language = fetchedLanguage.lang
             }
+            else{
+                let newLanguage = Language(lang: .english)
+                context.insert(newLanguage)
+                try? context.save()
+            }
             
         } catch {
             fatalError(error.localizedDescription)

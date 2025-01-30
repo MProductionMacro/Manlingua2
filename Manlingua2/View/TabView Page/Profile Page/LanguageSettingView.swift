@@ -87,7 +87,7 @@ struct LanguageSettingView: View {
            }
         }
         .onAppear{
-            if UserDefaultSingleton.shared.language == "en"{
+            if SwiftDataServices.shared.getLanguage() == .english{
                 selectedId = 2
             }
             else{

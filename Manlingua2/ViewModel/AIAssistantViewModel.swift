@@ -14,7 +14,8 @@ import Speech
 @Observable
 class AIAssistantViewModel: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
-    private let client = //MARK: Khusus ini, replace sama OpenAIClient dari Notion
+    private let client =
+    //MARK: Khusus ini, replace sama OpenAIClient dari Notion
     private var audioPlayer: AVAudioPlayer!
     private var audioRecorder: AVAudioRecorder!
     private var recordingSession = AVAudioSession.sharedInstance()
