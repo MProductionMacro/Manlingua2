@@ -305,7 +305,7 @@
         }
       }
     },
-    "Apple" : {
+    "apple" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -387,7 +387,7 @@
         }
       }
     },
-    "Backpack" : {
+    "backpack" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -492,7 +492,7 @@
         }
       }
     },
-    "Banana" : {
+    "banana" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -560,7 +560,7 @@
         }
       }
     },
-    "Bed" : {
+    "bed" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -594,7 +594,7 @@
         }
       }
     },
-    "Bench" : {
+    "bench" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -645,7 +645,7 @@
         }
       }
     },
-    "Bicycle" : {
+    "bicycle" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -662,7 +662,7 @@
         }
       }
     },
-    "Bird" : {
+    "bird" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -696,7 +696,7 @@
         }
       }
     },
-    "Book" : {
+    "book" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -713,7 +713,7 @@
         }
       }
     },
-    "Bottle" : {
+    "bottle" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -730,7 +730,7 @@
         }
       }
     },
-    "Bowl" : {
+    "bowl" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -747,7 +747,7 @@
         }
       }
     },
-    "Broccoli" : {
+    "broccoli" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -781,7 +781,7 @@
         }
       }
     },
-    "Cake" : {
+    "cake" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -798,7 +798,7 @@
         }
       }
     },
-    "Car" : {
+    "car" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -832,7 +832,7 @@
         }
       }
     },
-    "Carrot" : {
+    "carrot" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -849,7 +849,7 @@
         }
       }
     },
-    "Cat" : {
+    "cat" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -896,6 +896,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Catatan Penting"
+          }
+        }
+      }
+    },
+    "cell phone" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cell Phone"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ponsel"
           }
         }
       }
@@ -951,7 +968,7 @@
         }
       }
     },
-    "Chair" : {
+    "chair" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -985,7 +1002,7 @@
         }
       }
     },
-    "Clock" : {
+    "clock" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1090,7 +1107,7 @@
         }
       }
     },
-    "Couch" : {
+    "couch" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1107,7 +1124,7 @@
         }
       }
     },
-    "Cup" : {
+    "cup" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1158,7 +1175,7 @@
         }
       }
     },
-    "Dining Table" : {
+    "dining table" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1175,7 +1192,7 @@
         }
       }
     },
-    "Dog" : {
+    "dog" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1209,7 +1226,7 @@
         }
       }
     },
-    "Donut" : {
+    "donut" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1362,7 +1379,7 @@
         }
       }
     },
-    "Fork" : {
+    "fork" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1412,7 +1429,7 @@
         }
       }
     },
-    "Hair Drier" : {
+    "hair drier" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1429,7 +1446,7 @@
         }
       }
     },
-    "Handbag" : {
+    "handbag" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1483,7 +1500,7 @@
     "Hello" : {
 
     },
-    "Hot Dog" : {
+    "hot dog" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1821,7 +1838,10 @@
         }
       }
     },
-    "Keyboard" : {
+    "Key" : {
+      "extractionState" : "manual"
+    },
+    "keyboard" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1833,12 +1853,12 @@
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ponsel"
+            "value" : "Keyboard"
           }
         }
       }
     },
-    "Knife" : {
+    "knife" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1889,7 +1909,7 @@
         }
       }
     },
-    "Laptop" : {
+    "laptop" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1989,7 +2009,7 @@
         }
       }
     },
-    "Microwave" : {
+    "microwave" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2023,7 +2043,7 @@
         }
       }
     },
-    "Motorcycle" : {
+    "motorcycle" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2040,7 +2060,7 @@
         }
       }
     },
-    "Mouse" : {
+    "mouse" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2346,7 +2366,7 @@
         }
       }
     },
-    "Orange" : {
+    "orange" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2363,7 +2383,7 @@
         }
       }
     },
-    "Oven" : {
+    "oven" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2685,7 +2705,7 @@
         }
       }
     },
-    "Person" : {
+    "person" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2736,7 +2756,7 @@
         }
       }
     },
-    "Pizza" : {
+    "pizza" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2838,7 +2858,7 @@
         }
       }
     },
-    "Refrigerator" : {
+    "refrigerator" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2855,7 +2875,7 @@
         }
       }
     },
-    "Remote" : {
+    "remote" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2872,7 +2892,7 @@
         }
       }
     },
-    "Sandwich" : {
+    "sandwich" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2889,7 +2909,7 @@
         }
       }
     },
-    "Scissors" : {
+    "scissors" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3177,7 +3197,7 @@
         }
       }
     },
-    "Sink" : {
+    "sink" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3227,7 +3247,7 @@
         }
       }
     },
-    "Spoon" : {
+    "spoon" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3261,7 +3281,7 @@
         }
       }
     },
-    "Suitcase" : {
+    "suitcase" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3481,7 +3501,7 @@
         }
       }
     },
-    "Tie" : {
+    "tie" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3498,7 +3518,7 @@
         }
       }
     },
-    "Toaster" : {
+    "toaster" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3515,7 +3535,7 @@
         }
       }
     },
-    "Toilet" : {
+    "toilet" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3532,7 +3552,7 @@
         }
       }
     },
-    "Toothbrush" : {
+    "toothbrush" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3549,7 +3569,7 @@
         }
       }
     },
-    "TV" : {
+    "tv" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3583,7 +3603,7 @@
         }
       }
     },
-    "Umbrella" : {
+    "umbrella" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3617,7 +3637,7 @@
         }
       }
     },
-    "Vase" : {
+    "vase" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -3650,7 +3670,7 @@
         }
       }
     },
-    "Wine Glass" : {
+    "wine glass" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
