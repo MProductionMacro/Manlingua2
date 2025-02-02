@@ -1,9 +1,3 @@
-//
-//  PinYinCardView.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 11/10/24.
-//
 import SwiftUI
 
 struct PinYinCardView: View {

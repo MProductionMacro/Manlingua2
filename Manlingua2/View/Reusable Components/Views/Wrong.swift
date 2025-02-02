@@ -1,10 +1,3 @@
-//
-//  TryAgainHanzi.swift
-//  HXD
-//
-//  Created by Ferdinand Jacques on 09/08/24.
-//
-
 import SwiftUI
 
 struct Wrong: View {

@@ -1,9 +1,3 @@
-//
-//  DictionaryView.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 03/10/24.
-//
 import SwiftUI
 
 struct DictionaryView: View {
@@ -24,7 +18,7 @@ struct DictionaryView: View {
                .bold()
                .padding(.top, 16)
             
-             Text("\(viewModel.vocabularies.count) " + "Kata".localized)
+             Text("\(viewModel.getNumberVocabularies()) " + "Kata".localized)
                .font(.subheadline)
            
              if viewModel.isVocabsEmpty() {

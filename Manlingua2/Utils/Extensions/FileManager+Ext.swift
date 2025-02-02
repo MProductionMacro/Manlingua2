@@ -1,10 +1,3 @@
-//
-//  FileManager+Ext.swift
-//  Manlingua2
-//
-//  Created by Reynard Octavius Tan on 15/10/24.
-//
-
 import Foundation
 
 extension FileManager {

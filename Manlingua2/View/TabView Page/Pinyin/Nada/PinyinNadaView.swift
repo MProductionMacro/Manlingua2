@@ -1,10 +1,3 @@
-//
-//  PinyinNadaView.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 09/10/24.
-//
-
 import SwiftUI
 
 struct PinyinNadaView: View {

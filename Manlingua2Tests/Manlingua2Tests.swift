@@ -1,10 +1,3 @@
-//
-//  Manlingua2Tests.swift
-//  Manlingua2Tests
-//
-//  Created by Paulus Michael on 27/09/24.
-//
-
 import XCTest
 @testable import Manlingua
 

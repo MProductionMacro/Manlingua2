@@ -1,10 +1,3 @@
-//
-//  BottomAudioButton.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 07/11/24.
-//
-
 import SwiftUI
 
 struct BottomStoryContainerView: View {
@@ -32,7 +25,7 @@ struct BottomStoryContainerView: View {
    var body: some View {
       VStack(spacing: 0) {
          BottomContainerButtons(bookAction: {
-            router.push(.dictionary(judul: homeViewModel.stories_example[storyId].title, displayMode: .story(id: storyId)))
+            router.push(.dictionary(judul: homeViewModel.stories_example[storyId-1].title, displayMode: .story(id: storyId)))
          }, speakerAction: {
             isSpeaking = true
             textToSpeech.speak(text: storyViewModel.chats[currentIndex].hanzi)

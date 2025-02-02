@@ -1,10 +1,3 @@
-//
-//  BubbleChatView.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 12/10/24.
-//
-
 import SwiftUI
 
 struct BubbleChatView: View {

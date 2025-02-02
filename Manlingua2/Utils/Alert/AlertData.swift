@@ -1,10 +1,3 @@
-//
-//  AlertData.swift
-//  SampleMacro
-//
-//  Created by Reynard Octavius Tan on 30/10/24.
-//
-
 import Foundation
 
 struct AlertData {

@@ -1,9 +1,3 @@
-//
-//  ChatScrollView.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 31/10/24.
-//
 import SwiftUI
 
 struct ChatScrollView: View {

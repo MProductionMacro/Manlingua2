@@ -1,10 +1,3 @@
-//
-//  DictionaryViewModel.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 18/10/24.
-//
-
 import Foundation
 import SwiftUI
 
@@ -20,6 +13,12 @@ class DictionaryViewModel: ObservableObject {
             loadStoryVocabularies(storyId: id)
         }
     }
+    
+    
+    public func getNumberVocabularies()->Int{
+        return max(vocabularies.count, vocabularies_en.count)
+    }
+    
     /*
    @MainActor private func loadFavoriteVocabularies() {
        if SwiftDataServices.shared.getLanguage() == .english{

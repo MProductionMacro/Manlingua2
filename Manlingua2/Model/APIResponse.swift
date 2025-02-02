@@ -1,10 +1,3 @@
-//
-//  APIResponse.swift
-//  Manlingua2
-//
-//  Created by Reynard Octavius Tan on 15/10/24.
-//
-
 import Foundation
 
 // Define the structure of the expected API response

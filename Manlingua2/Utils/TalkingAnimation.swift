@@ -1,10 +1,3 @@
-//
-//  TalkingAnimation.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 04/10/24.
-//
-
 import SwiftUI
 
 class TalkingAnimation: ObservableObject, TalkingAnimationProtocol {

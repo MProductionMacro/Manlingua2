@@ -1,9 +1,3 @@
-//
-//  View+CornerRadius.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 30/10/24.
-//
 import SwiftUI
 
 extension View {

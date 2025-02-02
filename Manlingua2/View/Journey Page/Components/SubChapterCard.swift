@@ -1,9 +1,3 @@
-//
-//  SubChapterCard.swift
-//  Manlingua2
-//
-//  Created by Christine Putri on 15/10/24.
-//
 import SwiftUI
 
 

@@ -1,10 +1,3 @@
-//
-//  SwiftUIView.swift
-//  SampleMacro
-//
-//  Created by Reynard Octavius Tan on 12/11/24.
-//
-
 import SwiftUI
 import SiriWaveView
 /*

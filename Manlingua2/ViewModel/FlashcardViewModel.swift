@@ -1,10 +1,3 @@
-//
-//  FlashcardViewModel.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 18/10/24.
-//
-
 import Foundation
 import SwiftUI
 
@@ -104,6 +97,8 @@ class FlashcardViewModel: ObservableObject {
    
    
     public func checkAnswer(answer: String)->Bool{
+        print(answer)
+        print(showVocabularies[currentIndex].hanzi)
         return answer == showVocabularies[currentIndex].hanzi
     }
     

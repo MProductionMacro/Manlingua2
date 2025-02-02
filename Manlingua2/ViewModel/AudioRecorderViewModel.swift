@@ -1,10 +1,3 @@
-//
-//  AudioRecorderViewModel.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 22/10/24.
-//
-
 import AVFoundation
 
 class AudioRecorderViewModel: NSObject, ObservableObject, AudioControllerDelegate {

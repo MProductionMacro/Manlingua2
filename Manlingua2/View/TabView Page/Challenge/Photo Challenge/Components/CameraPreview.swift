@@ -1,10 +1,3 @@
-//
-//  CameraPreview.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 30/10/24.
-//
-
 import SwiftUI
 import AVFoundation
 

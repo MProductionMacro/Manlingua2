@@ -1,24 +1,17 @@
-//
-//  ProfileViewModel.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 27/10/24.
-//
 import Foundation
 import SwiftUI
-import FirebaseAuth
-import FirebaseFirestore
 
 class ProfileViewModel: ObservableObject {
    @Published public var name: String = "Loading..."
     //@Published public var isShowProfilePict : Bool = false
    
    init() {
-      fetchUserName()
+      //fetchUserName()
    }
    
    
    public func fetchUserName() {
+       /*
       guard let userID = Auth.auth().currentUser?.uid else {
          name = "Unknown"
          return
@@ -37,6 +30,7 @@ class ProfileViewModel: ObservableObject {
             self.name = "Unknown"
          }
       }
+        */
    }
    
    @MainActor public func getLevel() -> String {

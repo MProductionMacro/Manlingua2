@@ -1,10 +1,3 @@
-//
-//  LoadingView.swift
-//  Manlingua2
-//
-//  Created by Reynard Octavius Tan on 29/10/24.
-//
-
 import SwiftUI
 
 struct LoadingView: View {

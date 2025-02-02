@@ -1,10 +1,3 @@
-//
-//  AIAssistantViewModel.swift
-//  SampleMacro
-//
-//  Created by Reynard Octavius Tan on 12/11/24.
-
-
 import AVFoundation
 import Foundation
 import Observation

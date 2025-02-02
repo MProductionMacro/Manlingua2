@@ -1,10 +1,3 @@
-//
-//  TabItemView.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 26/10/24.
-//
-
 import SwiftUI
 
 struct TabItemView: View {

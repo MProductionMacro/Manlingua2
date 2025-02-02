@@ -1,10 +1,3 @@
-//
-//  UserRankStyle.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 20/11/24.
-//
-
 import Foundation
 import SwiftUI
 

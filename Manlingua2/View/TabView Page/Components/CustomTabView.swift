@@ -1,10 +1,3 @@
-//
-//  CustomTabView.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 14/11/24.
-//
-
 import SwiftUI
 
 struct CustomTabView: View {

@@ -1,10 +1,3 @@
-//
-//  AudioRecordingManager.swift
-//  SampleMacro
-//
-//  Created by Reynard Octavius Tan on 11/10/24.
-//
-
 import Foundation
 import AVFoundation
 import Speech

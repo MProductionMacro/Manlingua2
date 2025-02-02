@@ -1,10 +1,3 @@
-//
-//  CompletionTrackerView.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 24/10/24.
-//
-
 import SwiftUI
 
 struct CompletionBarView : View {

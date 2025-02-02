@@ -1,10 +1,3 @@
-//
-//  TextToSpeechProtocol.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 04/10/24.
-//
-
 import Foundation
 
 protocol TextToSpeechProtocol {

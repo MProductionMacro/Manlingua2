@@ -1,9 +1,3 @@
-//
-//  ChevronRightButton.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 21/11/24.
-//
 import SwiftUI
 
 struct ChevronRightButton: PrimitiveButtonStyle{

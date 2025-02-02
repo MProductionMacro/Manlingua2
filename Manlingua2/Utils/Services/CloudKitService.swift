@@ -1,10 +1,3 @@
-//
-//  CloudKitService.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 13/10/24.
-//
-
 import CloudKit
 
 class CloudKitService: ObservableObject {

@@ -1,10 +1,3 @@
-//
-//  Goal_Progress.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 18/11/24.
-//
-
 import SwiftData
 import SwiftUI
 

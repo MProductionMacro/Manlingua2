@@ -1,10 +1,3 @@
-//
-//  DonePageDisplayMode.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 04/11/24.
-//
-
 import SwiftUI
 
 enum DonePageDisplayMode: Equatable, Hashable {

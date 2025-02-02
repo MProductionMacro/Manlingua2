@@ -1,10 +1,3 @@
-//
-//  APITestView.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 28/10/24.
-//
-
 import SwiftUI
 
 struct APITestView: View {

@@ -1,10 +1,3 @@
-//
-//  NotificationSettingView.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 11/11/24.
-//
-
 import SwiftUI
 import FirebaseAuth
 import PhotosUI

@@ -1,10 +1,3 @@
-//
-//  Speaker1BubbleChatView.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 16/10/24.
-//
-
 import SwiftUI
 
 struct Speaker1BubbleChatView: View {

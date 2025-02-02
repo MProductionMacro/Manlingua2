@@ -1,9 +1,3 @@
-//
-//  SecondaryButton.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 25/10/24.
-//
 import SwiftUI
 
 struct SecondaryButton: ButtonStyle {

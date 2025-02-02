@@ -1,10 +1,3 @@
-//
-//  View+PopGesture.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 12/11/24.
-//
-
 import SwiftUI
 
 //extension UINavigationController: @retroactive UIGestureRecognizerDelegate {

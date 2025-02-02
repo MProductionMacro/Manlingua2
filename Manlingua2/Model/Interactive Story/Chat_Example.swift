@@ -1,10 +1,3 @@
-//
-//  Chat_Example.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 09/10/24.
-//
-
 import Foundation
 
 /// Struktur `Chat_Example` mematuhi protokol `Codable` dan `Identifiable`, dan dipisahkan dari struktur `Subchapter`

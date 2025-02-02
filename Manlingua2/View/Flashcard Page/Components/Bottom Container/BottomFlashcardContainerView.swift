@@ -1,11 +1,3 @@
-//
-//  BottomFlashcardContainerView.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 10/11/24.
-//
-
-
 import SwiftUI
 /*
  struct BottomFlashcardContainerView: View {
@@ -76,10 +68,15 @@ struct BottomFlashcardContainerView: View {
          Divider()
          
          MicrophoneModalityView() { answer in
+             isCorrect = flashcardViewModel.checkAnswer(answer: answer)
              withAnimation(.easeInOut(duration: 0.45)){
-                 isCorrect = flashcardViewModel.checkAnswer(answer: answer)
                  //(answer == flashcardViewModel.showVocabularies[flashcardViewModel.currentIndex].hanzi)
-               hasAnswered = true
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+                     withAnimation{
+                         hasAnswered = true
+                     }
+                 }
+               //hasAnswered = true
             }
          }
          .padding(.vertical, 24)

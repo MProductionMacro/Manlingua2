@@ -1,10 +1,3 @@
-//
-//  Story_Example.swift
-//  TE_JSON_Real
-//
-//  Created by Arrick Russell Adinoto on 30/09/24.
-//
-
 import Foundation
 
 //struct Story_Example and SubChapter_Example hasn't been finalize yet.

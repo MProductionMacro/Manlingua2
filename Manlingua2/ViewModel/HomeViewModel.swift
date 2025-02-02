@@ -1,10 +1,3 @@
-//
-//  HomeViewModel.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 30/09/24.
-//
-
 import SwiftUI
 import Combine
 
@@ -32,9 +25,4 @@ class HomeViewModel: ObservableObject {
          print("Failed to decode JSON: \(error.localizedDescription)")
       }
    }
-   /*
-   func navigateToJourney(router: Router){
-      router.push(.journeyPage)
-   }
-    */
 }

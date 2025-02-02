@@ -1,10 +1,3 @@
-//
-//  SwiftDataServices.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 18/10/24.
-//
-
 import Foundation
 import SwiftData
 import SwiftUI

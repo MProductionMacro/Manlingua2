@@ -1,10 +1,3 @@
-//
-//  LogoAnimationProtocol.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 27/09/24.
-//
-
 import Foundation
 
 protocol LogoAnimationProtocol {

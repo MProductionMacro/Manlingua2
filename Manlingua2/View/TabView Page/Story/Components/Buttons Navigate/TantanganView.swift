@@ -1,10 +1,3 @@
-//
-//  TantanganView.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 17/10/24.
-//
-
 import SwiftUI
 
 struct TantanganView: View {

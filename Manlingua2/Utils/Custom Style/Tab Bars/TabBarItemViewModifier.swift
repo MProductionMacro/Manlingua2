@@ -1,10 +1,3 @@
-//
-//  TabBarItemViewModifier.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 15/11/24.
-//
-
 import SwiftUI
 
 struct TabBarItemViewModifier: ViewModifier {

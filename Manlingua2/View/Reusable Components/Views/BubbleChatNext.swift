@@ -1,10 +1,3 @@
-//
-//  BubbleChatNext.swift
-//  HXD
-//
-//  Created by Michelle Angela Aryanto on 14/08/24.
-//
-
 import SwiftUI
 
 struct BubbleChatNext: View {
@@ -19,7 +12,6 @@ struct BubbleChatNext: View {
          HStack {
             VStack (spacing: 0){
                Text(text)
-               //TODO: Kalo mau 16 gausah kasih size lg karena padding default udah 16
                   .padding([.leading, .trailing, .top], 16)
                   .padding(.bottom, 7)
                   .foregroundColor(textColor)
@@ -29,7 +21,6 @@ struct BubbleChatNext: View {
                HStack {
                   Spacer()
                   Button(action: {
-                     //FIXME: Ini diganti jadi function yg seharusnya
 //                     viewModel.moveToNextStage()
                   }) {
                      //TODO: Modifiernya kasih spacing

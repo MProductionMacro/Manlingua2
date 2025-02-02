@@ -1,10 +1,3 @@
-//
-//  BottomStoryButtons.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 09/11/24.
-//
-
 import SwiftUI
 
 struct BottomContainerButtons: View {

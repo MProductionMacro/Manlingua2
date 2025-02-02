@@ -1,10 +1,3 @@
-//
-//  Flashcard.swift
-//  TE_JSON_Real
-//
-//  Created by Arrick Russell Adinoto on 29/09/24.
-//
-
 struct Flashcard: Codable, Identifiable, Hashable {
     public var id: Int
     public var hanzi: String

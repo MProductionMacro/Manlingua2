@@ -1,10 +1,3 @@
-//
-//  ImportantNotesViewModel.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 02/11/24.
-//
-
 import Foundation
 
 class ImportantNotesViewModel : ObservableObject {

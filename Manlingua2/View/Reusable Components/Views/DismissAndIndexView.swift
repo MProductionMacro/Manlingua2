@@ -1,10 +1,3 @@
-//
-//  DismissAndIndexView.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 19/11/24.
-//
-
 import SwiftUI
 
 struct DismissAndIndexView: View {

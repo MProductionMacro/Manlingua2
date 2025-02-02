@@ -1,10 +1,3 @@
-//
-//  DonePageView.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 17/10/24.
-//
-
 import SwiftUI
 
 struct DonePageView: View {

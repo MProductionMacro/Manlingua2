@@ -1,10 +1,3 @@
-//
-//  CustomProgressViewStyle.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 09/10/24.
-//
-
 import SwiftUI
 
 struct CustomProgressViewStyle: ProgressViewStyle {

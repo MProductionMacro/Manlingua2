@@ -1,9 +1,3 @@
-//
-//  Language.swift
-//  Manlingua2
-//
-//  Created by Arrick Russell Adinoto on 11/11/24.
-//
 enum Lang: String, Codable{
     case english = "en"
     case indonesian = "id"

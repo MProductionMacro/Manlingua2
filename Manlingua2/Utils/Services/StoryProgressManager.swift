@@ -1,10 +1,3 @@
-//
-//  StoryProgressManager.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 18/10/24.
-//
-
 import SwiftUI
 
 struct StoryProgressManager {

@@ -1,10 +1,3 @@
-//
-//  BubbleChatTail.swift
-//  HXD
-//
-//  Created by Ferdinand Jacques on 14/08/24.
-//
-
 import SwiftUI
 
 struct BubbleChatTail: Shape {

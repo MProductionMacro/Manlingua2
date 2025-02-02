@@ -1,10 +1,3 @@
-//
-//  JourneyPageContentView.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 11/11/24.
-//
-
 import SwiftUI
 
 struct JourneyPageContentView: View {

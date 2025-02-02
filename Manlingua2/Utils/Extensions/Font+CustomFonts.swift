@@ -1,10 +1,3 @@
-//
-//  FontExtension.swift
-//  Manlingua2
-//
-//  Created by Paulus Michael on 07/10/24.
-//
-
 import SwiftUI
 
 extension Font {
