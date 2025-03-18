@@ -114,6 +114,7 @@ struct ProfilePageView: View {
                .frame(maxWidth: .infinity)
                .padding(.horizontal, 20)
                
+                /*
                ProfileNavigationButton(title: "Perangkat Pintar".localized, imageName: "externaldrive.connected.to.line.below"){
                   //router.push(.ioTSetting)
                    router.push(.ioTSetting)
@@ -123,7 +124,8 @@ struct ProfilePageView: View {
                .frame(height: 35)
                .frame(maxWidth: .infinity)
                .padding(.horizontal, 20)
-               
+               */
+                
                Spacer()
                 
 //               HStack{
