@@ -29,7 +29,7 @@ struct PhotoChallengeView: View {
                CameraGrantedView(isShowingCamera: $isShowingCamera, isPredicted: $isPredicted, isLoading: $isLoading)
             } else {
                CameraNotGrantedView(primaryButtonPressed: {
-                  camera.checkPermission()
+                   camera.allowCameraAccess()
                }, secondaryButtonPressed: {
                   router.pop()
                })

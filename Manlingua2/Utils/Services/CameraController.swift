@@ -118,4 +118,12 @@ extension CameraController: AVCapturePhotoCaptureDelegate {
          self.onCaptureComplete?(image)
       }
    }
+    
+    func allowCameraAccess(){
+        if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+           if UIApplication.shared.canOpenURL(settingsUrl) {
+              UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+           }
+        }
+    }
 }
