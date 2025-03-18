@@ -1021,9 +1021,6 @@
         }
       }
     },
-    "Hello" : {
-
-    },
     "Hubungkan perangkat IoT ke aplikasi untuk mulai menggunakan flashcard!" : {
       "extractionState" : "stale",
       "localizations" : {

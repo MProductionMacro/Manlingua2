@@ -57,7 +57,7 @@ struct CameraNotGrantedView: View {
          .padding(.horizontal)
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity)
-      .background(.white)
+      .background(.blankBackground)
       .clipShape(CustomRoundedRectangle(cornerRadius: 32, corners: [.topLeft, .topRight]))
       .ignoresSafeArea()
    }
