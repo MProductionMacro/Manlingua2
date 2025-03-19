@@ -43,7 +43,19 @@ class StoryViewModel: ObservableObject {
          //         }
       }
    }
-   
+
+    
+   public func tryAgainAction(modalAppeared: inout Bool, hasAnswered: inout Bool){
+       withAnimation{
+           //         DispatchQueue.main.async {
+           //modalAppeared = false
+           modalAppeared = true
+           //currentIndex -= 1
+           hasAnswered = false
+           //         }
+       }
+   }
+    
    func onTapDetectionChat(_ location: CGPoint, _ midPoint: CGFloat, action: () -> Void){
       if location.x < midPoint {
          // Tapped left screen, move to previous item
@@ -93,6 +105,8 @@ class StoryViewModel: ObservableObject {
          print("Failed to decode JSON: \(error.localizedDescription)")
       }
    }
+    
+    
    
    func updateUserProgress(currentStory: Int, currentSubChapter: Int){
       if currentSubChapter > 3 {

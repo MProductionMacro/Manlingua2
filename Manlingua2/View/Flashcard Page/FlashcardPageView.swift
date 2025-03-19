@@ -52,7 +52,7 @@ struct FlashcardPageView: View {
             Spacer()
             
             if hasAnswered {
-                FlashcardCorrectOrWrong(answer: $answer, hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, pinyin: viewModel.showVocabularies[viewModel.currentIndex].pinyin, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, isCorrect: isCorrect) {
+                FlashcardCorrectOrWrong(answer: $answer, hanzi: viewModel.showVocabularies[viewModel.currentIndex].hanzi, pinyin: viewModel.showVocabularies[viewModel.currentIndex].pinyin, meaning: viewModel.showVocabularies[viewModel.currentIndex].meaning, isCorrect: $isCorrect) {
                   withAnimation{
                       /*
                       guard !isTransitioning else { return }

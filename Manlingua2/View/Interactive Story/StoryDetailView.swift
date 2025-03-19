@@ -75,6 +75,9 @@ struct StoryDetailView: View {
                   realAnswer: viewModel.chat_example[viewModel.currentIndex].answer
                )
                .transition(.move(edge: .bottom))
+               .onTapGesture{ location in
+                   
+               }
             }
          }
          .edgesIgnoringSafeArea(.bottom)
@@ -92,50 +95,71 @@ struct StoryDetailView: View {
          }
       }
    }
-   
-   private func handleCorrect() {
-      guard !isTransitioning else { return }
-      isTransitioning = true
-      withAnimation {
-         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            isTransitioning = false
-            isTransitionComplete = true // Allow new taps
-         }
-         viewModel.correctAction(modalAppeared: &modalAppeared, hasAnswered: &hasAnswered)
-      }
-   }
-   
-   private func handleTryAgain() {
-      guard !isTransitioning else { return }
-      isTransitioning = true
-      withAnimation {
-         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            isTransitioning = false
-            isTransitionComplete = true // Allow new taps
-         }
-         viewModel.wrongAction(modalAppeared: &modalAppeared, hasAnswered: &hasAnswered)
-      }
-   }
-   
-   private func handleTap(location: CGPoint, midPoint: CGFloat) {
-      guard isTransitionComplete, !isTransitioning else { return }
-      isTransitionComplete = false // Prevent further taps until resolved
-      if !modalAppeared {
-         withAnimation {
-            viewModel.onTapDetectionChat(location, midPoint) {
-               router.push(.donePage(
-                  displayMode: .story(storyId: chapterId, subChapterId: subChapterId),
-                  chapterId: chapterId,
-                  subChapterId: subChapterId
-               ))
-            }
-         }
-      }
-      
-      DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-         isTransitionComplete = true // Re-enable taps after animation
-      }
-   }
+    
+    private func handleCorrect() {
+       guard !isTransitioning else { return }
+       isTransitioning = true
+       withAnimation {
+          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+             isTransitioning = false
+             isTransitionComplete = true // Allow new taps
+          }
+          viewModel.correctAction(modalAppeared: &modalAppeared, hasAnswered: &hasAnswered)
+       }
+    }
+    
+    private func handleTryAgain() {
+       guard !isTransitioning else { return }
+       isTransitioning = true
+       withAnimation {
+          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+             isTransitioning = false
+             isTransitionComplete = true // Allow new taps
+          }
+          //viewModel.wrongAction(modalAppeared: &modalAppeared, hasAnswered: &hasAnswered)
+          viewModel.tryAgainAction(modalAppeared: &modalAppeared, hasAnswered: &hasAnswered)
+       }
+    }
+    
+    private func handleTap(location: CGPoint, midPoint: CGFloat) {
+       guard isTransitionComplete, !isTransitioning else { return }
+       isTransitionComplete = false // Prevent further taps until resolved
+       if !modalAppeared {
+          withAnimation {
+             viewModel.onTapDetectionChat(location, midPoint) {
+                //viewModel.saveDailyProgress()
+                router.push(.donePage(
+                   displayMode: .story(storyId: chapterId, subChapterId: subChapterId),
+                   chapterId: chapterId,
+                   subChapterId: subChapterId
+                ))
+                viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
+
+             }
+          }
+       }
+       else if location.x < midPoint{
+           modalAppeared = false
+           //hasAnswered = false
+           withAnimation {
+              viewModel.onTapDetectionChat(location, midPoint) {
+                 //viewModel.saveDailyProgress()
+                 router.push(.donePage(
+                    displayMode: .story(storyId: chapterId, subChapterId: subChapterId),
+                    chapterId: chapterId,
+                    subChapterId: subChapterId
+                 ))
+                 viewModel.updateUserProgress(currentStory: chapterId, currentSubChapter: subChapterId)
+              }
+           }
+           //hasAnswered = true
+           hasAnswered = false
+       }
+       
+       DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+          isTransitionComplete = true // Re-enable taps after animation
+       }
+    }
 }
 
 //

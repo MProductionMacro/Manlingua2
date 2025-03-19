@@ -12,7 +12,7 @@ struct FlashcardCorrectOrWrong: View {
    var hanzi: String
    var pinyin: String
    var meaning: String
-   var isCorrect: Bool
+   @Binding var isCorrect: Bool
    
    var continueFunc: () -> Void
    var tryAgainFunc: () -> Void
@@ -108,14 +108,94 @@ struct FlashcardCorrectOrWrong: View {
       .background(isCorrect ? .greenLight : .redLight)
       .clipShape(CustomRoundedRectangle(cornerRadius: 25, corners: [.topLeft, .topRight]))
       .onAppear{
+          
+          Task{
+              await transcribeAudio()
+              /*
+              if transcribedAudio == hanzi {
+                  isCorrect = true
+              }
+              
+              //print("Result: \(result)")
+              if transcribedAudio.hasPrefix("Transcription error:") {
+                  checkMessages = "No characters detected".localized
+              }
+              else{
+                  checkMessages = "Anda mengucapkan".localized + " \(transcribedAudio)"
+              }
+              */
+              print("After transcribe")
+              if isCorrect == false && transcribedAudio == hanzi {
+                  print("Masuk Transcribed Audio")
+                  print("=================")
+                  isCorrect = true
+              }
+            
+              DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+                  audioController.playSoundFromData(speak: isCorrect ? "Correct" : "Wrong")
+              }
+            
+              /*
+              audioController.playSoundFromData(speak: isCorrect ? "Correct" : "Wrong")
+               */
+          }
+          
+          /*
+          print("After Transcribe")
+          if transcribedAudio == hanzi {
+              isCorrect = true
+          }
+          
+          if transcribedAudio.hasPrefix("Transcription error:") {
+              checkMessages = "No characters detected".localized
+          }
+          else{
+              checkMessages = "Anda mengucapkan".localized + " \(transcribedAudio)"
+          }
+
+          audioController.playSoundFromData(speak: isCorrect ? "Correct" : "Wrong")
+          */
+          /*
+          print("Transcribed Audio")
+          print(transcribedAudio)
+          print(hanzi)
+          if isCorrect == false && transcribedAudio == hanzi {
+              print("Masuk Transcribed Audio")
+              print("=================")
+              isCorrect = true
+          }
+          
           DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
               audioController.playSoundFromData(speak: isCorrect ? "Correct" : "Wrong")
           }
+           */
       }
+       
+
+   }
+    
+   func transcribeAudio() async{
+       audioController.transcribeAudio { result in
+           transcribedAudio = result
+        
+           //DispatchQueue.main.asyncAfter(deadline: .now() + 0.3){
+               if result == hanzi {
+                   isCorrect = true
+               }
+               print("Result: \(result)")
+               if result.hasPrefix("Transcription error:") {
+                   checkMessages = "No characters detected".localized
+               }
+               else{
+                   checkMessages = "Anda mengucapkan".localized + " \(transcribedAudio)"
+               }
+           //}
+       }
+       print("Transcribing Audio")
    }
 }
 
 #Preview {
-   FlashcardCorrectOrWrong(answer: .constant("Tes"), hanzi: "猫", pinyin: "Māo", meaning: "How many people", isCorrect: true, continueFunc: {}, tryAgainFunc: {})
+    FlashcardCorrectOrWrong(answer: .constant("Tes"), hanzi: "猫", pinyin: "Māo", meaning: "How many people", isCorrect: .constant(true), continueFunc: {}, tryAgainFunc: {})
 }
 

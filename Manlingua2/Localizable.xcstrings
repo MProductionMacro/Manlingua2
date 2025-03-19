@@ -543,6 +543,23 @@
         }
       }
     },
+    "Berlian" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diamond"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berlian"
+          }
+        }
+      }
+    },
     "Boleh Dilakukan:" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -848,6 +865,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Email"
+          }
+        }
+      }
+    },
+    "Emas" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gold"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Emas"
           }
         }
       }
@@ -1985,6 +2019,23 @@
         }
       }
     },
+    "Perak" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silver"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perak"
+          }
+        }
+      }
+    },
     "Perangkat Pintar" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2083,6 +2134,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pilih jawaban yang benar"
+          }
+        }
+      }
+    },
+    "Platina" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Platinum"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Platina"
           }
         }
       }
