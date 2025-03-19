@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 
+@MainActor
 class HomeViewModel: ObservableObject {
    @Published var stories_example: [Story_Example] = []
    
@@ -17,7 +18,7 @@ class HomeViewModel: ObservableObject {
    
    func loadStories() {
       // Locate the JSON file in the bundle
-      guard let url = Bundle.main.url(forResource: "Story_Example_\(UserDefaultSingleton.shared.language)", withExtension: "json") else {
+      guard let url = Bundle.main.url(forResource: "Story_Example_\(SwiftDataServices.shared.getLanguage().rawValue)", withExtension: "json") else {
          print("File not found")
          return
       }

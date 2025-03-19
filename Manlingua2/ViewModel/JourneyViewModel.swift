@@ -11,10 +11,11 @@ class JourneyViewModel: ObservableObject{
    @Published var story: Story_Example?
    
    @ObservedObject var singleton = SwiftDataServices.shared
-  
+    @ObservedObject private var swiftData = SwiftDataServices.shared
+
     func loadStoryData(storyId:Int) {
         // Ganti "StoryData" dengan nama file JSON Anda tanpa ekstensi
-        guard let url = Bundle.main.url(forResource: "Story\(storyId)_\(UserDefaultSingleton.shared.language)", withExtension: "json") else {
+        guard let url = Bundle.main.url(forResource: "Story\(storyId)_\(swiftData.getLanguage().rawValue)", withExtension: "json") else {
             print("File StoryData.json tidak ditemukan.")
             return
         }

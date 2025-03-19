@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct LanguageSettingView: View {
-    @EnvironmentObject var router: Router
-    @State var selectedId: Int = 1
-    @State var lang: Language = .indonesian
-    @StateObject var localizationManager: LocalizationManager = LocalizationManager.shared
+    @EnvironmentObject private var router: Router
+    @State private var selectedId: Int = 1
+    @State private var lang: Lang = .indonesian
+    @StateObject private var localizationManager: LocalizationManager = LocalizationManager.shared
 
     var body : some View {
         VStack{
@@ -38,15 +38,17 @@ struct LanguageSettingView: View {
                 Spacer()
                 
                 Button(action: {
-                    UserDefaultSingleton.shared.setLanguage(language: lang)
+                    //UserDefaultSingleton.shared.setLanguage(language: lang)
+                    /*
                     if lang == .english {
-                        
-                        localizationManager.selectedLanguage = .english
+                        //localizationManager.selectedLanguage = .english
                     }
                     else{
                         
-                        localizationManager.selectedLanguage = .indonesian
+                        //localizationManager.selectedLanguage = .indonesian
                     }
+                     */
+                    localizationManager.setLanguage(lang: lang)
                     router.popToRoot()
                 }) {
                     Text("Simpan".localized)
@@ -85,7 +87,7 @@ struct LanguageSettingView: View {
            }
         }
         .onAppear{
-            if UserDefaultSingleton.shared.language == "en"{
+            if SwiftDataServices.shared.getLanguage() == .english{
                 selectedId = 2
             }
             else{
@@ -101,6 +103,7 @@ struct LanguageSettingView: View {
             .environmentObject(Router())
     }
 }
+
 
 
 

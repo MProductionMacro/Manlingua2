@@ -22,7 +22,7 @@ class DictionaryViewModel: ObservableObject {
     }
     
    @MainActor private func loadFavoriteVocabularies() {
-        if UserDefaultSingleton.shared.language == "en"{
+        if SwiftDataServices.shared.getLanguage() == .english{
             for vocab in SwiftDataServices.shared.vocabs_en{
                 vocabularies.append(Vocabulary(hanzi: vocab.hanzi, pinyin: vocab.pinyin, meaning: vocab.meaning, hanziSentence: vocab.hanziSentence, pinyinSentence: vocab.pinyinSentence, meaningSentence: vocab.meaningSentence, language: vocab.language))
             }

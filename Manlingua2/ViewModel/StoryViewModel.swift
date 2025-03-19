@@ -19,7 +19,8 @@ class StoryViewModel: ObservableObject {
    @ObservedObject var singleton = SwiftDataServices.shared
    @Published var restartStory = [1, 1, 1, 1]
    @Published var isRestart = false
-   
+   @ObservedObject private var swiftData = SwiftDataServices.shared
+
    init(){
       loadChatPreview()
    }
@@ -71,7 +72,7 @@ class StoryViewModel: ObservableObject {
          }
       }
    }
-   
+   /*
    func loadChat(storyId: Int, subChapterId: Int){
       let languageCode = UserDefaultSingleton.shared.language
       
@@ -89,7 +90,26 @@ class StoryViewModel: ObservableObject {
          print("Failed to decode JSON: \(error.localizedDescription)")
       }
    }
+   */
    
+   public func loadChat(storyId: Int, subChapterId: Int){
+       let languageCode = swiftData.getLanguage().rawValue
+       
+       guard let url = Bundle.main.url(forResource: "Chat\(storyId)_\(subChapterId)_\(languageCode)", withExtension: "json") else {
+          print("File not found")
+          return
+       }
+       
+       do {
+          // Load and decode the JSON data
+          let data = try Data(contentsOf: url)
+          let decoder = JSONDecoder()
+          self.chat_example = try decoder.decode([Chat_Example].self, from: data)
+       } catch {
+          print("Failed to decode JSON: \(error.localizedDescription)")
+       }
+   }
+    
    func loadChatPreview(){
       guard let url = Bundle.main.url(forResource: "Chat1_1", withExtension: "json") else {
          print("File not found")

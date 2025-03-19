@@ -10,6 +10,8 @@ import SwiftData
 import SwiftUI
 import PhotosUI
 
+
+
 @MainActor
 class SwiftDataServices: ObservableObject {
    private let container: ModelContainer
@@ -27,6 +29,7 @@ class SwiftDataServices: ObservableObject {
    
    @Published var latestStory: Int = 0
    @Published var latestSubChapter: Int = 0
+   @Published var language: Lang = .english
    @Published var storyProgress: [Int] = [1, 1, 1, 1]
    @Published var hasOpenFlashcard: Bool = false
    @Published var hasOpenStoryDetail: Bool = false
@@ -41,6 +44,7 @@ class SwiftDataServices: ObservableObject {
    @Published var username: String = "Jane Doe"
     
    //   @MainActor
+    /*
    init() {
       do {
         self.container = try ModelContainer(for: VocabularyModel.self, ImportantNoteModel.self, Story_Progress.self, Goal_Progress.self, ProfilePicture.self, Username.self, configurations: ModelConfiguration(isStoredInMemoryOnly: false))
@@ -58,6 +62,55 @@ class SwiftDataServices: ObservableObject {
          fatalError(error.localizedDescription)
       }
    }
+    */
+    
+    //   @MainActor
+    private init() {
+        do {
+            self.container = try ModelContainer(for: VocabularyModel.self, ImportantNoteModel.self, Story_Progress.self, Goal_Progress.self, ProfilePicture.self, Username.self, Language.self, configurations: ModelConfiguration(isStoredInMemoryOnly: false))
+            self.context = container.mainContext
+            
+            fetchStoryProgressData()
+            fetchGoalProgressData()
+            
+            _ = self.getData()
+            _ = self.getNotes()
+            
+            _ = getProfilePicture()
+            username = fetchUsername()
+            
+            if let fetchedLanguage = try? context.fetch(FetchDescriptor<Language>()).first {
+                self.language = fetchedLanguage.lang
+            }
+            else{
+                let newLanguage = Language(lang: .english)
+                context.insert(newLanguage)
+                try? context.save()
+            }
+            
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
+    
+    public func getLanguage()-> Lang{
+        return self.language
+    }
+    
+    public func setSelectedLanguage(lang: Lang){
+        // Fetch existing username if any
+        if let existingLanguage = try? context.fetch(FetchDescriptor<Language>()).first {
+            // Update existing username
+            existingLanguage.lang = lang
+            self.language = lang
+        } else {
+            // Create a new username if none exists
+            let newLanguage = Language(lang: lang)
+            context.insert(newLanguage)
+        }
+        try? context.save()
+    }
+    
     
     
     // MARK: - Create/Update
@@ -493,3 +546,4 @@ class SwiftDataServices: ObservableObject {
       
    }
 }
+
